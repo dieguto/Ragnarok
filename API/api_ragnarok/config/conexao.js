@@ -2,12 +2,12 @@ const Sequelize = require('sequelize');
 
 const database = "db_ragnarok";
 const user = "root";
-const password = "cofenastale";
+const password = "bcd127";
 const host = "localhost";
 
 const con = new Sequelize(database, user, password, {
-  host,
-  dialect: 'mysql'
+   host,
+   dialect: 'mysql'
 });
 
 module.exports = con;

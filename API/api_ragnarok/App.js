@@ -22,8 +22,8 @@ app.use("/usuario", rota_usuario);
 app.use("/login", rota_login);
 
 //req.params.id para receber o id que veio na url
-app.listen(porta, ()=>{
-    console.log("Ouvindo na porta " + porta);
+app.listen(porta, () => {
+   console.log("Ouvindo na porta " + porta);
 });
 //================================================================================
 //USA O RESTer AO INVES DO POSTMAN
@@ -40,10 +40,10 @@ app.listen(porta, ()=>{
 //             //403 Proibido
 //             res.sendStatus(403).end();
 //         } else {
-            
+
 //             //ex: FAÇA ALGO CASO O USUARIO SEJA ADMIN
 //             // if(dadosAuth.usuario.is_admin){
-            
+
 //             //202 Aceito
 //             console.log(dadosAuth);
 //             res.sendStatus(202).end();
@@ -51,7 +51,7 @@ app.listen(porta, ()=>{
 //             // } else {
 
 //             // }
-            
+
 //         }
 //     });
 
