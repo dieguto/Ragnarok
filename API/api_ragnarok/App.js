@@ -14,8 +14,8 @@ app.use(cors());
 app.use(express.json());
 
 //DEFINE AS VARIAVEIS QUE CONTEM AS ROTAS
-const rota_usuario = require("./rotas/rota_usuario");
-const rota_login = require("./rotas/rota_login");
+const rota_usuario = require("./rotas/RotaUsuario");
+const rota_login = require("./rotas/RotaLogin");
 
 //DEFININDO AS ROTAS...
 app.use("/usuario", rota_usuario);
