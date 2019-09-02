@@ -21,13 +21,17 @@ const rota_login = require("./rotas/RotaLogin");
 app.use("/usuario", rota_usuario);
 app.use("/login", rota_login);
 
+//ROTA PARA SE REDICIONAR ATÉ A DOCUMENTÇÃO DA API
+app.get("/doc", (req, res)=>{
+   res.redirect("http://doc-api-ragnarok.surge.sh").end();
+})
+
 //req.params.id para receber o id que veio na url
 app.listen(porta, () => {
    console.log("Ouvindo na porta " + porta);
 });
 //================================================================================
-//USA O RESTer AO INVES DO POSTMAN
-//DA UMA OLHADA DEPOIS NO https://bootswatch.com/
+
 //-----------EXEMPLO DE USO DO TOKEN JWT------------------------------------------
 // const jwt = require('jsonwebtoken');
 // const Auth = require("./utils/JwtAuth");

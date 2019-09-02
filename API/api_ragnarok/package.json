@@ -5,7 +5,10 @@
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon App.js"
+    "start": "nodemon App.js",
+    "sql": "node config/AtualizarBanco.js",
+    "clean-project": "DEL /F/Q package-lock.json && DEL /F/Q/S node_modules > NUL && RMDIR /Q/S node_modules",
+    "rebuild-project": "npm install"
   },
   "author": "Nois",
   "license": "ISC",

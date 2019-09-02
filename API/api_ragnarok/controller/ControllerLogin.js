@@ -22,7 +22,10 @@ class ControllerLogin{
    
          } else {
                //POR QUESTÕES DE SEGURANÇA A SENHA É 'ANULADA'
+               //E OS OUTROS NÃO SÃO 'NECESSARIOS'
                usuario.senha = undefined;
+               usuario.is_bloqueado = undefined;
+               usuario.is_admin = undefined;
    
                jwt.sign({ usuario }, Auth.getKey(), { expiresIn: "24h" }, (err, token) => {
                   if (err) {
@@ -65,7 +68,10 @@ class ControllerLogin{
 
             if (admin.is_admin) {
                //POR QUESTÕES DE SEGURANÇA A SENHA É 'ANULADA'
+               //E OS OUTROS NÃO SÃO 'NECESSARIOS'
                admin.senha = undefined;
+               admin.is_bloqueado = undefined;
+               admin.is_admin = undefined;
    
                jwt.sign({ admin }, Auth.getKey(), { expiresIn: "24h" }, (err, token) => {
                   if (err) {
@@ -79,9 +85,9 @@ class ControllerLogin{
                });
 
             } else {
-               //433 Trancado
+               //401 Não autorizado
                console.log("Erro: não foi possivel gerar o token do admin, pois o mesmo não possui o privilégio");
-               callback(433, null);
+               callback(401, null);
             }
 
          }
