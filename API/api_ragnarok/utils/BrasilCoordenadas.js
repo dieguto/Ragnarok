@@ -30,7 +30,7 @@ class BrasilCoordenadas{
             const dados_endereco = JSON.parse(dados_acc_do_buffer);
             
             if(dados_endereco.length == 0){
-               callback(400, null);
+               callback(404, null);
 
             } else {
                let { lat, lon } = dados_endereco[0];
@@ -82,26 +82,48 @@ class BrasilCoordenadas{
 
    static getByCep(cep, callback){
       
+      //PEGA AS INFORMAÇÕES DO CEP DIGITADO
       this.getInfoCep(cep, (err, info_cep)=>{
 
          if(err){
             callback(err, null)
 
          } else {
-            let endereco_completo =
+            const endereco_completo =
                info_cep.uf + " " +
                info_cep.localidade + " " +
                info_cep.bairro + " " +
                info_cep.logradouro;
+            
+            const endereco_aprox = info_cep.uf + ", " + info_cep.localidade;
       
+            //COM BASE NAS INFORMAÇÕES DO CEP, ELE GERA UMA STRING
+            //CONTENDO O ENDEREÇO COMPLETO, E ASSIM BUSCA O MESMO
+            //USANDO A API DO OPEN STREET MAP (NOMINATIM)
             this.getByEndereco(endereco_completo, (err, info)=>{
-               if(err){
-                  callback(err, null);
-               } else {
-                  //callback(null, coord, info_cep);
-                  const endereco = info_cep.uf + ", " + info_cep.localidade;
 
-                  info.endereco = endereco;
+               if(err){
+                  //CASO NÃO SEJA ENCONTRADO O ENDEREÇO USANDO-O COMPLETO
+                  //ELE SERÁ BUSCADO USANDO O ENDEREÇO APROXIMANDO
+                  if(err == 404){
+                     this.getByEndereco(endereco_aprox, (err, info)=>{
+                        
+                        if(err){
+                           callback(500, null);
+
+                        } else {
+                           info.endereco = endereco_aprox;
+
+                           callback(null, info);
+                        }
+                     })
+
+                  } else {
+                     callback(err, null);
+                  }
+                  
+               } else {
+                  info.endereco = endereco_aprox;
 
                   callback(null, info);
                }

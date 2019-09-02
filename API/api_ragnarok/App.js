@@ -23,7 +23,7 @@ app.use("/login", rota_login);
 
 //ROTA PARA SE REDICIONAR ATÉ A DOCUMENTÇÃO DA API
 app.get("/doc", (req, res)=>{
-   res.redirect("http://doc-api-ragnarok.surge.sh").end();
+   res.redirect("http://doc-api-ragnarok.surge.sh");
 })
 
 //req.params.id para receber o id que veio na url

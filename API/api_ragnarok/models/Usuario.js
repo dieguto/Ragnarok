@@ -11,7 +11,7 @@ Usuario.init({
       validate: {
          len: {
             args: [3, 200],
-            msg: "No minimo 3 caracteres e no maximo 200!"
+            msg: "No minimo 3 caracteres e no maximo 200"
          }
       }
    },
@@ -25,7 +25,7 @@ Usuario.init({
          },
          len: {
             args: [3, 100],
-            msg: "No minimo 3 caracteres e no maximo 100!"
+            msg: "No minimo 3 caracteres e no maximo 100"
          }
       }
    },
