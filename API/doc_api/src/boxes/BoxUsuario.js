@@ -29,16 +29,7 @@ class BoxUsuario extends Component{
          {
             status:409,
             resp:{
-               tipo:"custom",
-               customJson:{
-                  errors: 
-                  [
-                     {
-                        message: "Email já cadastrado",
-                        path: "email"
-                     }
-                  ]
-               }
+               tipo:"erro"
             }
          },
          {
@@ -47,15 +38,28 @@ class BoxUsuario extends Component{
          },
       ];
 
-      //JSON's da rota de Buscar usuario por ID ===========
+      //JSON's da rota de Buscar usuario por ID =========== 
       this.reqGetUsuarioById = null;
 
       this.respGetUsuarioById = [
          {
-
+            status:200,
+            resp:{
+               tipo:"custom",
+               customJson:{
+                  id: 1,
+                  nome: "Diego Silva",
+                  email: "diego@ragnarok.com",
+                  endereco: "SP, Jandira",
+                  lat: "-23.5289",
+                  lon: "-46.8991",
+                  is_bloqueado: false
+              }
+            }
          },
          {
-
+            status:404,
+            resp: null
          }
       ]
       //JSON's da rota de  ===========
@@ -72,7 +76,7 @@ class BoxUsuario extends Component{
                rota="/usuario" jsonReq={ this.reqCriar } jsonResp={ this.respCriar } />
 
             <CardRota parentAcc={ this.parentAcc } titulo='Buscar Usuario por ID' metodo='get' 
-               rota="/usuario" jsonReq={ this.reqGetUsuarioById } jsonResp={ this.respGetUsuarioById } />
+               rota="/usuario/:id" jsonReq={ this.reqGetUsuarioById } jsonResp={ this.respGetUsuarioById } />
 
          </CardPrincipal>
 

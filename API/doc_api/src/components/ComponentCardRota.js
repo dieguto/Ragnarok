@@ -129,7 +129,7 @@ class ComponentRota extends Component {
                break;
             
             case 401:
-               desc = "Não autorizado (não possui o(s) privilégios)"; 
+               desc = "Não autorizado (não possui o(s) privilégio(s))"; 
                break;
             
             case 404:
