@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 
 //DEFINE A PORTA NA QUAL O SERVIDOR IRÁ SUBIR
-const porta = 3009;
+const porta = 3107;
 
 //'CONFIGURANDO' O CORS PARA QUE NÃO HAJÃO 
 //ERROS DE CONEXÃO CAUSADOS PELO MESMO
