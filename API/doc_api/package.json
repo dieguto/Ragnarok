@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy":"surge --domain doc-api-ragnarok.surge.sh"
+    "deploy": "surge --domain doc-api-ragnarok.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
