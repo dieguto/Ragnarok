@@ -135,6 +135,10 @@ class ComponentRota extends Component {
             case 404:
                desc = "Não encontrado"; 
                break;
+            
+            case 409:
+               desc = "Conflito"; 
+               break;
 
             case 433:
                desc = "Trancado (Bloqueado)";

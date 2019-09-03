@@ -21,6 +21,10 @@ const rota_login = require("./rotas/RotaLogin");
 app.use("/usuario", rota_usuario);
 app.use("/login", rota_login);
 
+app.get("/", (req, res)=>{
+   res.send("Você esta na raiz da api, de um /doc para ver a documentação").end();
+})
+
 //ROTA PARA SE REDICIONAR ATÉ A DOCUMENTÇÃO DA API
 app.get("/doc", (req, res)=>{
    res.redirect("http://doc-api-ragnarok.surge.sh");

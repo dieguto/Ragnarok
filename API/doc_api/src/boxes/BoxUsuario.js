@@ -27,12 +27,40 @@ class BoxUsuario extends Component{
             }
          },
          {
+            status:409,
+            resp:{
+               tipo:"custom",
+               customJson:{
+                  errors: 
+                  [
+                     {
+                        message: "Email já cadastrado",
+                        path: "email"
+                     }
+                  ]
+               }
+            }
+         },
+         {
             status:500,
             resp:null
          },
       ];
 
-      //JSON's da rota de abc ===========
+      //JSON's da rota de Buscar usuario por ID ===========
+      this.reqGetUsuarioById = null;
+
+      this.respGetUsuarioById = [
+         {
+
+         },
+         {
+
+         }
+      ]
+      //JSON's da rota de  ===========
+      //JSON's da rota de  ===========
+      //JSON's da rota de  ===========
    }
    
    render(){
@@ -42,6 +70,9 @@ class BoxUsuario extends Component{
 
             <CardRota parentAcc={ this.parentAcc } titulo='Criar' metodo='post' 
                rota="/usuario" jsonReq={ this.reqCriar } jsonResp={ this.respCriar } />
+
+            <CardRota parentAcc={ this.parentAcc } titulo='Buscar Usuario por ID' metodo='get' 
+               rota="/usuario" jsonReq={ this.reqGetUsuarioById } jsonResp={ this.respGetUsuarioById } />
 
          </CardPrincipal>
 
