@@ -1,13 +1,14 @@
 import React from 'react'
-import Menu from '../components/Menu'
+// import Menu from '../components/Menu'
+// import Cadastro from '../pages/Cadastro';
 
 export default function Main(){
 
     return(
         <div >
-            <Menu></Menu>
             <div className="dropdown">
-                <h1>CONSEGUI</h1>
+                <h1>Main</h1>
+                {/* <Cadastro></Cadastro> */}
             </div>
         </div>
         

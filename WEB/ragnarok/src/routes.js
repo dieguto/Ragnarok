@@ -2,15 +2,16 @@ import React from 'react';
 
 import { BrowserRouter, Route} from 'react-router-dom';
 
-import Cadastro from './pages/Cadastro';
+
 import Main from './pages/Main';
+import Login from './pages/Login';
 
 export default function Routes() {
     return (
         <BrowserRouter>
-            <Route path="/" exact />
-            <Route path="/cadastro" component={Cadastro} />
-            <Route path="/usuario/:id" component={Main} />
+            <Route path="/" exact component={Main} />
+            {/* <Route path="/cadastro" component={Cadastro} /> */}
+            <Route path="/login" component={Login} />
         </BrowserRouter>
     )
 
