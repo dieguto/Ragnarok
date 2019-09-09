@@ -53,7 +53,7 @@ class BrasilCoordenadas{
    static getInfoCep(cep, callback){
       
       const url_api_viacep = "https://viacep.com.br/ws/" + cep + "/json/";
-      
+      console.log(url_api_viacep)
       //BUSCA O CEP NA VIACEP 
       request.get(url_api_viacep, (err, res, body) => {
          if (err) {
@@ -81,7 +81,7 @@ class BrasilCoordenadas{
    }
 
    static getByCep(cep, callback){
-      
+      console.log("O cep é: " + cep)
       //PEGA AS INFORMAÇÕES DO CEP DIGITADO
       this.getInfoCep(cep, (err, info_cep)=>{
 

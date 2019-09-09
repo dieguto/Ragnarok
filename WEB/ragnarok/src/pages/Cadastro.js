@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import Menu from '../components/Menu';
 import $ from 'jquery';
+
 
 export class FormularioCadastro extends Component{
 
@@ -53,32 +54,39 @@ export class FormularioCadastro extends Component{
             ),
             success: function(resposta){
                 console.log(resposta)
+                alert("cadastrou" + resposta)
             }.bind(this),
             error:function(resposta){
                 console.log(resposta)
+               
 
             }
         })
 
     }
 
+
+
     render(){
-        <div>
+        return(
+            <div>
             <div className="dropdown">
                 <form onSubmit={this.enviarForm} method="post">
                     <h1>Cadastro</h1>
-                    <label>Nome:</label>
-                    <input type="text"></input>
-                    <label>Cep:</label>
-                    <input type="text"></input>
-                    <label>email:</label>
-                    <input type="text"></input>
-                    <label>Senha:</label>
-                    <input type="text"></input>
-                    <button type="submit">Enviar</button>
+                    <label class="form-check-label">Nome:</label>
+                    <input class="form-control" type="text" id="nome" name="nome" value={this.state.nome} onChange={this.setNome}></input>
+                    <label class="form-check-label">Cep:</label>
+                    <input class="form-control" type="text" id="cep" name="cep" value={this.state.cep} onChange={this.setCep}></input>
+                    <label class="form-check-label">email:</label>
+                    <input class="form-control" type="text" id="email" name="email" value={this.state.email} onChange={this.setEmail}></input>
+                    <label class="form-check-label">Senha:</label>
+                    <input class="form-control" type="text" id="senha" name="senha" value={this.state.senha} onChange={this.setSenha}></input>
+                    <button className="btn btn-warning" type="submit">Enviar</button>
                 </form>             
             </div>
         </div>
+        )
+        
     }
     
 }
@@ -89,7 +97,9 @@ export class UsuarioBox extends Component{
         return(
             <Fragment>
                 <FormularioCadastro></FormularioCadastro>
+                <h1>Eae</h1>
             </Fragment>
+           
         )
     }
 

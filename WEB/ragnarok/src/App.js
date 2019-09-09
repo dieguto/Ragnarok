@@ -11,9 +11,13 @@ import './App.css';
 class App extends Component{
     render(){
         return (
-            <div>
+            <div id="layout">
                 <Menu></Menu>
-             </div>
+                <div className="main">
+                     {this.props.children}
+                </div>
+            </div>
+            
         ); 
     }
 }

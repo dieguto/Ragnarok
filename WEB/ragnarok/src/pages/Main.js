@@ -1,6 +1,5 @@
 import React from 'react'
-// import Menu from '../components/Menu'
-// import Cadastro from '../pages/Cadastro';
+
 
 export default function Main(){
 

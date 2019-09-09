@@ -13,9 +13,11 @@ class Menu extends Component{
 
                     {/* <Link>teste</Link> */}
                     <Link to="/login" className="btn btn-outline-warning">Entrar</Link>
-                    <button className="btn ml-3 btn-outline-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <Link to="/cadastro" className="btn btn-outline-warning">Cadastro</Link>
+                    
+                    {/* <button className="btn btn-outline-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Cadastrar
-                    </button>
+                    </button> */}
             </div>
           </div>
    );
