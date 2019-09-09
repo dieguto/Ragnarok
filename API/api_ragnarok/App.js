@@ -2,6 +2,21 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const session = require("express-session");
+const MemoryStore = require("memorystore")(session);
+
+app.use(session({
+   secret:"abc",
+   resave: false,
+   saveUninitialized: true,
+   // saveUninitialized: true,
+   store: new MemoryStore({
+      checkPeriod: 5000
+   }),
+   cookie:{
+      maxAge: 5000
+   }
+}))
 
 //DEFINE A PORTA NA QUAL O SERVIDOR IRÁ SUBIR
 const porta = 3107;
@@ -36,6 +51,18 @@ app.listen(porta, () => {
 });
 //================================================================================
 
+app.get("/sessao", (req, res)=>{
+   req.sessionStore.all((err, sess) =>{
+      if(err){
+         console.log(err);
+      } else {
+         console.log(sess);
+      }
+   });
+   res.end()
+})
+
+//https://stackoverflow.com/questions/1876485/how-to-iterate-through-property-names-of-javascript-object
 //-----------EXEMPLO DE USO DO TOKEN JWT------------------------------------------
 // const jwt = require('jsonwebtoken');
 // const Auth = require("./utils/JwtAuth");
