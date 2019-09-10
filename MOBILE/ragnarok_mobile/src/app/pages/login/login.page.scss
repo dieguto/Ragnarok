@@ -1,0 +1,148 @@
+.md{
+    --ion-background-color: #222;
+}
+.container{
+
+    // z-index: 2;
+    // position: absolute;
+
+    &.top{
+        top: -5%;
+    }
+
+    img{
+        width: 50%;
+        height: 50%;
+    }
+     ion-segment{
+        --color-checked:#f39c12;
+        --border-style:#f39c12;
+        --border-color:#f39c12;
+        
+        --color:white;
+
+    }
+}
+
+
+
+
+ion-slides{
+    height: 92%;
+
+
+    span{
+
+        color: #f39c12;
+    }
+
+
+
+    .slide-inner{
+        width: 75%;
+        color: white;
+        background-color: #333;
+        border-radius: 10px;
+    }
+
+       
+    ion-button{
+        --color:#f39c12;
+        --background:#222428;
+        --background-activated:#f39c12;
+        
+        --color:white;
+    
+    }
+
+    ion-item{
+        --background:rgba(255,255,255);
+        // --border-radius: 10px;
+    }
+}
+
+.ios {
+    --ion-background-color: #222;
+
+
+    .container{
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        width: 100%;
+        margin: 0 auto;
+        
+    
+        &.top{
+            top: 92.5%;
+        }
+         ion-segment{
+            --color-checked:#f39c12;
+            --background-checked:none;
+            left: 2%;
+            --margin-bottom: 0;
+            --color:white;
+
+    
+        }
+
+        
+
+        ion-segment-button{
+            --border-style:none;	
+            --margin-top: 2%;
+            --heigth:5%;
+            --border-width:1.3px;
+
+            // --background-checked:#f39c12;
+  
+        }
+
+        ion-segment-button:hover{
+            --border-color: #222 #222 #f39c12 rgb(34, 34, 34);
+            --border-style:solid;	
+
+
+        }
+
+        .config-segment{
+            margin-top: 8.5%;
+
+        }
+
+        ion-button{
+            text-transform: uppercase;
+        }
+
+        .teste{
+            height: 40px;
+            width: 100%;
+        }
+
+        ion-segment:active{
+            // --border-style:none;	
+            // --margin-top: 2%;
+            --background-checked:#f39c12;
+            opacity: 1;
+            transition: 0.3s;
+            height: 5%;
+            // --font-size: 815px;
+        }
+    
+        .config-label{
+            font-size: 110%;
+            text-transform: uppercase;
+            height: 40px;
+           
+            // font-weight: bold;
+            // font-family: var(--ion-font-family,inherit);
+        }
+
+    }
+
+
+    ion-slides{
+        height: 90%;
+    }
+  }

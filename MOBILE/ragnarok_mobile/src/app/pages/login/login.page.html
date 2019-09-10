@@ -1,0 +1,61 @@
+<ion-content>
+      <ion-slides>
+        <ion-slide>
+          <div class="slide-inner ion-padding">
+            <span>Login</span>
+    
+            <ion-item class="ion-margin-top" lines="none">
+              <ion-input type="email" placeholder="E-mail" ></ion-input>
+            </ion-item>
+            
+            <ion-item class="ion-margin-top" lines="none">
+              <ion-input type="password" placeholder="Senha" ></ion-input>
+            </ion-item>
+    
+            <ion-button class="ion-margin-top"  expand="block">
+              ENTRAR
+            </ion-button>
+          </div>
+        </ion-slide>
+    
+        <ion-slide>
+            <div class="slide-inner ion-padding">
+                <span>Cadastro</span>
+            
+              <form [formGroup]="formCriarUsuario" (ngSubmit)="criarUsuario()" >     
+                    <ion-item class="ion-margin-top" lines="none">
+                      <ion-input formControlName="nome"  name="nome" type="text" placeholder="Nome" ></ion-input>
+                    </ion-item>
+        
+                    <ion-item class="ion-margin-top" lines="none">
+                      <ion-input formControlName="cep"  name="cep" type="text" placeholder="Cep"  mask="00000-000" ></ion-input>
+                    </ion-item>
+            
+                    <ion-item class="ion-margin-top" lines="none">
+                      <ion-input formControlName="email"  name="email" type="email" placeholder="E-mail"  ></ion-input>
+                    </ion-item>
+                    
+                    <ion-item class="ion-margin-top" lines="none">
+                      <ion-input formControlName="senha" name="senha" type="password" placeholder="Senha" ></ion-input>
+                    </ion-item>
+            
+                    <ion-button type="submit" class="ion-margin-top btn " expand="block">
+                      CRIAR CONTA
+                    </ion-button>
+              </form>    
+            </div>
+        </ion-slide>
+      </ion-slides>
+      <div class="container top">
+          <ion-segment class="config-segment" class="teste"  (ionChange)="segmentChanged($event)" value="javascript">
+              <ion-segment-button    value="login">
+                <ion-label class="config-label">Login</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="cadastro">
+                <ion-label class="config-label">Cadastro</ion-label>
+              </ion-segment-button>
+            </ion-segment>        
+      </div>
+</ion-content>
+
+
