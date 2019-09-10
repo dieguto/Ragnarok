@@ -1,6 +1,11 @@
 import React, {Component, Fragment} from 'react';
 import Menu from '../components/Menu';
 import $ from 'jquery';
+import TrataErros from '../TrataErros';
+import PubSub from 'pubsub-js';
+import './css/Cadastro.css';
+import api from '../services/api'
+import Cleave from 'cleave.js/dist/cleave-react';
 
 
 export class FormularioCadastro extends Component{
@@ -35,7 +40,11 @@ export class FormularioCadastro extends Component{
         console.log(this.state.senha)
     }
 
+    
+
     enviarForm(event){
+        // const [username, setUsername] = useState('');
+        // const [senha, setSenha] = useState('');
 
         event.preventDefault();
 
@@ -54,12 +63,17 @@ export class FormularioCadastro extends Component{
             ),
             success: function(resposta){
                 console.log(resposta)
-                alert("cadastrou" + resposta)
             }.bind(this),
             error:function(resposta){
                 console.log(resposta)
                
+                if (resposta.status === 400){
+                    new TrataErros().publicaErros(resposta.responseJSON)
+                }
 
+            },
+            beforeSend: function(){
+                PubSub.publish("limpar-erros", {})
             }
         })
 
@@ -69,22 +83,38 @@ export class FormularioCadastro extends Component{
 
     render(){
         return(
-            <div>
-            <div className="dropdown">
-                <form onSubmit={this.enviarForm} method="post">
-                    <h1>Cadastro</h1>
-                    <label class="form-check-label">Nome:</label>
-                    <input class="form-control" type="text" id="nome" name="nome" value={this.state.nome} onChange={this.setNome}></input>
-                    <label class="form-check-label">Cep:</label>
-                    <input class="form-control" type="text" id="cep" name="cep" value={this.state.cep} onChange={this.setCep}></input>
-                    <label class="form-check-label">email:</label>
-                    <input class="form-control" type="text" id="email" name="email" value={this.state.email} onChange={this.setEmail}></input>
-                    <label class="form-check-label">Senha:</label>
-                    <input class="form-control" type="text" id="senha" name="senha" value={this.state.senha} onChange={this.setSenha}></input>
-                    <button className="btn btn-warning" type="submit">Enviar</button>
-                </form>             
-            </div>
-        </div>
+                <div className="login-container">
+                   
+                        <form onSubmit={this.enviarForm} method="post">   
+                                <h1>Cadastro</h1> 
+                            <div>
+                                
+                                <div>
+                                    <label className="form-check-label ">Nome:</label>
+                                    <input className="form-control " type="text" id="nome" name="nome" value={this.state.nome} onChange={this.setNome} required></input>
+                                </div>
+                                <div>
+                                    <label className="form-check-label">Cep:</label>
+                                    <Cleave type="text" id="cep" name="cep" value={this.state.cep} onChange={this.setCep} required className="form-control" options={{blocks: [5,3], delimiter:"-", numericOnly:true}}></Cleave>
+                                </div>
+                                <div>
+                                    <label className="form-check-label">email:</label>
+                                    <input className="form-control" type="email" id="email" name="email" value={this.state.email} onChange={this.setEmail} required></input>
+                                </div>
+                                
+                                <div>
+                                    <label className="form-check-label">Senha:</label>
+                                    <input className="form-control" type="password" id="senha" name="senha" value={this.state.senha} onChange={this.setSenha} required></input>
+                                </div>
+
+                                
+                                <button className="btn btn-warning" type="submit">Enviar</button>
+                            </div>
+                        </form> 
+
+                    
+                </div>
+                            
         )
         
     }
@@ -97,7 +127,6 @@ export class UsuarioBox extends Component{
         return(
             <Fragment>
                 <FormularioCadastro></FormularioCadastro>
-                <h1>Eae</h1>
             </Fragment>
            
         )

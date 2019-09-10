@@ -5,12 +5,14 @@ import 'bootstrap/dist/js/bootstrap.bundle'
 import App from './App';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import {UsuarioBox} from './pages/Cadastro';
+import {LoginBox} from './pages/Login';
 
 ReactDOM.render(
 <Router history={ browserHistory}>
     <Route path="/" component={ App } >
         {/* <IndexRoute component={ FormularioCadastro }></IndexRoute> */}
-        <Route path="/cadastro" component={UsuarioBox}></Route>
+        <Route path="/cadastro" component={UsuarioBox}/>
+        <Route path="/login" component={LoginBox}/>
     </Route>
 </Router>, 
 document.getElementById('root'));

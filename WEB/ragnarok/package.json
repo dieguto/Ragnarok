@@ -5,7 +5,9 @@
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "cleave.js": "^1.5.3",
     "jquery": "^3.4.1",
+    "pub-sub-js": "^1.1.0",
     "pubsub-js": "^1.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -1,66 +1,105 @@
-import React, { useState }  from 'react';
+import React, { Component, useState, Fragment }  from 'react';
 
 import api from '../services/api';
- 
-export default function Login(){
-
-// useState retorna não só o valor do input, como retorna uma função
-  // toda a vez que eu precisar utilizar o username, eu chamo a função setUsername
-  const [username, setUsername] = useState('');
-  const [senha, setSenha] = useState('');
-
-  //função que vai ser disparada quando o usuário da um submit
-  // e = evento
-  // transformo a função em assíncrona
-  async function handleSubmit(e) {
-    e.preventDefault();
-
-    // await = diz para esperar retornar da api
-    const response = await api.post('/login/usuario', {
-        email : username,
-        senha
-    })
-
-    const { id } = response.data.usuario;
-    console.log(id)
-    console.log(response)
+import $ from 'jquery';
+import './css/Cadastro.css'
 
  
-    window.location.href = `/usuario/${id}`;
-  }
+export class FormularioLogin extends Component{
 
-    return(
-        <div className="dropdown"> 
-            <div className="dropdown-menu dropdown-menu-right">
-                <form className="px-4 py-3" onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Email</label>
-                    <input 
-                    type="email" 
-                    value={username} 
-                    onChange={e => 
-                    setUsername(e.target.value)} 
-                    className="form-control" 
-                    id="exampleDropdownFormEmail1" 
-                    placeholder="email@example.com"/>
+    constructor(){
+        super();
+        this.state = {email:'', senha: ''};
+        this.setEmail = this.setEmail.bind(this);
+        this.setSenha = this.setSenha.bind(this);
+        this.enviarForm = this.enviarForm.bind(this);
+    }
+
+    setEmail(event){
+        this.setState({email:event.target.value});
+        console.log(this.state.email)
+    }
+
+    setSenha(event){
+        this.setState({senha:event.target.value});
+        console.log(this.state.senha)
+    }
+
+    enviarForm(event){
+        event.preventDefault();
+
+        $.ajax({
+            url: 'http://localhost:3107/login/usuario',
+            contentType: 'application/json',
+            dataType:'json',
+            type:'post',
+            data: JSON.stringify(
+                {
+                    email:this.state.email,
+                    senha:this.state.senha
+                }
+            ),
+            success: function(resposta){
+                console.log(resposta)
+                const { id } = resposta.usuario;
+                window.location.href = `/usuario/${id}`;
+            }.bind(this)
+
+        })
+
+    }
+
+    // async handleSubmit(e) {
+    //     e.preventDefault();
+
+    // // await = diz para esperar retornar da api
+    // const response = await api.post('/login/usuario', {
+    //     email : username,
+    //     senha
+    // })
+
+    // const { id } = response.data.usuario;
+    // console.log(id)
+    // console.log(response)
+
+ 
+    // window.location.href = `/usuario/${id}`;
+    render(){
+        return(
+            <div className="login-container">
+                <form onSubmit={this.enviarForm} method="post">   
+                    <h1>Login</h1> 
+                <div>
+                    <div>
+                        <label className="form-check-label">email:</label>
+                        <input className="form-control" type="email" id="email" name="email" value={this.state.email} onChange={this.setEmail} required></input>
+                    </div>
+                    <div>
+                        <label className="form-check-label">Senha:</label>
+                        <input className="form-control" type="password" id="senha" name="senha" value={this.state.senha} onChange={this.setSenha} required></input>
+                    </div>
+
+                    <button className="btn btn-warning" type="submit">Enviar</button>
                 </div>
-                <div className="form-group">
-                    <label>Senha:</label>
-                    <input 
-                    type="password" 
-                    value={senha} 
-                    onChange={e => setSenha(e.target.value)} 
-                    className="form-control" 
-                    placeholder="******" />
-                </div>
-                <div className="text-center">
-                    <button type="submit" className="btn text-center btn-outline-warning mt-4">Entrar</button>
-                </div>
-                
-                </form>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Novo por aqui? Inscreva-se</a>
+            </form>
             </div>
-            </div>
-    )
+            
+        )
+      }
+    
+}
+
+  
+
+
+
+export class LoginBox extends Component{
+
+    render(){
+        return(
+            <Fragment>
+                <FormularioLogin></FormularioLogin>
+            </Fragment>
+        )
+    }
 }
