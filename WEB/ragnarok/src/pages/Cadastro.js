@@ -87,29 +87,34 @@ export class FormularioCadastro extends Component{
                    
                         <form onSubmit={this.enviarForm} method="post">   
                                 <h1>Cadastro</h1> 
-                            <div>
+                            
+
                                 
                                 <div>
                                     <label className="form-check-label ">Nome:</label>
-                                    <input className="form-control " type="text" id="nome" name="nome" value={this.state.nome} onChange={this.setNome} required></input>
+                                    <input className="form-control " type="text" id="nome" name="nome" value={this.state.nome} onChange={this.setNome} placeholder="Guilherme caneiro" required></input>
                                 </div>
                                 <div>
                                     <label className="form-check-label">Cep:</label>
-                                    <Cleave type="text" id="cep" name="cep" value={this.state.cep} onChange={this.setCep} required className="form-control" options={{blocks: [5,3], delimiter:"-", numericOnly:true}}></Cleave>
+                                    <Cleave type="text" id="cep" name="cep" value={this.state.cep} onChange={this.setCep} required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}}></Cleave>
                                 </div>
                                 <div>
                                     <label className="form-check-label">email:</label>
-                                    <input className="form-control" type="email" id="email" name="email" value={this.state.email} onChange={this.setEmail} required></input>
+                                    <input className="form-control" type="email" id="email" name="email" value={this.state.email} onChange={this.setEmail} placeholder="guimanchaverde@email.com" required></input>
                                 </div>
                                 
                                 <div>
                                     <label className="form-check-label">Senha:</label>
-                                    <input className="form-control" type="password" id="senha" name="senha" value={this.state.senha} onChange={this.setSenha} required></input>
+                                    <input className="form-control" type="password" id="senha" name="senha" value={this.state.senha} onChange={this.setSenha} placeholder="*******" required></input>
                                 </div>
 
-                                
-                                <button className="btn btn-warning" type="submit">Enviar</button>
+                            <div className="text-center">
+                                <button className="btn btn-outline-warning" type="submit">Cadastrar</button>
                             </div>
+                            
+                                
+                                
+                            
                         </form> 
 
                     

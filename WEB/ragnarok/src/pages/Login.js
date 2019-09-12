@@ -3,8 +3,10 @@ import React, { Component, useState, Fragment }  from 'react';
 import api from '../services/api';
 import $ from 'jquery';
 import './css/Cadastro.css'
+import InputFormulario from '../components/inputFormulario';
 
  
+
 export class FormularioLogin extends Component{
 
     constructor(){
@@ -71,15 +73,30 @@ export class FormularioLogin extends Component{
                     <h1>Login</h1> 
                 <div>
                     <div>
-                        <label className="form-check-label">email:</label>
-                        <input className="form-control" type="email" id="email" name="email" value={this.state.email} onChange={this.setEmail} required></input>
+                        <label className="form-check-label">E-mail:</label>
+                        <input className="form-control" type="email" id="email" name="email" placeholder="batatinhaxpto@senaisp.com" value={this.state.email} onChange={this.setEmail} required></input>
+                        
                     </div>
+                    {/* <InputFormulario
+                        classLabel="form-check-label 2-mr"
+                        label="email: "
+                        className="form-control"
+                        id="email"
+                        type="text"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.setEmail}
+                        placeholder="gabrieldomangue@gmail.com"
+                       >
+                    </InputFormulario> */}
                     <div>
                         <label className="form-check-label">Senha:</label>
-                        <input className="form-control" type="password" id="senha" name="senha" value={this.state.senha} onChange={this.setSenha} required></input>
+                        <input className="form-control" type="password" id="senha" name="senha" placeholder="*****" value={this.state.senha} onChange={this.setSenha} required></input>
                     </div>
 
-                    <button className="btn btn-warning" type="submit">Enviar</button>
+                    <div className="text-center">
+                        <button className="btn btn-outline-warning" type="submit">Entrar</button>
+                    </div>
                 </div>
             </form>
             </div>

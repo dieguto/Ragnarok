@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PubSub from 'pubsub-js';
 
+
 class InputFormulario extends Component {
 
     constructor(){
@@ -31,14 +32,16 @@ class InputFormulario extends Component {
 
     render(){
         return(
-            <div className="pure-control-group">
+            <div >
+                <label className="form-check-label" htmlFor={this.props.id}>{this.props.label}</label>
                 <input
-                class={this.props.classe}
+                className={this.props.classe}
                 id={this.props.id} 
                 type={this.props.type} 
                 name={this.props.name} 
                 value={this.props.value} 
-                onChange={this.props.onChange}/>
+                onChange={this.props.onChange}
+                placeholder={this.props.placeholder}/>
                 <span>{this.state.msgErro}</span>
             </div>
         );
