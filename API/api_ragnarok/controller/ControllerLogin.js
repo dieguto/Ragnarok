@@ -71,7 +71,6 @@ class ControllerLogin{
                //E OS OUTROS NÃO SÃO 'NECESSARIOS'
                admin.senha = undefined;
                admin.is_bloqueado = undefined;
-               admin.is_admin = undefined;
    
                jwt.sign({ admin }, Auth.getKey(), { expiresIn: "24h" }, (err, token) => {
                   if (err) {

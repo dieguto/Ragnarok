@@ -2,21 +2,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const session = require("express-session");
-const MemoryStore = require("memorystore")(session);
-
-app.use(session({
-   secret:"abc",
-   resave: false,
-   saveUninitialized: true,
-   // saveUninitialized: true,
-   store: new MemoryStore({
-      checkPeriod: 5000
-   }),
-   cookie:{
-      maxAge: 5000
-   }
-}))
 
 //DEFINE A PORTA NA QUAL O SERVIDOR IRÁ SUBIR
 const porta = 3107;
@@ -50,44 +35,78 @@ app.listen(porta, () => {
    console.log("Ouvindo na porta " + porta);
 });
 //================================================================================
-
-app.get("/sessao", (req, res)=>{
-   req.sessionStore.all((err, sess) =>{
-      if(err){
-         console.log(err);
-      } else {
-         console.log(sess);
-      }
-   });
-   res.end()
-})
-
-//https://stackoverflow.com/questions/1876485/how-to-iterate-through-property-names-of-javascript-object
 //-----------EXEMPLO DE USO DO TOKEN JWT------------------------------------------
-// const jwt = require('jsonwebtoken');
+
 // const Auth = require("./utils/JwtAuth");
 
-// app.post("/teste/auth/usuario", Auth.verificarToken, (req, res)=>{
-//     let { titulo, preco } = req.body;
+// app.post("/teste/prod", Auth.verificarToken, (req, res)=>{
+//    let { titulo, preco } = req.body;
 
-//     jwt.verify(req.token, Auth.getKey(), (err, dadosAuth)=>{
-//         if(err){
-//             //403 Proibido
-//             res.sendStatus(403).end();
-//         } else {
+//    console.log(req.dadosToken)
 
-//             //ex: FAÇA ALGO CASO O USUARIO SEJA ADMIN
-//             // if(dadosAuth.usuario.is_admin){
-
-//             //202 Aceito
-//             console.log(dadosAuth);
-//             res.sendStatus(202).end();
-
-//             // } else {
-
-//             // }
-
-//         }
-//     });
-
+//    res.end();
 // });
+
+
+//OS BANG DE SESSÃO, POR FAVOR IGNORAR
+// const session = require("express-session");
+// const MemoryStore = require("memorystore")(session);
+
+// app.use(session({
+//    secret:"abc",
+//    resave: false,
+//    saveUninitialized: false,
+//    // saveUninitialized: true,
+//    store: new MemoryStore({
+//       checkPeriod: 5000
+//    }),
+//    cookie:{
+//       maxAge: 5000
+//    }
+// }))
+
+//EXMEPLO DE GERENCIAMENTO DE SESSÕES
+// app.get("/sessao", (req, res)=>{
+//    req.sessionStore.all((err, sessions) =>{
+//       if(err){
+//          console.log(err);
+//       } else {
+//          const keys = Object.keys(sessions);
+//          console.log(sessions);
+//          //console.log(sessions)
+//          for(let i = 0; i < keys.length; i++){
+//             const session = sessions[keys[i]];       
+//          }
+//       }
+//    });
+//    res.end()
+// })
+// app.get("/sessaoset", (req, res)=>{
+//    req.session.email = "jhonatan_max@gmail.com";
+//    res.end();
+// })
+
+//https://stackoverflow.com/questions/1876485/how-to-iterate-through-property-names-of-javascript-object
+
+//===================== GERAR JSON
+
+// let jsons_string = "";
+
+// for(let i = 0; i < 1000000;i++){
+//    const nome_campo = Date.now() + Math.round(Math.random() * 1406780);
+
+//    if(i != 999999){
+//       jsons_string += `
+//       "${nome_campo}":{
+//          "email":"aaaaaaa@gmail.com",
+//          "senha":"oeijoenfoenfoifi" 
+//       },`;
+//    } else {
+//       jsons_string += `
+//       "${nome_campo}":{
+//          "email":"aaaaaaa@gmail.com",
+//          "senha":"oeijoenfoenfoifi" 
+//       }`;
+//    }
+// }
+// const jsons = JSON.parse("{" + jsons_string + "}");
