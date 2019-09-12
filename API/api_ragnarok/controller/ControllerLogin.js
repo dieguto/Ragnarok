@@ -12,7 +12,7 @@ class ControllerLogin{
 
       senha = sha512(senha);
    
-      Usuario.findOne({ where: { email, senha } })
+      Usuario.findOne({ where: { email, senha }, attributes:{ exclude: ['senha', 'is_admin'] }  })
       .then((usuario) => {
    
          if (usuario.is_bloqueado) {
@@ -21,11 +21,7 @@ class ControllerLogin{
             callback(433, null);
    
          } else {
-               //POR QUESTÕES DE SEGURANÇA A SENHA É 'ANULADA'
-               //E OS OUTROS NÃO SÃO 'NECESSARIOS'
-               usuario.senha = undefined;
                usuario.is_bloqueado = undefined;
-               usuario.is_admin = undefined;
    
                jwt.sign({ usuario }, Auth.getKey(), { expiresIn: "24h" }, (err, token) => {
                   if (err) {
@@ -56,7 +52,7 @@ class ControllerLogin{
 
       senha = sha512(senha);
    
-      Usuario.findOne({ where: { email, senha } })
+      Usuario.findOne({ where: { email, senha }, attributes:{ exclude: ['senha'] } })
       .then((admin) => {
    
          if (admin.is_bloqueado) {
@@ -66,11 +62,9 @@ class ControllerLogin{
    
          } else {
 
+            admin.is_bloqueado = undefined;
+
             if (admin.is_admin) {
-               //POR QUESTÕES DE SEGURANÇA A SENHA É 'ANULADA'
-               //E OS OUTROS NÃO SÃO 'NECESSARIOS'
-               admin.senha = undefined;
-               admin.is_bloqueado = undefined;
    
                jwt.sign({ admin }, Auth.getKey(), { expiresIn: "24h" }, (err, token) => {
                   if (err) {
@@ -78,6 +72,8 @@ class ControllerLogin{
                      console.log("Erro: não foi possivel gerar token do admin -> " + err);
                      callback(500, null);
                   } else {
+
+                     admin.is_admin = undefined;
                      //200 Ok
                      callback(200, { token, admin });
                   }

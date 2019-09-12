@@ -97,6 +97,10 @@ class ControllerUsuario{
             callback(404, null)
          }
       })
+      .catch((err) => {
+         //404 Não encontrado
+         callback(404, null);
+      });
    }
 }
 
