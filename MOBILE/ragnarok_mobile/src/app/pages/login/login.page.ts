@@ -16,6 +16,7 @@ export class LoginPage implements OnInit {
   @ViewChild(IonSegment)segment: IonSegment;
   
   public formCriarUsuario : FormGroup;
+  public formFazerLogin :FormGroup;
   
   usuario: Usuario;
   constructor(private usuarioService: UsuarioService, formBuilder: FormBuilder ) { 
@@ -25,12 +26,19 @@ export class LoginPage implements OnInit {
         email:[null, Validators.required],
         senha:[null, Validators.required]
     });
+
+    this.formFazerLogin = formBuilder.group({
+      email:[null, Validators.required],
+      senha:[null, Validators.required]
+    })
+    
   }
 
   ngOnInit() {
     this.usuario = new Usuario()
   }
 // slide
+
   segmentChanged(event: any){
     let a = event.detail.value;
     if(event.detail.value === "login"){
@@ -46,7 +54,6 @@ export class LoginPage implements OnInit {
 // criando usuario
   async criarUsuario(){
     try {
-  
       // pegando os valores do formulario 
       this.usuario = this.formCriarUsuario.value; 
       // usando javascript assincrono 
@@ -57,15 +64,17 @@ export class LoginPage implements OnInit {
       this.segment.value = 'login';
       this.formCriarUsuario.reset();
       console.log(result);
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
     }
-
- 
-
-
   }
 
-  
+  // login do usuario
+  login(){
+    this.usuario = this.formFazerLogin.value;
+    console.log(this.usuario);
+    this.usuarioService.login(this.usuario).subscribe();
+  }
 
 }

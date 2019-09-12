@@ -3,18 +3,19 @@
         <ion-slide>
           <div class="slide-inner ion-padding">
             <span>Login</span>
-    
-            <ion-item class="ion-margin-top" lines="none">
-              <ion-input type="email" placeholder="E-mail" ></ion-input>
-            </ion-item>
-            
-            <ion-item class="ion-margin-top" lines="none">
-              <ion-input type="password" placeholder="Senha" ></ion-input>
-            </ion-item>
-    
-            <ion-button class="ion-margin-top"  expand="block">
-              ENTRAR
-            </ion-button>
+            <form [formGroup]="formFazerLogin" (ngSubmit)="login()">
+              <ion-item class="ion-margin-top" lines="none">
+                <ion-input formControlName="email"  name="email" type="email" placeholder="E-mail"   ></ion-input>
+              </ion-item>
+              
+              <ion-item class="ion-margin-top" lines="none">
+                <ion-input  formControlName="senha" name="senha" type="password" placeholder="Senha" ></ion-input>
+              </ion-item>
+      
+              <ion-button class="ion-margin-top" type="submit" [disabled]="!formFazerLogin.valid"  expand="block">
+                ENTRAR
+              </ion-button>
+            </form>
           </div>
         </ion-slide>
     
@@ -39,7 +40,7 @@
                       <ion-input formControlName="senha" name="senha" type="password" placeholder="Senha" ></ion-input>
                     </ion-item>
             
-                    <ion-button type="submit" class="ion-margin-top btn " expand="block">
+                    <ion-button type="submit" class="ion-margin-top btn " [disabled]="!formCriarUsuario.valid" expand="block">
                       CRIAR CONTA
                     </ion-button>
               </form>    

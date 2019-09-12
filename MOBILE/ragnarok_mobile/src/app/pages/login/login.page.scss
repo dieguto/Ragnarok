@@ -48,10 +48,13 @@ ion-slides{
        
     ion-button{
         --color:#f39c12;
-        --background:#222428;
+        --background:#333;
         --background-activated:#f39c12;
-        
-        --color:white;
+        --border-color:#f39c12;
+        --border-style:solid;	
+        --border-width:1.3px;
+        // --color:white;
+        --border-radius: 0%;
     
     }
 
@@ -87,7 +90,7 @@ ion-slides{
     
         }
 
-        
+
 
         ion-segment-button{
             --border-style:none;	
