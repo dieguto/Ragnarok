@@ -95,7 +95,7 @@ export class FormularioLogin extends Component{
                     </div>
 
                     <div className="text-center">
-                        <button className="btn btn-outline-warning" type="submit">Entrar</button>
+                        <button className="btn btn-outline-warning" disabled={!this.state.email} type="submit">Entrar</button>
                     </div>
                 </div>
             </form>
