@@ -1,1 +1,14 @@
 
+ion-tabs{
+    ion-tab-bar{
+        --background:#333;
+    }
+    ion-tab-button{
+        --color-selected:#f39c12;
+    } 
+
+    ion-icon{
+        width: 60%;
+        height: 60%;
+    }
+}

@@ -24,17 +24,27 @@
     }
 }
 
-
+*{
+    font-family: stoke;
+}
 
 
 ion-slides{
     height: 92%;
 
 
-    span{
+        span{
+            font-size: 150%;
+            color: #f39c12;
+            // margin-top: 
+            font-family: stoke;
+        }
 
-        color: #f39c12;
-    }
+        .label{
+            margin-left: -82%;
+            margin-top: 25%;
+            color: #f39c12;
+        }
 
 
 
@@ -60,6 +70,7 @@ ion-slides{
 
     ion-item{
         --background:rgba(255,255,255);
+        margin-bottom: 10%;
         // --border-radius: 10px;
     }
 }

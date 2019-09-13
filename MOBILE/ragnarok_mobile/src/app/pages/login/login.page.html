@@ -4,12 +4,14 @@
           <div class="slide-inner ion-padding">
             <span>Login</span>
             <form [formGroup]="formFazerLogin" (ngSubmit)="login()">
+                <ion-label class="label">Email:</ion-label>
               <ion-item class="ion-margin-top" lines="none">
-                <ion-input formControlName="email"  name="email" type="email" placeholder="E-mail"   ></ion-input>
+                <ion-input formControlName="email"  name="email" type="email" placeholder="EX: exemplo@gmail.com"   ></ion-input>
               </ion-item>
               
+              <ion-label class="label">Senha:</ion-label>
               <ion-item class="ion-margin-top" lines="none">
-                <ion-input  formControlName="senha" name="senha" type="password" placeholder="Senha" ></ion-input>
+                <ion-input  formControlName="senha" name="senha" type="password" placeholder="EX: mdklas2389/11" ></ion-input>
               </ion-item>
       
               <ion-button class="ion-margin-top" type="submit" [disabled]="!formFazerLogin.valid"  expand="block">
@@ -24,20 +26,24 @@
                 <span>Cadastro</span>
             
               <form [formGroup]="formCriarUsuario" (ngSubmit)="criarUsuario()" >     
+                  <ion-label class="label">Nome:</ion-label>
                     <ion-item class="ion-margin-top" lines="none">
-                      <ion-input formControlName="nome"  name="nome" type="text" placeholder="Nome" ></ion-input>
+                      <ion-input formControlName="nome"  name="nome" type="text" placeholder="EX: João Souza" ></ion-input>
                     </ion-item>
         
+                    <ion-label class="label">Cep:</ion-label>
                     <ion-item class="ion-margin-top" lines="none">
-                      <ion-input formControlName="cep"  name="cep" type="text" placeholder="Cep"  mask="00000-000" ></ion-input>
+                      <ion-input formControlName="cep"  name="cep" type="text" placeholder="EX: 00000-000"  mask="00000-000" ></ion-input>
                     </ion-item>
             
+                    <ion-label class="label">Email:</ion-label>
                     <ion-item class="ion-margin-top" lines="none">
-                      <ion-input formControlName="email"  name="email" type="email" placeholder="E-mail"  ></ion-input>
+                      <ion-input formControlName="email"  name="email" type="email" placeholder="EX: joãoSouza@gmail.com  "  ></ion-input>
                     </ion-item>
                     
+                    <ion-label class="label">Senha:</ion-label>
                     <ion-item class="ion-margin-top" lines="none">
-                      <ion-input formControlName="senha" name="senha" type="password" placeholder="Senha" ></ion-input>
+                      <ion-input formControlName="senha" name="senha" type="password" placeholder="EX: sdklshad12897" ></ion-input>
                     </ion-item>
             
                     <ion-button type="submit" class="ion-margin-top btn " [disabled]="!formCriarUsuario.valid" expand="block">
