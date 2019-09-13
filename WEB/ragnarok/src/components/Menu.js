@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-
-
+import { GiBrutalHelm } from 'react-icons/gi';
 
 class Menu extends Component{
 
@@ -14,7 +13,10 @@ class Menu extends Component{
                     <Link to="/login" className="btn btn-outline-warning ">Entrar</Link>
                     <Link to="/cadastro" className="btn btn-outline-warning ml-3">Cadastro</Link>
                 </div>
+                
             </div>
+            
+            
           </div>
    );
   }

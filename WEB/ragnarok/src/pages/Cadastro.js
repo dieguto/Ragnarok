@@ -85,7 +85,7 @@ export class FormularioCadastro extends Component{
         return(
                 <div className="login-container">
                    
-                        <form onSubmit={this.enviarForm} method="post">   
+                        <form onSubmit={this.enviarForm} method="post" name="formcadastro">   
                                 <h1>Cadastro</h1> 
                             
 
@@ -109,7 +109,7 @@ export class FormularioCadastro extends Component{
                                 </div>
 
                             <div className="text-center">
-                                <button className="btn btn-outline-warning" type="submit">Cadastrar</button>
+                                <button className="btn btn-outline-warning" disabled={!this.state.email} type="submit">Cadastrar</button>
                             </div>
                             
                                 
