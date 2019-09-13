@@ -30,7 +30,6 @@ app.get("/doc", (req, res)=>{
    res.redirect("http://doc-api-ragnarok.surge.sh");
 })
 
-//req.params.id para receber o id que veio na url
 app.listen(porta, () => {
    console.log("Ouvindo na porta " + porta);
 });
