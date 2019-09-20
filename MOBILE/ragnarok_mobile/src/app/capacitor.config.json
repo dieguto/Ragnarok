@@ -1,0 +1,7 @@
+{
+  "appId": "pop.example.com",
+  "appName": "pop",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

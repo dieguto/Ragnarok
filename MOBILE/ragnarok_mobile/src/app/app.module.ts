@@ -19,7 +19,7 @@ export function jwtOptionsFacgtory(storage){
     tokenGetter: ()=>{
       return storage.get('access_token');
     },  
-    whitelistedDomains:['localhost:3107']
+    whitelistedDomains:['10.107.144.9:3107']
   }
 }
 

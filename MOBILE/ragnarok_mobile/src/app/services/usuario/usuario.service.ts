@@ -71,7 +71,7 @@ export class UsuarioService {
 
 
     criarUsuario(usuario : Usuario){
-      return this.http.post<Usuario>('http://localhost:3107/usuario/', {
+      return this.http.post<Usuario>(`${this.url}/usuario/`, {
         nome: usuario.nome,
         email: usuario.email,
         cep: usuario.cep,

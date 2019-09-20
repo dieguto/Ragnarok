@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import {NgxMaskIonicModule} from 'ngx-mask-ionic'
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, IonSlides, IonSlide } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
 

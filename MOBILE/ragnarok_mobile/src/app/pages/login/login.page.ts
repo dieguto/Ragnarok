@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, IonSegment } from '@ionic/angular';
+import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
+import { IonSlides, IonSegment, IonSlide } from '@ionic/angular';
 import { Usuario } from '../../services/usuario/usuario.class';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -12,12 +12,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 
 export class LoginPage implements OnInit {
-  @ViewChild(IonSlides)slides: IonSlides;
-  @ViewChild(IonSegment)segment: IonSegment;
+
+    @ViewChild(IonSlides, { static: false }) slides: IonSlides;
+    @ViewChild(IonSegment, { static: false }) segment: IonSegment;
+
+
+
   
   public formCriarUsuario : FormGroup;
   public formFazerLogin :FormGroup;
-  
+
   usuario: Usuario;
   constructor(private usuarioService: UsuarioService, formBuilder: FormBuilder ) { 
       this.formCriarUsuario = formBuilder.group({
@@ -48,8 +52,6 @@ export class LoginPage implements OnInit {
     }
 
   }
-
-
 
 // criando usuario
   async criarUsuario(){

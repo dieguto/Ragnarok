@@ -1,5 +1,5 @@
 <ion-content>
-      <ion-slides>
+      <ion-slides name="slides">
         <ion-slide>
           <div class="slide-inner ion-padding">
             <span>Login</span>
@@ -14,7 +14,7 @@
                 <ion-input  formControlName="senha" name="senha" type="password" placeholder="EX: mdklas2389/11" ></ion-input>
               </ion-item>
       
-              <ion-button class="ion-margin-top" type="submit" [disabled]="!formFazerLogin.valid"  expand="block">
+              <ion-button class="ion-margin-top" type="submit"   [disabled]="!formFazerLogin.valid"  expand="block">
                 ENTRAR
               </ion-button>
             </form>

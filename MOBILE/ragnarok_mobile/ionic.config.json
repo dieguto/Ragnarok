@@ -1,5 +1,7 @@
 {
   "name": "ragnarok_mobile",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
