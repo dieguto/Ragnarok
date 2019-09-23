@@ -19,7 +19,11 @@ export function jwtOptionsFacgtory(storage){
     tokenGetter: ()=>{
       return storage.get('access_token');
     },  
+<<<<<<< HEAD
     whitelistedDomains:['10.107.144.9:3107']
+=======
+    whitelistedDomains:['10.107.144.30']
+>>>>>>> 68b6225249158335e5d9d4ec920200afa05488b0
   }
 }
 

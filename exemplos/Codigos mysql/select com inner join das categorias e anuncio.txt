@@ -1,0 +1,34 @@
+SELECT f.nome as nome_fabricante, 
+	
+	c.nome AS nome_console,
+    
+	a.titulo as titulo_anuncio
+
+FROM tbl_console as c
+
+INNER JOIN
+tbl_fabricante as f
+
+ON
+
+f.id_fabricante = c.id_fabricante
+
+INNER JOIN
+
+tbl_anuncio_categoria as ac
+
+ON
+
+ac.id_console = c.id_console
+
+INNER JOIN
+
+tbl_anuncio as a
+
+ON
+
+a.id_anuncio = ac.id_anuncio
+
+AND
+
+a.id_anuncio = 3;

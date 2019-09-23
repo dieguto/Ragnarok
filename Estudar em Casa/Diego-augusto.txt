@@ -1,2 +1,15 @@
 https://pt-br.reactjs.org/docs/conditional-rendering.html
 https://pt-br.reactjs.org/tutorial/tutorial.html
+
+como vai funcionar o menu, 
+os dois menus irão ficar no mesmo arquivo, e ele vai retornar um dos menus através de um ternário verificando pelo state se o usuário está logado
+
+pagina de exemplo para trocar o component
+https://stackoverflow.com/questions/36771017/what-is-the-equivalent-to-ng-if-in-react-js
+
+estudando menus
+https://material-ui.com/pt/components/menus/
+
+
+powtoon
+https://www.powtoon.com/html5-studio/#/edit/es7LrKfCRrd

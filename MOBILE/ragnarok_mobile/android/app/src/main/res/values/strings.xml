@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ragnarok</string>
+    <string name="title_activity_main">Ragnarok</string>
+    <string name="package_name">br.com.ragnarokgames</string>
+    <string name="fileprovider_authority">br.com.ragnarokgames.fileprovider</string>
+    <string name="custom_url_scheme">br.com.ragnarokgames</string>
+</resources>
