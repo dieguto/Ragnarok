@@ -4,11 +4,15 @@ import api from '../services/api';
 import $ from 'jquery';
 import './css/Cadastro.css'
 import InputFormulario from '../components/inputFormulario';
+import {useSelector, useDispatch} from 'react-redux';
+import {increment, decrement} from '../actions'
 
- 
+
+
 
 export class FormularioLogin extends Component{
 
+    
     constructor(){
         super();
         this.state = {email:'', senha: ''};
@@ -29,7 +33,9 @@ export class FormularioLogin extends Component{
 
     enviarForm(event){
         event.preventDefault();
-
+        const counter = useSelector(state => state.counter);
+        const isLogged = useSelector(state => state.isLogged);
+        const dispatch = useDispatch();
         $.ajax({
             url: 'http://localhost:3107/login/usuario',
             contentType: 'application/json',
@@ -44,12 +50,14 @@ export class FormularioLogin extends Component{
             success: function(resposta){
                 console.log(resposta)
                 const { id } = resposta.usuario;
+                
                 window.location.href = `/usuario/${id}`;
             }.bind(this)
 
         })
 
     }
+
 
     // async handleSubmit(e) {
     //     e.preventDefault();
@@ -64,9 +72,11 @@ export class FormularioLogin extends Component{
     // console.log(id)
     // console.log(response)
 
+    
  
     // window.location.href = `/usuario/${id}`;
     render(){
+        
         return(
             <div className="login-container">
                 <form onSubmit={this.enviarForm} method="post">   
@@ -77,25 +87,16 @@ export class FormularioLogin extends Component{
                         <input className="form-control" type="email" id="email" name="email" placeholder="batatinhaxpto@senaisp.com" value={this.state.email} onChange={this.setEmail} required></input>
                         
                     </div>
-                    {/* <InputFormulario
-                        classLabel="form-check-label 2-mr"
-                        label="email: "
-                        className="form-control"
-                        id="email"
-                        type="text"
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.setEmail}
-                        placeholder="gabrieldomangue@gmail.com"
-                       >
-                    </InputFormulario> */}
                     <div>
                         <label className="form-check-label">Senha:</label>
                         <input className="form-control" type="password" id="senha" name="senha" placeholder="*****" value={this.state.senha} onChange={this.setSenha} required></input>
                     </div>
 
                     <div className="text-center">
+                        
                         <button className="btn btn-outline-warning" disabled={!this.state.email} type="submit">Entrar</button>
+                        <button onClick={() => dispatch(increment(5))}>+</button>
+                        <button onClick={() => dispatch(decrement(5))}>-</button>
                     </div>
                 </div>
             </form>

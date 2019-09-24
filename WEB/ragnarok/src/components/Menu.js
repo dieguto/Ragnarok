@@ -1,29 +1,17 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import { GiBrutalHelm } from 'react-icons/gi';
+import {useSelector, useDispatch} from 'react-redux';
+import {increment, decrement} from '../actions'
 
-class Menu extends Component{
+function Menu() {
 
-  
+  const counter = useSelector(state => state.counter);
+  const isLogged = useSelector(state => state.isLogged);
+  const dispatch = useDispatch();
 
-  render(){
-    
 
-    if(1 != 1){
-      return(
-        <div className="header">
-          <div className="navbar navbar-light bg-dark">
-            <h1 className="navbar-brand text-warning">Ragnarok</h1>
-              <div className="form-inline">
-                  <Link to="/login" className="btn btn-outline-warning ">Entrar</Link>
-                  <Link to="/cadastro" className="btn btn-outline-warning ml-3">Cadastro</Link>
-              </div>
-              
-          </div>
-          </div>
-        
-      );
-    }else{
+    if(counter == 5){
       return(
         <div className="header">
       
@@ -57,12 +45,29 @@ class Menu extends Component{
 
         
  );
+    }else{
+
+      return(
+        <div className="header">
+          <div className="navbar navbar-light bg-dark">
+            <h1 className="navbar-brand text-warning">Ragnarok</h1>
+              <div className="form-inline">
+                  <Link to="/login" className="btn btn-outline-warning ">Entrar</Link>
+                  <Link to="/cadastro" className="btn btn-outline-warning ml-3">Cadastro</Link>
+              </div>
+              
+          </div>
+          </div>
+        
+      );
+
+
+     
     }
 
       
   }
 
-}
 
 export default Menu;
 
