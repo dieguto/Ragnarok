@@ -1,0 +1,86 @@
+
+*{
+    font-family: stoke;
+}
+
+
+ion-content{
+    ion-slides{
+        width: 100%;
+        height: 100%;
+      
+        // border: solid 1% #f39c12;
+        ion-slide{
+
+            width: 100%;
+            height: 100%;
+
+            ion-card{
+                margin-top: -25%;
+                width: 95%;
+                height: 80%;
+             
+                ion-slides{
+                    width: 100%;
+                    height: 50%;
+    
+                    ion-slide{
+                        width: inherit;
+                        height: inherit;
+    
+                        ion-img{
+                            width: inherit;
+                            height: inherit;
+                            
+                        }
+
+                        video{
+                            width: inherit;
+                            height: inherit;
+                        }
+                    }
+                }
+    
+                ion-card-header{
+                    ion-card-title{
+                        --color: #f39c12;
+                    }
+                }
+
+                ion-card-content{
+                    p{
+                        color: white;
+                    }
+                }
+    
+            }
+
+            .caixa_botao{
+                width: 100%;
+                height: 20%;
+                // background-color: white;
+                float: left;
+                margin-top: 65%;
+                position: absolute;
+                margin-left: -6%;
+                // margin-left: auto;
+                // margin-right: auto;
+            }
+        }
+
+    }
+
+    ion-button{
+        // position: absolute;
+        // float: left;
+        margin-left: 10%;
+        --background:#333;
+        // --background-color:#f39c12;
+        --border-radius: 60%;
+
+    }
+
+    ion-icon{
+        color:#f39c12;
+    }
+}

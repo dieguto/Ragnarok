@@ -1,4 +1,4 @@
-package br.com.ragnarokgames;
+package com.example.br;
 
 import android.os.Bundle;
 

@@ -12,17 +12,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 
 export class LoginPage implements OnInit {
-<<<<<<< HEAD
 
     @ViewChild(IonSlides, { static: false }) slides: IonSlides;
     @ViewChild(IonSegment, { static: false }) segment: IonSegment;
 
 
+    
 
-=======
-  //@ViewChild(IonSlides)slides: IonSlides;
-  //@ViewChild(IonSegment)segment: IonSegment;
->>>>>>> 68b6225249158335e5d9d4ec920200afa05488b0
   
   public formCriarUsuario : FormGroup;
   public formFazerLogin :FormGroup;
@@ -48,15 +44,15 @@ export class LoginPage implements OnInit {
   }
 // slide
 
- // segmentChanged(event: any){
-    //let a = event.detail.value;
-    //if(event.detail.value === "login"){
-      //this.slides.slidePrev();
-    //}else{
-      //this.slides.slideNext();
-    //}
+  segmentChanged(event: any){
+    let a = event.detail.value;
+    if(event.detail.value === "login"){
+      this.slides.slidePrev();
+    }else{
+      this.slides.slideNext();
+    }
 
-  //}
+  }
 
 // criando usuario
   async criarUsuario(){
@@ -67,8 +63,8 @@ export class LoginPage implements OnInit {
       const result = await this.usuarioService.criarUsuario(this.usuario);
       console.log(this.usuario);
 
-      //this.slides.slidePrev();
-      //this.segment.value = 'login';
+      this.slides.slidePrev();
+      this.segment.value = 'login';
       this.formCriarUsuario.reset();
       console.log(result);
     } 

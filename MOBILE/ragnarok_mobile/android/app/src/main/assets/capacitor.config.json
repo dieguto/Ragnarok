@@ -1,6 +1,6 @@
 {
-  "appId": "br.com.ragnarokgames",
-  "appName": "Ragnarok",
+  "appId": "com.example.br",
+  "appName": "ragnarok",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www"
