@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <script src="ImgUtils.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+      
+      <div id="erro" style="background-color: red; display: none">aaa</div>
+	  
+       <img id="img_teste" src="http://localhost:3107/fotos/2/1.jpg" style="width:150px; height:150px">
+	 
+       <input name="imgs" id="imgs" onchange="transformar()" type="file" multiple>
+       
+       <div id="imgs_div"></div>
+       <br>
+       <br>
+       <input id="titulo" type="text" placeholder="Titulo">
+       <br>
+       <br>
+       <input id="descricao" type="text" placeholder="Descricao">
+        <br>
+        <br>
+        <input id="enviar" type="button" value="Enviar">
+      <!--
+       <br>
+       <br>
+       <input id="titulo" type="text">
+       <br>
+       <br>
+       <input id="titulo" type="text">
+       <br>
+       <br>
+       <input id="titulo" type="text">
+-->
+        <script>
+            
+        ImgUtils.setOpcoes();
+            
+        const _ = (elemento) => {
+            return document.getElementById(elemento);
+        }
+
+        const kkk = _("kkk");
+
+        const transformar = () => {
+            
+            _("erro").style.display = "none";
+			_("erro").innerHTML = "";
+            
+            ImgUtils.convParaBase64(_("imgs"))
+            .then(()=>{
+                ImgUtils.carregarParaDiv(_("imgs_div"))
+                .catch(err =>{
+                    _("erro").style.display = "block";
+                    _("erro").innerHTML = err;
+                })
+            })
+            .catch(err =>{
+                _("erro").style.display = "block";
+                _("erro").innerHTML = err;
+            })
+        }
+        
+        const enviar = () => {
+		
+		_("erro").style.display = "none";
+			_("erro").innerHTML = "";
+		
+		const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjozLCJub21lIjoiVmluaWNpdXMgTW9yYWlzIiwiZW5kZXJlY28iOiJTUCwgSmFuZGlyYSIsImlzX2FkbWluIjp0cnVlLCJjcmlhZG9fZW0iOiIyNyBkZSBTZXRlbWJybyBkZSAyMDE5In0sImlhdCI6MTU2OTY5MDc2Nn0._mMD3ZdqFM84_I37l1inXcyzMh6022ivy3ONA-bhDSs"
+            ImgUtils.fotosDaDivParaBase64(_("imgs_div"))
+            .then(array_fotos_base64 => {
+                $.ajax({
+                    url:"http://localhost:3107/anuncio",
+                    contentType: 'application/json',
+                    type: "post",
+					headers: {
+						"Authorization": "Bearer " + token
+					},
+                    data:JSON.stringify({
+                        titulo:"jogo pra troca 222 dmeias",
+						descricao:"aqui, no sabadaço",
+						id_console: 1,
+						id_console_troca:4,
+						is_jogo: true,
+						preco:null,
+						slug_jogo:"polly",
+						slug_jogo_troca:"sex",
+						id_genero: 4,
+						array_fotos_base64
+                    }),
+                    success:(data)=>{
+                        console.log("enviado com sucesso" + data);
+                    },
+                    error:(err)=>{
+                        console.error("erro ao enviar" + err.responseText)
+                    },
+					complete:(a)=>{
+						console.log("status: " + a.status)
+					}
+                }) 
+            })
+			.catch(err => {
+                _("erro").style.display = "block";
+                _("erro").innerHTML = err;
+			});    
+        }
+		
+		<!-- function reqListener () { -->
+			<!-- if (this.readyState == 4 && this.status == 200) { -->
+				<!-- _("img_teste").src = this.responseText; -->
+		    <!-- } -->
+		<!-- }; -->
+		
+		<!-- var oReq = new XMLHttpRequest(); -->
+		<!-- oReq.onload = reqListener; -->
+		<!-- oReq.open("get", "http://localhost:3107/fotos/5/2.jpg", true); -->
+		<!-- oReq.send(); -->
+		
+        _("enviar").addEventListener("click", enviar)
+            
+            
+        </script>
+        
+    </body>
+</html>

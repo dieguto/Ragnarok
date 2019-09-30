@@ -1,0 +1,29 @@
+DAO Anuncio
+   criar - ok
+   editar - ok  
+   selecionar - ok
+   deletar - ok
+
+DAO Usuario
+   criar - ok
+   editar - ok
+   selecionar - ok
+   deletar - ok
+
+DAO Console
+   criar - pendente
+   editar - pendente  
+   selecionar - falta o select 'unico ' (apenas um genero)
+   deletar - pendente
+
+DAO Genero
+   criar - pendente
+   editar - pendente  
+   selecionar - falta o select 'unico ' (apenas um genero)
+   deletar - pendente
+
+DAO Fabricante (pendente)
+   criar - pendente
+   editar - pendente  
+   selecionar - pendente
+   deletar - pendente
