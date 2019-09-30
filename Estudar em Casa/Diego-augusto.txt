@@ -16,3 +16,7 @@ https://www.powtoon.com/html5-studio/#/edit/es7LrKfCRrd
 
 
 https://thinkster.io/tutorials/build-a-real-world-react-redux-application
+
+https://codepen.io/damianmuti/pen/OgBWej
+https://codepen.io/suez/pen/ByvKXE
+https://codepen.io/ReGGae/pen/bmyYEj

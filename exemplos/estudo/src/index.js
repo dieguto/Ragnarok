@@ -1,7 +1,7 @@
 import App from './components/App';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
-import React {Fragment} from 'react';
+import React from 'react';
 import { applyMiddleware, createStore } from 'redux';
 import { promiseMiddleware } from './middleware';
 

@@ -22,7 +22,7 @@ function Menu() {
               
               <div className="btn-group">
               <div className="form-inline mr-3">
-                <Link to="/anuncios" className="btn btn-outline-warning ">Novo Anuncio</Link>
+                <Link to="/anuncios" className="btn btn-outline-warning ">Novo Anúncio</Link>
               </div>
               <div>
                   <span>Bem vindo, Diego</span>

@@ -107,12 +107,12 @@ export class FormularioAnuncio extends Component {
                         <input className="form-control" type="titulo" id="titulo" name="titulo" placeholder="Pitfall" value={this.state.titulo} onChange={this.setTitulo} required></input>          
                     </div>
 
-                    <div>
+                    {/* <div>
                         <label className="form-check-label">O que você está anunciando:</label>
                         <input className="form-check-input" type="radio" id="titulo" name="titulo" placeholder="Pitfall" value={this.state.is_jogo} onChange={this.setTitulo} ></input>          
                         <input className="form-check-input" type="radio" id="titulo" name="titulo" placeholder="Pitfall" value={this.state.titulo} onChange={this.setTitulo} ></input>          
                         <input className="form-check-input" type="radio" id="titulo" name="titulo" placeholder="Pitfall" value={this.state.titulo} onChange={this.setTitulo} ></input>          
-                    </div>
+                    </div> */}
 
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
