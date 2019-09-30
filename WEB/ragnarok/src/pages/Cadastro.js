@@ -96,7 +96,7 @@ export class FormularioCadastro extends Component{
                                 </div>
                                 <div>
                                     <label className="form-check-label">Cep:</label>
-                                    <Cleave type="number" id="cep" name="cep" value={this.state.cep} onChange={this.setCep} required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}}></Cleave>
+                                    <Cleave type="text" id="cep" name="cep" value={this.state.cep} onChange={this.setCep} required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}}></Cleave>
                                 </div>
                                 <div>
                                     <label className="form-check-label">email:</label>

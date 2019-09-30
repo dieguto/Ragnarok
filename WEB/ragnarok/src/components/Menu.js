@@ -11,7 +11,7 @@ function Menu() {
   const dispatch = useDispatch();
 
 
-    if(counter == 5){
+    if(counter != 5){
       return(
         <div className="header">
       
@@ -21,13 +21,15 @@ function Menu() {
               
               
               <div className="btn-group">
+              <div className="form-inline mr-3">
+                <Link to="/anuncios" className="btn btn-outline-warning ">Novo Anuncio</Link>
+              </div>
               <div>
                   <span>Bem vindo, Diego</span>
                   
                   <button type="button" className="btn btn-secondary dropdown-toggle ml-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       
                       <GiBrutalHelm/>
-                      {/* <p></p> */}
                   </button>
                   <div className="dropdown-menu dropdown-menu-right">
                       {/* <button className="dropdown-item" type="button">Bem vindo, Diego</button> */}

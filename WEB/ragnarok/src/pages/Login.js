@@ -33,11 +33,11 @@ export class FormularioLogin extends Component{
 
     enviarForm(event){
         event.preventDefault();
-        const counter = useSelector(state => state.counter);
-        const isLogged = useSelector(state => state.isLogged);
-        const dispatch = useDispatch();
+        // const counter = useSelector(state => state.counter);
+        // const isLogged = useSelector(state => state.isLogged);
+        // const dispatch = useDispatch();
         $.ajax({
-            url: 'http://localhost:3107/login/usuario',
+            url: 'http://localhost:3107/auth/login/usuario',
             contentType: 'application/json',
             dataType:'json',
             type:'post',
@@ -58,23 +58,6 @@ export class FormularioLogin extends Component{
 
     }
 
-
-    // async handleSubmit(e) {
-    //     e.preventDefault();
-
-    // // await = diz para esperar retornar da api
-    // const response = await api.post('/login/usuario', {
-    //     email : username,
-    //     senha
-    // })
-
-    // const { id } = response.data.usuario;
-    // console.log(id)
-    // console.log(response)
-
-    
- 
-    // window.location.href = `/usuario/${id}`;
     render(){
         
         return(
@@ -95,8 +78,8 @@ export class FormularioLogin extends Component{
                     <div className="text-center">
                         
                         <button className="btn btn-outline-warning" disabled={!this.state.email} type="submit">Entrar</button>
-                        <button onClick={() => dispatch(increment(5))}>+</button>
-                        <button onClick={() => dispatch(decrement(5))}>-</button>
+                        {/* <button onClick={() => dispatch(increment(5))}>+</button> */}
+                        {/* <button onClick={() => dispatch(decrement(5))}>-</button> */}
                     </div>
                 </div>
             </form>
