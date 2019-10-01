@@ -10,7 +10,9 @@ const routes: Routes = [
   },
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'},
-  {path:'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule'}
+  {path:'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule'},
+  { path: 'cadastro-anuncio', loadChildren: './pages/cadastro-anuncio/cadastro-anuncio.module#CadastroAnuncioPageModule' },
+  { path: 'cadastro-anuncio', loadChildren: './pages/cadastro-anuncio/cadastro-anuncio.module#CadastroAnuncioPageModule' }
 
 ];
 @NgModule({

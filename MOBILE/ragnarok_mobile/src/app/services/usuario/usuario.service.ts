@@ -49,7 +49,7 @@ export class UsuarioService {
       }
   
       login(crendentials){
-        return this.http.post(`${this.url}/login/usuario`, crendentials).pipe(
+        return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
           tap(res =>{
             this.storage.set(TOKEN_KEY, res['token']);
             this.usuario = this.helper.decodeToken(res['token']);

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-button class="botão_slide" (click)="slides.slideNext()" ><ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+    <ion-title>Cadastrar produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form>
+    <ion-slides [options]="slideOpts">
+        <ion-slide>
+          <div class="slide_cadastro">
+              <ion-label class="label">Titulo</ion-label>
+              <ion-item  lines="none">
+                <ion-input name="titulo" type="text" placeholder="Devil May Cry"   ></ion-input>
+              </ion-item>
+              <ion-label class="label">Descrição:</ion-label>
+              <ion-item lines="none">
+                <ion-textarea class="descricao" name="descricao" type="text" placeholder="Jogo em bom estado"   ></ion-textarea>
+              </ion-item>
+              <ion-label class="label">Selecione o tipo de produto</ion-label>
+              <ion-item lines="none">
+                  <ion-label class="label_produtos">Produtos</ion-label>
+                  <ion-select ok-text="Ok" cancel-text="Cancelar">
+                    <ion-select-option value="Jogo">Jogo</ion-select-option>
+                    <ion-select-option value="Acessorio">Acessorio</ion-select-option>
+                    <ion-select-option value="Console">Console</ion-select-option>
+                  </ion-select>
+              </ion-item>
+              <ion-label class="label">Selecione o jogo</ion-label>
+              <ion-item lines="none">
+                <ion-searchbar color="primary" class="teste" placeholder="Nome"></ion-searchbar>
+              </ion-item>
+          
+          </div>
+        </ion-slide>
+        <ion-slide>
+          65465
+        </ion-slide>
+      </ion-slides>
+  </form>
+</ion-content>
