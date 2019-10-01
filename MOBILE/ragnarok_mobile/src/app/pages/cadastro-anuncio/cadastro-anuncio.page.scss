@@ -1,7 +1,19 @@
 
-    .botão_slide{
+    ion-header{
+    height: 5%;
+    width: 100%;
+    }
+    .next{
+        margin-top:-0.5%;
         --background: #333;
-        margin-left: 80%;
+        margin-left: 85%;
+        // margin-left: 80%;
+    }
+
+    .prev{
+        margin-top:0.5%;
+        margin-left: -90%;
+        position: absolute;
     }
     ion-slides{
         height: 100%;
@@ -10,7 +22,7 @@
         .slide_cadastro{
             width: 100%;
             height: 95%;
-            margin-top: 5%;
+            margin-top: 10%;
 
 
             .label{

@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-
-    <ion-button class="botão_slide" (click)="slides.slideNext()" ><ion-icon name="arrow-round-forward"></ion-icon></ion-button>
+  <ion-icon size="large" class="next" (click)="slides.slideNext()"  name="arrow-round-forward"></ion-icon>
     <ion-title>Cadastrar produto</ion-title>
+  <ion-icon size="large" class="prev" (click)="slides.slidePrev()" name="arrow-round-back"></ion-icon>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -10,33 +10,59 @@
     <ion-slides [options]="slideOpts">
         <ion-slide>
           <div class="slide_cadastro">
+            <!-- titulo do jogo -->
               <ion-label class="label">Titulo</ion-label>
               <ion-item  lines="none">
                 <ion-input name="titulo" type="text" placeholder="Devil May Cry"   ></ion-input>
               </ion-item>
+              <!-- descrição do jogo -->
               <ion-label class="label">Descrição:</ion-label>
               <ion-item lines="none">
                 <ion-textarea class="descricao" name="descricao" type="text" placeholder="Jogo em bom estado"   ></ion-textarea>
               </ion-item>
-              <ion-label class="label">Selecione o tipo de produto</ion-label>
+              <ion-label class="label">Selecione o genero do seu jogo</ion-label>
+              <!-- generos do jogo -->
               <ion-item lines="none">
-                  <ion-label class="label_produtos">Produtos</ion-label>
-                  <ion-select ok-text="Ok" cancel-text="Cancelar">
-                    <ion-select-option value="Jogo">Jogo</ion-select-option>
-                    <ion-select-option value="Acessorio">Acessorio</ion-select-option>
-                    <ion-select-option value="Console">Console</ion-select-option>
+                  <ion-label class="label_produtos">Generos</ion-label>
+                  <ion-select  ok-text="Ok" cancel-text="Cancelar">
+                    <ion-select-option  *ngFor="let genero of generos" value="{{genero.nome}}">{{genero.nome}}</ion-select-option>
                   </ion-select>
-              </ion-item>
-              <ion-label class="label">Selecione o jogo</ion-label>
-              <ion-item lines="none">
-                <ion-searchbar color="primary" class="teste" placeholder="Nome"></ion-searchbar>
-              </ion-item>
-          
+                </ion-item>
+                <!-- plataforma do jogo -->
+                <ion-label class="label">Selecione a plataforma do seu jogo</ion-label>
+                <ion-item lines="none">
+                    <ion-label class="label_produtos">Console</ion-label>
+                    <ion-select ok-text="Ok" cancel-text="Cancelar">
+                      <ion-select-option *ngFor="let console of consoles" value="{{console.nome}}">{{console.nome}}</ion-select-option>
+                    </ion-select>
+                </ion-item>          
           </div>
         </ion-slide>
-        <ion-slide>
-          65465
-        </ion-slide>
+          <ion-slide>
+             <div class="slide_cadastro">
+                <ion-label class="label">Selecione o jogo</ion-label>
+                <ion-item lines="none">
+                  <ion-searchbar color="primary" class="teste" placeholder="Nome"></ion-searchbar>
+                </ion-item>
+              </div>
+          </ion-slide>
+          <ion-slide>
+              <div class="slide_cadastro">
+                 <ion-label class="label">Selecione o jogo que você tem interesse em trocar</ion-label>
+                 <ion-item lines="none">
+                   <ion-searchbar color="primary" class="teste" placeholder="Jogos"></ion-searchbar>
+                 </ion-item>
+                 <ion-label class="label">Selecione a plataforma do jogo desejado</ion-label>
+                 <ion-item lines="none">
+                     <ion-label class="label_produtos">Console</ion-label>
+                     <ion-select ok-text="Ok" cancel-text="Cancelar">
+                       <ion-select-option value="Jogo">Ps4</ion-select-option>
+                       <ion-select-option value="Acessorio">Xbox</ion-select-option>
+                       <ion-select-option value="Console">Nitendo switt</ion-select-option>
+                     </ion-select>
+                 </ion-item>
+               </div>
+           </ion-slide>
       </ion-slides>
   </form>
 </ion-content>

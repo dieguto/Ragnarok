@@ -23,4 +23,8 @@ const routes: Routes = [
   ],
   declarations: [CadastroAnuncioPage]
 })
-export class CadastroAnuncioPageModule {}
+export class CadastroAnuncioPageModule {
+
+
+  
+}
