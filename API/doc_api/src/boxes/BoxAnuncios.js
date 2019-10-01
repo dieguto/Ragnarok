@@ -297,7 +297,7 @@ class BoxAnuncios extends Component{
             status:200,
             resp:{
                tipo:"customizada",
-               customJson:['Pode retornar JSONs de jogos, acessorios, consoles e até trocas (caso a  ordenação não seja por preço, tendo em vista que anuncios de troca não possuem preço)']
+               customJson:['Pode retornar JSONs de jogos, acessorios, consoles e até trocas (caso a  ordenação não seja por preço, tendo em vista que anuncios de troca não possuem preço), e tambem é retornado o is_jogo, is_acessorio e is_console']
             }
          },
          {
@@ -315,7 +315,7 @@ class BoxAnuncios extends Component{
             status:200,
             resp:{
                tipo:"customizada",
-               customJson:['Pode retornar JSONs de jogos, acessorios, consoles (traz de todos os tipos caso todas as opcões da URL (jogos, acessorios e consoles) sejam false, caso contrario traz apenas do que estiver como true)']
+               customJson:['Pode retornar JSONs de jogos, acessorios, consoles (traz de todos os tipos caso todas as opcões da URL (jogos, acessorios e consoles) sejam false, caso contrario traz apenas do que estiver como true), e tambem é retornado o is_jogo, is_acessorio e is_console']
             }
          },
          {
@@ -345,67 +345,6 @@ class BoxAnuncios extends Component{
             resp:null
          }
       ]
-
-      this.resp = [
-         {
-            status:200,
-            resp:{
-               tipo:"customizada",
-               customJson:{
-
-               }
-            }
-         },
-         {
-            status:400,
-            resp:null
-         },
-         {
-            status:404,
-            resp:null
-         }
-      ]
-
-      this.resp = [
-         {
-            status:200,
-            resp:{
-               tipo:"customizada",
-               customJson:{
-
-               }
-            }
-         },
-         {
-            status:400,
-            resp:null
-         },
-         {
-            status:404,
-            resp:null
-         }
-      ]
-
-      this.resp = [
-         {
-            status:200,
-            resp:{
-               tipo:"customizada",
-               customJson:{
-
-               }
-            }
-         },
-         {
-            status:400,
-            resp:null
-         },
-         {
-            status:404,
-            resp:null
-         }
-      ]
-
       //JSON's da rota de aieou ===========
    }
    

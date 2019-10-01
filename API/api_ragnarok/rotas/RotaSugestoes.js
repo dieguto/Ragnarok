@@ -66,7 +66,11 @@ const sugestoes = (termo_pesquisa, limite, callback) => {
 
       getSugestoes(termo_pesquisa, limite)
       .then(sugestoes =>{
-         callback(200, sugestoes)
+         if(sugestoes != []){
+		    callback(200, sugestoes)
+		 } else {
+			callback(404, null) 
+		 }
       })
       .catch(cod => {
          callback(cod, null);

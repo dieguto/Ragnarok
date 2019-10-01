@@ -6,6 +6,7 @@ import BoxAnuncio from './boxes/BoxAnuncio';
 import BoxAnuncios from './boxes/BoxAnuncios';
 import BoxGenero from './boxes/BoxGenero';
 import BoxConsole from './boxes/BoxConsole';
+import BoxSugestoes from './boxes/BoxSugestoes';
 
 class App extends Component {
    render() {
@@ -22,6 +23,7 @@ class App extends Component {
                <BoxAnuncios/>
                <BoxGenero/>
                <BoxConsole/>
+               <BoxSugestoes/>
 
             </div>
          </div>
