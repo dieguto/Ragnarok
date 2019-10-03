@@ -327,8 +327,8 @@ class BoxAnuncio extends Component{
             <CardRota parentAcc={ this.parentAcc } titulo='Buscar Por ID' metodo='get' 
                rota="/anuncio/:id_anuncio" jsonResp={ this.respBuscar } />
             
-            <CardRota parentAcc={ this.parentAcc } titulo='Buscar Por ID Completo - REQUER TOKEN' metodo='get' 
-               rota="/anuncio/:id_anuncio/completo" descricao={ this.descToken("buscar") } jsonResp={ this.respBuscarCompleto } />
+            <CardRota parentAcc={ this.parentAcc } titulo='Buscar Por ID Completo' metodo='get' 
+               rota="/anuncio/:id_anuncio/completo" jsonResp={ this.respBuscarCompleto } />
 
             <CardRota parentAcc={ this.parentAcc } titulo='Criar - REQUER TOKEN' metodo='post' 
                rota="/anuncio" descricao={ this.descCriar } jsonReq={ this.reqCriar } jsonResp={ this.respCriar } />
