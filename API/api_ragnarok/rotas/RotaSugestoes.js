@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const https = require('https');
+const Dt = require("../utils/DtUtils");
 
 const getHttps = (opcoes) => {
    return new Promise((resolve, reject) => {
@@ -47,6 +48,7 @@ const getSugestoes = (termo_pesquisa, limite) => {
             jogo.nome = json_sugestoes.results[i]["name"];
             jogo.slug = json_sugestoes.results[i]["slug"];
             jogo.imagem_fundo = json_sugestoes.results[i]["background_image"];
+            jogo.dt_lancamento = Dt.getDtCompleta(json_sugestoes.results[i]["released"])
 
             jogos.push(jogo);
          }

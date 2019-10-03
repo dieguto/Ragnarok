@@ -11,65 +11,69 @@ class DtUtils {
    }
 
    static getDtCompleta(data) {
+      if(data != null){
+         let array_dt_lanc = data.split("-");
 
-      let array_dt_lanc = data.split("-");
-
-      let mes = "";
-                     
-      switch (array_dt_lanc[1]) {
-         case "01":
-            mes = "Janeiro"
-            break;
+         let mes = "";
+                        
+         switch (array_dt_lanc[1]) {
+            case "01":
+               mes = "Janeiro"
+               break;
+            
+            case "02":
+               mes = "Fevereiro"
+               break;
          
-         case "02":
-            mes = "Fevereiro"
-            break;
-      
-         case "03":
-            mes = "Março"
-            break;
-      
-         case "04":
-            mes = "Abril"
-            break;
-      
-         case "05":
-            mes = "Maio"
-            break;
-      
-         case "06":
-            mes = "Junho"
-            break;
-      
-         case "07":
-            mes = "Julho"
-            break;
-      
-         case "08":
-            mes = "Agosto"
-            break;
-      
-         case "09":
-            mes = "Setembro"
-            break;
-      
-         case "10":
-            mes = "Outubro"
-            break;
-      
-         case "11":
-            mes = "Novembro"
-            break;
-      
-         case "12":
-            mes = "Dezembro"
-            break;
-      
-         default:
-            break;
-      }
+            case "03":
+               mes = "Março"
+               break;
+         
+            case "04":
+               mes = "Abril"
+               break;
+         
+            case "05":
+               mes = "Maio"
+               break;
+         
+            case "06":
+               mes = "Junho"
+               break;
+         
+            case "07":
+               mes = "Julho"
+               break;
+         
+            case "08":
+               mes = "Agosto"
+               break;
+         
+            case "09":
+               mes = "Setembro"
+               break;
+         
+            case "10":
+               mes = "Outubro"
+               break;
+         
+            case "11":
+               mes = "Novembro"
+               break;
+         
+            case "12":
+               mes = "Dezembro"
+               break;
+         
+            default:
+               break;
+         }
 
-      return array_dt_lanc[2] + " de " + mes + " de " + array_dt_lanc[0];
+         return array_dt_lanc[2] + " de " + mes + " de " + array_dt_lanc[0];
+         
+      } else {
+         return "Data Indísponivel";
+      }
    }
 
    static convMes(mes){
@@ -77,7 +81,7 @@ class DtUtils {
    }
 
    static padrao(dt_string){
-
+      
       const data  = new Date(dt_string);
 
       const dia  = this.addZero(data.getDate());
@@ -89,10 +93,11 @@ class DtUtils {
       const dt_banco = ano + "-" + mes + "-" + dia;
 
       return this.getDtCompleta(dt_banco);
+       
    }
 
    static padraoComHoras(dt_string){
-
+      
       const data = new Date(dt_string);
 
       const segundos = this.addZero(data.getSeconds());
@@ -114,6 +119,8 @@ class DtUtils {
       const dt_completa = this.getDtCompleta(dt_banco);
 
       return dt_completa + " às " + hora_completa;
+
+      
    }
 }
 
