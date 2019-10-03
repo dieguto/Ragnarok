@@ -66,13 +66,11 @@ router.get('/:id_anuncio', (req, res)=>{
 
 });
 
-router.get('/:id_anuncio/completo', Auth.verificarToken, (req, res)=>{
+router.get('/:id_anuncio/completo', (req, res)=>{
 
    const id_anuncio = parseInt(req.params.id_anuncio);
 
-   const usuario_token = req.dadosToken.usuario;
-
-   controllerAnuncio.getCompletoById(id_anuncio, usuario_token, (status, json)=>{
+   controllerAnuncio.getCompletoById(id_anuncio, (status, json)=>{
    
       if(status && json){
          res.status(status).json(json).end();

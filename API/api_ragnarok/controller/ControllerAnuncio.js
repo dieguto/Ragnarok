@@ -320,30 +320,15 @@ class ControllerAnuncio {
       });
    }
 
-   static getCompletoById(id_anuncio, usuario_token, callback){
+   static getCompletoById(id_anuncio, callback){
 
-      if(!isNaN(id_anuncio)){
-         
-         let opcoes = {};
+      if(!isNaN(id_anuncio)){   
 
-         if(usuario_token.is_admin){
-
-            opcoes = { 
-               where:{
-                     id_anuncio
-                  }
-            };
-            
-         } else {
-
-            opcoes = { 
-               where:{
-                  id_anuncio,
-                  id_usuario: usuario_token.id
+         let opcoes = { 
+            where:{
+                  id_anuncio
                }
-            };
-
-         }
+         };  
 
          this.findOneAnuncio(opcoes, "completo")
          .then((anuncio) => {
@@ -352,7 +337,6 @@ class ControllerAnuncio {
          .catch(cod => {
             callback(cod, null);
          })
-         
          
       } else {
          console.log("Por favor, digite um numero no parametro 'id'")
