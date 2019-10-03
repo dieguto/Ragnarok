@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter, Route} from 'react-router';
 
 
-import Main from './pages/Main';
+import Main from './components/Main';
 import Login from './pages/Login';
 
 export default function Routes() {

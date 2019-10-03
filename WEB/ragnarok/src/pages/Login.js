@@ -7,6 +7,7 @@ import InputFormulario from '../components/inputFormulario';
 import {useSelector, useDispatch} from 'react-redux';
 import {increment, decrement} from '../actions'
 
+import { connect } from 'react-redux';
 
 
 
@@ -104,3 +105,5 @@ export class LoginBox extends Component{
         )
     }
 }
+
+export default connect(() => ({}), () => ({}))(LoginBox)

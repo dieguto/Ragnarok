@@ -3,26 +3,24 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import App from './App';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import allReducer from './reducers';
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import {UsuarioBox} from './pages/Cadastro';
 import {AnuncioBox} from './pages/Anuncios';
 import {LoginBox} from './pages/Login';
-import Main from './pages/Main';
+import Main from './components/Main';
+import { promiseMiddleware } from './middleware'
+import store from './store';
 
-const store = createStore(
-    allReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
 
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={ browserHistory}>
+        <Router history={ hashHistory}>
             <Route path="/" component={ App } >
-                {/* <IndexRoute component={ FormularioCadastro }></IndexRoute> */}
+                <IndexRoute component={ Main }></IndexRoute>
 
                 <Route path="/cadastro" component={UsuarioBox}/>
                 <Route path="/login" component={LoginBox}/>
