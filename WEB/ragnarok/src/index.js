@@ -6,7 +6,7 @@ import App from './App';
 import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import allReducer from './reducers';
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import {UsuarioBox} from './pages/Cadastro';
 import {AnuncioBox} from './pages/Anuncios';
 import {LoginBox} from './pages/Login';
@@ -18,7 +18,7 @@ import store from './store';
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={ hashHistory}>
+        <Router history={browserHistory}>
             <Route path="/" component={ App } >
                 <IndexRoute component={ Main }></IndexRoute>
 
