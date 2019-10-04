@@ -27,16 +27,16 @@ class Main extends React.Component {
       return (
         <div className="home-page">
   
-          <Banner appName={this.props.appName} />
+          {/* <Banner appName={this.props.appName} /> */}
   
           <div className="container page">
             <div className="row">
-              <MainView />
+              {/* <MainView /> */}
   
               <div className="col-md-3">
                 <div className="sidebar">
   
-                  <p>Popular Tags</p>
+                  {/* <p>Popular Tags</p> */}
   
                 </div>
               </div>
