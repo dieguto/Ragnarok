@@ -42,8 +42,21 @@
              <div class="slide_cadastro">
                 <ion-label class="label">Selecione o jogo</ion-label>
                 <ion-item lines="none">
-                  <ion-searchbar color="primary" class="teste" placeholder="Nome"></ion-searchbar>
+                  <ion-searchbar color="primary" name="jogos" [(ngModel)]="jogos" (ionInput)="filtrarJogos()" class="teste" placeholder="Nome"></ion-searchbar>
                 </ion-item>
+
+                 <ion-radio-group allow-empty-selection>
+                    <ion-item lines="none" *ngFor="let sugestaoJogo of sugestoes_jogos">
+                        <ion-card>
+                            <img src="{{sugestaoJogo.imagem_fundo}}" />
+                            <ion-card-header>
+                              <ion-card-title>{{sugestaoJogo.nome}}</ion-card-title>
+                              <ion-card-subtitle>{{sugestaoJogo.dt_lancamento}}</ion-card-subtitle>
+                            </ion-card-header>
+                            <ion-radio slot="end" color="success" value="{{sugestaoJogo.nome}}" ></ion-radio>
+                          </ion-card>
+                      </ion-item>
+                  </ion-radio-group>             
               </div>
           </ion-slide>
           <ion-slide>
@@ -66,3 +79,4 @@
       </ion-slides>
   </form>
 </ion-content>
+
