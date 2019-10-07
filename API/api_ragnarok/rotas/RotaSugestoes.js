@@ -40,15 +40,26 @@ const getSugestoes = (termo_pesquisa, limite) => {
       getHttps(opcoes)
       .then(json_sugestoes => {
 
-         let jogos = [] 
-         
+         let jogos = [];
+
          for(let i = 0; i < json_sugestoes.results.length; i++){
             let jogo = {};
 
             jogo.nome = json_sugestoes.results[i]["name"];
             jogo.slug = json_sugestoes.results[i]["slug"];
-            jogo.imagem_fundo = json_sugestoes.results[i]["background_image"];
             jogo.dt_lancamento = Dt.getDtCompleta(json_sugestoes.results[i]["released"])
+
+            jogo.imagem_fundo = json_sugestoes.results[i].background_image;
+
+            jogo.video = null 
+
+            if(json_sugestoes.results[i].clip){
+               jogo.video = json_sugestoes.results[i].clip.clip;
+
+               if(json_sugestoes.results[i].clip.preview){
+                  jogo.preview_video = json_sugestoes.results[i].clip.preview;
+               }
+            }
 
             jogos.push(jogo);
          }

@@ -247,18 +247,12 @@ class ControllerAnuncio {
 
                info_jogo.imagem_fundo = dados_jogo.background_image;
 
-               info_jogo.imagem_fundo_adicional = null
-
-               if(dados_jogo.background_image_additional){
-                  info_jogo.imagem_fundo_adicional = dados_jogo.background_image_additional;
-               }
+               info_jogo.imagem_fundo_adicional = dados_jogo.background_image_additional;
 
                info_jogo.video = null
 
                if(dados_jogo.clip){
                   info_jogo.video = dados_jogo.clip.clip;
-
-                  info_jogo.preview_video = null;
 
                   if(dados_jogo.clip.preview){
                      info_jogo.preview_video = dados_jogo.clip.preview;
