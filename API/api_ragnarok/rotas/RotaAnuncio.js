@@ -25,8 +25,14 @@ const verificarFotosBase64 = (req, res, next) => {
                      console.log("Foto grande demais, o limite é de 3mb (3.000.000 de bytes)");
                      res.status(400).end()
       
-                  } else { 
-                     checarFoto(); 
+                  } else {
+                     
+                     if(typeof array_fotos_base64[i] != 'string'){
+                        console.log("O tipo '" + typeof array_fotos_base64[i] + "' não é permitido, o campo do JSON array_fotos_base64 deve ter todos os seus itens com o tipo 'string'")
+                        res.status(400).end()
+                     } else {
+                        checarFoto(); 
+                     }
                   }
                }
             }
