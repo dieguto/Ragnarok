@@ -88,10 +88,10 @@ class ControllerUsuario{
          
                   }).then((usuario) => {
                      //201 Criado
+                     console.log("Usuario criado com sucesso!")
                      callback(201, null);
          
                   }).catch((err) => {
-                     console.log("Erro ao criar o usuario: " + err)
                      //400 Requisição Ruim
                      callback(400, err);
                   });
@@ -332,6 +332,7 @@ class ControllerUsuario{
             usuario
             .save()
             .then(() => {
+               console.log("Usuario editado com sucesso!")
                callback(200, null);
             })
             .catch((err)=>{
@@ -380,6 +381,7 @@ class ControllerUsuario{
                            .then(() => {
                               if(i == anuncios.length){
                                  usuario.destroy();
+                                 console.log("Usuario deletado com sucesso!")
                                  callback(200, null)
                               } else {
                                  i++;
@@ -396,11 +398,13 @@ class ControllerUsuario{
 
                      } else {
                         usuario.destroy();
+                        console.log("Usuario deletado com sucesso!")
                         callback(200, null)
                      }
                   })
                   .catch(err =>{
                      usuario.destroy();
+                     console.log("Usuario deletado com sucesso!")
                      callback(200, null)
                   })
 
@@ -446,6 +450,7 @@ class ControllerUsuario{
                                  usuario
                                  .save() 
                                  .then(() => {
+                                    console.log("Usuario bloqueado com sucesso!")
                                     callback(200, null)
                                  })
                               } else {
@@ -466,13 +471,20 @@ class ControllerUsuario{
                         usuario
                         .save()
                         .then(() => {
+                           console.log("Usuario bloqueado com sucesso!")
                            callback(200, null)
                         })
                      }
                   })
                   .catch(err =>{
-                     usuario.destroy();
-                     callback(200, null)
+                     usuario.is_bloqueado = true;
+
+                     usuario
+                     .save()
+                     .then(() => {
+                        console.log("Usuario bloqueado com sucesso!")
+                        callback(200, null)
+                     })
                   })
 
                } else {

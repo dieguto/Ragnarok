@@ -46,6 +46,7 @@ class ControllerAuth{
                         usuario.is_admin = undefined;
       
                         //200 Ok
+                        console.log("Login efetuado com sucesso!")
                         callback(200, { token, usuario });
                      }
                   })

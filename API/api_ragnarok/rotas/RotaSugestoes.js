@@ -61,7 +61,54 @@ const getSugestoes = (termo_pesquisa, limite) => {
                }
             }
 
-            jogos.push(jogo);
+            let is_jogo_on_console = false;
+
+            for(let io = 0; io < json_sugestoes.results[i]["platforms"].length ; io++){
+               
+               const slug_plataforma = json_sugestoes.results[i]["platforms"][io]["platform"]["slug"];
+
+               switch (slug_plataforma) {
+                  
+                  case "playstation2":
+                     is_jogo_on_console = true;
+                     break;
+
+                  case "playstation3":
+                     is_jogo_on_console = true;
+                     break;
+                     
+                  case "playstation4":
+                     is_jogo_on_console = true;
+                     break;
+
+                  case "xbox360":
+                     is_jogo_on_console = true;
+                     break;
+
+                  case "xbox-one":
+                     is_jogo_on_console = true;
+                     break;
+
+                  case "wii":
+                     is_jogo_on_console = true;
+                     break;
+
+                  case "nintendo-3ds":
+                     is_jogo_on_console = true;
+                     break;
+
+                  case "nintendo-switch":
+                     is_jogo_on_console = true;
+                     break;
+
+                  default:
+                     break;
+               }
+            }
+
+            if(is_jogo_on_console){
+               jogos.push(jogo);
+            }
          }
 
          resolve(jogos);

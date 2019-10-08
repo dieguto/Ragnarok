@@ -1158,6 +1158,7 @@ class ControllerAnuncio {
 
             this.createAnuncio(anuncio_json, array_fotos_base64)
             .then(() => {
+               console.log("Anuncio criado com sucesso!")
                callback(201, null)
             })
             .catch((json) => {
@@ -1315,6 +1316,7 @@ class ControllerAnuncio {
             if(anuncio){
                this.putAnuncio(anuncio_put, anuncio)
                .then(() => {
+                  console.log("Anuncio editado com sucesso!")
                   callback(200, null)
                })
                .catch(json => {
@@ -1339,6 +1341,7 @@ class ControllerAnuncio {
 
             this.putAnuncio(anuncio_put, anuncio)
             .then(() => {
+               console.log("Anuncio editado com sucesso!")
                callback(200, null)
             })
             .catch(json => {
@@ -1365,6 +1368,7 @@ class ControllerAnuncio {
                if(anuncio){
                   this.deleteAnuncio(anuncio)
                   .then(() => {
+                     console.log("Anuncio deletado com sucesso!")
                      callback(200, null)
                   })
                   .catch(cod => {
@@ -1388,6 +1392,7 @@ class ControllerAnuncio {
                
                this.deleteAnuncio(anuncio)
                .then(() => {
+                  console.log("Anuncio deletado com sucesso!")
                   callback(200, null)
                })
                .catch(cod => {
