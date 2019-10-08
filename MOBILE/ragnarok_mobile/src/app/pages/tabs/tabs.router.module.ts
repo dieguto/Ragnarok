@@ -28,12 +28,12 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'cadastro-anuncio',
+        path: 'cadastro-jogo',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../cadastro-anuncio/cadastro-anuncio.module').then(m => m.CadastroAnuncioPageModule)
+              import('../cadastro-jogo/cadastro-jogo.module').then(m => m.CadastroJogoPageModule)
           }
         ]
       },

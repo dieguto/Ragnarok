@@ -5,13 +5,13 @@ export class Console{
 
     constructor(data: any){
         if(data){
-            this.id_console = data.id;
+            this.id_console = data.id_console;
             this.nome = data.nome;
         }
     }
 
     toString(){
-        return this.nome;
+        return this.nome, this.id_console;
     }
 
 }

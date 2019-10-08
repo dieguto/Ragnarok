@@ -13,21 +13,20 @@ import {Plugins, CameraResultType, CameraSource} from '@capacitor/core';
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
-
-
-
 @Component({
-  selector: 'app-cadastro-anuncio',
-  templateUrl: './cadastro-anuncio.page.html',
-  styleUrls: ['./cadastro-anuncio.page.scss', '../classes_padrao_scss/formatacao.scss'],
+  selector: 'app-cadastro-jogo',
+  templateUrl: './cadastro-jogo.page.html',
+  styleUrls: ['./cadastro-jogo.page.scss',  '../classes_padrao_scss/formatacao.scss'],
 })
-export class CadastroAnuncioPage implements OnInit {
+export class CadastroJogoPage implements OnInit {
+
   @ViewChild(IonSearchbar, {static:false}) ionSearchBar: IonSearchbar;
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
   @ViewChild(IonItem, {static:false}) ionItem: IonItem;
   
 
   jogos: String;
+  fotos_base64: String[];
   anuncio: Anuncio;
   generos: Genero[];
   consoles: Console[];
@@ -95,6 +94,8 @@ export class CadastroAnuncioPage implements OnInit {
       source: CameraSource.Camera
     });
 
+    this.fotos_base64.push(imagem.dataUrl);
+
     this.foto = this.sanitizer.bypassSecurityTrustResourceUrl(imagem && (imagem.dataUrl));
 
    }
@@ -106,15 +107,11 @@ export class CadastroAnuncioPage implements OnInit {
       // alert(typeof this.foto);
       // alert(this.foto);
       console.log(this.anuncio);
-      const result = await this.cadastroAnuncioService.criarAnuncio(this.anuncio, this.foto);
+      const result = await this.cadastroAnuncioService.criarAnuncio(this.anuncio, this.fotos_base64);
       console.log(this.anuncio);
       console.log(result);
     } catch (error) {
       console.log(error); 
     }
    }
-
-   
 }
-
-
