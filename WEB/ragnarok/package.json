@@ -11,6 +11,8 @@
     "pubsub-js": "^1.7.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-gesture-gallery": "^1.1.0",
+    "react-gesture-responder": "^2.1.0",
     "react-global-state-lib": "^1.0.1",
     "react-globally": "^1.1.0",
     "react-icons": "^3.7.0",
