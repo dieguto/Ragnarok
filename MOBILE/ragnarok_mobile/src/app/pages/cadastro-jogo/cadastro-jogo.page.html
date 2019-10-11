@@ -1,8 +1,10 @@
 <ion-header>
   <ion-toolbar>
-  <ion-icon size="large" class="next" (click)="slides.slideNext()"  name="arrow-round-forward"></ion-icon>
-    <ion-title>Cadastrar produto</ion-title>
-  <ion-icon size="large" class="prev" (click)="slides.slidePrev()" name="arrow-round-back"></ion-icon>
+    <div class="kkk">
+    <ion-icon size="large" class="next" (click)="slides.slideNext()"  name="arrow-round-forward"></ion-icon>
+    <ion-title >Cadastrar produto</ion-title>
+    <ion-icon size="large" class="prev" (click)="slides.slidePrev()" name="arrow-round-back"></ion-icon>
+    </div>
   </ion-toolbar>
 </ion-header>
 <ion-content style="--overflow: hidden;">
@@ -91,7 +93,8 @@
            <ion-slide>
              <div class="slide_cadastro">
               <ion-card>
-                <img  [src]="foto">
+                  <img src="{{imagens}}"/>
+                <ion-input formControlName="array_fotos_base64" name="array_fotos_base64" type="text" value="{{base_64}}" style="visibility:hidden;" ></ion-input>
               </ion-card>
               <ion-card>
                   <ion-button>
