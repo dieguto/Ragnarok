@@ -1,22 +1,18 @@
-import { applyMiddleware, createStore } from 'redux';
-import { promiseMiddleware } from './middleware';
-
-const defaultState = {
-    appName : 'Ragnarok',
-    anuncios : 'null'
-}
-
-const reducer = function(state = defaultState, action){
-    switch(action.type){
-        case 'HOME_PAGE_LOADED':
-            return { ...state, anuncios: action.payload.anuncios}
-    }
-
-    return state;
-}
+import { applyMiddleware, createStore, combineReducers } from 'redux';
+import { promiseMiddleware, localStorageMiddleware } from './middleware';
+import auth from './reducers/auth';
+import common from './reducers/common';
+import home from './reducers/home';
 
 
-const middleware = applyMiddleware(promiseMiddleware);
+const reducer = combineReducers({
+    auth,
+    common,
+    home
+});
+
+
+const middleware = applyMiddleware(promiseMiddleware, localStorageMiddleware);
 
 const store = createStore(reducer, middleware);
 

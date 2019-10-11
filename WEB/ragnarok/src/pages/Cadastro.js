@@ -4,7 +4,6 @@ import $ from 'jquery';
 import TrataErros from '../TrataErros';
 import PubSub from 'pubsub-js';
 import './css/Cadastro.css';
-import api from '../services/api'
 import Cleave from 'cleave.js/dist/cleave-react';
 
 

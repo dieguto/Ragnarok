@@ -24,7 +24,7 @@ const MainView = props => {
       </div>
 
       <AnuncioList
-        articles={props.articles} 
+        anuncios={props.anuncios} 
       />
     </div>
   );
