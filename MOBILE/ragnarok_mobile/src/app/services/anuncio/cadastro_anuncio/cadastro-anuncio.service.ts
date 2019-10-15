@@ -42,7 +42,7 @@ export class CadastroAnuncioService {
       id_console: anuncio.id_console,
       slug_jogo_troca: anuncio.slug_jogo_troca,
       preco: anuncio.preco,
-      array_fotos_base64: fotos
+      array_fotos_base64: [fotos]
     }).toPromise();
   }
 }

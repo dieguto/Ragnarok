@@ -3,6 +3,17 @@
     font-family: stoke;
 }
 
+$height100: 100%;
+
+ion-grid {
+    width:100%;
+    height: $height100;
+    // background: #dfdfdf;
+}
+
+ion-row {
+    height: $height100;
+}
 
 ion-content{
     ion-slides{

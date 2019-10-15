@@ -1,8 +1,7 @@
 <ion-content>
-      <ion-slides name="slides">
+      <ion-slides ion-fixed  name="slides">
         <ion-slide>
-          <div class="slide-inner ion-padding">
-            <span>Login</span>
+          <div  class="slide-inner ion-padding">
             <form [formGroup]="formFazerLogin" (ngSubmit)="login()">
                 <ion-label class="label">Email:</ion-label>
               <ion-item class="ion-margin-top" lines="none">
@@ -23,8 +22,6 @@
     
         <ion-slide>
             <div class="slide-inner ion-padding">
-                <span>Cadastro</span>
-            
               <form [formGroup]="formCriarUsuario" (ngSubmit)="criarUsuario()" >     
                   <ion-label class="label">Nome:</ion-label>
                     <ion-item class="ion-margin-top" lines="none">

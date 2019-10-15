@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, IonSearchbar, IonList, IonItem } from '@ionic/angular';
+import { IonSlides, IonSearchbar, IonList, IonItem, IonImg } from '@ionic/angular';
 
 import {Console} from '../../services/anuncio/consoles/console.class';
 import {ConsoleService} from '../../services/anuncio/consoles/console.service';
@@ -23,6 +23,7 @@ export class CadastroJogoPage implements OnInit {
   @ViewChild(IonSearchbar, {static:false}) ionSearchBar: IonSearchbar;
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
   @ViewChild(IonItem, {static:false}) ionItem: IonItem;
+  @ViewChild(IonImg, {static:false})  ionImg: IonImg;
   
 
   jogos: String;
@@ -32,6 +33,8 @@ export class CadastroJogoPage implements OnInit {
   consoles: Console[];
   sugestoes_jogos: SugestoesJogo[];
   foto: SafeResourceUrl;
+  imagens: String;
+  base_64: String;
   slideOpts: any = {allowTouchMove: false};
   public formCriarAnuncio : FormGroup;
 
@@ -53,6 +56,7 @@ export class CadastroJogoPage implements OnInit {
         slug_jogo_troca:[null, Validators.required],
         preco:[null, Validators.required],
         descricao:[null, Validators.required],
+        array_fotos_base64:[null, Validators.required]
       })
 
      }
@@ -65,11 +69,15 @@ export class CadastroJogoPage implements OnInit {
     
   }
 
+  // proxima pagina
   proximo(){
     return this.slides.slideNext();
    }
 
+
+  //  filtrando jogo
   filtrarJogos(){
+
     console.log(this.ionSearchBar.value);
 
     if(this.ionSearchBar.value == ""){
@@ -86,32 +94,37 @@ export class CadastroJogoPage implements OnInit {
       }
    }
 
+
+  //  Tirando foto
    async tirarFoto(){
     const imagem = await Plugins.Camera.getPhoto({
       quality:100,
       allowEditing:false,
-      resultType: CameraResultType.DataUrl,
+      resultType: CameraResultType.Base64,
       source: CameraSource.Camera
     });
 
-    this.fotos_base64.push(imagem.dataUrl);
+    this.base_64 = imagem.base64String;
+    this.imagens = "data:image/jpeg;base64,"+ imagem.base64String;
 
-    this.foto = this.sanitizer.bypassSecurityTrustResourceUrl(imagem && (imagem.dataUrl));
-
+    // this.ionImg.src = this.imagens;
    }
 
    async criarAnuncio(){
+  
+
     try {
       this.anuncio = this.formCriarAnuncio.value;
-
       // alert(typeof this.foto);
       // alert(this.foto);
+      
       console.log(this.anuncio);
-      const result = await this.cadastroAnuncioService.criarAnuncio(this.anuncio, this.fotos_base64);
+      const result = await this.cadastroAnuncioService.criarAnuncio(this.anuncio, this.anuncio.array_fotos_base64);
       console.log(this.anuncio);
       console.log(result);
     } catch (error) {
-      console.log(error); 
+      console.log(error);
     }
+
    }
 }

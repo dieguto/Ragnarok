@@ -25,6 +25,9 @@
 }
 
 
+[ion-fixed] {
+    min-height: calc(100% - 98px); // adjust to your footer height!
+}
 
 
 ion-slides{
