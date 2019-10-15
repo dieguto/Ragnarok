@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 
 import './index.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -20,7 +20,7 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={ App } >
-                <Route path="/" component={ Main }/>
+                <IndexRoute path="/" component={ Main }/>
 
                 <Route path="/cadastro" component={UsuarioBox}/>
                 <Route path="/login" component={Login}/>
