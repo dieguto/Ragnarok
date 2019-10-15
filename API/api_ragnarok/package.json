@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon App.js",
     "sql": " reset_fotos.bat >nul && node config/AtualizarBanco.js",
+    "sql-linux": "rm -rf fotos/* && cp -rf bkp/fotos/* fotos/ && node config/AtualizarBanco.js",
     "clean-project": "clean_node_modules.bat >nul",
+    "clean-project-linux": "rm -rf node_modules && rm -rf package-lock.json",
     "rebuild-project": "npm install"
   },
   "author": "Nois",

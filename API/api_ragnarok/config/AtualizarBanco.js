@@ -18,13 +18,14 @@ const con = mysql.createConnection({
    host: 'localhost',
    user: 'root',
    password: 'bcd127',
+   port: 3306,
    multipleStatements: true
 });
 
 con.connect(err =>{
    if(err){
       console.log("Erro ao se conectar: " + err);
-      
+
    } else {
       console.log("Conectado!");
 
@@ -33,7 +34,7 @@ con.connect(err =>{
       con.query(sql, function (err, results, fields) {
          if (err) {
             console.log("Erro ao atualizar o banco: " + err);
-   
+
          } else {
             console.log("Banco atualizado com sucesso!")
          }
@@ -42,7 +43,3 @@ con.connect(err =>{
 
    con.end()
 });
-
-
-
-
