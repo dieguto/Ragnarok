@@ -100,13 +100,14 @@ export class CadastroJogoPage implements OnInit {
     const imagem = await Plugins.Camera.getPhoto({
       quality:100,
       allowEditing:false,
-      resultType: CameraResultType.Base64,
+      resultType: CameraResultType.Uri,
       source: CameraSource.Camera
     });
 
-    this.base_64 = imagem.base64String;
-    this.imagens = "data:image/jpeg;base64,"+ imagem.base64String;
-
+    this.base_64 = imagem.dataUrl;
+    alert(this.base_64);
+    // this.imagens = "data:image/jpeg;base64,"+ imagem.base64String;
+    this.imagens = imagem.webPath;
     // this.ionImg.src = this.imagens;
    }
 
@@ -115,6 +116,10 @@ export class CadastroJogoPage implements OnInit {
 
     try {
       this.anuncio = this.formCriarAnuncio.value;
+
+      // var a = this.anuncio.array_fotos_base64;
+
+      // var b = a.split(" ", 3);
       // alert(typeof this.foto);
       // alert(this.foto);
       
