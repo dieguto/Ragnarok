@@ -10,73 +10,77 @@
   </ion-header>
 <ion-content>
   <!-- IonSlides Pai -->
-    <ion-slides  [options]="slideOpts">
-<!-- Ion Slide -->
-        <ion-slide>
-          <!-- IonCard Neto -->
-            <ion-card >
-              <!-- IonSlides Bisneto -->
-              <ion-slides pager="true">
-                <!-- Ionslide tataraneto -->
+  <ion-grid justify-content-center>
+    <ion-col  align-self-center size-md="6" size-lg="5" size-xs="12">
+      <ion-slides  [options]="slideOpts">
+        <!-- Ion Slide -->
                 <ion-slide>
-                    <ion-img src="../../../assets/God-of-War.jpg"> </ion-img>
+                  <!-- IonCard Neto -->
+                    <ion-card >
+                      <!-- IonSlides Bisneto -->
+                      <ion-slides pager="true">
+                        <!-- Ionslide tataraneto -->
+                        <ion-slide>
+                            <ion-img src="../../../assets/God-of-War.jpg"> </ion-img>
+                        </ion-slide>
+                        <ion-slide>
+                            <video controls>
+                              <source src="https://media.rawg.io/media/stories-640/9e3/9e368f91cacbaf255ccb8d23d5874f06.mp4" type="video/mp4">
+                            </video>
+                        </ion-slide>
+                      </ion-slides>
+                        <ion-card-header>
+                            <ion-card-title>God of War</ion-card-title>
+                          <ion-card-subtitle>PS4</ion-card-subtitle>
+                        </ion-card-header>             
+                        <ion-card-content>
+                          <p>
+                              Keep close to Nature's heart... and break clear away, once in awhile,
+                              and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                          </p>
+                        </ion-card-content>
+                      </ion-card>
+                    <div class="caixa_botao"> 
+                        <ion-button size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
+                        <ion-button size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
+                        <ion-button size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
+                    </div>
+                      
                 </ion-slide>
                 <ion-slide>
-                    <video autoplay loop>
-                      <source src="https://media.rawg.io/media/stories-640/9e3/9e368f91cacbaf255ccb8d23d5874f06.mp4" type="video/mp4">
-                    </video>
-                </ion-slide>
+                    <!-- IonCard Neto -->
+                      <ion-card >
+                        <!-- IonSlides Bisneto -->
+                        <ion-slides pager="true">
+                          <!-- Ionslide tataraneto -->
+                          <ion-slide>
+                              <ion-img src="../../../assets/dishonored.jpg"> </ion-img>
+                          </ion-slide>
+                          <ion-slide>
+                              <video controls>
+                                <source src="https://media.rawg.io/media/stories/f55/f55ece49b52e7b82aef96843f914a307.mp4" type="video/mp4">
+                              </video>
+                          </ion-slide>
+                        </ion-slides>
+                          <ion-card-header>
+                              <ion-card-title>God of War</ion-card-title>
+                            <ion-card-subtitle>PS4</ion-card-subtitle>
+                          </ion-card-header>             
+                          <ion-card-content>
+                            <p>
+                                Keep close to Nature's heart... and break clear away, once in awhile,
+                                and climb a mountain or spend a week in the woods. Wash your spirit clean.
+                            </p>
+                          </ion-card-content>
+                        </ion-card>
+                        <div class="caixa_botao"> 
+                            <ion-button size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
+                            <ion-button size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
+                            <ion-button size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
+                        </div>
+                  </ion-slide>
               </ion-slides>
-                <ion-card-header>
-                    <ion-card-title>God of War</ion-card-title>
-                  <ion-card-subtitle>PS4</ion-card-subtitle>
-                </ion-card-header>             
-                <ion-card-content>
-                  <p>
-                      Keep close to Nature's heart... and break clear away, once in awhile,
-                      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-                  </p>
-                </ion-card-content>
-              </ion-card>
-            <div class="caixa_botao"> 
-                <ion-button size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
-                <ion-button size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
-                <ion-button size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
-            </div>
-              
-        </ion-slide>
-        <ion-slide>
-            <!-- IonCard Neto -->
-              <ion-card >
-                <!-- IonSlides Bisneto -->
-                <ion-slides pager="true">
-                  <!-- Ionslide tataraneto -->
-                  <ion-slide>
-                      <ion-img src="../../../assets/dishonored.jpg"> </ion-img>
-                  </ion-slide>
-                  <ion-slide>
-                      <video autoplay loop>
-                        <source src="https://media.rawg.io/media/stories/f55/f55ece49b52e7b82aef96843f914a307.mp4" type="video/mp4">
-                      </video>
-                  </ion-slide>
-                </ion-slides>
-                  <ion-card-header>
-                      <ion-card-title>God of War</ion-card-title>
-                    <ion-card-subtitle>PS4</ion-card-subtitle>
-                  </ion-card-header>             
-                  <ion-card-content>
-                    <p>
-                        Keep close to Nature's heart... and break clear away, once in awhile,
-                        and climb a mountain or spend a week in the woods. Wash your spirit clean.
-                    </p>
-                  </ion-card-content>
-                </ion-card>
-                <div class="caixa_botao"> 
-                    <ion-button size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
-                    <ion-button size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
-                    <ion-button size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
-                </div>
-          </ion-slide>
-      </ion-slides>
+    </ion-col>
+  </ion-grid>
 
 </ion-content>
