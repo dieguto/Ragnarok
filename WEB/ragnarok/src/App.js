@@ -4,6 +4,7 @@ import './App.css';
 import './css/pure-min.css';
 import './css/bootstrap.min.css';
 import agent from './agent';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
@@ -54,8 +55,8 @@ class App extends Component{
 }
 
 App.contextTypes = {
-    router: React.PropTypes.object.isRequired
-  };
+  router: PropTypes.object.isRequired
+};
   
 export default connect(mapStateToProps, mapDispatchToProps)(App);
   
