@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router';
 import { GiBrutalHelm } from 'react-icons/gi';
 
 const LoggedOutView = props => {

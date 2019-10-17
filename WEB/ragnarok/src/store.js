@@ -17,4 +17,4 @@ const middleware = applyMiddleware(promiseMiddleware, localStorageMiddleware);
 const store = createStore(reducer, middleware);
 
 
-export default store;
+export default store; 
