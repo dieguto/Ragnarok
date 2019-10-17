@@ -1,7 +1,9 @@
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import { Router, Route, BrowserRouter, IndexRoute} from 'react-router-dom';
+import {browserHistory} from 'react-router';
+
 
 import './index.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -18,16 +20,16 @@ import store from './store';
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <BrowserRouter history={browserHistory}>
             <Route path="/" component={ App } >
-                <IndexRoute path="/" component={ Main }/>
+                <Route  component={ Main }/>
 
                 <Route path="/cadastro" component={UsuarioBox}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/usuario/:id" component={Main} />
                 <Route path="/anuncios" component={AnuncioBox} />
             </Route>
-        </Router>
+        </BrowserRouter>
     </Provider>
 , 
 document.getElementById('root'));
