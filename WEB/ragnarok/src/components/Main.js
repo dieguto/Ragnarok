@@ -77,7 +77,7 @@ class Main extends React.Component {
                 <div className="sidebar">
   
                   {/* <p>Popular Tags</p> */}
-  
+                  <h1>teste</h1>
                 </div>
               </div>
             </div>

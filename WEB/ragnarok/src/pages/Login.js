@@ -13,7 +13,7 @@ import InputFormulario from '../components/inputFormulario';
 const mapStateToProps = state => ({ ...state.auth});
 
 const mapDispatchToProps = dispatch => ({
-    onChangeEmail: value =>
+  onChangeEmail: value =>
     dispatch({ type: 'UPDATE_FIELD_AUTH', key: 'email', value }),
   onChangePassword: value =>
     dispatch({ type: 'UPDATE_FIELD_AUTH', key: 'senha', value }),
