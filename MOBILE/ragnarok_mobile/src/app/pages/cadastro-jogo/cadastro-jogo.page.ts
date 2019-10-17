@@ -25,7 +25,7 @@ export class CadastroJogoPage implements OnInit {
   @ViewChild(IonItem, {static:false}) ionItem: IonItem;
   @ViewChild(IonImg, {static:false})  ionImg: IonImg;
   
-
+  
   jogos: String;
   fotos_base64: String[];
   anuncio: Anuncio;
@@ -33,8 +33,8 @@ export class CadastroJogoPage implements OnInit {
   consoles: Console[];
   sugestoes_jogos: SugestoesJogo[];
   foto: SafeResourceUrl;
-  imagens: String;
-  base_64: String;
+  // imagens: String;
+  base_64: string;
   slideOpts: any = {allowTouchMove: false};
   public formCriarAnuncio : FormGroup;
 
@@ -100,14 +100,19 @@ export class CadastroJogoPage implements OnInit {
     const imagem = await Plugins.Camera.getPhoto({
       quality:100,
       allowEditing:false,
-      resultType: CameraResultType.Uri,
-      source: CameraSource.Camera
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Camera,
+      saveToGallery: false
     });
 
     this.base_64 = imagem.dataUrl;
-    alert(this.base_64);
+
+    // alert(JSON.stringify(this.base_64));
+    //alert(this.base_64);
     // this.imagens = "data:image/jpeg;base64,"+ imagem.base64String;
-    this.imagens = imagem.webPath;
+    this.foto = this.sanitizer.bypassSecurityTrustResourceUrl(imagem && (imagem.dataUrl));
+
+    
     // this.ionImg.src = this.imagens;
    }
 
@@ -116,18 +121,16 @@ export class CadastroJogoPage implements OnInit {
 
     try {
       this.anuncio = this.formCriarAnuncio.value;
-
-      // var a = this.anuncio.array_fotos_base64;
-
-      // var b = a.split(" ", 3);
-      // alert(typeof this.foto);
-      // alert(this.foto);
-      
       console.log(this.anuncio);
-      const result = await this.cadastroAnuncioService.criarAnuncio(this.anuncio, this.anuncio.array_fotos_base64);
+      const result = await this.cadastroAnuncioService.criarAnuncio(this.anuncio, this.base_64);
       console.log(this.anuncio);
       console.log(result);
+
+      alert(result)
+      alert(JSON.stringify(result));
     } catch (error) {
+      alert(error);
+      alert(JSON.stringify(error));
       console.log(error);
     }
 

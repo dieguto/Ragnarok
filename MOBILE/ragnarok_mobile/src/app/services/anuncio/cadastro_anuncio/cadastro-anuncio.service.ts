@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Anuncio } from './anuncio.class';
+import {Storage} from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -10,26 +11,37 @@ export class CadastroAnuncioService {
 
   url =  environment.url;
  
-  constructor(private http: HttpClient) { }
+ 
+  constructor(private http: HttpClient, private storage:Storage) { }
 
-  criarAnuncio(anuncio: Anuncio, fotos){
+  async criarAnuncio(anuncio: Anuncio, fotos){
 
-    console.log({
-      titulo: anuncio.titulo,
-      descricao: anuncio.descricao,
-      is_jogo:true,
-      slug_jogo: anuncio.slug_jogo,
-      id_genero: anuncio.id_genero,
-      id_console_troca: anuncio.id_console_troca,
-      slug_jogo_troca: anuncio.slug_jogo_troca,
-      preco: anuncio.preco,
-      array_fotos_base64: fotos
-    });
+    alert(JSON.stringify(
+      {
+        titulo: anuncio.titulo,
+        descricao: anuncio.descricao,
+        is_jogo:true,
+        slug_jogo: anuncio.slug_jogo,
+        id_genero: anuncio.id_genero,
+        id_console_troca: anuncio.id_console_troca,
+        slug_jogo_troca: anuncio.slug_jogo_troca,
+        preco: anuncio.preco,
+        array_fotos_base64: [fotos]
+      }
+    ));
 
-    console.log(typeof fotos);
+    const TOKEN_KEY = 'access_token';
+    const token = await this.storage.get(TOKEN_KEY);
+    alert(token);
 
-    console.log(fotos);
 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Accept": 'application/json',
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
 
 
     return this.http.post<Anuncio>(`${this.url}/anuncio`,{
@@ -43,6 +55,6 @@ export class CadastroAnuncioService {
       slug_jogo_troca: anuncio.slug_jogo_troca,
       preco: anuncio.preco,
       array_fotos_base64: [fotos]
-    }).toPromise();
+    }, httpOptions).toPromise();
   }
 }
