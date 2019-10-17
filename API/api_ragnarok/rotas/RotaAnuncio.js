@@ -20,20 +20,28 @@ const verificarFotosBase64 = (req, res, next) => {
                if(i == array_fotos_base64.length){
                   next();
                } else {
-                  if(array_fotos_base64[i].length > 3000000){
+                  if(array_fotos_base64[i]){
+
+                     if(array_fotos_base64[i].length > 3000000){
    
-                     console.log("Foto grande demais, o limite é de 3mb (3.000.000 de bytes)");
-                     res.status(400).end()
-      
-                  } else {
-                     
-                     if(typeof array_fotos_base64[i] != 'string'){
-                        console.log("O tipo '" + typeof array_fotos_base64[i] + "' não é permitido, o campo do JSON array_fotos_base64 deve ter todos os seus itens com o tipo 'string'")
+                        console.log("Foto grande demais, o limite é de 3mb (3.000.000 de bytes)");
                         res.status(400).end()
+         
                      } else {
-                        checarFoto(); 
+                        
+                        if(typeof array_fotos_base64[i] != 'string'){
+                           console.log("O tipo '" + typeof array_fotos_base64[i] + "' não é permitido, o campo do JSON array_fotos_base64 deve ter todos os seus itens com o tipo 'string'")
+                           res.status(400).end()
+                        } else {
+                           checarFoto(); 
+                        }
                      }
+
+                  } else {
+                     console.log("Todas as fotos devem ser validas, não podem ser null")
+                     res.status(400).end()
                   }
+                  
                }
             }
                
