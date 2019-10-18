@@ -98,7 +98,7 @@ export class CadastroJogoPage implements OnInit {
   //  Tirando foto
    async tirarFoto(){
     const imagem = await Plugins.Camera.getPhoto({
-      quality:100,
+      quality:50,
       allowEditing:false,
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera,
@@ -106,10 +106,6 @@ export class CadastroJogoPage implements OnInit {
     });
 
     this.base_64 = imagem.dataUrl;
-
-    // alert(JSON.stringify(this.base_64));
-    //alert(this.base_64);
-    // this.imagens = "data:image/jpeg;base64,"+ imagem.base64String;
     this.foto = this.sanitizer.bypassSecurityTrustResourceUrl(imagem && (imagem.dataUrl));
 
     

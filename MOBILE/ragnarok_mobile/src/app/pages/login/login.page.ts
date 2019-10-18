@@ -37,6 +37,7 @@ export class LoginPage implements OnInit {
       senha:[null, Validators.required]
     })
     
+
   }
 
   ngOnInit() {

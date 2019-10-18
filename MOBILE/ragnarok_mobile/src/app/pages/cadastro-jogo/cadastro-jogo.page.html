@@ -1,15 +1,20 @@
 <ion-header>
   <!-- <ion-toolbar> -->
     <div class="kkk">
-    <ion-icon size="large" class="next" (click)="slides.slideNext()"  name="arrow-round-forward"></ion-icon>
+      <ion-button class="next" (click)="slides.slideNext()">
+          <ion-icon size="large" name="arrow-round-forward"></ion-icon>
+      </ion-button>
+    
     <ion-title >Cadastrar produto</ion-title>
-    <ion-icon size="large" class="prev" (click)="slides.slidePrev()" name="arrow-round-back"></ion-icon>
+    <ion-button class="prev" (click)="slides.slidePrev()">
+    <ion-icon size="large"  name="arrow-round-back"></ion-icon>
+    </ion-button>
     </div>
   <!-- </ion-toolbar> -->
 </ion-header>
-<ion-content style="--overflow: hidden;">
+<ion-content >
   <form [formGroup]="formCriarAnuncio" (ngSubmit)="criarAnuncio()">
-              <ion-slides >
+              <ion-slides ion-fixed >
                 <ion-slide>
                     <div class="slide_cadastro" >
                       <!-- titulo do jogo -->
