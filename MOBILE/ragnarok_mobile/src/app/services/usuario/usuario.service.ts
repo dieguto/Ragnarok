@@ -10,6 +10,7 @@ import { Platform, AlertController } from '@ionic/angular';
 
 
 const TOKEN_KEY = 'access_token';
+const USUARIO_KEY = "usuario"
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,7 @@ export class UsuarioService {
         return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
           tap(res =>{
             this.storage.set(TOKEN_KEY, res['token']);
+            this.storage.set(USUARIO_KEY, res['usuario']);
             this.usuario = this.helper.decodeToken(res['token']);
             this.authenticationState.next(true);
           }),

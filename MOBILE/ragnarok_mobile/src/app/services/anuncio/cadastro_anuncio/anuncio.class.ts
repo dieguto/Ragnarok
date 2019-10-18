@@ -1,3 +1,5 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 export class Anuncio {
     titulo:String;
     descricao:String;
@@ -9,6 +11,10 @@ export class Anuncio {
     slug_jogo_troca:String;
     preco:Number;
     array_fotos_base64:[String];
+    info_rawg:string;
+    jogo:string;
+    c_fotos:string;
+
 
     constructor(data: any){
         if(data){
@@ -23,10 +29,14 @@ export class Anuncio {
             this.slug_jogo_troca = data.slug_jogo_troca;
             this.preco = data.preco;
             this.array_fotos_base64 = data.array_fotos_base64;
+            this.info_rawg = data.info_rawg;
+            this.jogo = data.jogo;
+            this.c_fotos = data.c_fotos;
+            
         }
     }
 
     toString(){
-        return this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
+        return  this.c_fotos, this.jogo, this.info_rawg, this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
     }
 }

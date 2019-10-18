@@ -1,5 +1,5 @@
 <ion-content>
-      <ion-slides pager="false"  name="slides">
+      <ion-slides [options]="slideOpts"  name="slides">
         <ion-slide>
           <div  class="slide-inner ion-padding">
             <form [formGroup]="formFazerLogin" (ngSubmit)="login()">
