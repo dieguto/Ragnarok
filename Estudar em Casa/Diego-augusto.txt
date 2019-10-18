@@ -22,6 +22,14 @@ https://thinkster.io/tutorials/react-redux-jwt-authentication
 https://codepen.io/damianmuti/pen/OgBWej
 https://codepen.io/suez/pen/ByvKXE
 
+https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
+https://codepen.io/gaearon/pen/yzMaBd
+https://pt-br.reactjs.org/docs/portals.html
+https://medium.com/collabcode/react-patterns-come%C3%A7ando-pelo-render-props-e0040ef723ce
+https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
+
+
+https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
 
 
 

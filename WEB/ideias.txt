@@ -1,3 +1,5 @@
 https://codepen.io/ettrics/pen/WRbGRN
 https://codepen.io/goodkatz/pen/LYPGxQz
 https://codepen.io/hexagoncircle/pen/jgGxKR
+
+https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
