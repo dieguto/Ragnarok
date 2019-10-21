@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
 
-   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(99999, 1);
+   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(10, 1);
 
    for(let anuncio of this.anuncios){
      console.log(anuncio);
@@ -32,32 +32,35 @@ export class HomePage implements OnInit {
     //console.log(JSON.stringify(json_info_rawg));
     //console.log(typeof json_info_rawg.jogo[nome_campo]);
 
-    console.log("meu tipo é: " + typeof JSON.stringify(json_info_rawg));
+    console.log("meu tipo é: " + typeof json_info_rawg);
     console.log("meu valor é: " + JSON.stringify(json_info_rawg));
     
     var aaa = JSON.stringify(json_info_rawg);
 
     console.log("a comparação é: " + aaa == 'null');
     
-    if(JSON.stringify(json_info_rawg) === null){
+    if(json_info_rawg == null){
       return false;
 
     } else {
-      return this.isNullOuUnd(json_info_rawg.jogo[nome_campo]);
+      var teste = json_info_rawg.jogo[nome_campo];
+      return !(teste == null);
     }
 
   }
 
   isNullOuUnd(campo){
-    return this.isUndefined(campo) || this.isNull(campo)
+    var teste = this.isNull(campo);
+    return teste;
+    // return this.isNull(campo);
   }
 
-  isUndefined(campo){
-    return typeof campo === "undefined";
-  }
+ 
 
   isNull(campo){
-    return typeof campo !== "string";
+    var teste = campo == null;
+    return teste;
+    // return typeof campo !== "string";
   }
   slideOpts: any = {allowTouchMove: false};
 

@@ -14,6 +14,7 @@ export class Anuncio {
     info_rawg:string;
     jogo:string;
     c_fotos:string;
+    distancia:String;
 
 
     constructor(data: any){
@@ -32,11 +33,12 @@ export class Anuncio {
             this.info_rawg = data.info_rawg;
             this.jogo = data.jogo;
             this.c_fotos = data.c_fotos;
+            this.distancia = data.distancia;
             
         }
     }
 
     toString(){
-        return  this.c_fotos, this.jogo, this.info_rawg, this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
+        return this.distancia, this.c_fotos, this.jogo, this.info_rawg, this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
     }
 }
