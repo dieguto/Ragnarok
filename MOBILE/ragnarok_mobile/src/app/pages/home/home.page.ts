@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, IonRange } from '@ionic/angular';
 import {Anuncio} from '../../services/anuncio/cadastro_anuncio/anuncio.class';
 import {CadastroAnuncioService} from '../../services/anuncio/cadastro_anuncio/cadastro-anuncio.service';
 import { environment } from 'src/environments/environment';
@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 export class HomePage implements OnInit {
 
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
+  @ViewChild(IonRange, { static: false }) ionRange: IonRange;
+
   anuncios: Anuncio[];
   url =  environment.url;
 
@@ -19,26 +21,48 @@ export class HomePage implements OnInit {
   }
 
   async ngOnInit() {
+    
+   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(1, 1);
 
-   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(10, 1);
-
-   for(let anuncio of this.anuncios){
-     console.log(anuncio);
-   }
+  //  for(let anuncio of this.anuncios){
+  //    console.log(anuncio);
+  //  }
   }
 
+filtrar_km(){
+   let a = this.ionRange.value;
+
+  //  a = a - 1;
+   console.log(typeof this.ionRange.value);
+  //  alert(a);
+
+   this.cadastroAnuncioService.buscarTodosHome(a, 1).then(anuncio => {
+    
+    console.log(anuncio);
+     this.anuncios = anuncio;
+    
+   
+  });
+
+  
+  this.slides.slidePrev();
+  this.slides.slidePrev();
+  this.slides.slidePrev();
+  this.slides.slidePrev();
+
+  this.slides.slidePrev();
+  this.slides.slidePrev();
+  this.slides.slidePrev();
+
+  }
+
+
+
+
+  
+  
+
   verificarCampo(json_info_rawg, nome_campo){
-    
-    //console.log(JSON.stringify(json_info_rawg));
-    //console.log(typeof json_info_rawg.jogo[nome_campo]);
-
-    console.log("meu tipo é: " + typeof json_info_rawg);
-    console.log("meu valor é: " + JSON.stringify(json_info_rawg));
-    
-    var aaa = JSON.stringify(json_info_rawg);
-
-    console.log("a comparação é: " + aaa == 'null');
-    
     if(json_info_rawg == null){
       return false;
 

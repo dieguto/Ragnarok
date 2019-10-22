@@ -9,12 +9,12 @@
     </ion-toolbar>
   </ion-header>
 <ion-content>
-    <ion-item>
-      <ion-range min="1" max="100" pin color="secondary">
-        <ion-icon slot="start" size="small" name="contrast"></ion-icon>
-        <ion-icon slot="end" name="contrast"></ion-icon>
+    <!-- <ion-item> -->
+      <ion-range (ionChange)="filtrar_km()" min="1" max="9999" pin color="secondary">
+        <ion-icon slot="start" size="small" name="pin"></ion-icon>
+        <ion-icon slot="end" name="pin"></ion-icon>
       </ion-range>
-    </ion-item>
+    <!-- </ion-item> -->
   <!-- IonSlides Pai -->
   <ion-grid justify-content-center>
     <ion-col  align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -57,9 +57,9 @@
                             </ion-card-content>
                           </ion-card>
                           <div class="caixa_botao"> 
-                              <ion-button size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
-                              <ion-button size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
-                              <ion-button size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
+                              <ion-button shape='round' size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
+                              <ion-button shape='round' size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
+                              <ion-button shape='round' size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
                           </div>
                     </ion-slide>
               </ion-slides>

@@ -88,6 +88,7 @@ export class CadastroJogoPage implements OnInit {
          .then(jogos => {
            if(this.ionSearchBar.value != ""){
             this.sugestoes_jogos = jogos;
+            console.log(jogos)
            }
           
          });
