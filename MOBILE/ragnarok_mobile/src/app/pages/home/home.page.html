@@ -23,6 +23,15 @@
                   <ion-slide *ngFor=" let anuncio of anuncios">
                       <!-- IonCard Neto -->
                         <ion-card >
+                            <ion-card-header style="background-color: #333; height: 10%; max-height: 10%; min-height: 10%;">
+                            <ion-card-subtitle style="float: left;">{{anuncio.distancia}}</ion-card-subtitle>
+                              <div style="float: left;  margin-left: 85%; margin-top: -10%;">
+                                  <ion-button  class="inf"  >
+                                      <ion-icon class="inf" name="information-circle"></ion-icon>
+                                  </ion-button>
+                              </div>
+
+                            </ion-card-header>
                           <!-- IonSlides Bisneto -->
                           <ion-slides pager="true">
                             <!-- Ionslide tataraneto -->
@@ -41,26 +50,27 @@
                                 <ion-img src="{{url}}/{{foto}}"> </ion-img>
                             </ion-slide>
                           </ion-slides>
-                            <ion-card-header>
-                                <ion-card-title >
-                                    {{anuncio.titulo}}
-                                  </ion-card-title>
-                                      <ion-card-title *ngIf="verificarCampo(anuncio.info_rawg, 'nome')">
-                                          {{anuncio.info_rawg.jogo.nome}}
-                                        </ion-card-title>
-                              <ion-card-subtitle>{{anuncio.distancia}}</ion-card-subtitle>
+                            <ion-card-header style="background-color: #333; height: 22%; max-height: 22%; min-height: 22%;">
+                                <ion-card-title *ngIf="verificarCampo(anuncio.info_rawg, 'nome')">
+                                    {{anuncio.info_rawg.jogo.nome}} 
+                                </ion-card-title>
+                                <ion-card-title *ngIf="!verificarCampo(anuncio.info_rawg, 'nome')">
+                                  {{anuncio.titulo}} 
+                              </ion-card-title>
+                              <div style=" height: 30%; max-height: 20%; min-height: 20%;">
+                                <ion-card-subtitle  *ngIf="verificarCampo(anuncio.info_rawg, 'nome')">
+                                  Nota Geral: {{anuncio.info_rawg.jogo.nota_geral}}
+                              </ion-card-subtitle>
+                              </div>
                             </ion-card-header>             
-                            <ion-card-content>
-                              <p>
-                                {{anuncio.descricao}}
-                              </p>
-                            </ion-card-content>
+                            <ion-card-header style="background-color: #333;height: 20%; max-height: 20%; min-height: 20%;">
+                                <div class="caixa_botao"> 
+                                    <ion-button shape='round' size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
+                                    <ion-button shape='round' size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
+                                    <ion-button shape='round' size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
+                                </div>
+                            </ion-card-header>  
                           </ion-card>
-                          <div class="caixa_botao"> 
-                              <ion-button shape='round' size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
-                              <ion-button shape='round' size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
-                              <ion-button shape='round' size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
-                          </div>
                     </ion-slide>
               </ion-slides>
     </ion-col>

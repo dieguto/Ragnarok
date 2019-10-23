@@ -5,16 +5,17 @@ export class Anuncio {
     descricao:String;
     is_jogo:boolean;
     slug_jogo:String;
-    id_genero:Number;
-    id_console_troca:Number;
-    id_console:Number;
+    id_genero:String;
+    id_console_troca:String;
+    id_console:String;
     slug_jogo_troca:String;
-    preco:Number;
+    preco:number;
     array_fotos_base64:[String];
     info_rawg:string;
     jogo:string;
     c_fotos:string;
     distancia:String;
+   
 
 
     constructor(data: any){

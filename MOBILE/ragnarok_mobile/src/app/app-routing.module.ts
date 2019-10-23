@@ -12,7 +12,12 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'},
   {path:'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule'},
   { path: 'cadastro-anuncio', loadChildren: './pages/cadastro-anuncio/cadastro-anuncio.module#CadastroAnuncioPageModule' },
-  { path: 'cadastro-jogo', loadChildren: './pages/cadastro-jogo/cadastro-jogo.module#CadastroJogoPageModule' }
+  { path: 'cadastro-jogo', loadChildren: './pages/cadastro-jogo/cadastro-jogo.module#CadastroJogoPageModule' },
+  { path: 'selecao-tipo-anuncio', loadChildren: './pages/selecao-tipo-anuncio/selecao-tipo-anuncio.module#SelecaoTipoAnuncioPageModule' }
+
+
+
+
 
 ];
 @NgModule({

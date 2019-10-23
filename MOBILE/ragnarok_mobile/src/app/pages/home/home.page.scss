@@ -21,17 +21,12 @@ ion-content{
         --bar-background:#222;
         --color:#f39c12;
         --knob-background:#f39c12;
+        border-bottom:solid 1px #f39c12;
+        height: 10%;
 
 
 
     }
-
-    .a{
-        height: 50%;
-        width: 50%;
-        background: radial-gradient(circle closest-side,#f00 0%,#f00 98%,rgba(0,0,0,0) 100%);
-    }
-
 
     ion-slides{
         width: 100%;
@@ -41,12 +36,12 @@ ion-content{
         ion-slide{
 
             width: 100%;
-            height: 100%;
+            height: 82%;
 
             ion-card{
-                margin-top: -60%;
+                // margin-top: -10%;
                 width: 95%;
-                height: 60%;
+                height: 100%;
                 // border: solid 3px #f39c12;
              
                 ion-slides{
@@ -74,6 +69,53 @@ ion-content{
                     ion-card-title{
                         --color: #f39c12;
                     }
+
+                    ion-card-subtitle{
+                        // height: 10%;
+                    }
+
+                    .inf{
+                        // --float: left;
+                        --border-color:none;
+                        --box-shadow: none;
+                        --border-style:none;
+                        --position: absolute;
+                        --height: 10%;
+                        --width: 10%;
+                        --background: none;
+
+                    }
+
+                    .caixa_botao{
+                        width: 90%;
+                        height: inherit;
+                        // background-color: #989aa2;
+                   
+                        
+                        
+                        margin-left: auto;
+                        --border-color: #f39c12;
+                        margin-right: auto;
+                        margin-top: -8%;
+                        // border-radius: 50%;
+        
+                        ion-button{
+                            --background:#333;
+                            width: 70px;
+                            height:70px;
+                            border: solid 1px #f39c12;
+                            border-radius: 50%;
+                            // --border: none;
+                            // --border: solid 2px #f39c12;
+                            // --background: radial-gradient(circle closest-side,#333 0%,#333 98%,rgba(0,0,0,0) 100%);
+                            // margin-top: 20%;
+                            margin-left: 5%;
+                            // margin-right: 5%;
+                            --box-shadow:3px 3px 3px rgba(0,0,0,.14)
+                    
+                            //  , 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+                        }
+                    }
                 }
 
                 ion-card-content{
@@ -84,39 +126,12 @@ ion-content{
     
             }
 
-            .caixa_botao{
-                width: 100%;
-                height: 20%;
-                // background-color: white;
-                float: left;
-                margin-top: 45%;
-                position: absolute;
-                margin-left: -6%;
-                // margin-left: auto;
-                // margin-right: auto;
-            }
+
         }
 
     }
 
-    ion-button{
-        // position: absolute;
-        // float: left;
-        margin-left: 10%;
-        --background:#333;
-        // --background-color:#f39c12;
-        width: 70px;
-        height:70px;
-        --border-radius: 50%;
-        // border-radius: 50%;
-        // clip-path: circle(50% at 50% 50%);
-        --border: none;
-        // --background: radial-gradient(circle closest-side,#333 0%,#333 98%,rgba(0,0,0,0) 100%);
-        margin-top: -10%;
-        --box-shadow:3px 3px 3px rgba(0,0,0,.14)
 
-        //  , 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-    }
 
     ion-icon{
         color:#f39c12;

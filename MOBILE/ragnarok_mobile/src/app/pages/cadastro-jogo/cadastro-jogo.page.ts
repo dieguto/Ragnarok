@@ -113,6 +113,22 @@ export class CadastroJogoPage implements OnInit {
     // this.ionImg.src = this.imagens;
    }
 
+   async galeria(){
+    const imagem = await Plugins.Camera.getPhoto({
+      quality:50,
+      allowEditing:false,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Photos,
+      saveToGallery: false
+    });
+
+    this.base_64 = imagem.dataUrl;
+    this.foto = this.sanitizer.bypassSecurityTrustResourceUrl(imagem && (imagem.dataUrl));
+
+    
+    // this.ionImg.src = this.imagens;
+   }
+
    async criarAnuncio(){
   
 

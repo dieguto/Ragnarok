@@ -7,26 +7,7 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      {
-        path: 'tab1',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-          }
-        ]
-      },
-      {
-        path: 'tab2',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-              import('../tab2/tab2.module').then(m => m.Tab2PageModule)
-          }
-        ]
-      },
+
       {
         path: 'cadastro-jogo',
         children: [
@@ -34,6 +15,16 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../cadastro-jogo/cadastro-jogo.module').then(m => m.CadastroJogoPageModule)
+          }
+        ]
+      },
+      {
+        path: 'selecao-tipo-anuncio',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../selecao-tipo-anuncio/selecao-tipo-anuncio.module').then(m => m.SelecaoTipoAnuncioPageModule)
           }
         ]
       },
@@ -49,14 +40,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: 'home',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/home',
+    redirectTo: '../home/home.module',
     pathMatch: 'full'
   }
 ];

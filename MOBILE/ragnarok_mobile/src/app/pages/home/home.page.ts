@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
 
   async ngOnInit() {
     
-   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(1, 1);
+   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(10, 1);
 
   //  for(let anuncio of this.anuncios){
   //    console.log(anuncio);
