@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+label{
+    margin-top: 20px;
+}
+
+.btn-cadastro{
+    margin-top: 30px;
+    width: 150px;
+    background-color: #333333;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    text-align: center;
+}
+
+.btn-cadastro:hover{
+    color: #f39c12;
+}
+
+.btn-confirmar{
+    width: 150px;
+    height: 60px;
+    background-color: #333333;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    text-align: center;
+}
+
+.btn-confirmar:hover{
+    color: #f39c12;
+}
+
+body{
+    background-color: #222222;
+}
+
+header{
+    background-color:#333333;
+    width: 100%; 
+    height: 50px; 
+    font-size: 25px;
+    color: #f39c12;
+    position: fixed;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#menu-cover{
+    width: 100%;
+    height: 50px;
+}
+
+#caixa-logo{
+    width: 80%;
+    height: inherit;
+    float: left;
+    color: #f39c12;
+}
+
+#caixa_botao{
+    width: 20%;
+    height: inherit;
+    float: left;
+}
+
+.botoes-header{
+    background-color: #f39c12;
+}
+
+#container{
+    width: 90%;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+#container-anuncios{
+    width: inherit;
+    height: auto;
+    min-height: 500px;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+#container-cadastro-anuncio{
+    width: 50%;
+    height: auto;
+    min-height: 500px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+#feed{
+    width: 70%;
+    height: auto;
+    min-height: inherit;
+    overflow: hidden;
+    margin-right: 5%;
+    float: left;
+    background-color: #333333;
+    padding: 30px;
+}
+
+#mais-populares{
+    width: 25%;
+    height: auto;
+    min-height: 300px;
+    overflow: hidden;
+    background-color: #333333;
+    float: left;
+}
+
+
+footer{
+    color: white; 
+    background-color: #333333; 
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+
+/* Slider */
+
+/*jssor slider loading skin spin css*/
+.jssorl-009-spin img {
+    animation-name: jssorl-009-spin;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes jssorl-009-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/*jssor slider bullet skin 111 css*/
+.jssorb111 .i {position:absolute;color:#fff;font-family:"Helvetica neue",Helvetica,Arial,sans-serif;text-align:center;cursor:pointer;z-index:0;}
+.jssorb111 .i .n {display:none;}
+.jssorb111 .i .b {fill:#fff;stroke:#000;stroke-width:500;stroke-miterlimit:10;stroke-opacity:.5;}
+.jssorb111 .i:hover .b {fill:#fea900;stroke:#fea900;stroke-width:6000;stroke-opacity:1;}
+.jssorb111 .iav .b {fill:#000;stroke-width:6000;stroke-opacity:1;}
+.jssorb111 .i.idn {opacity:.3;}
+.jssorb111 .iav .n, .jssorb111 .i:hover .n {display:block;}
+
+/*jssor slider thumbnail skin 121 css*/
+.jssort121 .p {position:absolute;top:0;left:0;border-bottom:1px solid rgba(255,255,255,.2);box-sizing:border-box;color:#fff;background:rgba(0,0,0,.1);opacity:.7;}
+.jssort121 .p .t {position:absolute;padding:10px;box-sizing:border-box;top:0;left:0;width:100%;height:100%;line-height:24px;overflow:hidden;}
+.jssort121 .p .i {margin-right:10px;position:relative;top:0;left:0;width:96px;height:48px;border:none;float:left;}
+.jssort121 .pav, .jssort121 .p:hover {color:#000;background:rgba(255,255,255,.7);}
+.jssort121 .p:hover {opacity:.75;}
+.jssort121 .pav, .jssort121 .p:hover.pdn {opacity:1;}
+.jssort121 .ti {position:relative;font-size:14px;font-weight:bold;}
+.jssort121 .d {position:relative;font-size:12px;}
+/*.jssort121 .d:before {content:'\a';white-space:pre;}*/
