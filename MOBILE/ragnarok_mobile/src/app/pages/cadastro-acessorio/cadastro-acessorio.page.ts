@@ -12,12 +12,13 @@ import {Plugins, CameraResultType, CameraSource} from '@capacitor/core';
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
+
 @Component({
-  selector: 'app-cadastro-jogo',
-  templateUrl: './cadastro-jogo.page.html',
-  styleUrls: ['./cadastro-jogo.page.scss',  '../classes_padrao_scss/formatacao.scss'],
+  selector: 'app-cadastro-acessorio',
+  templateUrl: './cadastro-acessorio.page.html',
+  styleUrls: ['./cadastro-acessorio.page.scss',  '../classes_padrao_scss/formatacao.scss'],
 })
-export class CadastroJogoPage implements OnInit {
+export class CadastroAcessorioPage implements OnInit {
 
   @ViewChild(IonSearchbar, {static:false}) ionSearchBar: IonSearchbar;
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
@@ -147,4 +148,5 @@ export class CadastroJogoPage implements OnInit {
     }
 
    }
+
 }

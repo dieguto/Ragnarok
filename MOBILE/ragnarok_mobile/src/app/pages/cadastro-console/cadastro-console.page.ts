@@ -13,11 +13,11 @@ import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-cadastro-jogo',
-  templateUrl: './cadastro-jogo.page.html',
-  styleUrls: ['./cadastro-jogo.page.scss',  '../classes_padrao_scss/formatacao.scss'],
+  selector: 'app-cadastro-console',
+  templateUrl: './cadastro-console.page.html',
+  styleUrls: ['./cadastro-console.page.scss' ,  '../classes_padrao_scss/formatacao.scss'],
 })
-export class CadastroJogoPage implements OnInit {
+export class CadastroConsolePage implements OnInit {
 
   @ViewChild(IonSearchbar, {static:false}) ionSearchBar: IonSearchbar;
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
@@ -147,4 +147,5 @@ export class CadastroJogoPage implements OnInit {
     }
 
    }
+
 }

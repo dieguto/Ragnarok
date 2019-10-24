@@ -19,6 +19,26 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'cadastro-console',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../cadastro-console/cadastro-console.module').then(m => m.CadastroConsolePageModule)
+          }
+        ]
+      },
+      {
+        path: 'cadastro-acessorio',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../cadastro-acessorio/cadastro-acessorio.module').then(m => m.CadastroAcessorioPageModule)
+          }
+        ]
+      },
+      {
         path: 'selecao-tipo-anuncio',
         children: [
           {

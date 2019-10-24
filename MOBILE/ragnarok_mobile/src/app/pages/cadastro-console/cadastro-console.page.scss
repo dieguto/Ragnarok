@@ -1,0 +1,196 @@
+
+
+    
+    ion-header{
+        height: 9.5%;
+        width: 100%;
+        background: #333;
+
+        .kkk{
+            height: inherit;
+            width: inherit;
+            background: #333;
+
+            ion-title{
+                --color:#f39c12 ;
+                // --margin-left:50%;
+                text-align: center;
+                margin-top:5%;
+                width: 70%;
+                margin-left: 15%;
+            }
+
+            .next{
+                position: absolute;
+                margin-left: 80%;
+                margin-top: -1%;
+                color:#f39c12 ;
+                --background: none;
+                --box-shadow: none;
+                // justify-content: flex-end
+            }
+            .prev{
+                margin-left: 1%;
+                position: absolute;
+                margin-top: -7.5%;
+                // background: #f39c12;
+                color:#f39c12 ;
+                --background: none;
+                --box-shadow: none;
+            }
+        }
+        }
+
+        ion-slides{
+            height: 100%;
+            width: 100%;
+    
+            .slide_busca{
+                height:551.2px;
+                width:100%;
+                overflow:auto;
+    
+                .slide_cadastro{
+                    width: 100%;
+                    height: 95%;
+                    margin-top: -5%;
+                    overflow:auto;
+        
+        
+                    .label{
+                        color: #f39c12;
+                        // border-bottom: solid 1px #f39c12;
+                    }
+        
+                    ion-item{
+                        --background:#222;
+                        margin-bottom: 10%;
+                        border-bottom: solid 1px #f39c12;
+                        // --border-radius: 10px;
+        
+        
+        
+                        .label_produtos{
+                            color:#a2a4ab;
+                        }
+        
+                        ion-select{
+                            color: #f39c12;
+                            ion-select-option{
+        
+                            }
+        
+                        }
+        
+                        .teste{
+                            --background:#f39c12;
+                            --color:#f39c12;
+                        }
+        
+                        ion-card-title{
+                            --color:#f39c12;
+                        }
+        
+                        ion-radio{
+                            --color-checked:#f39c12;
+                        }
+        
+        
+                    }
+        
+        
+        
+                    
+                }
+            }
+            
+            .slide_cadastro{
+                width: 100%;
+                height: 95%;
+                margin-top: 10%;
+    
+    
+                .label{
+                    color: #f39c12;
+                    // border-bottom: solid 1px #f39c12;
+                }
+    
+                ion-item{
+                    --background:#222;
+                    margin-bottom: 10%;
+                    border-bottom: solid 1px #f39c12;
+                    // --border-radius: 10px;
+    
+                    ion-input{
+                        --background: #222;
+                        --color:white;
+                        --placeholder-color:white;
+                        text-align: center;
+    
+                    }
+    
+                    ion-textarea{
+                        --background: #222;
+                        --color:white;
+                        --placeholder-color:white;
+                         text-align: center;
+                    }
+    
+                    .label_produtos{
+                        color:#a2a4ab;
+                    }
+    
+                    ion-select{
+                        color: #f39c12;
+                        ion-select-option{
+    
+                        }
+    
+                    }
+    
+                    .teste{
+                        --background:#f39c12;
+                        --color:#f39c12;
+                    }
+    
+                    ion-card-title{
+                        --color:#f39c12;
+                    }
+    
+                    ion-radio{
+                        --color-checked:#f39c12;
+                    }
+    
+    
+                }
+    
+    
+    
+                
+            }
+        }
+
+
+        // .md{
+        //     ion-header{
+        //         height: 5%;
+        //         width: 100%;
+        //         }
+        //         .next{
+        //             margin-top:-0.5%;
+        //             --background: #f39c12;
+        //             margin-left: 85%;
+        //             // margin-left: 80%;
+        //         }
+            
+        //         .prev{
+        //             margin-top:-9.5%;
+        //             // margin-left: -90%;
+        //             --background: #f39c12;
+        //             margin-left: 0%;
+        //             position: absolute;
+        //         }
+        // }
+
+
+    

@@ -5,37 +5,48 @@
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-title>
+      Selecione o tipo de Anuncio
+    </ion-title>
+  </ion-item>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card>
-        <ion-card-title>
-            Jogos
-        </ion-card-title>
-        <ion-button href="/tabs/cadastro-jogo" >
-            <ion-icon name="logo-game-controller-b"></ion-icon>
-        </ion-button>
+        <ion-card routerLink="/tabs/cadastro-jogo">
+            <ion-card-header>
+                <ion-card-title style="--color:#f39c12">
+                    Jogo 
+                </ion-card-title>
+             </ion-card-header>
+            <img  src="../../assets/gears.jpg" >
         </ion-card>
         
       </ion-col>
     </ion-row>
     <ion-row>
         <ion-col>
-           <ion-card>
-              <ion-card-title>
-                  Acessorios 
+           <ion-card routerLink="/tabs/cadastro-acessorio">
+           <ion-card-header>
+              <ion-card-title style="--color:#f39c12">
+                  Acessorio
               </ion-card-title>
+           </ion-card-header>
+              <img src="../../assets/acessorio.jpg" >
           </ion-card>
         </ion-col>
     </ion-row>
     <ion-row>
         <ion-col>
-          <ion-card>
-              <ion-card-title>
-                  Consoles
-              </ion-card-title>
-          </ion-card>    
-        </ion-col>
+            <ion-card routerLink="/tabs/cadastro-console" >
+            <ion-card-header>
+               <ion-card-title style="--color:#f39c12">
+                   Console
+               </ion-card-title>
+            </ion-card-header>
+               <img src="../../assets/nitendo.jpg" >
+           </ion-card>
+         </ion-col>
       </ion-row>
   </ion-grid>     
 </ion-content>

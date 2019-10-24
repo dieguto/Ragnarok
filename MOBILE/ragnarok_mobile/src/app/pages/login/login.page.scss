@@ -10,10 +10,6 @@
         top: -5%;
     }
 
-    img{
-        width: 50%;
-        height: 50%;
-    }
      ion-segment{
         --color-checked:#f39c12;
         --border-style:#f39c12;
@@ -31,7 +27,7 @@
 
 
 ion-slides{
-    height: 92%;
+    height: 92vh;
 
 
         span{
@@ -50,7 +46,7 @@ ion-slides{
 
 
     .slide-inner{
-        width: 75%;
+        width: 75vw;
         color: white;
         background-color: #333;
         border-radius: 10px;
@@ -85,7 +81,7 @@ ion-slides{
         left: 0;
         right: 0;
         z-index: 2;
-        width: 100%;
+        width: 100vw;
         margin: 0 auto;
         
     
@@ -107,7 +103,7 @@ ion-slides{
         ion-segment-button{
             --border-style:none;	
             --margin-top: 2%;
-            --heigth:5%;
+            --heigth:5vw;
             --border-width:1.3px;
 
             // --background-checked:#f39c12;
@@ -132,7 +128,7 @@ ion-slides{
 
         .teste{
             height: 40px;
-            width: 100%;
+            width: 100vw;
         }
 
         ion-segment:active{
@@ -141,7 +137,7 @@ ion-slides{
             --background-checked:#f39c12;
             opacity: 1;
             transition: 0.3s;
-            height: 5%;
+            height: 5vh;
             // --font-size: 815px;
         }
     
@@ -158,6 +154,6 @@ ion-slides{
 
 
     ion-slides{
-        height: 90%;
+        height: 90vh;
     }
   }

@@ -22,26 +22,27 @@ ion-content{
         --color:#f39c12;
         --knob-background:#f39c12;
         border-bottom:solid 1px #f39c12;
-        height: 10%;
+        height: 10vh;
 
 
 
     }
 
     ion-slides{
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 70vh;
       
         // border: solid 1% #f39c12;
         ion-slide{
 
-            width: 100%;
-            height: 82%;
+            width: 100vw;
+            height: 70vh;
 
             ion-card{
-                // margin-top: -10%;
-                width: 95%;
-                height: 100%;
+                // margin-top: -15vh;
+                width: 98vw;
+                height: 68vh;
+                background-color: #333; 
                 // border: solid 3px #f39c12;
              
                 ion-slides{
@@ -66,6 +67,10 @@ ion-content{
                 }
     
                 ion-card-header{
+                    background-color: #333; 
+                    --height: 35vh; 
+                    // max-height: 35vh; 
+                    // min-height: 35vh;
                     ion-card-title{
                         --color: #f39c12;
                     }
@@ -80,38 +85,35 @@ ion-content{
                         --box-shadow: none;
                         --border-style:none;
                         --position: absolute;
-                        --height: 10%;
-                        --width: 10%;
+                        --height: 10vh;
+                        --width: 10vw;
                         --background: none;
 
                     }
 
                     .caixa_botao{
-                        width: 90%;
+                        width: 50vh;
                         height: inherit;
-                        // background-color: #989aa2;
-                   
-                        
-                        
-                        margin-left: auto;
+                        // background-color: #989aa2;     
+                        margin-left: -1vh;
                         --border-color: #f39c12;
-                        margin-right: auto;
-                        margin-top: -8%;
+                        // margin-right: 25vh;
+                        // margin-top: -15.5vh;
                         // border-radius: 50%;
         
                         ion-button{
                             --background:#333;
-                            width: 70px;
-                            height:70px;
+                            width: 60px;
+                            height:60px;
                             border: solid 1px #f39c12;
-                            border-radius: 50%;
+                            border-radius: 50vh;
                             // --border: none;
                             // --border: solid 2px #f39c12;
                             // --background: radial-gradient(circle closest-side,#333 0%,#333 98%,rgba(0,0,0,0) 100%);
                             // margin-top: 20%;
-                            margin-left: 5%;
+                            margin-left: 2vh;
                             // margin-right: 5%;
-                            --box-shadow:3px 3px 3px rgba(0,0,0,.14)
+                            // --box-shadow:3px 3px 3px rgba(0,0,0,.14)
                     
                             //  , 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
                         }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+// import { ActivatedRoute } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class SelecaoTipoAnuncioPage implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
 
@@ -22,9 +23,6 @@ export class SelecaoTipoAnuncioPage implements OnInit {
   
 
 
-  abrirPagina(nomeDaPagina: string){
-     
-      this.route.snapshot.paramMap.get(nomeDaPagina);
-  }
+
 
 }

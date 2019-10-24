@@ -1,3 +1,4 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <ion-header>
     <ion-toolbar>
       <ion-title>
@@ -16,16 +17,16 @@
       </ion-range>
     <!-- </ion-item> -->
   <!-- IonSlides Pai -->
-  <ion-grid justify-content-center>
-    <ion-col  align-self-center size-md="6" size-lg="5" size-xs="12">
+  <!-- <ion-grid justify-content-center> -->
+    <!-- <ion-col  align-self-center size-md="6" size-lg="5" size-xs="12"> -->
       <ion-slides  [options]="slideOpts">
         <!-- Ion Slide -->
                   <ion-slide *ngFor=" let anuncio of anuncios">
                       <!-- IonCard Neto -->
                         <ion-card >
-                            <ion-card-header style="background-color: #333; height: 10%; max-height: 10%; min-height: 10%;">
+                            <ion-card-header style="background-color: #333; height: 10vh; max-height: 10vh; min-height: 10vh;">
                             <ion-card-subtitle style="float: left;">{{anuncio.distancia}}</ion-card-subtitle>
-                              <div style="float: left;  margin-left: 85%; margin-top: -10%;">
+                              <div style="float: left;  margin-left: 40vh; margin-top: -5vh;">
                                   <ion-button  class="inf"  >
                                       <ion-icon class="inf" name="information-circle"></ion-icon>
                                   </ion-button>
@@ -44,36 +45,45 @@
                                 <ion-slide *ngIf="verificarCampo(anuncio.info_rawg, 'video')">
                                     <video controls>
                                       <source src="{{anuncio.info_rawg.jogo.video}}" type="video/mp4">
+                                        <!-- <source src="anuncio.info_rawg.jogo.imagem_fundo_adicional" type="video/jpg"> -->
                                     </video>
                                 </ion-slide>
                             <ion-slide *ngFor="let foto of anuncio.c_fotos">
                                 <ion-img src="{{url}}/{{foto}}"> </ion-img>
                             </ion-slide>
                           </ion-slides>
-                            <ion-card-header style="background-color: #333; height: 22%; max-height: 22%; min-height: 22%;">
+                            <ion-card-header >
                                 <ion-card-title *ngIf="verificarCampo(anuncio.info_rawg, 'nome')">
                                     {{anuncio.info_rawg.jogo.nome}} 
                                 </ion-card-title>
                                 <ion-card-title *ngIf="!verificarCampo(anuncio.info_rawg, 'nome')">
-                                  {{anuncio.titulo}} 
-                              </ion-card-title>
-                              <div style=" height: 30%; max-height: 20%; min-height: 20%;">
+                                  {{anuncio.titulo}}                               
+                                </ion-card-title>
+                              <div >
                                 <ion-card-subtitle  *ngIf="verificarCampo(anuncio.info_rawg, 'nome')">
                                   Nota Geral: {{anuncio.info_rawg.jogo.nota_geral}}
                               </ion-card-subtitle>
                               </div>
-                            </ion-card-header>             
-                            <ion-card-header style="background-color: #333;height: 20%; max-height: 20%; min-height: 20%;">
+
+                              <!-- <ion-card-header style="background-color: #333;height: 30vh; max-height: 30vh; min-height: 30vh;"> -->
                                 <div class="caixa_botao"> 
                                     <ion-button shape='round' size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
                                     <ion-button shape='round' size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
                                     <ion-button shape='round' size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
                                 </div>
-                            </ion-card-header>  
+                            <!-- </ion-card-header>   -->
+                            </ion-card-header>            
+                            <!-- <ion-card-header style="background-color: #333;height: 30vh; max-height: 30vh; min-height: 30vh;">
+                                <div class="caixa_botao"> 
+                                    <ion-button shape='round' size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
+                                    <ion-button shape='round' size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
+                                    <ion-button shape='round' size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
+                                </div>
+                            </ion-card-header>   -->
                           </ion-card>
                     </ion-slide>
               </ion-slides>
-    </ion-col>
-  </ion-grid>
+    <!-- </ion-col> -->
+  <!-- </ion-grid> -->
 
 </ion-content>

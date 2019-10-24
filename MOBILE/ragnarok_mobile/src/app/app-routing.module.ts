@@ -11,9 +11,11 @@ const routes: Routes = [
   { path: 'home', loadChildren: './pages/home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'},
   {path:'tabs', loadChildren: './pages/tabs/tabs.module#TabsPageModule'},
-  { path: 'cadastro-anuncio', loadChildren: './pages/cadastro-anuncio/cadastro-anuncio.module#CadastroAnuncioPageModule' },
   { path: 'cadastro-jogo', loadChildren: './pages/cadastro-jogo/cadastro-jogo.module#CadastroJogoPageModule' },
-  { path: 'selecao-tipo-anuncio', loadChildren: './pages/selecao-tipo-anuncio/selecao-tipo-anuncio.module#SelecaoTipoAnuncioPageModule' }
+  { path: 'selecao-tipo-anuncio', loadChildren: './pages/selecao-tipo-anuncio/selecao-tipo-anuncio.module#SelecaoTipoAnuncioPageModule' },
+  { path: 'cadastro-console', loadChildren: './pages/cadastro-console/cadastro-console.module#CadastroConsolePageModule' },
+  { path: 'cadastro-acessorio', loadChildren: './pages/cadastro-acessorio/cadastro-acessorio.module#CadastroAcessorioPageModule' }
+
 
 
 

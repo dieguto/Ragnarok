@@ -4,6 +4,7 @@ export class Anuncio {
     titulo:String;
     descricao:String;
     is_jogo:boolean;
+    is_console:boolean;
     slug_jogo:String;
     id_genero:String;
     id_console_troca:String;
@@ -24,6 +25,7 @@ export class Anuncio {
             this.titulo = data.titulo;
             this.descricao = data.descricao;
             this.is_jogo = data.is_jogo;
+            this.is_console = data.is_console;
             this.slug_jogo = data.slug_jogo;
             this.id_genero = data.id_genero;
             this.id_console = data.id_console;
@@ -40,6 +42,6 @@ export class Anuncio {
     }
 
     toString(){
-        return this.distancia, this.c_fotos, this.jogo, this.info_rawg, this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
+        return  this.is_console, this.distancia, this.c_fotos, this.jogo, this.info_rawg, this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
     }
 }
