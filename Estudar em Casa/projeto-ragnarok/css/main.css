@@ -4,6 +4,40 @@
     box-sizing: border-box;
 }
 
+input{
+    margin-bottom: 10px;
+}
+
+label{
+    margin-top: 20px;
+}
+
+.btn-cadastro{
+    margin-top: 30px;
+    width: 150px;
+    background-color: #333333;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    text-align: center;
+}
+
+.btn-cadastro:hover{
+    color: #f39c12;
+}
+
+.btn-confirmar{
+    width: 150px;
+    height: 60px;
+    background-color: #333333;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    text-align: center;
+}
+
+.btn-confirmar:hover{
+    color: #f39c12;
+}
+
 body{
     background-color: #222222;
 }
@@ -57,6 +91,17 @@ header{
     min-height: 500px;
     overflow: hidden;
     margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+#container-cadastro-anuncio{
+    width: 50%;
+    height: auto;
+    min-height: 500px;
+    overflow: hidden;
+    margin-top: 30px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 30px;
