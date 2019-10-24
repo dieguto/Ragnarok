@@ -25,15 +25,12 @@
     <div id="container">
 
         <!-- INICIO SLIDER -->
-        <div id="jssor_1"
-            style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
+        <div id="jssor_1">
             <!-- Loading Screen -->
-            <div data-u="loading" class="jssorl-009-spin"
-                style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
+            <div data-u="loading" id="jssorl-009-spin">
+                <img src="img/spin.svg" />
             </div>
-            <div data-u="slides"
-                style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+            <div data-u="slides" id="slides">
                 <div>
                     <img data-u="image" src="img/022.jpg" />
                     <div data-u="thumb">
@@ -132,21 +129,17 @@
                 </div>
             </div>
             <!-- Thumbnail Navigator -->
-            <div data-u="thumbnavigator" class="jssort121"
-                style="position:absolute;left:0px;top:0px;width:268px;height:380px;overflow:hidden;cursor:default;"
-                data-autocenter="2" data-scale-left="0.75">
+            <div data-u="thumbnavigator" class="jssort121" data-autocenter="2" data-scale-left="0.75">
                 <div data-u="slides">
-                    <div data-u="prototype" class="p" style="width:268px;height:68px;">
+                    <div data-u="prototype" class="p">
                         <div data-u="thumbnailtemplate" class="t"></div>
                     </div>
                 </div>
             </div>
             <!-- Bullet Navigator -->
-            <div data-u="navigator" class="jssorb111" style="position:absolute;bottom:12px;right:12px;"
-                data-scale="0.5">
-                <div data-u="prototype" class="i" style="width:24px;height:24px;font-size:12px;line-height:24px;">
-                    <svg viewbox="0 0 16000 16000"
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;">
+            <div data-u="navigator" class="jssorb111" data-scale="0.5">
+                <div data-u="prototype" class="i prototype">
+                    <svg viewbox="0 0 16000 16000"  class="svg">
                         <circle class="b" cx="8000" cy="8000" r="3000"></circle>
                     </svg>
                     <div data-u="numbertemplate" class="n"></div>
@@ -158,27 +151,27 @@
         <div id="container-anuncios">
             <div id="feed">
 
-                <h2 style="color: #f39c12; margin-bottom: 30px;">Feed</h2>
+                <h2 id="feed-titulo">Feed</h2>
                 
                     <div class="row">
                     <div class="col-1"></div>
                     <div class="col-10">
-                        <div class="card" style="background-color: #222222; color: white; border-radius: 20px;">
+                        <div class="card card-anuncio borda-20px">
                             <div class="card-header">
                                 <div class="row">
-                                    <div class="col-3"><img src="img/power.jpg" style="width: 70px; height: 70px; border-radius: 100px;"></div>
+                                    <div class="col-4"><img src="img/power.jpg" class="rounded-circle icone-usuario"></div>
                                     <div class="col-6">Nome de usuario</div>
-                                    <div class="col-3"><span class="badge badge-pill badge-warning" style="padding: 10px; float: left; margin: 10px;">Aventura</span></div>
+                                    <div class="col-2"><span class="badge badge-pill genero-anuncio">Aventura</span></div>
                                 </div>
                             </div>
-                            <div class="card-body" > 
+                            <div class="card-body"> 
                                 <div class="row">
                                     <div class="col-1"></div>
                                     <div class="col-10">
-                                        <div class="card" style="background-color: #222222; color: white;">
-                                            <div class="card-header">God of War</div>
+                                        <div class="card card-anuncio sem-borda">
+                                            <div class="card-header text-center sem-borda">God of War</div>
                                             <div class="card-body">
-                                                <img src="img/god-of-war.jpg" class="card-img" style="border-radius: 20px;">
+                                                <img src="img/god-of-war.jpg" class="card-img borda-20px">
                                             </div>
                                         </div>
                                     </div>
@@ -186,7 +179,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="card-footer"><button class="btn" style="color: white;">Leia Mais</button></div>
+                            <div class="card-footer"><button class="btn btn-leia-mais">Leia Mais</button></div>
                         </div>
                     </div>
                     <div class="col-1"></div>
@@ -194,97 +187,56 @@
                 
             </div>
             <div id="mais-populares">
-                <h3 style="color: #f39c12; margin: 10px;">Mais Populares:</h3>
-                <i class="badge badge-pill badge-warning" style="padding: 10px; float: left; margin: 10px;">Aventura</i>
-                <i class="badge badge-pill badge-warning" style="padding: 10px; float: left; margin: 10px;">Aventura</i>
-                <i class="badge badge-pill badge-warning" style="padding: 10px; float: left; margin: 10px;">Aventura</i>
-                <i class="badge badge-pill badge-warning" style="padding: 10px; float: left; margin: 10px;">Aventura</i>
-                <i class="badge badge-pill badge-warning" style="padding: 10px; float: left; margin: 10px;">Aventura</i>
+                <h3 id="mais-populares-titulo">Mais Populares:</h3>
+                <i class="badge badge-pill genero-anuncio">Aventura</i>
+                <i class="badge badge-pill genero-anuncio">Aventura</i>
+                <i class="badge badge-pill genero-anuncio">Aventura</i>
+                <i class="badge badge-pill genero-anuncio">Aventura</i>
+                <i class="badge badge-pill genero-anuncio">Aventura</i>
             </div>
         </div>
 
     </div>
 
-
     <!-- Footer -->
     <footer class="page-footer font-small unique-color-dark" >
-      
+        
         <!-- Footer Links -->
         <div class="container text-center text-md-left mt-5">
-      
-          <!-- Grid row -->
-          <div class="row mt-3">
-      
+    
+        <!-- Grid row -->
+        <div class="row mt-3">
+    
             <!-- Grid column -->
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-      
-              <!-- Content -->
-              <h6 class="text-uppercase font-weight-bold">Pro.Code()</h6>
-              <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 90px; background-color: #f39c12;">
-              <p>
+    
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">Pro.Code()</h6>
+            <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-footer">
+            <p>
                     Somos uma empresa que sonha grande: somos quatro pessoas apaixonadas pelo que fazemos. Nosso objetivo é impulsionar o setor de jogos com 
                     novas ideias e sempre muita qualidade no nosso serviço.
-              </p>
-              <p>
+            </p>
+            <p>
                     Prazer, somos a Pro.Code().
-              </p>
+            </p>
             </div>
             <!-- Grid column -->
-      
+    
             <!-- Grid column -->
             <div class="col-md-5 col-lg-2 col-xl-2 mx-auto mb-4">
-      
-                    <div style="position: relative; top: 50%; transform: translateY(-50%);">
-                        <img src="img/logo-ragnarok.png" class="img-fluid">
-                    </div>
-
-              <!-- Links
-              <h6 class="text-uppercase font-weight-bold">Products</h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-              <p>
-                <a href="#!">MDBootstrap</a>
-              </p>
-              <p>
-                <a href="#!">MDWordPress</a>
-              </p>
-              <p>
-                <a href="#!">BrandFlow</a>
-              </p>
-              <p>
-                <a href="#!">Bootstrap Angular</a>
-              </p> -->
-      
+            <div id="logo-footer">
+                <img src="img/logo-ragnarok.png" class="img-fluid">
+            </div>
             </div>
             <!-- Grid column -->
-      
-            <!-- Grid column -->
-            <!-- <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4"> -->
-      
-              <!-- Links -->
-              <!-- <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-              <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-              <p>
-                <a href="#!">Your Account</a>
-              </p>
-              <p>
-                <a href="#!">Become an Affiliate</a>
-              </p>
-              <p>
-                <a href="#!">Shipping Rates</a>
-              </p>
-              <p>
-                <a href="#!">Help</a>
-              </p>
-       -->
-            <!-- </div> -->
-            <!-- Grid column -->
-      
+    
             <!-- Grid column -->
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-      
-              <!-- Links -->
-              <h6 class="text-uppercase font-weight-bold">Contatos</h6>
-              <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 85px; background-color: #f39c12;">
+    
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contatos</h6>
+            <hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-footer">
                 <p>
                     Endereço: Rua João de Paiva, 545, Tarauacá, Acre
                 </p>
@@ -298,100 +250,28 @@
                 <p>
                     Celular: (68)99263-3740
                 </p>
-      
+    
             </div>
             <!-- Grid column -->
-      
-          </div>
-          <!-- Grid row -->
-      
+    
+        </div>
+        <!-- Grid row -->
+    
         </div>
         <!-- Footer Links -->
-      
+    
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2019 Copyright - SOMOS UMA EMPRESA DE DONOS - 
-          <a target="_blank" href="https://php.net">Ragnarok.com.br</a>
+        <a target="_blank" href="https://php.net">Ragnarok.com.br</a>
         </div>
         <!-- Copyright -->
-      
-      </footer>
-      <!-- Footer -->
+    
+    </footer>
+    <!-- Footer -->
 
     <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-
-            var jssor_1_SlideshowTransitions = [
-                { $Duration: 800, x: 0.3, $During: { $Left: [0.3, 0.7] }, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: -0.3, $SlideOut: true, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: -0.3, $During: { $Left: [0.3, 0.7] }, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: 0.3, $SlideOut: true, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: 0.3, $During: { $Top: [0.3, 0.7] }, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: -0.3, $SlideOut: true, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: -0.3, $During: { $Top: [0.3, 0.7] }, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: 0.3, $SlideOut: true, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: 0.3, $Cols: 2, $During: { $Left: [0.3, 0.7] }, $ChessMode: { $Column: 3 }, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: 0.3, $Cols: 2, $SlideOut: true, $ChessMode: { $Column: 3 }, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: 0.3, $Rows: 2, $During: { $Top: [0.3, 0.7] }, $ChessMode: { $Row: 12 }, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: 0.3, $Rows: 2, $SlideOut: true, $ChessMode: { $Row: 12 }, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: 0.3, $Cols: 2, $During: { $Top: [0.3, 0.7] }, $ChessMode: { $Column: 12 }, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, y: -0.3, $Cols: 2, $SlideOut: true, $ChessMode: { $Column: 12 }, $Easing: { $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: 0.3, $Rows: 2, $During: { $Left: [0.3, 0.7] }, $ChessMode: { $Row: 3 }, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: -0.3, $Rows: 2, $SlideOut: true, $ChessMode: { $Row: 3 }, $Easing: { $Left: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: 0.3, y: 0.3, $Cols: 2, $Rows: 2, $During: { $Left: [0.3, 0.7], $Top: [0.3, 0.7] }, $ChessMode: { $Column: 3, $Row: 12 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, x: 0.3, y: 0.3, $Cols: 2, $Rows: 2, $During: { $Left: [0.3, 0.7], $Top: [0.3, 0.7] }, $SlideOut: true, $ChessMode: { $Column: 3, $Row: 12 }, $Easing: { $Left: $Jease$.$InCubic, $Top: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, $Delay: 20, $Clip: 3, $Assembly: 260, $Easing: { $Clip: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, $Delay: 20, $Clip: 3, $SlideOut: true, $Assembly: 260, $Easing: { $Clip: $Jease$.$OutCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, $Delay: 20, $Clip: 12, $Assembly: 260, $Easing: { $Clip: $Jease$.$InCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 },
-                { $Duration: 800, $Delay: 20, $Clip: 12, $SlideOut: true, $Assembly: 260, $Easing: { $Clip: $Jease$.$OutCubic, $Opacity: $Jease$.$Linear }, $Opacity: 2 }
-            ];
-
-            var jssor_1_options = {
-                $AutoPlay: 1,
-                $SlideshowOptions: {
-                    $Class: $JssorSlideshowRunner$,
-                    $Transitions: jssor_1_SlideshowTransitions,
-                    $TransitionsOrder: 1
-                },
-                $BulletNavigatorOptions: {
-                    $Class: $JssorBulletNavigator$
-                },
-                $ThumbnailNavigatorOptions: {
-                    $Class: $JssorThumbnailNavigator$,
-                    $Orientation: 2
-                }
-            };
-
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-            /*#region responsive code begin*/
-
-            var MAX_WIDTH = 980;
-
-            function ScaleSlider() {
-                var containerElement = jssor_1_slider.$Elmt.parentNode;
-                var containerWidth = containerElement.clientWidth;
-
-                if (containerWidth) {
-
-                    var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
-
-                    jssor_1_slider.$ScaleWidth(expectedWidth);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
-            }
-
-            ScaleSlider();
-
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
-            /*#endregion responsive code end*/
-        });
-    </script>
+    <script src="js/slider.js" type="text/javascript"></script>
     
 </body>
 
