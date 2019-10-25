@@ -59,6 +59,26 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'usuario',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../usuario/usuario.module').then(m => m.UsuarioPageModule)
+          }
+        ]
+      },
+      {
+        path: 'notificacoes',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../notificacoes/notificacoes.module').then(m => m.NotificacoesPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'

@@ -63,5 +63,10 @@ export class CadastroAnuncioService {
     ).toPromise();
   }
 
+  async buscarPorID(id){
+    return this.http.get<Anuncio>(`${this.url}/anuncio/${id}`, ).toPromise();
+
+  }
+
 
 }

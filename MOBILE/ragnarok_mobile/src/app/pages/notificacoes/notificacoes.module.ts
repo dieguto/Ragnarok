@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
-import { HomeModalPage } from '../home-modal/home-modal.page';
+import { NotificacoesPage } from './notificacoes.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: NotificacoesPage
   }
 ];
 
@@ -20,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
-  declarations: [HomePage, HomeModalPage],
-  entryComponents: [HomeModalPage]
+  declarations: [NotificacoesPage]
 })
-export class HomePageModule {}
+export class NotificacoesPageModule {}

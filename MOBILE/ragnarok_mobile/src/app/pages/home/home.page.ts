@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, IonRange } from '@ionic/angular';
+import { IonSlides, IonRange, ModalController } from '@ionic/angular';
 import {Anuncio} from '../../services/anuncio/cadastro_anuncio/anuncio.class';
 import {CadastroAnuncioService} from '../../services/anuncio/cadastro_anuncio/cadastro-anuncio.service';
 import { environment } from 'src/environments/environment';
+import { HomeModalPage } from '../home-modal/home-modal.page';
 
 @Component({
   selector: 'app-home',
@@ -17,19 +18,32 @@ export class HomePage implements OnInit {
   anuncios: Anuncio[];
   url =  environment.url;
 
-  constructor(private cadastroAnuncioService: CadastroAnuncioService) {
+  constructor(private cadastroAnuncioService: CadastroAnuncioService, private modalCtrl: ModalController) {
   }
 
   async ngOnInit() {
     
    this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(10, 1);
 
-  //  for(let anuncio of this.anuncios){
-  //    console.log(anuncio);
-  //  }
+   console.log(this.anuncios);
   }
 
-filtrar_km(){
+  async showModal(id_anuncio){
+    console.log(id_anuncio);
+    let modal = await this.modalCtrl.create({
+      component : HomeModalPage,
+      componentProps: {idade: this.anuncios, id_anuncio: id_anuncio}
+
+    });
+
+    return await modal.present();
+  }
+
+  async closeModal(){
+    this.modalCtrl.dismiss();
+  }
+
+  filtrar_km(){
    let a = this.ionRange.value;
 
   //  a = a - 1;
@@ -56,12 +70,6 @@ filtrar_km(){
 
   }
 
-
-
-
-  
-  
-
   verificarCampo(json_info_rawg, nome_campo){
     if(json_info_rawg == null){
       return false;
@@ -79,7 +87,7 @@ filtrar_km(){
     // return this.isNull(campo);
   }
 
- 
+
 
   isNull(campo){
     var teste = campo == null;

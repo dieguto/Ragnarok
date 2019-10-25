@@ -26,8 +26,9 @@
                         <ion-card >
                             <ion-card-header style="background-color: #333; height: 10vh; max-height: 10vh; min-height: 10vh;">
                             <ion-card-subtitle style="float: left;">{{anuncio.distancia}}</ion-card-subtitle>
-                              <div style="float: left;  margin-left: 40vh; margin-top: -5vh;">
-                                  <ion-button  class="inf"  >
+                          
+                              <div style="float: left;  margin-left: 42vh; margin-top: -5vh;">
+                                  <ion-button  class="inf" (click)='showModal( anuncio.id_anuncio )' >
                                       <ion-icon class="inf" name="information-circle"></ion-icon>
                                   </ion-button>
                               </div>
@@ -43,8 +44,8 @@
                                     <ion-img src="{{anuncio.info_rawg.jogo.imagem_fundo_adicional}}"> </ion-img>
                                 </ion-slide>
                                 <ion-slide *ngIf="verificarCampo(anuncio.info_rawg, 'video')">
-                                    <video controls>
-                                      <source src="{{anuncio.info_rawg.jogo.video}}" type="video/mp4">
+                                    <video controls poster="{{anuncio.info_rawg.jogo.preview_video}}">
+                                      <source src="{{anuncio.info_rawg.jogo.video}}"  type="video/mp4">
                                         <!-- <source src="anuncio.info_rawg.jogo.imagem_fundo_adicional" type="video/jpg"> -->
                                     </video>
                                 </ion-slide>

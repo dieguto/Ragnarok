@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Informações 
+    </ion-title>
+      <ion-buttons (click)="closeModal()" slot="start">
+          <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-item>
+        {{anuncios.criado_em}}
+      </ion-item>
+    <ion-item>
+        {{anuncios.usuario.nome}}
+      </ion-item>
+    <ion-item>
+      {{anuncios.titulo}}
+    </ion-item>
+    <ion-item>
+        {{anuncios.descricao}}
+      </ion-item>
+    <ion-item *ngIf="verificarCampo(anuncios.info_rawg, 'dt_lacamento')">
+        {{anuncios.info_rawg.jogo.dt_lancamento}}
+    </ion-item>
+    <ion-item *ngIf="verificarCampo(anuncios.info_rawg, 'nota_geral')">
+        {{anuncios.info_rawg.jogo.nota_geral}}
+    </ion-item>
+    <ion-item *ngIf="verificarCampo(anuncios.info_rawg, 'nota_metacritic')">
+        {{anuncios.info_rawg.jogo.nota_metacritic}}
+    </ion-item>
+    <div *ngIf="verificarCampo(anuncios.info_rawg, 'nome')">
+        <ion-item *ngFor="let item of anuncios.info_rawg.jogo.desenvolvedoras">
+            {{item}}
+        </ion-item>
+    </div>  
+</ion-content>

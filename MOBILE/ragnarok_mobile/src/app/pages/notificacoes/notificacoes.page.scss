@@ -1,0 +1,13 @@
+ion-content{
+    ion-list{
+        background: none;
+        ion-list-header{
+            background: #333;
+            color:#f39c12;
+        }
+
+        ion-item{
+            --background: #333;
+        }
+    }
+}
