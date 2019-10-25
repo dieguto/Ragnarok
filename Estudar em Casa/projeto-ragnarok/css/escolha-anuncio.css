@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Inicio Classes padronização */
+.sem-borda{
+    border: none;
+}
+
+.borda-20px{
+    border-radius: 20px;
+}
+
+#container{
+    width: 90%;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+.titulo-cadastro-anuncio{
+    color: white; 
+    text-align: center; 
+}
+
+.texto-laranja{
+    color: #f39c12;
+}
+
+.background-333333{
+    background-color: #333333;
+}
+
+.background-222222{
+    background-color: #222222;
+}
+
+.linha-titulo{
+    width: 380px; 
+    height: 2px;
+    background-color: #f39c12;
+}
+/* Fim das classes de padronização */
+
+
+body{
+    background-color: #222222;
+}
+
+
+/* Inicio Menu */
+header{
+    background-color:#333333;
+    width: 100%; 
+    height: 50px; 
+    font-size: 25px;
+    color: #f39c12;
+    position: fixed;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#menu-cover{
+    width: 100%;
+    height: 50px;
+}
+
+#caixa-logo{
+    width: 80%;
+    height: inherit;
+    float: left;
+    color: #f39c12;
+}
+
+#caixa_botao{
+    width: 20%;
+    height: inherit;
+    float: left;
+}
+
+.botoes-header{
+    background-color: #f39c12;
+}
+/* Fim do Menu */
+
+/* Inicio Corpo */
+#container_escolha{
+    width: 60%;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-escolha{
+    margin-bottom: 50px;
+    border-radius: 40px;
+}
+
+.body-card-escolha{
+    text-align: center; 
+    margin-top: 10px;
+}
+
+.footer-card-escolha{
+    border: none;
+    border-radius: 0px 0px 40px 40px;
+    background-color: #333333;
+}
+
+.imagem-escolha{
+    border: none; 
+    text-align: center; 
+    margin-top: 10px; 
+}
+
+.card-escolha:hover{
+    cursor: pointer;
+}
+/* Fim Corpo */
+
+/* Inicio Footer */
+footer{
+    color: white; 
+    background-color: #333333; 
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+#logo-footer{
+    position: relative; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.linha-footer{
+    width: 90px; 
+    background-color: #f39c12;
+}
+/* Fim Footer */

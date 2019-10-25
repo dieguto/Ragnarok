@@ -13,6 +13,16 @@
 .borda-20px{
     border-radius: 20px;
 }
+
+#container{
+    width: 90%;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}   
 /* Fim das classes de padronização */
 
 
@@ -58,16 +68,6 @@ header{
 
 
 /* Inicio Corpo */
-#container{
-    width: 90%;
-    height: auto;
-    min-height: 100%;
-    overflow: hidden;
-    padding-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-}   
-
 #container-anuncios{
     width: inherit;
     height: auto;
