@@ -12,7 +12,7 @@ ReactDOM.render(
         /* historíco de navegação para podermos realizar a navegação entra as rotas */
         <Router history={browserHistory}>
             <Route path="/login" component={Login}/>
-            <Route path="/cadastro" component={CadastroJogos}/>
+            <Route path="/cadastroAnuncioJogo" component={CadastroJogos}/>
             <Route path="/" component={App}/>
         </Router>
     ), 

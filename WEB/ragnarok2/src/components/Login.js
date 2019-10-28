@@ -36,8 +36,8 @@ export default class Login extends Component {
             .then(dadosUsuario => {
                 dadosUsuario = JSON.parse(dadosUsuario);
                 localStorage.setItem('token', dadosUsuario.token);
-                localStorage.setItem('usuario', JSON.parse(dadosUsuario.usuario));
-                // browserHistory.push('/');
+                // localStorage.setItem('usuario', JSON.parse(dadosUsuario.usuario));
+                browserHistory.push('/');
                 //console.log(token)
             })
             

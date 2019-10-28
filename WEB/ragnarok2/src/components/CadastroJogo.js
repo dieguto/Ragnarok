@@ -2,7 +2,48 @@ import React, {Component} from 'react';
 import '../css/cadastrojogo.css'
 import ImgTeste from '../assets/god-of-war.jpg'
 
+class RetornaJogo extends Component {
 
+  pesquisa(event){
+    event.preventDefault()
+    fetch(`http://localhost:3107/sugestoes/${this.jogoPesquisado.value}/5`)
+    .then(response => response.json())
+    .then(jogos => {
+      console.log(jogos)
+    })    
+    
+  }
+
+  render(){
+    return(
+      <div className="container">
+        <form onSubmit={this.pesquisa.bind(this)}>
+          <div className="form-group">
+            <label for="">Digite o nome do jogo:</label>
+            <input type="text" className="form-control" id=""  placeholder="God of War" ref={input => this.jogoPesquisado = input} />
+            <input type="submit" value="pesquisar" />
+          </div>
+        </form>
+          
+    
+        
+          <div className="row">
+            <div className="col-4">
+
+                <div className="row"><h5 className="card-title">God of War:</h5></div>
+                <div className="row"><button type="button" className="btn btn-confirmar">Clique aqui para confirmar</button></div>
+              
+              
+            </div>
+            <div className="col-8">
+              
+            </div>
+          </div>                  
+    
+      </div>
+    )
+  }
+}
 
 class SelectGenero extends Component {
 
@@ -74,68 +115,37 @@ class SelectConsole extends Component {
   }
 }
 
-class Sugestoes extends Component {
+// class Sugestoes extends Component {
 
-  constructor(){
-    super();
-    this.state = {sugestao:""};
-  }
+//   constructor(){
+//     super();
+//     this.state = {sugestao:""};
+//   }
 
-  getSugestoes(termo_pesquisa){
-    return new Promise((resolve, reject) => {
+//   getSugestoes(termo_pesquisa){
+//     return new Promise((resolve, reject) => {
       
-      fetch(`http://localhost:3107/sugestoes/${termo_pesquisa}/5`)
-        .then(r => r.json())
-        .then(sugestoes => {
-          console.log(sugestoes);
-          resolve(sugestoes)
-      })
-    })
-  }
+//       fetch(`http://localhost:3107/sugestoes/${termo_pesquisa}/5`)
+//         .then(r => r.json())
+//         .then(sugestoes => {
+//           console.log(sugestoes);
+//           resolve(sugestoes)
+//       })
+//     })
+//   }
 
-  render(){
-    return(
-      <>
+//   render(){
+//     return(
+//       <>
         
-      <div className="form-group">
-        <label for="">Digite o nome do jogo:</label>
-        {/* <input type="text" className="form-control" id="" placeholder="God of War" onChange={this.getSugestoes(e => e.target.value)}/> */}
-        {/* <input type="text" className="form-control" id="" placeholder="God of War" ref={(input) => this.setState({sugestao:input})}/> */}
-        <input type="text" className="form-control" id=""  placeholder="God of War" />
-        <button onClick={this.getSugestoes(this.sugestao)} >pesquisar</button>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-4">
+      
 
-            {   
-              async () => {
-                const sugestoes = await this.getSugestoes(this.state.sugestao);
+//       </>
+//     )
+//   }
+// }
 
-                console.log(sugestoes)
 
-                return sugestoes.map(sugestao => {
-                  return <div>sugestao.nome</div>
-                })
-              }
-            }
-            <div className="row"><h5 className="card-title">God of War:</h5></div>
-            <div className="row"><button type="button" className="btn btn-confirmar">Clique aqui para confirmar</button></div>
-          </div>
-          <div className="col-8">
-            {/* <img src={ImgTeste} className="card-img" alt="" title=""/> */}
-          </div>
-        </div>                  
-      </div> 
-
-      </>
-    )
-  }
-}
-
-const getSugestoes = (termo_pesquisa) => {
-  
-}
 
 export default class CadastroJogo extends Component {
 
@@ -168,7 +178,7 @@ export default class CadastroJogo extends Component {
             <label for="">Preço:</label>
             <input type="number" className="form-control" id="" placeholder="Digite o preço do produto"/>
           </div>
-          <Sugestoes></Sugestoes>   
+          <RetornaJogo/>  
           <button type="submit" className="btn btn-outline-warning">Cadastrar</button>
         </form>        
       </div>
