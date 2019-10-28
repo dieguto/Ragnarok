@@ -45,6 +45,58 @@ export class CadastroAnuncioService {
     }, httpOptions).toPromise();
   }
 
+  async criarAcessorio(anuncio: Anuncio, fotos){
+
+    const TOKEN_KEY = 'access_token';
+    const token = await this.storage.get(TOKEN_KEY);
+    alert(token);
+
+
+    const httpOptions = {
+      headers: new HttpHeaders({   
+        "Accept": 'application/json',
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
+
+
+    return this.http.post<Anuncio>(`${this.url}/anuncio`,{
+      titulo: anuncio.titulo,
+      descricao: anuncio.descricao,
+      is_acessorio:true,
+      id_console: anuncio.id_console,
+      preco: anuncio.preco,
+      array_fotos_base64: [fotos]
+    }, httpOptions).toPromise();
+  }
+
+
+  async criarConsole(anuncio: Anuncio, fotos){
+
+    const TOKEN_KEY = 'access_token';
+    const token = await this.storage.get(TOKEN_KEY);
+    alert(token);
+
+
+    const httpOptions = {
+      headers: new HttpHeaders({   
+        "Accept": 'application/json',
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
+
+
+    return this.http.post<Anuncio>(`${this.url}/anuncio`,{
+      titulo: anuncio.titulo,
+      descricao: anuncio.descricao,
+      is_console:true,
+      id_console: anuncio.id_console,
+      preco: anuncio.preco,
+      array_fotos_base64: [fotos]
+    }, httpOptions).toPromise();
+  }
 
 
   async buscarTodosHome(max, pagina){

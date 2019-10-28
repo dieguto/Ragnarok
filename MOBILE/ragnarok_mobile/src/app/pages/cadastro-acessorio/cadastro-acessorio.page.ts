@@ -135,7 +135,7 @@ export class CadastroAcessorioPage implements OnInit {
     try {
       this.anuncio = this.formCriarAnuncio.value;
       console.log(this.anuncio);
-      const result = await this.cadastroAnuncioService.criarAnuncio(this.anuncio, this.base_64);
+      const result = await this.cadastroAnuncioService.criarAcessorio(this.anuncio, this.base_64);
       console.log(this.anuncio);
       console.log(result);
 

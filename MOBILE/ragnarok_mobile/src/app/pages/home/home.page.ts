@@ -39,10 +39,6 @@ export class HomePage implements OnInit {
     return await modal.present();
   }
 
-  async closeModal(){
-    this.modalCtrl.dismiss();
-  }
-
   filtrar_km(){
    let a = this.ionRange.value;
 
