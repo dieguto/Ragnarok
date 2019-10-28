@@ -1,0 +1,86 @@
+ion-content{
+    .caixa_conteudo1{
+        width: 100vw;
+        height: 41vh;
+        background-color:red;
+
+        .titulo_usuario{
+            width: 100%;
+            height: 17.5%;
+            background-color:white;
+
+
+            .caixa_titulo_usuario{
+                width: 50%;
+                height: 100%;
+                background-color: blue;
+                margin-left: auto;
+                margin-right: auto;
+                // float: left;
+
+                ion-item{
+                    width: 100%;
+                    height: 100%;
+                    ion-label{
+                        text-align: center;
+                    }
+                }
+            }
+
+        }
+
+        .img_usuario{
+            width: 100%;
+            height: 65%;
+            background-color:rgb(250, 0, 0);
+            
+
+
+            .caixa_usuario{
+                width: 40%;
+                height: 85%;
+                // background-color: aqua;
+                margin-right: auto;
+                margin-left: auto;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+
+        .meus_anuncios{
+            width: 100%;
+            height: 17.5%;
+            background-color:white;
+
+            .caixa_titulo_usuario{
+                width: 50%;
+                height: 100%;
+                background-color: blue;
+                margin-left: auto;
+                margin-right: auto;
+                // float: left;
+
+                ion-item{
+                    width: 100%;
+                    height: 100%;
+                    ion-label{
+                        text-align: center;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .caixa_conteudo2{
+        width: 100vw;
+        height: 41vh;
+        background-color: aqua;
+    }
+}

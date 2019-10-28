@@ -4,7 +4,7 @@ import { Usuario } from './usuario.class';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Storage} from '@ionic/storage';
 import {environment} from '../../../environments/environment';
-import {tap, catchError} from 'rxjs/operators';
+import {tap, catchError, map} from 'rxjs/operators';
 import {BehaviorSubject} from 'rxjs';
 import { Platform, AlertController } from '@ionic/angular';
 
@@ -54,7 +54,10 @@ export class UsuarioService {
           tap(res =>{
             this.storage.set(TOKEN_KEY, res['token']);
             this.storage.set(USUARIO_KEY, res['usuario']);
+
             this.usuario = this.helper.decodeToken(res['token']);
+
+            console.log(res['token']);
             this.authenticationState.next(true);
           }),
           catchError(e =>{
@@ -63,6 +66,8 @@ export class UsuarioService {
           })
         );
       }
+
+
 
 
       isAuthenticated(){
@@ -81,4 +86,24 @@ export class UsuarioService {
   
       }).toPromise();
   }
+
+  buscarPorIdComAnuncios(id){
+    console.log(`${this.url}/usuario/${id}/com/9999/anuncios`);
+
+    return this.http.get<Usuario[]>(`${this.url}/usuario/${id}/com/9999/anuncios`).pipe(
+      map(data =>{
+        console.log(data);
+        const usuario_anuncios_array = data.anuncios as any[];
+
+        //const usuario_anuncios = usuario_anuncios_array.map(item => new Usuario(item));
+
+        const usuario = new Usuario(data);
+        console.log(usuario);
+        return usuario;
+      })
+    ).toPromise();
+
+    }
+
+
 }
