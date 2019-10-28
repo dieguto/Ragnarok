@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, browserHistory} from 'react-router';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import Login from './components/Login';
-import CadastroJogos from './components/CadastroJogo'
+import CadastroJogos from './components/CadastroJogo';
+import CadastroUsuario from './components/CadastroUsuario';
 import App from './App';
+import Timeline from './components/Timeline';
 import './css/reset.css';
 
 // import './Utils/slider';
@@ -12,9 +14,15 @@ ReactDOM.render(
     (
         /* historíco de navegação para podermos realizar a navegação entra as rotas */
         <Router history={browserHistory}>
-            <Route path="/login" component={Login}/>
-            <Route path="/cadastroAnuncioJogo" component={CadastroJogos}/>
-            <Route path="/" component={App}/>
+                  <Route exact path="/" component={App}/>
+                  {/* <Route path="/" component={Timeline}/> */}
+                  <Route path="/login" component={Login}/>
+                  <Route path="/cadastroAnuncioJogo" component={CadastroJogos}/>
+                  <Route path="/cadastroUsuario" component={CadastroUsuario}/>
+           
+            
+            
+          
         </Router>
     ), 
 document.getElementById('root')
