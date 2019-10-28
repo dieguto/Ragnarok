@@ -5,6 +5,61 @@
 }
 
 
+/* Inicio Classes de Padronização */
+.sem-borda{
+    border: none;
+}
+
+.borda-20px{
+    border-radius: 20px;
+}
+
+#container{
+    width: 90%;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+.titulo-cadastro-anuncio{
+    color: white; 
+    text-align: center; 
+}
+
+.texto-laranja{
+    color: #f39c12;
+}
+
+.background-333333{
+    background-color: #333333;
+}
+
+.background-222222{
+    background-color: #222222;
+}
+
+.linha-titulo-acessorio{
+    width: 380px; 
+    height: 2px;
+    background-color: #f39c12;
+}
+
+.linha-titulo-jogo{
+    width: 280px; 
+    height: 2px;
+    background-color: #f39c12;
+}
+
+.linha-titulo-console{
+    width: 320px; 
+    height: 2px;
+    background-color: #f39c12;
+}
+/* Fim das Classes de Padronização */
+
 /* Inicio tags*/
 input{
     margin-bottom: 10px;
@@ -23,6 +78,7 @@ body{
 /* Inicio botões */
 .btn-cadastro{
     margin-top: 30px;
+    margin-bottom: 40px;
     width: 100%;
     background-color: #333333;
     color: #f39c12;
@@ -75,7 +131,6 @@ body{
 .titulo-cadastro-anuncio{
     color: white; 
     text-align: center; 
-    border-bottom: 5px solid #f39c12;
 }
 
 .form-cadastro{
@@ -92,6 +147,26 @@ body{
 
 .titulo-caixa-jogo{
     margin-bottom: 25px;
+}
+
+.teste{
+    width: 300px;
+    height: 400px;
+    border: 1px solid #f39c12;
+    background-color: #333333;
+}
+
+.input_file{
+    width: 160px;
+    height: 36px;
+}
+
+.caixa_imagem{
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+    border: 1px solid #f39c12;
+    border-radius: 10px;
 }
 /* Fim do Corpo */
 
