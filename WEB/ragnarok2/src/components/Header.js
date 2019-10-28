@@ -17,7 +17,7 @@ export default class Menu extends Component{
                   </Link>
                     <div className="form-inline">
                         <Link to="/login" className="btn btn-outline-warning ">Entrar</Link>
-                        <Link to="/cadastro" className="btn btn-outline-warning ml-3">Cadastro</Link>
+                        <Link to="/cadastroUsuario" className="btn btn-outline-warning ml-3">Cadastro</Link>
                     </div>
                     
                 </div>

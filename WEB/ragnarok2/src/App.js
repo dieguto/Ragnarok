@@ -13,8 +13,8 @@ import Timeline from './components/Timeline';
 function App() {
   return (
     <div className="App">
-        <Menu></Menu>
-        <Timeline></Timeline>
+        <Menu/>
+       
     </div>
   );
 }
