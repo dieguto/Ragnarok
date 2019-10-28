@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Inicio tags*/
+input{
+    margin-bottom: 10px;
+}
+
+label{
+    margin-top: 20px;
+}
+
+body{
+    background-color: #222222;
+}
+/* Fim tags */
+
+
+/* Inicio botões */
+.btn-cadastro{
+    margin-top: 30px;
+    width: 100%;
+    background-color: #333333;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    text-align: center;
+    font-size: 25px;
+}
+
+.btn-cadastro:hover{
+    color: #f39c12;
+}
+
+.btn-confirmar{
+    width: 150px;
+    height: 60px;
+    background-color: #333333;
+    color: #f39c12;
+    border: 1px solid #f39c12;
+    text-align: center;
+}
+
+.btn-confirmar:hover{
+    color: #f39c12;
+}
+/* Fim botões */
+
+
+/* Inicio Corpo */
+#container{
+    width: 90%;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+#container-cadastro-anuncio{
+    width: 50%;
+    height: auto;
+    min-height: 500px;
+    overflow: hidden;
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+}
+
+.titulo-cadastro-anuncio{
+    color: white; 
+    text-align: center; 
+    border-bottom: 5px solid #f39c12;
+}
+
+.form-cadastro{
+    color: #f39c12; 
+    font-size: 20px;
+}
+
+.caixa-jogo{
+    background-color: #333333; 
+    padding: 15px;
+    padding-left: 30px; 
+    border: 1px solid #f39c12;
+}
+
+.titulo-caixa-jogo{
+    margin-bottom: 25px;
+}
+/* Fim do Corpo */
+
+
+/* Inicio Footer */
+footer{
+    color: white; 
+    background-color: #333333; 
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+#logo-footer{
+    position: relative; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.linha-footer{
+    width: 90px; 
+    background-color: #f39c12;
+}
+/* Fim Footer */

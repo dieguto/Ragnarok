@@ -18,7 +18,8 @@ export default class Login extends Component {
             // body:JSON.stringify({login:this.login.value,senha:this.senha.value}),
             body:JSON.stringify({email:this.login.value,senha:this.senha.value}), //versão para o TCC
             headers:new Headers({
-                'Content-type' : 'application/json' 
+                'Content-type' : 'application/json',
+                // 'Authorization' : 'Bearer ' + token 
             })
         };
 

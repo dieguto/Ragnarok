@@ -6,6 +6,7 @@ import CadastroJogos from './components/CadastroJogo'
 import App from './App';
 import './css/reset.css';
 
+// import './Utils/slider';
 
 ReactDOM.render(
     (

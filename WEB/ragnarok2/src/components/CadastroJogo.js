@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import '../css/cadastrojogo.css'
+import '../css/cadastro-anuncio.css'
+
+
 import ImgTeste from '../assets/god-of-war.jpg'
 
 class RetornaJogo extends Component {
@@ -115,36 +117,6 @@ class SelectConsole extends Component {
   }
 }
 
-// class Sugestoes extends Component {
-
-//   constructor(){
-//     super();
-//     this.state = {sugestao:""};
-//   }
-
-//   getSugestoes(termo_pesquisa){
-//     return new Promise((resolve, reject) => {
-      
-//       fetch(`http://localhost:3107/sugestoes/${termo_pesquisa}/5`)
-//         .then(r => r.json())
-//         .then(sugestoes => {
-//           console.log(sugestoes);
-//           resolve(sugestoes)
-//       })
-//     })
-//   }
-
-//   render(){
-//     return(
-//       <>
-        
-      
-
-//       </>
-//     )
-//   }
-// }
-
 
 
 export default class CadastroJogo extends Component {
@@ -160,9 +132,9 @@ export default class CadastroJogo extends Component {
         return(
             <div id="container">
 
-      <h1>Cadastro de Anuncios</h1>
+      <h1 className="titulo-cadastro-anuncio">Cadastro de Anuncios</h1>
       <div id="container-cadastro-anuncio">
-        <form>
+        <form class="form-cadastro" onSubmit={console.log("teste enviar o form de fora")}>
           <div className="form-group">
             <label for="">Titulo:</label>
             <input type="text" className="form-control" id="" placeholder="Digite o titulo do produto"/>
