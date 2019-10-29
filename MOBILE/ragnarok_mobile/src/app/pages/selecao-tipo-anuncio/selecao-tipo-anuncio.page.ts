@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-selecao-tipo-anuncio',
   templateUrl: './selecao-tipo-anuncio.page.html',
-  styleUrls: ['./selecao-tipo-anuncio.page.scss',  '../classes_padrao_scss/formatacao.scss'],
+  styleUrls: ['./selecao-tipo-anuncio.page.scss',  '../classes_padrao_scss/formatacao_tolbar.scss'],
 })
 
 

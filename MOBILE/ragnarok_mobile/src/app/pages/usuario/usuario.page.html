@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Ragnarok</ion-title>
-    <img src="../../assets/icon/logo-ragnarok.png">>
+    <img src="../../assets/icon/logo-ragnarok.png">
 
   </ion-toolbar>
 </ion-header>
@@ -13,10 +13,10 @@
       <div class="caixa_titulo_usuario">
           <ion-item >
               <ion-label>
-                <!-- {{nome}} -->
+               {{nome}}
               </ion-label>
-              <ion-icon name="create"></ion-icon>
-            </ion-item>
+              <!-- <ion-icon name="create"></ion-icon> -->
+          </ion-item>
       </div>
     </div>
     <div class="img_usuario">
@@ -35,19 +35,27 @@
     </div>
   </div>
   <div class="caixa_conteudo2">
-    <!-- <div class="anuncios">
+    <div class="anuncios">
         <ion-list >
-            <ion-item >
-              <ion-avatar slot="start">
-                <img src="{{usuario.anuncios[0].imagem_fundo}}">
-              </ion-avatar>
-              <ion-label>
-                <h2>Poe</h2>
-                <h3>New Ride</h3>
-                <p>I just upgraded my X-Wing. Next time...</p>
-              </ion-label>
-            </ion-item>
+          <!-- <div *ngFor="let anuncio of teste"> -->
+              <ion-item *ngFor="let anuncio of anuncios" >
+                  <!-- <ion-avatar *ngIf="anuncio.info_rawg" slot="start">
+                    <img src="{{anuncio.info_rawg.jogo.imagem_fundo}}">
+                  </ion-avatar>
+                  <ion-avatar *ngFor="let fotos of anuncio.c_fotos" slot="start">
+                      <img src="{{url}}/{{fotos.length}}">
+                    </ion-avatar> -->
+                  <ion-label>
+                    <h2 *ngIf="anuncio.info_rawg">
+                      {{anuncio.info_rawg.jogo.nome}}
+
+                    </h2>
+                    <h3>{{anuncio.titulo}}</h3>
+                    <p>{{anuncio.descricao}}</p>
+                  </ion-label>
+                </ion-item>
+          <!-- </div> -->
         </ion-list>
-    </div> -->
+    </div>
   </div>
 </ion-content>

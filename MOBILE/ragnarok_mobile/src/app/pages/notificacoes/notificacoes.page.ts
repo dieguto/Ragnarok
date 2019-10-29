@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-notificacoes',
   templateUrl: './notificacoes.page.html',
-  styleUrls: ['./notificacoes.page.scss','../classes_padrao_scss/formatacao.scss'],
+  styleUrls: ['./notificacoes.page.scss','../classes_padrao_scss/formatacao_tolbar.scss'],
 })
 export class NotificacoesPage implements OnInit {
 

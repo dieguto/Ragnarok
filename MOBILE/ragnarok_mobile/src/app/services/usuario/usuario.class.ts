@@ -3,25 +3,28 @@ export class Usuario{
     nome: String;
     email: String;
     cep: String;
-    senha: String; 
+    anuncios:String;
+    titulo:String;
     info_rawg: String;
-    anuncios: String;
-    jogo: String;
+    senha:String;
+
 
     constructor(data: any){
         if(data){
-            this.info_rawg =  data.info_rawg;
-            this.anuncios = data.anuncios;
-            this.jogo = data.jogo;
+  
             this.nome = data.nome;
             this.email = data.email;
             this.cep = data.cep;
             this.id = data.id;
+            this.anuncios = data.anuncios;
+            this.titulo = data.titulo;
+            this.info_rawg = data.info_rawg;
+            this.senha = data.senha;
             
         }
     }
 
     toString(){
-        return this.info_rawg,this.anuncios, this.jogo, this.nome, this.email, this.cep, this.id;
+        return this.senha , this.info_rawg, this.titulo, this.nome, this.email, this.cep, this.id, this.anuncios;
     }
 }

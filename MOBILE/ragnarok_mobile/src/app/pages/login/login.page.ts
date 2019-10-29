@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
 
 
     
-
+  
     slideOpts: any = {allowTouchMove: false};
   public formCriarUsuario : FormGroup;
   public formFazerLogin :FormGroup;
@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-    this.usuario = new Usuario()
+    // this.usuario = new Usuario();
   }
 // slide
 
