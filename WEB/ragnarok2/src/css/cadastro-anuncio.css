@@ -92,8 +92,6 @@ body{
 }
 
 .btn-confirmar{
-    width: 150px;
-    height: 60px;
     background-color: #333333;
     color: #f39c12;
     border: 1px solid #f39c12;
@@ -103,6 +101,19 @@ body{
 
 .btn-confirmar:hover{
     color: #f39c12;
+}
+
+.btn-pesquisar{
+    width: 100px;
+    margin-left: 5px;
+    background-color: #333333;
+    /* border-left: 0px;
+    border-top: 1px solid #f39c12;
+    border-bottom: 1px solid #f39c12; */
+    border: 1px solid #f39c12;
+    color: #f39c12;
+    font-size: 20px;
+    text-align: center;
 }
 /* Fim botões */
 
@@ -140,7 +151,6 @@ body{
 }
 
 .caixa-jogo{
-    background-color: #333333; 
     padding: 15px;
     padding-left: 30px; 
     border: 1px solid #f39c12;
@@ -157,14 +167,12 @@ body{
     background-color: #333333;
 }
 
-.input_file{
+.input-file{
     width: 160px;
     height: 36px;
 }
 
-.caixa_imagem{
-    width: 300px;
-    height: 300px;
+.caixa-imagem{
     margin-top: 40px;
     border: 1px solid #f39c12;
     border-radius: 10px;
