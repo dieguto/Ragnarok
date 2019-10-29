@@ -23,7 +23,7 @@ export default class Login extends Component {
                 // 'Authorization' : 'Bearer ' + token 
             })
         };
-
+  
         fetch('http://localhost:3107/auth/login/usuario',requestInfo) // Versão para o TCC
         // fetch('https://instalura-api.herokuapp.com/api/public/login',requestInfo)
             .then(response => {

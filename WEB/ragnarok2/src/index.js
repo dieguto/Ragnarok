@@ -15,14 +15,14 @@ ReactDOM.render(
         /* historíco de navegação para podermos realizar a navegação entra as rotas */
         <Router history={browserHistory}>
                   <Route path="/" component={App}>
-                    <IndexRoute component={Timeline}/>
-                    <Route path="/login" component={Login}/>
-                    <Route path="/cadastroAnuncioJogo" component={CadastroJogos}/>
-                    <Route path="/cadastroUsuario" component={CadastroUsuario}/>
+                      <IndexRoute component={Timeline}/>
+                      <Route path="/login" component={Login}/>
+                      <Route path="/anuncio">
+                        <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
+                        <Route path="/anuncio/cadastroUsuario" component={CadastroUsuario}/>
+                      </Route>
+                      
                   </Route>
-            
-            
-          
         </Router>
     ), 
 document.getElementById('root')

@@ -29,14 +29,16 @@ export default class Menu extends Component{
               
                        {/* Segundo menu */}
                        <div className="navbar navbar-light bg-dark">
-                         <h1 className="navbar-brand text-warning">
-                           Ragnarok
-                         </h1>
+                         <Link to="/">
+                            <h1 className="navbar-brand text-warning">                      
+                                  Ragnarok
+                            </h1>
+                         </Link>
                         
                         
                            <div className="btn-group">
                            <div className="form-inline mr-3">
-                             <Link to="/cadastroAnuncioJogo" className="btn btn-outline-warning ">Novo Anúncio</Link>
+                             <Link to="/anuncio/cadastroJogo" className="btn btn-outline-warning ">Novo Anúncio</Link>
                            </div>
                            <div>
                            <Link
