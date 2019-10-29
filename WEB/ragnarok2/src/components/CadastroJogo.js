@@ -18,26 +18,27 @@ class RetornaJogo extends Component {
 
   render(){
     return(
-      <div className="container">
+      <div className="form-group">
         <form onSubmit={this.pesquisa.bind(this)}>
           <div className="form-group">
             <label for=""className="texto-laranja">Digite o nome do jogo:</label>
-            <input type="text" className="form-control texto-laranja" id=""  placeholder="God of War" ref={input => this.jogoPesquisado = input} />
-            <input type="submit" value="pesquisar" />
+            <div class="input-group">
+              <input type="text" className="form-control texto-laranja rounded" id=""  placeholder="God of War" aria-describedby="button-addon4" ref={input => this.jogoPesquisado = input} />
+              <div class="input-group-append" id="button-addon4">
+                <input type="submit" className="btn-pesquisar rounded" cals value="Pesquisar" />
+              </div>
+            </div>
           </div>
         </form>
         
-        <div class="container caixa-jogo">
+        <div class="form-group caixa-jogo background-333333">
           <div className="row">
-            <div className="col-4">
-
-                <div className="row"><h5 className="card-title texto-laranja">God of War:</h5></div>
-                <div className="row"><button type="button" className="btn-confirmar">Clique aqui para confirmar</button></div>
-              
-              
+            <div className="col-4 card bg-transparent border-0">
+                <div className="card-header bg-transparent border-0"><h5 className="card-title texto-laranja">God of War:</h5></div>
+                <div className="card-body bg-transparent border-0"><button type="button" className="btn-confirmar mr-auto ml-auto">Clique aqui para confirmar</button></div>
             </div>
             <div className="col-8">
-              
+                <img src={ImgTeste} className="card-img"></img>
             </div>
           </div>      
         </div>              
@@ -157,11 +158,17 @@ export default class CadastroJogo extends Component {
           <div class="form-group">
             <div class="custom-file">
               <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"/>
-              <label class="custom-file-label" for="">Selecione a foto do produto que deseja anunciar</label>
+              <label class="custom-file-label" for="">Selecione a foto do produto</label>
             </div>
           </div>
           <div class="form-group">
-            <div id="" class="background-333333 mr-auto ml-auto caixa_imagem"></div>
+            <div className="row">
+              <div id="" class="background-333333 mr-auto ml-auto card caixa-imagem col-6">
+                <div className="card-body">
+                  <img src={ImgTeste} className="card-img"></img>
+                </div>
+              </div>
+            </div>
           </div>        
           <button type="submit" className="btn btn-outline-warning btn-cadastro">Cadastrar</button>
         </form>        

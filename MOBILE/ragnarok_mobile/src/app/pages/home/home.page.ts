@@ -8,7 +8,7 @@ import { HomeModalPage } from '../home-modal/home-modal.page';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss',  '../classes_padrao_scss/formatacao.scss'],
+  styleUrls: ['./home.page.scss',  '../classes_padrao_scss/formatacao_tolbar.scss'],
 })
 export class HomePage implements OnInit {
 

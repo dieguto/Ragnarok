@@ -7,7 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-home-modal',
   templateUrl: './home-modal.page.html',
-  styleUrls: ['./home-modal.page.scss','../classes_padrao_scss/formatacao.scss'],
+  styleUrls: ['./home-modal.page.scss','../classes_padrao_scss/formatacao_tolbar.scss'],
 })
 export class HomeModalPage implements OnInit {
 

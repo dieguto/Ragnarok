@@ -90,18 +90,22 @@ export class UsuarioService {
   buscarPorIdComAnuncios(id){
     console.log(`${this.url}/usuario/${id}/com/9999/anuncios`);
 
-    return this.http.get<Usuario[]>(`${this.url}/usuario/${id}/com/9999/anuncios`).pipe(
-      map(data =>{
-        console.log(data);
-        const usuario_anuncios_array = data.anuncios as any[];
+    return this.http.get<Usuario>(`${this.url}/usuario/${id}/com/9999/anuncios`, ).toPromise();
 
-        //const usuario_anuncios = usuario_anuncios_array.map(item => new Usuario(item));
+    // return this.http.get<Usuario[]>(`${this.url}/usuario/${id}/com/9999/anuncios`).pipe(
+    //   map(data =>{
+    //     // console.log(data);
+    //     const usuario_anuncios_array = data as any[];
 
-        const usuario = new Usuario(data);
-        console.log(usuario);
-        return usuario;
-      })
-    ).toPromise();
+    //     const usuario_anuncios = usuario_anuncios_array.map(item => new Usuario(item));
+
+    //     // const usuario = new Usuario(data);
+    //     // console.log(usuario);
+    //     return usuario_anuncios;
+    //   })
+    // ).toPromise();
+
+
 
     }
 

@@ -1,26 +1,38 @@
+*{
+    color:#f39c12;
+    --color:#f39c12;
+
+    ion-item{
+        --background:none;
+    }
+}
+
 ion-content{
     .caixa_conteudo1{
         width: 100vw;
         height: 41vh;
-        background-color:red;
+        // background-color:red;
 
         .titulo_usuario{
             width: 100%;
             height: 17.5%;
-            background-color:white;
+            // background-color:#333;
 
 
             .caixa_titulo_usuario{
                 width: 50%;
                 height: 100%;
-                background-color: blue;
+                // background-color: blue;
                 margin-left: auto;
                 margin-right: auto;
                 // float: left;
+                text-align: center;
 
                 ion-item{
                     width: 100%;
                     height: 100%;
+                    // --background:#333;
+
                     ion-label{
                         text-align: center;
                     }
@@ -32,7 +44,7 @@ ion-content{
         .img_usuario{
             width: 100%;
             height: 65%;
-            background-color:rgb(250, 0, 0);
+
             
 
 
@@ -49,6 +61,7 @@ ion-content{
                     border-radius: 50%;
                     margin-left: auto;
                     margin-right: auto;
+                    background-color:#333;
                 }
             }
         }
@@ -56,12 +69,13 @@ ion-content{
         .meus_anuncios{
             width: 100%;
             height: 17.5%;
-            background-color:white;
+            // background-color:white;
+            background-color: #333;
 
             .caixa_titulo_usuario{
                 width: 50%;
                 height: 100%;
-                background-color: blue;
+               
                 margin-left: auto;
                 margin-right: auto;
                 // float: left;
@@ -69,6 +83,7 @@ ion-content{
                 ion-item{
                     width: 100%;
                     height: 100%;
+
                     ion-label{
                         text-align: center;
                     }
@@ -81,6 +96,21 @@ ion-content{
     .caixa_conteudo2{
         width: 100vw;
         height: 41vh;
-        background-color: aqua;
+        // background-color: aqua;
+
+        .anuncios{
+            ion-list{
+                background: none;
+                ion-item{
+                    --background: none;
+                    border-bottom: solid 1px #f39c12;
+                    --height: 10%;
+                    ion-label{
+                        --background: none;
+                        --height: 10%; 
+                    }
+                }
+            }
+        }
     }
 }
