@@ -51,18 +51,23 @@ export default class Login extends Component {
 
     render(){
         return (
-            <div className="login-container">
-                
-                <h1 className="header-logo titulo-cadastro-anuncio">Ragnarok</h1>
-                <span>{this.state.msg}</span>
-                <form onSubmit={this.envia.bind(this)}>
-                    <label className="form-check-label">E-mail:</label>
-                    <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
-                    <label className="form-check-label">Senha:</label>
-                    <input type="password" placeholder="5dbni?" ref={(input) => this.senha = input}/>
-                    <input className="btn btn-outline-warning"  type="submit" value="Entrar"/>
-                </form>
-            </div>
+
+            <>
+                <h1 className="header-logo titulo-cadastro-anuncio">Login</h1>
+                <div class="row">
+                    <div class="col-3.5 mr-auto ml-auto"><hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
+                </div>
+                <div className="login-container">
+                    <span>{this.state.msg}</span>
+                    <form onSubmit={this.envia.bind(this)}>
+                        <label className="form-check-label">E-mail:</label>
+                        <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
+                        <label className="form-check-label">Senha:</label>
+                        <input type="password" placeholder="5dbni?" ref={(input) => this.senha = input}/>
+                        <input className="btn btn-outline-warning"  type="submit" value="Entrar"/>
+                    </form>
+                </div>
+            </>
         );
     }
 }

@@ -91,12 +91,14 @@ header{
 }
 
 #feed-titulo{
-    color: #f39c12;
+    width: 100%;
+    color: white;
     margin-bottom: 30px;
 }
 
 #mais-populares-titulo{
-    color: #f39c12;
+    width: 100%;
+    color: white;
     margin: 30px;
 }
 
@@ -127,7 +129,7 @@ header{
 }
 
 
-#mais-populares{
+.mais-populares{
     width: 25%;
     height: auto;
     min-height: 300px;
