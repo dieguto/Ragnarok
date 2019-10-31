@@ -26,7 +26,7 @@ class GeneroJogo extends Component{
            
             
 
-            <div id="mais-populares">
+            <div className="mais-populares">
                 <h3 id="mais-populares-titulo">Mais Populares:</h3>
                 {
                     this.state.generos.map( genero => <i key={genero.id_genero} className="badge badge-pill genero-anuncio">{genero.nome}</i>)
