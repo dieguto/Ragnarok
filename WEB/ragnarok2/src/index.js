@@ -18,10 +18,11 @@ ReactDOM.render(
                   <Route path="/" component={App}>
                       <IndexRoute component={Timeline}/>
                       <Route path="/login" component={Login}/>
-                      <Route path="/anuncio" component={Anuncio}>
-                        <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
-                        <Route path="/cadastroUsuario" component={CadastroUsuario}/>
-                      </Route>
+                      <Route path="/anuncio" component={Anuncio}/>
+
+                    <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
+                    <Route path="/cadastroUsuario" component={CadastroUsuario}/>
+                      
                       
                   </Route>
         </Router>

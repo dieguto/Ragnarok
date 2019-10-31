@@ -4,6 +4,7 @@ import ImgJogo from '../assets/jogo.png';
 import ImgAcessorio from '../assets/acessorio.png';
 import ImgConsole from '../assets/console.png';
 import ImgTroca from '../assets/troca.png';
+import {Link} from 'react-router';
 
 
 export default class AnuncioEscolha extends Component {
@@ -20,7 +21,10 @@ export default class AnuncioEscolha extends Component {
                 <div className="row">
                     <div className="col-sm-5 ml-auto mr-auto card card-escolha background-333333">
                         <div className="card-body body-card-escolha">
-                            <img src={ImgJogo} className="img-thumbnail background-333333 imagem-escolha"/>
+                            <Link to="/anuncio/cadastroJogo">
+                                <img src={ImgJogo} className="img-thumbnail background-333333 imagem-escolha"/>
+                            </Link>
+                            
                         </div>
                         <div className="card-footer text-center background-333333 texto-laranja footer-card-escolha">Jogo</div>
                     </div>

@@ -43,7 +43,7 @@ export default class Menu extends Component{
                         
                            <div className="btn-group">
                            <div className="form-inline mr-3">
-                             <Link to="/anuncio/cadastroJogo" className="btn btn-outline-warning ">Novo Anúncio</Link>
+                             <Link to="/anuncio" className="btn btn-outline-warning ">Novo Anúncio</Link>
                            </div>
                            <div>
                            <Link
