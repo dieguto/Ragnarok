@@ -16,11 +16,11 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
+    ReactiveFormsModule,
     FormsModule,
+    CommonModule,
     IonicModule,
     NgxMaskIonicModule,
-    ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
   declarations: [UsuarioEditModalPage]

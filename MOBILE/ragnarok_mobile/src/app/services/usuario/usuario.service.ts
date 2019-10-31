@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Usuario } from './usuario.class';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Storage} from '@ionic/storage';
@@ -89,25 +89,28 @@ export class UsuarioService {
 
   buscarPorIdComAnuncios(id){
     console.log(`${this.url}/usuario/${id}/com/9999/anuncios`);
-
     return this.http.get<Usuario>(`${this.url}/usuario/${id}/com/9999/anuncios`, ).toPromise();
+  }
 
-    // return this.http.get<Usuario[]>(`${this.url}/usuario/${id}/com/9999/anuncios`).pipe(
-    //   map(data =>{
-    //     // console.log(data);
-    //     const usuario_anuncios_array = data as any[];
+  async confirmarSenha(usuario: Usuario){
 
-    //     const usuario_anuncios = usuario_anuncios_array.map(item => new Usuario(item));
-
-    //     // const usuario = new Usuario(data);
-    //     // console.log(usuario);
-    //     return usuario_anuncios;
-    //   })
-    // ).toPromise();
+    const TOKEN_KEY = 'access_token';
+    const token = await this.storage.get(TOKEN_KEY);
+    alert(token);
 
 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Accept": 'application/json',
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
 
-    }
+    return this.http.post<Usuario>(`${this.url}/auth/confirmar`, {
+      senha: usuario.senha
+    }, httpOptions).toPromise();
+  }
 
 
 }

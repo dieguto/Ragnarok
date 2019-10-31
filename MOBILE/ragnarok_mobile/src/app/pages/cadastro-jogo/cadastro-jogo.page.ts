@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { IonSlides, IonSearchbar, IonList, IonItem, IonImg } from '@ionic/angular';
 import {Console} from '../../services/anuncio/consoles/console.class';
 import {ConsoleService} from '../../services/anuncio/consoles/console.service';
@@ -29,8 +29,10 @@ export class CadastroJogoPage implements OnInit {
   fotos_base64: String[];
   anuncio: Anuncio;
   generos: Genero[];
+
   consoles: Console[];
   sugestoes_jogos: SugestoesJogo[];
+  sugestoes_jogos_desejado:SugestoesJogo[];
   foto: SafeResourceUrl;
   // imagens: String;
   base_64: string;
@@ -65,6 +67,11 @@ export class CadastroJogoPage implements OnInit {
 
     this.consoles = await this.consoleService.getConsoles();
 
+    var inputValue = (<HTMLInputElement>document.getElementById('pop12')).value;
+
+    console.log("eu", inputValue);
+
+
     
   }
 
@@ -75,24 +82,46 @@ export class CadastroJogoPage implements OnInit {
 
 
   //  filtrando jogo
-  filtrarJogos(){
+   filtrarJogos(valor){
+      if(valor == "jogo"){    
+        if(this.ionSearchBar.value == ""){
+          const a = new SugestoesJogo({nome: "digite um jogo", slug_jogo:"a", imagem_fundo:"a"});
+          this.sugestoes_jogos = [a];
+        } else if(this.ionSearchBar.value != undefined){
+             this.SugestoesJogoService.getJogos(this.ionSearchBar.value)
+             .then(jogos => {
+               if(this.ionSearchBar.value != ""){
+                this.sugestoes_jogos = jogos;
+                console.log(jogos);
+               }
+              
+             });
+          }
+      }else if(valor == "jogo_desejado"){
+        // console.log( this.ionSearchBar.type);
+        var inputValue = (<HTMLInputElement>document.getElementById('pop12')).value;
 
-    console.log(this.ionSearchBar.value);
-
-    if(this.ionSearchBar.value == ""){
-      const a = new SugestoesJogo({nome: "digite um jogo", slug_jogo:"a", imagem_fundo:"a"});
-      this.sugestoes_jogos = [a];
-    } else if(this.ionSearchBar.value != undefined){
-         this.SugestoesJogoService.getJogos(this.ionSearchBar.value)
-         .then(jogos => {
-           if(this.ionSearchBar.value != ""){
-            this.sugestoes_jogos = jogos;
-            console.log(jogos)
-           }
-          
-         });
+        console.log("eu", inputValue);
+    
+        if(inputValue == ""){
+          const a = new SugestoesJogo({nome: "digite um jogo", slug_jogo:"a", imagem_fundo:"a"});
+          this.sugestoes_jogos_desejado = [a];
+        } else if(this.ionSearchBar.value != undefined){
+             this.SugestoesJogoService.getJogos(inputValue)
+             .then(jogos => {
+               if(inputValue != ""){
+                this.sugestoes_jogos_desejado = jogos;
+                // console.log(jogos);
+               }
+              
+             });
+          }
       }
+
    }
+
+
+
 
 
   //  Tirando foto

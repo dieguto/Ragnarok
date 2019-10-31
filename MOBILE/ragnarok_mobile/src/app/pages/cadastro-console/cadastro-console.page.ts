@@ -31,6 +31,7 @@ export class CadastroConsolePage implements OnInit {
   generos: Genero[];
   consoles: Console[];
   sugestoes_jogos: SugestoesJogo[];
+  sugestoes_jogos_desejado:SugestoesJogo[];
   foto: SafeResourceUrl;
   // imagens: String;
   base_64: string;
@@ -93,7 +94,6 @@ export class CadastroConsolePage implements OnInit {
          });
       }
    }
-
 
   //  Tirando foto
    async tirarFoto(){
