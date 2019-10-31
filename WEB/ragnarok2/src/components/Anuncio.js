@@ -17,7 +17,7 @@ export default class Anuncio extends Component {
     
 
     componentDidMount(){
-         fetch( `${api}/anuncios/todos/1/0/1/10/distancia/0/9999/asc`)
+         fetch( `${api}/anuncios/todos/1/0/1/100/distancia/0/9999/asc`)
          .then(response => response.json())
          .then(anuncios => {
              this.setState({anuncios:anuncios})

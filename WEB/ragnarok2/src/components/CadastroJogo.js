@@ -8,7 +8,7 @@ class RetornaJogo extends Component {
 
   pesquisa(event){
     event.preventDefault()
-    fetch(`http://localhost:3107/sugestoes/${this.jogoPesquisado.value}/5`)
+    fetch(`http://3.92.51.72:3107/sugestoes/${this.jogoPesquisado.value}/5`)
     .then(response => response.json())
     .then(jogos => {
       console.log(jogos)
@@ -56,7 +56,7 @@ class SelectGenero extends Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:3107/genero/todos')
+        fetch('http://3.92.51.72:3107/genero/todos')
         .then(response => response.json())
         .then(generos => {
             this.setState({generos:generos})
@@ -91,7 +91,7 @@ class SelectConsole extends Component {
   }
 
   componentDidMount(){
-      fetch('http://localhost:3107/console/todos')
+      fetch('http://3.92.51.72:3107/console/todos')
       .then(response => response.json())
       .then(consoles => {
           this.setState({consoles:consoles})

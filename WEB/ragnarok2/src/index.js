@@ -6,6 +6,7 @@ import CadastroJogos from './components/CadastroJogo';
 import CadastroUsuario from './components/CadastroUsuario';
 import App from './App';
 import Timeline from './components/Timeline';
+import Anuncio from './components/AnuncioEscolha';
 import './css/reset.css';
 
 // import './Utils/slider';
@@ -17,7 +18,7 @@ ReactDOM.render(
                   <Route path="/" component={App}>
                       <IndexRoute component={Timeline}/>
                       <Route path="/login" component={Login}/>
-                      <Route path="/anuncio">
+                      <Route path="/anuncio" component={Anuncio}>
                         <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
                         <Route path="/cadastroUsuario" component={CadastroUsuario}/>
                       </Route>

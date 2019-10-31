@@ -13,7 +13,7 @@ class GeneroJogo extends Component{
 
     componentDidMount(){
        
-        fetch('http://localhost:3107/genero/populares')
+        fetch('http://3.92.51.72:3107/genero/populares')
         .then(response => response.json())
         .then(generos => {
             this.setState({generos:generos})
