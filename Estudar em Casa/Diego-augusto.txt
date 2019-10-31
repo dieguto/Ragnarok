@@ -35,3 +35,6 @@ https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
 
 https://jasonwatmore.com/post/2017/12/07/react-redux-jwt-authentication-tutorial-example
 https://codepen.io/ReGGae/pen/bmyYEj
+
+
+http://react-responsive-carousel.js.org/#demos ////SLIDER
