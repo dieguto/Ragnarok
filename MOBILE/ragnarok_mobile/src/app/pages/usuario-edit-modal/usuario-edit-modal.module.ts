@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import {NgxMaskIonicModule} from 'ngx-mask-ionic';
+import {NgxMaskIonicModule} from 'ngx-mask-ionic'
 import { IonicModule, IonSlides, IonSlide } from '@ionic/angular';
 
-import { LoginPage } from './login.page';
+import { UsuarioEditModalPage } from './usuario-edit-modal.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoginPage
+    component: UsuarioEditModalPage
   }
 ];
 
@@ -23,6 +23,6 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [LoginPage]
+  declarations: [UsuarioEditModalPage]
 })
-export class LoginPageModule {}
+export class UsuarioEditModalPageModule {}

@@ -1,0 +1,49 @@
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<ion-content>
+      <ion-slides [options]="slideOpts"  name="slides">
+        <ion-slide>
+          <div  class="slide-inner ion-padding">
+            <form  (ngSubmit)="login()">
+              <ion-item style="--background: none;" lines="none">
+                  <ion-label class="label_teste" position="floating">Senha:</ion-label>
+                <ion-input  name="senha" type="password" ></ion-input>
+              </ion-item>
+              <ion-button class="ion-margin-top" type="submit"   expand="block">
+                Confirme sua senha
+              </ion-button>
+            </form>
+          </div>
+        </ion-slide>
+    
+        <ion-slide>
+            <div class="slide-inner ion-padding">
+              <form   >     
+                    <ion-item style="--background: none;" lines="none">
+                      <ion-label class="label_teste" position="floating">Nome:</ion-label>
+                    <ion-input    name="nome" type="text"></ion-input>
+                  </ion-item>
+                    <ion-item style="--background: none;" lines="none">
+                      <ion-label class="label_teste" position="floating">Cep:</ion-label>
+                    <ion-input  name="cep" type="text" mask="00000-000" ></ion-input>
+                  </ion-item>
+                    <ion-item style="--background: none;" lines="none">
+                      <ion-label class="label_teste" position="floating">Email:</ion-label>
+                    <ion-input name="email" type="email" ></ion-input>
+                  </ion-item>
+                    <ion-item style="--background: none;" lines="none">
+                      <ion-label class="label_teste" position="floating">Senha:</ion-label>
+                    <ion-input  name="senha" type="password" ></ion-input>
+                  </ion-item>
+            
+                    <ion-button type="submit" class="ion-margin-top btn " expand="block">
+                      CRIAR CONTA
+                    </ion-button>
+              </form>    
+            </div>
+        </ion-slide>
+      </ion-slides>
+
+</ion-content>
+
+

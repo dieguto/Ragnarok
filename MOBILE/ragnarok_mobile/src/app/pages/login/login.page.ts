@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
 
     
   
-    slideOpts: any = {allowTouchMove: false};
+  slideOpts: any = {allowTouchMove: false};
   public formCriarUsuario : FormGroup;
   public formFazerLogin :FormGroup;
 

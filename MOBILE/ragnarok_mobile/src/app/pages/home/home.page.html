@@ -13,7 +13,7 @@
   </ion-header>
 <ion-content>
     <!-- <ion-item> -->
-      <ion-range (ionChange)="filtrar_km()" min="1" max="9999" pin color="secondary">
+      <ion-range (ionChange)="filtrar_km()" min="0" max="100" step="10" snaps pin color="secondary">
         <ion-icon slot="start" size="small" name="pin"></ion-icon>
         <ion-icon slot="end" name="pin"></ion-icon>
       </ion-range>
@@ -67,22 +67,12 @@
                                   Nota Geral: {{anuncio.info_rawg.jogo.nota_geral}}
                               </ion-card-subtitle>
                               </div>
-
-                              <!-- <ion-card-header style="background-color: #333;height: 30vh; max-height: 30vh; min-height: 30vh;"> -->
                                 <div class="caixa_botao"> 
                                     <ion-button shape='round' size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
                                     <ion-button shape='round' size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
                                     <ion-button shape='round' size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
                                 </div>
-                            <!-- </ion-card-header>   -->
                             </ion-card-header>            
-                            <!-- <ion-card-header style="background-color: #333;height: 30vh; max-height: 30vh; min-height: 30vh;">
-                                <div class="caixa_botao"> 
-                                    <ion-button shape='round' size="large"> <ion-icon ios="ios-cash" md="md-cash"></ion-icon></ion-button>
-                                    <ion-button shape='round' size="large"><ion-icon ios="ios-swap" md="md-swap"></ion-icon></ion-button>
-                                    <ion-button shape='round' size="large" (click)="slides.slideNext()"> <ion-icon ios="ios-close-circle" md="md-close-circle"></ion-icon></ion-button>
-                                </div>
-                            </ion-card-header>   -->
                           </ion-card>
                     </ion-slide>
               </ion-slides>

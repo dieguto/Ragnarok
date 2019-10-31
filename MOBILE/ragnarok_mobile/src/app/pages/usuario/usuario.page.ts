@@ -3,6 +3,8 @@ import {Storage} from '@ionic/storage';
 import { Usuario } from '../../services/usuario/usuario.class';
 import  {UsuarioService}  from '../../services/usuario/usuario.service';
 import { environment } from 'src/environments/environment';
+import { ModalController } from '@ionic/angular';
+import { UsuarioEditModalPage } from '../usuario-edit-modal/usuario-edit-modal.page';
 
 @Component({
   selector: 'app-usuario',
@@ -19,10 +21,11 @@ export class UsuarioPage implements OnInit {
   url: any;
   foto: String;
   USUARIO_KEY: string;
+  id:Number;
   // usuarioService: UsuarioService;
  
 
-  constructor(private usuarioService:UsuarioService, private storage:Storage) { }
+  constructor(private usuarioService:UsuarioService, private storage:Storage,private modalCtrl: ModalController) { }
 
   async ngOnInit() {
 
@@ -30,8 +33,9 @@ export class UsuarioPage implements OnInit {
     this.usuario_storage = await this.storage.get(this.USUARIO_KEY);
 
     this.nome = this.usuario_storage.nome;
+    this.id = this.usuario_storage.id;
 
-    this.usuario = await this.usuarioService.buscarPorIdComAnuncios(5);
+    this.usuario = await this.usuarioService.buscarPorIdComAnuncios(this.usuario_storage.id);
 
     this.url = environment.url;
 
@@ -45,6 +49,17 @@ export class UsuarioPage implements OnInit {
    
   }
 
+
+  async showModal(id_usuario){
+    console.log(id_usuario);
+    let modal = await this.modalCtrl.create({
+      component : UsuarioEditModalPage,
+      componentProps: {id3_usuario: "id_usuario"}
+
+    });
+
+    return await modal.present();
+  }
 
 
 
