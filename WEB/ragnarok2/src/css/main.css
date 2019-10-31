@@ -90,7 +90,7 @@ header{
     padding: 30px;
 }
 
-#feed-titulo{
+.feed-titulo{
     width: 100%;
     color: white;
     margin-bottom: 30px;
@@ -105,11 +105,17 @@ header{
 .card-anuncio{
     background-color: #222222; 
     color: white; 
+    margin-bottom: 50px;
 }
 
 .icone-usuario{
     width: 70px; 
     height: 70px;
+}
+
+.nome-usuario{
+    font-size: 30px;
+    margin-left: 5%;
 }
 
 .genero-anuncio{
@@ -136,6 +142,15 @@ header{
     overflow: hidden;
     background-color: #333333;
     float: left;
+}
+
+.card-body-anuncio{
+    padding-bottom: 0%;
+}
+
+.card-img-anuncio{
+    margin-bottom: 0%;
+    border-radius: 3%;
 }
 /* Fim do Corpo */
 

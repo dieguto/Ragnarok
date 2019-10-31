@@ -31,7 +31,7 @@ export default class Anuncio extends Component {
         return(
             <>
              <div id="feed">
-                <h2 titulo-cadastro-anuncio>Feed</h2>
+                <h2 className="feed-titulo">Feed</h2>
                 {
                   
 
@@ -46,8 +46,7 @@ export default class Anuncio extends Component {
                                     <div className="card card-anuncio borda-20px">
                                         <div className="card-header">
                                             <div className="row">
-                                                <div className="col-4"><img src={IconeUser} className="rounded-circle icone-usuario"/></div>
-                                                <div className="col-6">{anuncios.usuario.nome}</div>
+                                                <div className="col-10"><img src={IconeUser} className="rounded-circle icone-usuario"/> <span className="nome-usuario align-middle" >{anuncios.usuario.nome}</span></div>
                                                 {
                                                     function(){
                                                         // console.log(anuncios.is_jogo)
@@ -81,7 +80,7 @@ export default class Anuncio extends Component {
                                                             }() 
                                                             }
                                                        
-                                                        <div className="card-body">
+                                                        <div className="card-body card-img-anuncio card-body-anuncio">
                                                             {
                                                                function(){
                                                                 // console.log(anuncios.info_rawg)
@@ -100,8 +99,8 @@ export default class Anuncio extends Component {
                                                                           renderCenterRightControls={({ nextSlide }) => (
                                                                             <button className="d-none" onClick={nextSlide}></button>
                                                                           )}>
-                                                                            <img src={anuncios.info_rawg.jogo.imagem_fundo}></img>
-                                                                            <video controls poster={anuncios.info_rawg.jogo.preview_video}>
+                                                                            <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img card-img-anuncio"></img>
+                                                                            <video controls poster={anuncios.info_rawg.jogo.preview_video} className="card-img card-img-anuncio">
                                                                                 <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
                                                                             </video>
                                                                             {/* <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/> */}
