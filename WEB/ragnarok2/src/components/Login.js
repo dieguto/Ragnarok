@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {browserHistory} from  'react-router';
+import '../css/cadastro-anuncio.css'
 
 
 export default class Login extends Component {
@@ -51,12 +52,15 @@ export default class Login extends Component {
     render(){
         return (
             <div className="login-container">
-                <h1 className="header-logo">Ragnarok</h1>
+                
+                <h1 className="header-logo titulo-cadastro-anuncio">Ragnarok</h1>
                 <span>{this.state.msg}</span>
                 <form onSubmit={this.envia.bind(this)}>
-                    <input type="text" ref={(input) => this.login = input}/>
-                    <input type="password" ref={(input) => this.senha = input}/>
-                    <input type="submit" value="login"/>
+                    <label className="form-check-label">E-mail:</label>
+                    <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
+                    <label className="form-check-label">Senha:</label>
+                    <input type="password" placeholder="5dbni?" ref={(input) => this.senha = input}/>
+                    <input className="btn btn-outline-warning"  type="submit" value="Entrar"/>
                 </form>
             </div>
         );

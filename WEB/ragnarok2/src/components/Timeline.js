@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import Anuncio from './Anuncio';
 
+// import Slider from '../components/Slider';
+
 class GeneroJogo extends Component{
 
     constructor(){
@@ -41,6 +43,7 @@ export default class Timeline extends Component {
         return(
             <div id="container">
                  <div id="container-anuncios">
+                     {/* <Slider></Slider> */}
                      <Anuncio></Anuncio>
 
                 

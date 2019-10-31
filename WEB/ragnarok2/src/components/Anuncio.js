@@ -4,7 +4,7 @@ import IconeUser from '../assets/user.svg'
 import api from '../services/api';
 import Carousel from 'nuka-carousel'
 
-console.log(api)
+// console.log(api)
 
 export default class Anuncio extends Component {
 
@@ -49,7 +49,7 @@ export default class Anuncio extends Component {
                                                 <div className="col-6">{anuncios.usuario.nome}</div>
                                                 {
                                                     function(){
-                                                        console.log(anuncios.is_jogo)
+                                                        // console.log(anuncios.is_jogo)
                                                         if(anuncios.genero){
                                                             return(
                                                                 <div className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
@@ -67,7 +67,7 @@ export default class Anuncio extends Component {
                                                     <div className="card card-anuncio sem-borda">
                                                             {
                                                                function(){
-                                                                console.log(anuncios.info_rawg)
+                                                                // console.log(anuncios.info_rawg)
                                                                 if(anuncios.info_rawg){
                                                                     return(
                                                                         <div className="card-header text-center sem-borda">{anuncios.info_rawg.jogo.nome}</div>
@@ -83,8 +83,8 @@ export default class Anuncio extends Component {
                                                         <div className="card-body">
                                                             {
                                                                function(){
-                                                                console.log(anuncios.info_rawg)
-                                                                console.log(api + anuncios.c_fotos)
+                                                                // console.log(anuncios.info_rawg)
+                                                                // console.log(api + anuncios.c_fotos)
                                                                 if(anuncios.info_rawg){
                                                                     return(
                                                                         // <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img borda-20px"/>
@@ -99,23 +99,34 @@ export default class Anuncio extends Component {
                                                                           renderCenterRightControls={({ nextSlide }) => (
                                                                             <button className="d-none" onClick={nextSlide}></button>
                                                                           )}>
+                                                                            <img src={anuncios.info_rawg.jogo.imagem_fundo}></img>
                                                                             <video controls poster={anuncios.info_rawg.jogo.preview_video}>
                                                                                 <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
                                                                             </video>
-                                                                            <video controls poster={anuncios.info_rawg.jogo.preview_video}>
-                                                                                <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
-                                                                            </video>
-                                                                            <video controls poster={anuncios.info_rawg.jogo.preview_video}>
-                                                                                <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
-                                                                            </video>
-                                                                            <video controls poster={anuncios.info_rawg.jogo.preview_video}>
-                                                                                <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
-                                                                            </video>
+                                                                            {/* <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/> */}
                                                                         </Carousel>
                                                                     );
                                                                 }else{
                                                                     return(
-                                                                        <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/>
+                                                                        function(){
+                                                                            console.log(anuncios.c_fotos)
+                                                                            if(anuncios.c_fotos){
+                                                                                // console.log(anuncios.c_fotos.map())
+                                                                                anuncios.c_fotos.map(
+                                                                                    
+                                                                                    fotos => console.log(fotos) //<img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                    
+                                                                                )
+                                                                                // <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/>
+                                                                            }else{
+                                                                                anuncios.c_fotos.map(
+                                                                                    
+                                                                                    fotos => console.log(fotos) //<img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                    
+                                                                                )
+                                                                            }
+                                                                        }
+                                                                       
                                                                     );
                                                                     
                                                                 }
