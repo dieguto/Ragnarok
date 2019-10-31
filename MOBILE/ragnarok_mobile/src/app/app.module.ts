@@ -10,9 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {Storage, IonicStorageModule} from '@ionic/storage';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 
-import {NgxMaskIonicModule} from 'ngx-mask-ionic'
+import {NgxMaskIonicModule} from 'ngx-mask-ionic';
 
 export function jwtOptionsFacgtory(storage){
   return{
@@ -31,6 +32,8 @@ export function jwtOptionsFacgtory(storage){
     IonicModule.forRoot(),
      AppRoutingModule, 
       HttpClientModule,
+      ReactiveFormsModule,
+      FormsModule,
       NgxMaskIonicModule.forRoot(),
       IonicStorageModule.forRoot(),
       JwtModule.forRoot({

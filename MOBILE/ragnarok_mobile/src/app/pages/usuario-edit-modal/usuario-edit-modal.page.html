@@ -1,13 +1,20 @@
 <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="closeModal()" slot="start">
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
       <ion-slides [options]="slideOpts"  name="slides">
         <ion-slide>
           <div  class="slide-inner ion-padding">
-            <form  (ngSubmit)="login()">
+            <form [formGroup]="formConfirmarSenha" (ngSubmit)="confirmarSenha()">
               <ion-item style="--background: none;" lines="none">
                   <ion-label class="label_teste" position="floating">Senha:</ion-label>
-                <ion-input  name="senha" type="password" ></ion-input>
+                <ion-input formControlName="senha"  name="senha" type="password" ></ion-input>
               </ion-item>
               <ion-button class="ion-margin-top" type="submit"   expand="block">
                 Confirme sua senha
@@ -18,7 +25,7 @@
     
         <ion-slide>
             <div class="slide-inner ion-padding">
-              <form   >     
+              <form>     
                     <ion-item style="--background: none;" lines="none">
                       <ion-label class="label_teste" position="floating">Nome:</ion-label>
                     <ion-input    name="nome" type="text"></ion-input>
@@ -43,7 +50,6 @@
             </div>
         </ion-slide>
       </ion-slides>
-
 </ion-content>
 
 

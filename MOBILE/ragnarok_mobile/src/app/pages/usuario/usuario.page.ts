@@ -5,6 +5,7 @@ import  {UsuarioService}  from '../../services/usuario/usuario.service';
 import { environment } from 'src/environments/environment';
 import { ModalController } from '@ionic/angular';
 import { UsuarioEditModalPage } from '../usuario-edit-modal/usuario-edit-modal.page';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-usuario',
@@ -23,9 +24,13 @@ export class UsuarioPage implements OnInit {
   USUARIO_KEY: string;
   id:Number;
   // usuarioService: UsuarioService;
- 
+  public formConfirmarSenha : FormGroup;
 
-  constructor(private usuarioService:UsuarioService, private storage:Storage,private modalCtrl: ModalController) { }
+  constructor(private usuarioService:UsuarioService, private storage:Storage,private modalCtrl: ModalController, formBuilder: FormBuilder) {
+    this.formConfirmarSenha = formBuilder.group({
+      senha:[null, Validators.required]
+    });
+   }
 
   async ngOnInit() {
 

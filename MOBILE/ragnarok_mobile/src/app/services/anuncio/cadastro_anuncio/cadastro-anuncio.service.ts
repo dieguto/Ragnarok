@@ -104,7 +104,7 @@ export class CadastroAnuncioService {
     const USUARIO_KEY = "usuario";
     const usuario = await this.storage.get(USUARIO_KEY);
 
-    return this.http.get<Anuncio[]>(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/10/distancia/0/${max}/asc`).pipe(
+    return this.http.get<Anuncio[]>(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/100/distancia/0/${max}/asc`).pipe(
       map(data => {
         const anunciosArray = data as any[];
 
