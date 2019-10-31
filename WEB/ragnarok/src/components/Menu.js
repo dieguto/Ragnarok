@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 import { GiBrutalHelm } from 'react-icons/gi';
 
 const LoggedOutView = props => {
-  if(!props.currentUser) {
+  if(props.currentUser) {
     return (
       <div className="header">
       <div className="navbar navbar-light bg-dark">
@@ -27,14 +27,14 @@ const LoggedOutView = props => {
 }
 
 const LoggedInView = props => {
-  if (props.currentUser) {
+  if (!props.currentUser) {
     return (
       <div className="header">
     
              {/* Segundo menu */}
              <div className="navbar navbar-light bg-dark">
                <h1 className="navbar-brand text-warning">
-                 {this.props.appName.toLowerCase()}
+                 {/* {this.props.appName.toLowerCase()} */}
                </h1>
               
               
@@ -44,9 +44,9 @@ const LoggedInView = props => {
                  </div>
                  <div>
                  <Link
-                    to={`@${props.currentUser.username}`}
+                    // to={`@${props.currentUser.username}`}
                     className="nav-link">
-                    {props.currentUser.username}
+                    {/* {props.currentUser.username} */}
                   </Link>
                      {/* <span>Bem vindo, Diego</span> */}
                   

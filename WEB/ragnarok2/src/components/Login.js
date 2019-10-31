@@ -51,9 +51,11 @@ export default class Login extends Component {
 
     render(){
         return (
+            <>
+            <h1 className="header-logo titulo-cadastro-anuncio">Ragnarok</h1>
             <div className="login-container">
                 
-                <h1 className="header-logo titulo-cadastro-anuncio">Ragnarok</h1>
+                
                 <span>{this.state.msg}</span>
                 <form onSubmit={this.envia.bind(this)}>
                     <label className="form-check-label">E-mail:</label>
@@ -63,6 +65,8 @@ export default class Login extends Component {
                     <input className="btn btn-outline-warning"  type="submit" value="Entrar"/>
                 </form>
             </div>
+
+            </>
         );
     }
 }

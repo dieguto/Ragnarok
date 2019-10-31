@@ -3,6 +3,7 @@ import IconeUser from '../assets/user.svg'
 
 import api from '../services/api';
 import Carousel from 'nuka-carousel'
+import '../css/cadastro-anuncio.css';
 
 // console.log(api)
 
@@ -30,7 +31,7 @@ export default class Anuncio extends Component {
         return(
             <>
              <div id="feed">
-                <h2 id="feed-titulo">Feed</h2>
+                <h2 titulo-cadastro-anuncio>Feed</h2>
                 {
                   
 
