@@ -6,11 +6,17 @@ import ImgTeste from '../assets/god-of-war.jpg'
 
 class RetornaJogo extends Component {
 
+  constructor(){
+    super();
+    this.state = {jogos: []}
+  }
+
   pesquisa(event){
     event.preventDefault()
-    fetch(`http://3.92.51.72:3107/sugestoes/${this.jogoPesquisado.value}/5`)
+    fetch(`http://3.92.51.72:3107/sugestoes/${this.jogoPesquisado.value}/10`)
     .then(response => response.json())
     .then(jogos => {
+      this.setState({jogos:jogos})
       console.log(jogos)
     })    
     
@@ -30,18 +36,23 @@ class RetornaJogo extends Component {
             </div>
           </div>
         </form>
-        
-        <div class="form-group caixa-jogo background-333333">
-          <div className="row">
-            <div className="col-4 card bg-transparent border-0">
-                <div className="card-header bg-transparent border-0"><h5 className="card-title texto-laranja">God of War:</h5></div>
-                <div className="card-body bg-transparent border-0"><button type="button" className="btn-confirmar mr-auto ml-auto">Clique aqui para confirmar</button></div>
-            </div>
-            <div className="col-8">
-                <img src={ImgTeste} className="card-img"></img>
-            </div>
-          </div>      
-        </div>              
+        {
+          this.state.jogos.map(
+            jogo => 
+            <div class="form-group caixa-jogo background-333333">
+            <div className="row">
+                <div className="col-4 card bg-transparent border-0">
+                    <div className="card-header bg-transparent border-0"><h5 className="card-title texto-laranja">{jogo.nome}</h5></div>
+                    <div className="card-body bg-transparent border-0"><button type="button" onClick={localStorage.setItem('jogo', jogo.slug)} className="btn-confirmar mr-auto ml-auto">Clique aqui para confirmar</button></div>
+                </div>
+                <div className="col-8">
+                    <img src={jogo.imagem_fundo} className="card-img"></img>
+                </div>
+            </div>      
+        </div> 
+          )
+        }
+                     
     
       </div>
     )

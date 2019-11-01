@@ -4,7 +4,7 @@ import './css/bootstrap.min.css'
 import './css/main.css';
 import Menu from './components/Header';
 import Timeline from './components/Timeline';
-
+import Footer from './components/Footer';
 
 
 
@@ -16,6 +16,7 @@ class App extends Component {
     <div className="App">
         <Menu/>
        {this.props.children}
+        <Footer></Footer>
     </div>
   );}
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {browserHistory} from  'react-router';
 import '../css/cadastro-anuncio.css'
+import '../css/Cadastro.css';
 
 
 export default class Login extends Component {
@@ -39,10 +40,20 @@ export default class Login extends Component {
             .then(dadosUsuario => {
                 dadosUsuario = JSON.parse(dadosUsuario);
                 localStorage.setItem('token', dadosUsuario.token);
-                // localStorage.setItem('usuario', JSON.parse(dadosUsuario.usuario));
+                // localStorage.setItem('usuario', dadosUsuario.usuario);
+                // localStorage.setItem('nome', JSON.parse(usuario.nome));
                 browserHistory.push('/');
                 //console.log(token)
             })
+            // .then(dadosUsuario => {
+            //     dadosUsuario = JSON.parse(dadosUsuario);
+            //     console.log(dadosUsuario)
+            //     localStorage.setItem('usuario', dadosUsuario.usuario);
+            //     // localStorage.setItem('usuario', dadosUsuario.usuario);
+            //     // localStorage.setItem('nome', JSON.parse(usuario.nome));
+            //     browserHistory.push('/');
+            //     //console.log(token)
+            // })
             
             .catch(error => {
                 this.setState({msg:error.message});
@@ -54,8 +65,8 @@ export default class Login extends Component {
 
             <>
                 <h1 className="header-logo titulo-cadastro-anuncio">Login</h1>
-                <div class="row">
-                    <div class="col-3.5 mr-auto ml-auto"><hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
+                <div className="row">
+                    <div className="col-3.5 mr-auto ml-auto"><hr className="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
                 </div>
                 <div className="login-container">
                     <span>{this.state.msg}</span>

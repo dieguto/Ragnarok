@@ -1,34 +1,82 @@
 import React , {Component} from 'react';
-
+import {browserHistory} from  'react-router';
 import Cleave from 'cleave.js/dist/cleave-react'
-import '../css/Cadastro.css'
+import '../css/Cadastro.css';
+import '../css/cadastro-anuncio.css';
 
 
 export default class CadastroUsuario extends Component {
+
+    constructor(props){
+        super(props);        
+        this.state = {msg:this.props.location.query.msg};
+    }
+
+    envia(event){
+        event.preventDefault();
+
+        /* é criado a constante requestInfo, por que por padrão o fetch realiza um get
+    //     porém, como estamos lidando com dados do usuário, devemos utilizar um POST*/ 
+        const requestInfo = {
+            method:'POST',
+            // body:JSON.stringify({login:this.login.value,senha:this.senha.value}),
+            body:JSON.stringify({nome:this.nome.value,email:this.email.value,cep:this.cep.value,senha:this.senha.value}), //versão para o TCC
+            headers:new Headers({
+                'Content-type' : 'application/json',
+                // 'Authorization' : 'Bearer ' + token 
+            })
+        };
+  
+        fetch('http://3.92.51.72:3107/usuario',requestInfo) // Versão para o TCC
+            .then(response => {
+                //o "ok" é do proprio response, que retorna um boolean
+                if(response.ok) {
+                    return response.text();
+                } else {
+                    // criamos um novo erro, para interromper o fluxo
+                    throw new Error('não foi possível fazer o cadastro');
+                }
+            })
+            .then(dadosUsuario => {
+                // dadosUsuario = JSON.parse(dadosUsuario);
+                // localStorage.setItem('token', dadosUsuario.token);
+                // localStorage.setItem('usuario', JSON.parse(dadosUsuario.usuario));
+                browserHistory.push('/login');
+                //console.log(token)
+            })
+            
+            .catch(error => {
+                this.setState({msg:error.message});
+            });
+    }
+
 
     render(){
         return(
             <div className="login-container">
                    
-                        <form method="post" name="formcadastro">   
-                                <h1>Cadastro</h1> 
+                        <form onSubmit={this.envia.bind(this)} name="formcadastro">   
+                                <h1 className="header-logo titulo-cadastro-anuncio">Cadastro</h1> 
 
+                                <span>{this.state.msg}</span>
                                 <div>
                                     <label className="form-check-label ">Nome:</label>
-                                    <input className="form-control " type="text" id="nome" name="nome"  placeholder="Guilherme caneiro" required></input>
+                                    <input className="form-control " type="text"  placeholder="Celso Furtado" required ref={(input) => this.nome = input}></input>
+                                </div>
+                                
+                                <div>
+                                    <label className="form-check-label">E-mail:</label>
+                                    <input className="form-control" type="email"  placeholder="celso@email.com" required ref={(input) => this.email = input}></input>
                                 </div>
                                 <div>
                                     <label className="form-check-label">Cep:</label>
-                                    <Cleave type="text" id="cep" name="cep"  required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}}></Cleave>
-                                </div>
-                                <div>
-                                    <label className="form-check-label">email:</label>
-                                    <input className="form-control" type="email" id="email" name="email"  placeholder="guimanchaverde@email.com" required></input>
+                                    {/* <Cleave type="text"  required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}} ref={(input) => this.cep = input}></Cleave> */}
+                                    <input type="text"  required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}} ref={(input) => this.cep = input}></input>
                                 </div>
                                 
                                 <div>
                                     <label className="form-check-label">Senha:</label>
-                                    <input className="form-control" type="password" id="senha" name="senha" placeholder="*******" required></input>
+                                    <input className="form-control" type="password" placeholder="*******" required ref={(input) => this.senha = input}></input>
                                 </div>
 
                             <div className="text-center">

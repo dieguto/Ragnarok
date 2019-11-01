@@ -5,7 +5,7 @@ import { GiBrutalHelm } from 'react-icons/gi';
 
 export default class Menu extends Component{
 
-
+ 
 
     render(){
         if(localStorage.getItem('token') === null){
@@ -29,6 +29,11 @@ export default class Menu extends Component{
                 </div>
               )
         }else{
+      // const usuario = localStorage.getItem('usuario');
+      // console.log(usuario);
+      // const nome = JSON.parse(usuario);
+      // console.log(nome);
+
             return (
                 <div className="header">
               
@@ -48,23 +53,23 @@ export default class Menu extends Component{
                            <div>
                            <Link
                               className="nav-link">
-                              Usuário
+                              Celso Furtado
                             </Link>
                                {/* <span>Bem vindo, Diego</span> */}
                               
-                              <button type="button" className="btn btn-secondary dropdown-toggle ml-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {/* <button type="button" className="btn btn-secondary dropdown-toggle ml-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         
                                <GiBrutalHelm/>
-                              </button>
+                              </button> */}
                              
-                              <div className="dropdown-menu dropdown-menu-right">
+                              {/* <div className="dropdown-menu dropdown-menu-right">
                              
-                                  {/* <button className="dropdown-item" type="button">Bem vindo, Diego</button> */}
+                                   <button className="dropdown-item" type="button">Bem vindo, Diego</button> 
                                   <button className="dropdown-item" type="button">Meus Anúncios</button>
                                   <button className="dropdown-item" type="button">Meus Jogos</button>
                                   <button className="dropdown-item" type="button">Configurações</button>
                                   <button className="dropdown-item" type="button">Sair</button>
-                              </div>
+                              </div> */}
                              
                            </div>
                               
