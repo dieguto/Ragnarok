@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Anuncio from './Anuncio';
 
-// import Slider from '../components/Slider';
+import Slider from '../components/Slider';
 
 class GeneroJogo extends Component{
 
@@ -26,8 +26,8 @@ class GeneroJogo extends Component{
            
             
 
-            <div className="mais-populares">
-                <h3 id="mais-populares-titulo">Mais Populares:</h3>
+            <div className="shadow-lg mais-populares">
+                <h3 id="mais-populares-titulo" className="feed-titulo">Mais Populares:</h3>
                 {
                     this.state.generos.map( genero => <i key={genero.id_genero} className="badge badge-pill genero-anuncio">{genero.nome}</i>)
                 }
@@ -43,7 +43,7 @@ export default class Timeline extends Component {
         return(
             <div id="container">
                  <div id="container-anuncios">
-                     {/* <Slider></Slider> */}
+                     <Slider></Slider>
                      <Anuncio></Anuncio>
 
                 

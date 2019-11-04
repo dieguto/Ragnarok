@@ -8,7 +8,7 @@ export default class Footer extends Component{
     render(){
         return(
             // <!-- Footer -->
-            <div class=" page-footer font-small unique-color-dark" >
+            <footer class="page-footer font-small unique-color-dark" >
                 
                 {/* <!-- Footer Links --> */}
                 <div class="container text-center text-md-left mt-5">
@@ -75,7 +75,7 @@ export default class Footer extends Component{
                 </div>
                 {/* <!-- Copyright --> */}
             
-            </div>
+            </footer>
         
 
         )

@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: antiga;
+    src: url(../Utils/fontes/GoboldBlockyItalic.otf);
+}
+
 
 /* Inicio Classes padronização */
 .sem-borda{
@@ -92,8 +97,10 @@ header{
 
 .feed-titulo{
     width: 100%;
-    color: white;
+    color: #f39c12;
     margin-bottom: 30px;
+    font-family: antiga;
+    font-size: 50px;
 }
 
 #mais-populares-titulo{
@@ -156,7 +163,7 @@ header{
 
 
 /* Inicio Footer */
-.footer{
+footer{
     color: white; 
     background-color: #333333; 
     padding-top: 5px;
