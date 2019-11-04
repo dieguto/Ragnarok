@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, IonRange, ModalController } from '@ionic/angular';
+import { IonSlides, IonRange, ModalController, IonSlide, IonContent } from '@ionic/angular';
 import {Anuncio} from '../../services/anuncio/cadastro_anuncio/anuncio.class';
 import {CadastroAnuncioService} from '../../services/anuncio/cadastro_anuncio/cadastro-anuncio.service';
 import { environment } from 'src/environments/environment';
 import { HomeModalPage } from '../home-modal/home-modal.page';
+import {Storage} from '@ionic/storage';
+
 
 @Component({
   selector: 'app-home',
@@ -13,21 +15,24 @@ import { HomeModalPage } from '../home-modal/home-modal.page';
 export class HomePage implements OnInit {
 
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
+  @ViewChild(IonContent, { static: false }) ionContent: IonContent;
   @ViewChild(IonRange, { static: false }) ionRange: IonRange;
 
   anuncios: Anuncio[];
   url =  environment.url;
+  isVazio = false;
 
-  constructor(private cadastroAnuncioService: CadastroAnuncioService, private modalCtrl: ModalController) {
+  constructor(private cadastroAnuncioService: CadastroAnuncioService, private modalCtrl: ModalController, private storage:Storage) {
   }
 
   async ngOnInit() {
     
-   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(10, 1);
+   this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(1, 1);
 
    console.log(this.anuncios);
   }
 
+  //  Cria modal e manda id do anuncio para select 
   async showModal(id_anuncio){
     console.log(id_anuncio);
     let modal = await this.modalCtrl.create({
@@ -38,22 +43,28 @@ export class HomePage implements OnInit {
 
     return await modal.present();
   }
+  // Filtra por quilometro
+async  filtrar_km(){
+   let km = this.ionRange.value;
 
-  filtrar_km(){
-   let a = this.ionRange.value;
+   const PAGINA = "pagina";
+   
+   await this.storage.set(PAGINA, 1);
 
-  //  a = a - 1;
-   console.log(typeof this.ionRange.value);
-  //  alert(a);
-
-   this.cadastroAnuncioService.buscarTodosHome(a, 1).then(anuncio => {
+   this.cadastroAnuncioService.buscarTodosHome(km, 1).then(anuncio => {
     
     console.log(anuncio);
-     this.anuncios = anuncio;
-    
-   
-  });
-
+    this.anuncios = anuncio;
+    this.isVazio = false;
+  })
+  .catch(err => {
+    console.log(err);
+    if(err.status === 404){
+      console.log('erro cabuloso');
+      this.anuncios = [];
+      this.isVazio = true;
+    }
+  })
   
   this.slides.slidePrev();
   this.slides.slidePrev();
@@ -66,6 +77,44 @@ export class HomePage implements OnInit {
 
   }
 
+  async buscarMaisAnuncios(){
+    const PAGINA = "pagina";
+    let pg =  await this.storage.get(PAGINA);
+    pg  = pg + 1;
+    await this.storage.set(PAGINA, pg);
+    let km = this.ionRange.value;
+ 
+    console.log('essa é a pagina', pg);
+
+    
+    this.cadastroAnuncioService.buscarTodosHome(km, pg).then(anuncio => {
+      
+      console.log(anuncio);
+      this.anuncios = anuncio;
+      this.isVazio = false;
+    }).catch(err => {
+      console.log(err);
+      if(err.status === 404){
+        console.log('erro cabuloso');
+        this.anuncios = [];
+        this.isVazio = true;
+      }
+    })
+    
+        this.slides.slidePrev();
+        this.slides.slidePrev();
+        this.slides.slidePrev();
+        this.slides.slidePrev();
+
+        this.slides.slidePrev();
+        this.slides.slidePrev();
+        this.slides.slidePrev();
+
+        
+
+  }
+
+  // Veririfica os campos do json
   verificarCampo(json_info_rawg, nome_campo){
     if(json_info_rawg == null){
       return false;
@@ -76,23 +125,12 @@ export class HomePage implements OnInit {
     }
 
   }
-
-  isNullOuUnd(campo){
-    var teste = this.isNull(campo);
-    return teste;
-    // return this.isNull(campo);
-  }
-
-
-
-  isNull(campo){
-    var teste = campo == null;
-    return teste;
-    // return typeof campo !== "string";
-  }
   slideOpts: any = {allowTouchMove: false};
 
   proximoJogo(){
    return this.slides.slideNext();
   }
+
+
+ 
 }
