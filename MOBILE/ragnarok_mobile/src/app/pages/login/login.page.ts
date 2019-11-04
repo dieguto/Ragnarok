@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, TemplateRef } from '@angular/core';
-import { IonSlides, IonSegment, IonSlide } from '@ionic/angular';
+import { IonSlides, IonSegment, IonSlide, ToastController } from '@ionic/angular';
 import { Usuario } from '../../services/usuario/usuario.class';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
   public formFazerLogin :FormGroup;
 
   usuario: Usuario;
-  constructor(private usuarioService: UsuarioService, formBuilder: FormBuilder ) { 
+  constructor(private usuarioService: UsuarioService, formBuilder: FormBuilder, private toastCtrl: ToastController ) { 
       this.formCriarUsuario = formBuilder.group({
         nome:[null, Validators.required],
         cep:[null, Validators.required],
@@ -63,6 +63,13 @@ export class LoginPage implements OnInit {
       // usando javascript assincrono 
       const result = await this.usuarioService.criarUsuario(this.usuario);
       console.log(this.usuario);
+      let toast =  await this.toastCtrl.create({
+        message: 'Conta criada com sucesso', 
+        duration: 2000,
+        color: 'secondary'
+      });
+
+      toast.present();
 
       this.slides.slidePrev();
       this.segment.value = 'login';
@@ -70,15 +77,46 @@ export class LoginPage implements OnInit {
       console.log(result);
     } 
     catch (error) {
-      console.error(error);
-    }
-  }
+      // if(error === 400 ){
+        let toast =  await this.toastCtrl.create({
+          message: 'erro ao criar sua conta', 
+          duration: 2000,
+          color: 'secondary'
+        });
 
-  // login do usuario
-  login(){
-    this.usuario = this.formFazerLogin.value;
-    console.log(this.usuario);
-    this.usuarioService.login(this.usuario).subscribe();
+        toast.present();
+      }
+    }
+  
+
+
+
+  async login(){
+
+    try  {
+      this.usuario = this.formFazerLogin.value;    
+      const result =  this.usuarioService.login(this.usuario).subscribe();
+
+      // if(result == ){
+
+      // }
+      console.log(this.usuario);
+      console.log(result);
+      let toast =  await this.toastCtrl.create({
+        message: 'Erro ao fazer login', 
+        duration: 2000,
+        color: 'secondary'
+      });
+      toast.present();
+
+     
+    } catch (error) {
+    
+        console.log('aaaaa')
+
+      
+    }
+   
   }
 
 }

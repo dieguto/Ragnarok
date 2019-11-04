@@ -1,43 +1,40 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <ion-header>
   <ion-toolbar>
-    <ion-title>Ragnarok</ion-title>
-    <img src="../../assets/icon/logo-ragnarok.png">
-
+      <ion-item >
+          <ion-label>
+           {{nome}}
+           <ion-icon (click)="showModal(id)" name="create"></ion-icon>
+          </ion-label>
+      </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="caixa_conteudo1">
-    <div class="titulo_usuario">
-      <div class="caixa_titulo_usuario">
-          <ion-item >
-              <ion-label>
-               {{nome}}
-               <ion-icon (click)="showModal(id)" name="create"></ion-icon>
-              </ion-label>
-
-          </ion-item>
-      </div>
-    </div>
-    <div class="img_usuario">
-      <div class="caixa_usuario">
-          <img src="../../assets/boss.png" >
-      </div>
-    </div>
-    <div class="meus_anuncios">
-      <div class="caixa_titulo_usuario">
-          <ion-item>
-              <ion-label>
-               anuncios
-              </ion-label>
-            </ion-item>
-      </div>
-    </div>
+  <div class="caixa_conteudo1" style="background-image: url('../../assets/fundousuariomobile.jpg');">
+    <!-- <img src="../../assets/fundo.jpg"> -->
+      <!-- <div class="titulo_usuario">
+          <div class="caixa_titulo_usuario">
+              <ion-item >
+                  <ion-label>
+                   {{nome}}
+                   <ion-icon (click)="showModal(id)" name="create"></ion-icon>
+                  </ion-label>
+              </ion-item>
+          </div>
+        </div> -->
+        <div class="img_usuario">
+          <div class="caixa_usuario">
+              <img src="../../assets/boss.png" >
+          </div>
+        </div>
   </div>
   <div class="caixa_conteudo2">
     <div class="anuncios">
         <ion-list >
+            <ion-list-header>
+                <ion-label>Anuncios</ion-label>
+              </ion-list-header>
           <!-- <div *ngFor="let anuncio of teste"> -->
               <ion-item *ngFor="let anuncio of anuncios" >
                   <!-- <ion-avatar *ngIf="anuncio.info_rawg" slot="start">

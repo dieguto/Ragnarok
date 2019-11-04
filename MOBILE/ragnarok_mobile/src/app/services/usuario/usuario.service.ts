@@ -87,6 +87,43 @@ export class UsuarioService {
       }).toPromise();
   }
 
+    loginTeste(usuario:Usuario){
+      return this.http.post(`${this.url}/auth/login/usuario/`, {
+        email: usuario.email,
+        senha: usuario.senha
+
+        
+      }).toPromise();
+      tap(res =>{
+        this.storage.set(TOKEN_KEY, res['token']);
+        this.storage.set(USUARIO_KEY, res['usuario']);
+
+        this.usuario = this.helper.decodeToken(res['token']);
+
+        console.log(res['token']);
+        this.authenticationState.next(true);
+      })
+
+    }
+
+  // login(crendentials){
+  //   return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
+  //     tap(res =>{
+  //       this.storage.set(TOKEN_KEY, res['token']);
+  //       this.storage.set(USUARIO_KEY, res['usuario']);
+
+  //       this.usuario = this.helper.decodeToken(res['token']);
+
+  //       console.log(res['token']);
+  //       this.authenticationState.next(true);
+  //     }),
+  //     catchError(e =>{
+  //       console.log(e.error.msg);
+  //       throw new Error(e);
+  //     })
+  //   );
+  // }
+
   buscarPorIdComAnuncios(id){
     console.log(`${this.url}/usuario/${id}/com/9999/anuncios`);
     return this.http.get<Usuario>(`${this.url}/usuario/${id}/com/9999/anuncios`, ).toPromise();
