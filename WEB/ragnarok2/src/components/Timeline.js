@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 
 import Anuncio from './Anuncio';
+// import { Carousel } from 'react-bootstrap';
 
+// import Slider from '../components/Slider2';
 import Slider from '../components/Slider';
 
 class GeneroJogo extends Component{
@@ -43,7 +45,7 @@ export default class Timeline extends Component {
         return(
             <div id="container">
                  <div id="container-anuncios">
-                     <Slider></Slider>
+                     {/* <Slider></Slider> */}
                      <Anuncio></Anuncio>
 
                 
