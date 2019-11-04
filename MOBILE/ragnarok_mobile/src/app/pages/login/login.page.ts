@@ -3,6 +3,7 @@ import { IonSlides, IonSegment, IonSlide, ToastController } from '@ionic/angular
 import { Usuario } from '../../services/usuario/usuario.class';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {Storage} from '@ionic/storage';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class LoginPage implements OnInit {
   public formFazerLogin :FormGroup;
 
   usuario: Usuario;
-  constructor(private usuarioService: UsuarioService, formBuilder: FormBuilder, private toastCtrl: ToastController ) { 
+  constructor(private usuarioService: UsuarioService, formBuilder: FormBuilder, private toastCtrl: ToastController, private storage:Storage ) { 
       this.formCriarUsuario = formBuilder.group({
         nome:[null, Validators.required],
         cep:[null, Validators.required],
@@ -91,32 +92,35 @@ export class LoginPage implements OnInit {
 
 
 
-  async login(){
+   login(){
+        this.usuario = this.formFazerLogin.value;    
+        const result =  this.usuarioService.login(this.usuario).subscribe();
+        // console.log(this.usuario);
+        console.log(result);
 
-    try  {
-      this.usuario = this.formFazerLogin.value;    
-      const result =  this.usuarioService.login(this.usuario).subscribe();
 
-      // if(result == ){
+        setTimeout(async () => {
+          const TOKEN_KEY = 'access_token';
+          let token = await this.storage.get(TOKEN_KEY);
+          if(token == null){
+            let toast =  await this.toastCtrl.create({
+              message: 'Erro ao efetuar login', 
+              duration: 2000,
+              color: 'secondary'
+            });
+            toast.present();
+          } else{
+            let toast =  await this.toastCtrl.create({
+              message: 'Login efetuado com sucesso', 
+              duration: 2000,
+              color: 'secondary'
+            });
+            toast.present();
+          }
+        }, 500);
+        
+        
 
-      // }
-      console.log(this.usuario);
-      console.log(result);
-      let toast =  await this.toastCtrl.create({
-        message: 'Erro ao fazer login', 
-        duration: 2000,
-        color: 'secondary'
-      });
-      toast.present();
-
-     
-    } catch (error) {
-    
-        console.log('aaaaa')
-
-      
-    }
-   
   }
 
 }
