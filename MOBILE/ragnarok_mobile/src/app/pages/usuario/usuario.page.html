@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <div class="caixa_conteudo1" style="background-image: url('../../assets/fundousuariomobile.jpg');">
+  <div class="caixa_conteudo1" >
     <!-- <img src="../../assets/fundo.jpg"> -->
       <!-- <div class="titulo_usuario">
           <div class="caixa_titulo_usuario">
@@ -31,29 +31,104 @@
   </div>
   <div class="caixa_conteudo2">
     <div class="anuncios">
-        <ion-list >
-            <ion-list-header>
-                <ion-label>Anuncios</ion-label>
-              </ion-list-header>
-          <!-- <div *ngFor="let anuncio of teste"> -->
-              <ion-item *ngFor="let anuncio of anuncios" >
-                  <!-- <ion-avatar *ngIf="anuncio.info_rawg" slot="start">
-                    <img src="{{anuncio.info_rawg.jogo.imagem_fundo}}">
-                  </ion-avatar>
-                  <ion-avatar *ngFor="let fotos of anuncio.c_fotos" slot="start">
-                      <img src="{{url}}/{{fotos.length}}">
-                    </ion-avatar> -->
-                  <ion-label>
-                    <h2 *ngIf="anuncio.info_rawg">
-                      {{anuncio.info_rawg.jogo.nome}}
-
-                    </h2>
-                    <h3>{{anuncio.titulo}}</h3>
-                    <p>{{anuncio.descricao}}</p>
-                  </ion-label>
-                </ion-item>
-          <!-- </div> -->
-        </ion-list>
+      <ion-tabs>
+        <ion-tab-bar>
+          <ion-tab-button>
+            <ion-icon  name="headset"></ion-icon>
+            <ion-label>Acessorios</ion-label>
+            <ion-badge>6</ion-badge>
+          </ion-tab-button>
+      
+          <ion-tab-button >
+            <ion-icon name="logo-xbox"></ion-icon>
+            <ion-label>Console</ion-label>
+            <ion-badge>6</ion-badge>
+          </ion-tab-button>
+      
+          <ion-tab-button (click)="alert()">
+            <ion-icon name="logo-game-controller-b"></ion-icon>
+            <ion-label>Jogos</ion-label>
+            <ion-badge>6</ion-badge>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>    
     </div>
   </div>
+  <div id="container">
+      <div class="box">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <img src="../../assets/boss.png">
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              Nome 
+            </ion-col>
+            </ion-row>
+        </ion-grid>
+      </div>
+      <div class="box">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="../../assets/boss.png">
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Nome 
+              </ion-col>
+              </ion-row>
+          </ion-grid>
+          
+        </div>
+        <div class="box">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <img src="../../assets/boss.png">
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  Nome 
+                </ion-col>
+                </ion-row>
+            </ion-grid>
+            
+          </div>
+          <div class="box">
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <img src="../../assets/boss.png">
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    Nome 
+                  </ion-col>
+                  </ion-row>
+              </ion-grid>
+              
+            </div>
+            <div class="box">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <img src="../../assets/boss.png">
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      Nome 
+                    </ion-col>
+                    </ion-row>
+                </ion-grid>
+                
+              </div>
+    </div>
+
 </ion-content>

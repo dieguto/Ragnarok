@@ -4,6 +4,7 @@ import { Usuario } from '../../services/usuario/usuario.class';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {Storage} from '@ionic/storage';
+import { async } from '@angular/core/testing';
 
 
 @Component({
@@ -93,34 +94,27 @@ export class LoginPage implements OnInit {
 
 
    login(){
-        this.usuario = this.formFazerLogin.value;    
-        const result =  this.usuarioService.login(this.usuario).subscribe();
-        // console.log(this.usuario);
-        console.log(result);
+          this.usuario = this.formFazerLogin.value;    
+          this.usuarioService.login(this.usuario).subscribe(async(result) =>{
+              console.log(result);
+              this.toast('Login efetuado com sucesso');
+          }, async (error) =>{
+            console.log('sou erro ', error);
+            this.toast('Erro ao efetuar login');
+           });
+  }
 
 
-        setTimeout(async () => {
-          const TOKEN_KEY = 'access_token';
-          let token = await this.storage.get(TOKEN_KEY);
-          if(token == null){
-            let toast =  await this.toastCtrl.create({
-              message: 'Erro ao efetuar login', 
-              duration: 2000,
-              color: 'secondary'
-            });
-            toast.present();
-          } else{
-            let toast =  await this.toastCtrl.create({
-              message: 'Login efetuado com sucesso', 
-              duration: 2000,
-              color: 'secondary'
-            });
-            toast.present();
-          }
-        }, 500);
-        
-        
+  async toast(mensagem){
+    let toast =  await this.toastCtrl.create({
+      message: mensagem, 
+      duration: 2000,
+      color: 'secondary'
+    });
 
+    toast.onDidDismiss();
+
+   toast.present();
   }
 
 }

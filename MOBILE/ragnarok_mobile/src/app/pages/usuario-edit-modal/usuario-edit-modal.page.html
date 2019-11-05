@@ -17,7 +17,7 @@
                 <ion-input formControlName="senha"  name="senha" type="password" ></ion-input>
               </ion-item>
               <ion-button class="ion-margin-top" type="submit"   expand="block">
-                Confirme sua senha
+                CONFIRMAR SENHA
               </ion-button>
             </form>
           </div>
@@ -25,26 +25,26 @@
     
         <ion-slide>
             <div class="slide-inner ion-padding">
-              <form>     
+              <form [formGroup]="formEditarUsuario" (ngSubmit)="editarConta()">     
                     <ion-item style="--background: none;" lines="none">
                       <ion-label class="label_teste" position="floating">Nome:</ion-label>
-                    <ion-input    name="nome" type="text"></ion-input>
+                    <ion-input  formControlName="nome" value="{{nome}}"  name="nome" type="text"></ion-input>
                   </ion-item>
                     <ion-item style="--background: none;" lines="none">
                       <ion-label class="label_teste" position="floating">Cep:</ion-label>
-                    <ion-input  name="cep" type="text" mask="00000-000" ></ion-input>
+                    <ion-input formControlName="cep" value="{{cep}}" name="cep" type="text" mask="00000-000" ></ion-input>
                   </ion-item>
                     <ion-item style="--background: none;" lines="none">
                       <ion-label class="label_teste" position="floating">Email:</ion-label>
-                    <ion-input name="email" type="email" ></ion-input>
+                    <ion-input formControlName="email" value="{{email}}" name="email" type="email" ></ion-input>
                   </ion-item>
                     <ion-item style="--background: none;" lines="none">
                       <ion-label class="label_teste" position="floating">Senha:</ion-label>
-                    <ion-input  name="senha" type="password" ></ion-input>
+                    <ion-input formControlName="senha"  value="{{senha}}" name="senha" type="text" ></ion-input>
                   </ion-item>
             
                     <ion-button type="submit" class="ion-margin-top btn " expand="block">
-                      CRIAR CONTA
+                      EDITAR CONTA
                     </ion-button>
               </form>    
             </div>

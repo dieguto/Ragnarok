@@ -116,18 +116,50 @@ ion-content{
         // background-color: aqua;
 
         .anuncios{
-            ion-list{
-                background: none;
-                ion-item{
-                    --background: none;
-                    border-bottom: solid 1px #f39c12;
-                    --height: 10%;
-                    ion-label{
-                        --background: none;
-                        --height: 10%; 
-                    }
+
+            ion-tabs{
+                // background: #333;
+                position: relative;
+
+                ion-tab-bar{
+                    --background:#333;
                 }
+                ion-tab-button{
+
+                    --color-selected:#f39c12;
+                } 
+            
             }
         }
+    }
+
+    #container{
+        margin: auto;
+        width: 90%;
+        height: 18vh;
+        text-align: center;
+        overflow: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+
+    }
+
+    #container::-webkit-scrollbar{
+        background: transparent;
+        margin:0px;
+        padding: 0px;
+
+    }
+
+    .box{
+        display: inline-block;
+        width: 30vw;
+        height: 100%;
+        margin-right: 20px;
+        color:white;
+    }
+
+    .box img{
+        border-radius: 10%;
     }
 }

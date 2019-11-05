@@ -4,9 +4,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
-
+import { UsuarioPageRoutingModule } from './usuario.router.module';
 import { UsuarioPage } from './usuario.page';
 import { UsuarioEditModalPage } from '../usuario-edit-modal/usuario-edit-modal.page';
+
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   imports: [
     ReactiveFormsModule,
     FormsModule,
+    UsuarioPageRoutingModule,
     CommonModule,
     FormsModule,
     IonicModule,

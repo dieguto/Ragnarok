@@ -34,6 +34,8 @@ export class UsuarioPage implements OnInit {
 
   async ngOnInit() {
 
+ 
+
     this.USUARIO_KEY = "usuario";
     this.usuario_storage = await this.storage.get(this.USUARIO_KEY);
 
@@ -66,6 +68,10 @@ export class UsuarioPage implements OnInit {
     return await modal.present();
   }
 
+
+  async alert(){
+    alert('aaaaaaaaa');
+  }
 
 
 }
