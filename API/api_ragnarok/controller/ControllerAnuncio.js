@@ -753,13 +753,11 @@ class ControllerAnuncio {
 
                   if(jogos != 0){
                      where.is_jogo = true;
-                  }
-                  
-                  if(acessorios != 0){
+      
+                  } else if(acessorios != 0){
                      where.is_acessorio = true;
-                  }
-                  
-                  if(consoles != 0){
+      
+                  } else if(consoles != 0){
                      where.is_console = true;
                   }
 
@@ -786,6 +784,53 @@ class ControllerAnuncio {
             
          }
       });
+
+   } 
+
+   static buscarTodosByIdUsuarioFiltrado(json_dados, callback){
+
+      let { id_usuario, jogos, acessorios, consoles } = json_dados;
+
+      if(isNaN(jogos) || isNaN(acessorios) || isNaN(consoles) || isNaN(id_usuario)){ 
+         console.log("os parametros 'jogos', 'acessorios', 'consoles' e 'id_usuario' devem ser numeros inteiros");
+         callback(400, null);
+      } else {
+
+         if((jogos != 0 && jogos != 1) || (acessorios != 0 && acessorios != 1) || (consoles != 0 && consoles != 1)){
+            console.log("os parametros 'jogos', 'acessorios' e 'consoles' devem ser iguais a 1 ou 0");
+            callback(400, null);
+
+         } else {
+            let where = {};
+
+            if(jogos != 0){
+               where.is_jogo = true;
+
+            } else if(acessorios != 0){
+               where.is_acessorio = true;
+
+            } else if(consoles != 0){
+               where.is_console = true;
+            }
+
+            Usuario.findByPk(id_usuario)
+            .then(usuario => {
+
+               if(usuario){
+                  where.id_usuario = id_usuario;
+
+                  this.getAnuncios([], where, 0, 999999, (status, anuncios) => {
+
+                     callback(status, this.organizar(anuncios, {}));
+                     
+                  });
+               } else {
+                  callback(404, null);
+               }
+            });
+         }
+
+      }     
 
    } 
    
