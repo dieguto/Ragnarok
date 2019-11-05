@@ -1,3 +1,7 @@
+adicionar rota de todos (anuncios e usuarios)
+
+atualizar a api na amazon (não precisa de sql-linux)
+
 DAO Anuncio
    criar - ok
    editar - ok  

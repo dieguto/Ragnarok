@@ -139,6 +139,42 @@ router.get("/usuario/:id_usuario/:jogos/:consoles/:acessorios/:pagina/:max_app/p
    });
 });
 
+router.get("/usuario/:id_usuario/:jogos/:consoles/:acessorios", (req, res)=>{
+
+   let params_busca = {};
+
+   params_busca.id_usuario = parseInt(req.params.id_usuario);
+
+   params_busca.jogos = parseInt(req.params.jogos);
+
+   params_busca.consoles = parseInt(req.params.consoles);
+
+   params_busca.acessorios = parseInt(req.params.acessorios);
+
+   controllerAnuncio.buscarTodosByIdUsuarioFiltrado(params_busca, (status, json)=>{
+
+      if(status && json){
+         res.status(status).json(json).end();
+      } else {
+         res.status(status).end();
+      }
+   
+   });
+});
+
+router.get("/todos", (req, res)=>{
+
+   controllerAnuncio.buscarTodosByIdUsuarioFiltrado(params_busca, (status, json)=>{
+
+      if(status && json){
+         res.status(status).json(json).end();
+      } else {
+         res.status(status).end();
+      }
+   
+   });
+});
+
 router.get("/troca/usuario/:id_usuario/:pagina/:max_app", getParamsAsJson, (req, res)=>{
 
    const params_busca = req.jsonParams;
