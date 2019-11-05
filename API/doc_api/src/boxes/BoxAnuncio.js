@@ -337,8 +337,7 @@ class BoxAnuncio extends Component{
                rota="/anuncio" descricao={ this.descToken("editar") } jsonReq={ this.reqEditar } jsonResp={ this.respEditar } />
 
             <CardRota parentAcc={ this.parentAcc } titulo='Deletar - REQUER TOKEN' metodo='delete' 
-               rota="/anuncio" descricao={ this.descToken("deletar") } jsonResp={ this.respDeletar } />
-
+               rota="/anuncio/:id" descricao={ this.descToken("deletar") } jsonResp={ this.respDeletar } />
 
          </CardPrincipal>
 

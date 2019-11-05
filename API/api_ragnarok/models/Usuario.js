@@ -59,6 +59,10 @@ Usuario.init({
       type: Sequelize.BOOLEAN,
       allowNull: false
    },
+   cep: {
+      type: Sequelize.STRING(9),
+      allowNull: false
+   },
    criado_em:{
       type:Sequelize.DATE,
       get(){
@@ -72,7 +76,8 @@ Usuario.init({
             'atualizado_em',
             'excluido_em',
             'email',
-            'senha'
+            'senha',
+            'cep'
          ] 
       }
    },
@@ -94,7 +99,8 @@ Usuario.init({
                'is_admin',
                'is_bloqueado',
                'email',
-               'senha'
+               'senha',
+               'cep'
             ] 
          }
       }

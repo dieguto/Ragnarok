@@ -236,15 +236,16 @@ class BoxUsuario extends Component{
             resp:{
                tipo:"customizado",
                customJson:{
-                  "id": 7,
-                  "nome": "Sausage Dog",
-                  "email": "sausage@yahoo.com",
+                  "id": 9,
+                  "nome": "Chimbinha Gomes",
+                  "email": "chimbinha@gmail.com",
                   "senha": "senha_em_sha512",
-                  "endereco": "CH, Guangzhou",
-                  "lat": "23.1259",
-                  "lon": "112.9476",
+                  "endereco": "PA, Belém",
+                  "lat": "-1.3719",
+                  "lon": "-48.4434",
                   "is_bloqueado": false,
-                  "is_admin": false
+                  "is_admin": false,
+                  "cep": "66635-110"
               }
             }
          },

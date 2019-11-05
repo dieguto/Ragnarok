@@ -82,7 +82,7 @@ class ControllerUsuario{
          
                   Usuario.create({
                      nome, email, senha,
-                     endereco, lat, lon,
+                     endereco, lat, lon, cep,
                      is_bloqueado: false,
                      is_admin: false
          
@@ -261,7 +261,7 @@ class ControllerUsuario{
             is_valido = false;
          }
 
-         if(usuario_put.is_bloqueado){
+         if(usuario_put.is_bloqueado && !usuario_token.is_admin){
             is_valido = false;
          }
       }
@@ -279,8 +279,6 @@ class ControllerUsuario{
                   usuario_put.endereco = info.endereco;
                   usuario_put.lat = info.lat;
                   usuario_put.lon = info.lon;
-
-                  usuario_put.cep = undefined;
 
                   this.putUsuario(usuario_put, (status, json) =>{
                      callback(status, json);

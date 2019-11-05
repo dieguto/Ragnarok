@@ -18,26 +18,27 @@ CREATE TABLE tbl_usuario(
 	lon DECIMAL(7, 4) NOT NULL,
 	is_bloqueado TINYINT NOT NULL,
 	is_admin TINYINT NOT NULL,
+   cep VARCHAR(9) NOT NULL,
 
 	criado_em TIMESTAMP,
 	atualizado_em TIMESTAMP,
 	excluido_em TIMESTAMP NULL
 );
 
-INSERT INTO tbl_usuario VALUES (0, "Diego Silva", "diego@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, now(), now(), null);
-INSERT INTO tbl_usuario VALUES (0, "Gabriel Morais", "gabriel@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, now(), now(), null);
-INSERT INTO tbl_usuario VALUES (0, "Vinicius Morais", "vinicius.m@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, now(), now(), null);
-INSERT INTO tbl_usuario VALUES (0, "Vinicius Oliveira", "vinicius.o@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Diego Silva", "diego@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, "06600-025", now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Gabriel Morais", "gabriel@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, "06600-025", now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Vinicius Morais", "vinicius.m@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, "06600-025", now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Vinicius Oliveira", "vinicius.o@ragnarok.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "SP, Jandira", -23.5289, -46.8991, 0, 1, "06600-025", now(), now(), null);
 
 -- senha carla123, id 5
-INSERT INTO tbl_usuario VALUES (0, "Carla", "carla.linda.123@hotmail.com", "b94391bbf77bb9dfc4ccfdf310340ccdb66cd189a8d11c50a4022efece1e2e355657ce52ded0c75f013dd5869bd6428c73914bd831d450d84eca26e012e2ca7a", "SP, Osasco", -23.5346, -46.8195, 0, 0, now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Carla", "carla.linda.123@hotmail.com", "b94391bbf77bb9dfc4ccfdf310340ccdb66cd189a8d11c50a4022efece1e2e355657ce52ded0c75f013dd5869bd6428c73914bd831d450d84eca26e012e2ca7a", "SP, Osasco", -23.5156, -46.7965, 0, 0, "06233-020", now(), now(), null);
 -- senha jeimer123
-INSERT INTO tbl_usuario VALUES (0, "Jeimer", "jeimer_monstrao@bol.com.br", "0fe1926d699bf7f8149ae31ea507d3f01416cfe318391c1bae536b70c9a67cf83421cda641ee543264b3b4e13b2c6d060e7ca5b0b96e008c7ef2db582c895ddc", "SP, São Paulo", -23.6815, -46.8754, 0, 0, now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Jeimer", "jeimer_monstrao@bol.com.br", "0fe1926d699bf7f8149ae31ea507d3f01416cfe318391c1bae536b70c9a67cf83421cda641ee543264b3b4e13b2c6d060e7ca5b0b96e008c7ef2db582c895ddc", "SP, São Paulo", -23.5506, -46.6366, 0, 0, "01001-001", now(), now(), null);
 -- senha hotdog123
-INSERT INTO tbl_usuario VALUES (0, "Sausage Dog", "sausage@yahoo.com", "ac27c68ff3b3f6122e67d21fde593e45757143baba0516a5a87709aebc854a53eb94f16342952552a9d08c381429aeab97d07243760a71803c2de8dc2a177121", "CH, Guangzhou", 23.1259, 112.9476, 0, 0, now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Sausage Dog", "sausage@yahoo.com", "ac27c68ff3b3f6122e67d21fde593e45757143baba0516a5a87709aebc854a53eb94f16342952552a9d08c381429aeab97d07243760a71803c2de8dc2a177121", "MS, Campo Grande", -20.4652, -54.6312, 0, 0, "79002-070", now(), now(), null);
 
 -- senha 123456
-INSERT INTO tbl_usuario VALUES (0, "Chimba", "chimba@outlook.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "AM, Cordajás", -1.9001, -65.0998, 0, 0, now(), now(), null);
+INSERT INTO tbl_usuario VALUES (0, "Chimba", "chimba@outlook.com", "ba3253876aed6bc22d4a6ff53d8406c6ad864195ed144ab5c87621b6c233b548baeae6956df346ec8c17f5ea10f35ee3cbc514797ed7ddd3145464e2a0bab413", "AM, Cordajás", -1.3509, -48.4581, 0, 0, "66635-110", now(), now(), null);
 
 -- CRIA A TABELA DAS FABRICANTES DE CONSOLES
 CREATE TABLE tbl_fabricante(
