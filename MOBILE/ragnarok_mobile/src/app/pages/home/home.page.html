@@ -23,6 +23,10 @@
     <!-- <ion-col  align-self-center size-md="6" size-lg="5" size-xs="12"> -->
       <ion-slides  [options]="slideOpts">
         <!-- Ion Slide -->
+        
+            <ion-slide *ngIf="isVazio">
+              "Não existe mais anuncios nessa região"
+            </ion-slide>
                   <ion-slide *ngFor=" let anuncio of anuncios">
                       <!-- IonCard Neto -->
                         <ion-card >
@@ -74,6 +78,11 @@
                                 </div>
                             </ion-card-header>            
                           </ion-card>
+                    </ion-slide>
+                    <ion-slide>
+                        <ion-button (click)="buscarMaisAnuncios()">
+                            Buscar mais anuncios 
+                        </ion-button>
                     </ion-slide>
               </ion-slides>
     <!-- </ion-col> -->

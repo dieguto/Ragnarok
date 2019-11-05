@@ -7,44 +7,58 @@
     }
 }
 
+ion-header{
+    ion-toolbar{
+        ion-item{
+            ion-label{
+                text-align: center;
+            }
+        }
+    }
+}
 ion-content{
     .caixa_conteudo1{
         width: 100vw;
-        height: 41vh;
-        // background-color:red;
+        height: 25vh;
 
-        .titulo_usuario{
-            width: 100%;
-            height: 17.5%;
-            // background-color:#333;
-
-
-            .caixa_titulo_usuario{
-                width: 50%;
-                height: 100%;
-                // background-color: blue;
-                margin-left: auto;
-                margin-right: auto;
-                // float: left;
-                text-align: center;
-
-                ion-item{
-                    width: 100%;
-                    height: 100%;
-                    // --background:#333;
-
-                    ion-label{
-                        text-align: center;
-                    }
-                }
+            img{
+                height: inherit;
+                width: inherit;
             }
 
-        }
+
+        // .titulo_usuario{
+        //     width: 100%;
+        //     height: 17.5%;
+        //     // background-color:#333;
+
+
+        //     .caixa_titulo_usuario{
+        //         width: 50%;
+        //         height: 100%;
+        //         // background-color: blue;
+        //         margin-left: auto;
+        //         margin-right: auto;
+        //         // float: left;
+        //         text-align: center;
+
+        //         ion-item{
+        //             width: 100%;
+        //             height: 100%;
+        //             // --background:#333;
+
+        //             ion-label{
+        //                 text-align: center;
+        //             }
+        //         }
+        //     }
+
+        // }
 
         .img_usuario{
             width: 100%;
-            height: 65%;
-
+            height: 100%;
+           
             
 
 
@@ -54,6 +68,7 @@ ion-content{
                 // background-color: aqua;
                 margin-right: auto;
                 margin-left: auto;
+      
 
                 img{
                     width: 100%;
@@ -61,7 +76,9 @@ ion-content{
                     border-radius: 50%;
                     margin-left: auto;
                     margin-right: auto;
+                            //   margin-top:5%;
                     background-color:#333;
+                    
                 }
             }
         }

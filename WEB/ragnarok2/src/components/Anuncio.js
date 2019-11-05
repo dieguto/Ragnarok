@@ -46,19 +46,36 @@ export default class Anuncio extends Component {
                                     <div className="card card-anuncio borda-20px">
                                         <div className="card-header">
                                             <div className="row">
-                                                <div className="col-10"><img src={IconeUser} className="rounded-circle icone-usuario"/> <span className="nome-usuario align-middle" >{anuncios.usuario.nome}</span></div>
+                                                <div className="col-9"><img src={IconeUser} className="rounded-circle icone-usuario"/> <span className="nome-usuario align-middle feed-titulo" >{anuncios.usuario.nome}</span></div>
                                                 {
                                                     function(){
                                                         // console.log(anuncios.is_jogo)
                                                         if(anuncios.genero){
                                                             return(
-                                                                <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
+                                                                <>
+                                                                <div key={anuncios.genero.id_genero} className="col-1 align-self-center"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
+                                                                {/* <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
+                                                                </>
+                                                            );
+                                                        }
+                                                    }()
+                                                }
+                                                {
+                                                    function(){
+                                                        // console.log(anuncios.is_jogo)
+                                                        if(anuncios.genero){
+                                                            return(
+                                                                <>
+                                                                <div className="col-1 align-self-center"><span className="badge badge-pill genero-anuncio">{anuncios.distancia}</span></div>
+                                                                {/* <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
+                                                                </>
                                                             );
                                                         }
                                                     }()
                                                 }
                                                 {/* <div className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
                                             </div>
+                                            
                                         </div>
                                         <div className="card-body"> 
                                             <div className="row">

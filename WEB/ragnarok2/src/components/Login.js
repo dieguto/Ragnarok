@@ -27,7 +27,6 @@ export default class Login extends Component {
         };
   
         fetch('http://3.92.51.72:3107/auth/login/usuario',requestInfo) // Versão para o TCC
-        // fetch('https://instalura-api.herokuapp.com/api/public/login',requestInfo)
             .then(response => {
                 //o "ok" é do proprio response, que retorna um boolean
                 if(response.ok) {
@@ -40,7 +39,7 @@ export default class Login extends Component {
             .then(dadosUsuario => {
                 dadosUsuario = JSON.parse(dadosUsuario);
                 localStorage.setItem('token', dadosUsuario.token);
-                // localStorage.setItem('usuario', dadosUsuario.usuario);
+                localStorage.setItem('usuario', JSON.stringify(dadosUsuario.usuario));
                 // localStorage.setItem('nome', JSON.parse(usuario.nome));
                 browserHistory.push('/');
                 //console.log(token)

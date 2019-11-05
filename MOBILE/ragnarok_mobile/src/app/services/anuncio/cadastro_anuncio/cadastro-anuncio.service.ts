@@ -99,12 +99,14 @@ export class CadastroAnuncioService {
   }
 
 
-  async buscarTodosHome(max, pagina){
+  async buscarTodosHome(max, pagina:number){
 
     const USUARIO_KEY = "usuario";
     const usuario = await this.storage.get(USUARIO_KEY);
+    console.log(pagina);
 
-    return this.http.get<Anuncio[]>(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/100/distancia/0/${max}/asc`).pipe(
+    console.log(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/5/distancia/0/${max}/asc`);
+    return this.http.get<Anuncio[]>(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/5/distancia/0/${max}/asc`).pipe(
       map(data => {
         const anunciosArray = data as any[];
 

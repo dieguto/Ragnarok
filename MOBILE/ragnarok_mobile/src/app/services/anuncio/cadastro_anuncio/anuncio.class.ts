@@ -20,7 +20,8 @@ export class Anuncio {
     console:String;
     console_troca:String;
     usuario:String;
-    dt_lancamento:string
+    dt_lancamento:string;
+    length: number;
    
 
 
@@ -47,11 +48,12 @@ export class Anuncio {
             this.console_troca = data.console_troca;
             this.usuario = data.usuario;
             this.dt_lancamento = data.dt_lancamento;
+            this.length = data.length;
             
         }
     }
 
     toString(){
-        return this.dt_lancamento, this.usuario, this.console_troca,this.console,this.id_anuncio, this.is_console, this.distancia, this.c_fotos, this.jogo, this.info_rawg, this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
+        return this.length, this.dt_lancamento, this.usuario, this.console_troca,this.console,this.id_anuncio, this.is_console, this.distancia, this.c_fotos, this.jogo, this.info_rawg, this.titulo, this.descricao, this.is_jogo, this.slug_jogo, this.id_console_troca, this.slug_jogo_troca, this.preco, this.array_fotos_base64, this.id_genero;
     }
 }

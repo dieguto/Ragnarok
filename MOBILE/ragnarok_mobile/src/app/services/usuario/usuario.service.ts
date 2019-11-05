@@ -6,11 +6,14 @@ import {Storage} from '@ionic/storage';
 import {environment} from '../../../environments/environment';
 import {tap, catchError, map} from 'rxjs/operators';
 import {BehaviorSubject} from 'rxjs';
-import { Platform, AlertController } from '@ionic/angular';
+import { Platform, AlertController, ToastController } from '@ionic/angular';
 
 
 const TOKEN_KEY = 'access_token';
-const USUARIO_KEY = "usuario"
+const USUARIO_KEY = "usuario";
+const PAGINA = 'pagina';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +28,7 @@ export class UsuarioService {
               private helper: JwtHelperService, 
               private storage:Storage,
               private plt: Platform, 
+              private toastCtrl: ToastController,
               private alertControlller: AlertController) {
                 this.plt.ready().then(()=>{
                   this.checkToken();
@@ -49,11 +53,12 @@ export class UsuarioService {
         });
       }
   
-      login(crendentials){
+    login(crendentials){
         return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
           tap(res =>{
             this.storage.set(TOKEN_KEY, res['token']);
             this.storage.set(USUARIO_KEY, res['usuario']);
+            this.storage.set(PAGINA, 1);
 
             this.usuario = this.helper.decodeToken(res['token']);
 
@@ -61,14 +66,12 @@ export class UsuarioService {
             this.authenticationState.next(true);
           }),
           catchError(e =>{
-            console.log(e.error.msg);
-            throw new Error(e);
+            // console.log(e.error.msg);
+            
+            throw new Error('ola');
           })
         );
       }
-
-
-
 
       isAuthenticated(){
         return this.authenticationState.value;
@@ -86,6 +89,25 @@ export class UsuarioService {
   
       }).toPromise();
   }
+
+
+  // login(crendentials){
+  //   return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
+  //     tap(res =>{
+  //       this.storage.set(TOKEN_KEY, res['token']);
+  //       this.storage.set(USUARIO_KEY, res['usuario']);
+
+  //       this.usuario = this.helper.decodeToken(res['token']);
+
+  //       console.log(res['token']);
+  //       this.authenticationState.next(true);
+  //     }),
+  //     catchError(e =>{
+  //       console.log(e.error.msg);
+  //       throw new Error(e);
+  //     })
+  //   );
+  // }
 
   buscarPorIdComAnuncios(id){
     console.log(`${this.url}/usuario/${id}/com/9999/anuncios`);
