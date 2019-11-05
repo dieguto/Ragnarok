@@ -1,0 +1,41 @@
+tbl_chat
+ id_chat (CHAVE PRIMARIA)
+ id_anuncio (CHAVE EXTRANGEIRA - tbl_anuncio[id_anuncio])
+ id_usuario_dono (CHAVE EXTRANGEIRA - tbl_usuario[id])
+ id_usuario_interessado (CHAVE EXTRANGEIRA - tbl_usuario[id])
+ c_foto_conversa (VARCHAR(300))
+ criado_em (TIMESTAMP)
+ excluido_em (TIMESTAMP)
+ NÃO EXISTE NO BANCO!!! - info_usuario_chat (NOME, ENDERECO E EMAIL)
+
+tbl_mensagem
+ id_mensagem (CHAVE PRIMARIA)
+ id_chat (CHAVE EXTRANGEIRA - tbl_chat[id_chat])
+ id_usuario_de_destino (CHAVE EXTRANGEIRA - tbl_usuario[id])
+ visualizada (TINYINT)
+ mensagem (TEXT)
+ criada_em (TIMESTAMP)
+ excluida_em (TIMESTAMP)
+ NÃO EXISTE NO BANCO!!! - is_do_usuario #Que esta chamando na rota do chat# (Booleano)
+
+ 
+
+server {
+        listen 3107;
+        listen [::]:3107;
+
+        server_name _;
+
+        location / {
+                proxy_pass http://localhost:3107;
+                proxy_http_version 1.1;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection 'upgrade';
+                proxy_set_header Host $host;
+                proxy_cache_bypass $http_upgrade;
+                client_max_body_size 35M;
+        }
+}
+
+ 
+ 

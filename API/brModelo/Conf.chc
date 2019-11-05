@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<APP>
+	<CONFIGURACAO>
+    <Configuracoes>
+      <dirLogico Valor="C:\Users\18175296\Desktop\brModelo\"/>
+      <dirConceitual Valor="C:\Users\18175296\Desktop\brModelo\"/>
+      <showLHint Valor="True"/>
+      <Tempo Valor="5"/>
+      <ExibirLog Valor="False"/>
+    </Configuracoes>
+    <Arquivos>
+      <Arq01 Valor="C:\USERS\18175296\DESKTOP\BRMODELO\CONCEITUAL.XML"/>
+      <Arq02 Valor=""/>
+      <Arq03 Valor=""/>
+      <Arq04 Valor=""/>
+      <Arq05 Valor=""/>
+    </Arquivos>
+  </CONFIGURACAO>
+	<AJUDA>
+    <Flash>##
+## Carlos H. Cândido
+## Ajuda rápida do sistema.
+## 
+[NOME MODELO]
+[NOME]
+Descrição/identificação do objeto.
+[TEXTO TEXTO]
+[PAPEL]
+Descrição do papel da cardinalidade (descrição/observação).
+[ALINHAMENTOLT]
+Reposiciona o controle quanto a posição no modelo (esquerda ou direita).
+[ALINHAMENTOWH]
+Reposiciona o controle quanto a altura ou largura.
+[OBS]
+Algo importante a ser anotado para posterior observação.
+[ID]
+Identificador único do objeto no modelo.
+[Auto Relacionado]
+A entidade está auto relacionada
+[Especializada]
+A entidade está especializada
+[Ent. Ass. Relação: Nome]
+Nome do relacionamento contido na entidade associativa
+[Ent. Ass. Relacão: Dicionario]
+Dicionário de dados do relacionamento contido na entidade associativa
+[Ent. Ass. Relação: Observacao]
+Algo importante a ser anotado para posterior observação sobre o relacionamento contido na entidade associativa
+[Card. Fixar posição]
+Fixar posição: Se fixada, a cardinalidade não se moverá ao mover-se a entidade ou relacionamento ao qual ela esteja vinculada.
+[Card. Posição da Linha]
+Alinhamento da fixação da cardinalidade
+[Card. Tamanho aut.]
+Controle do tamanho do desenho da cardinalidade
+[Entidade fraca]
+Tipo de entidade
+[Cardinalidade]
+[Atrib. tamanho aut.]
+Controle do tamanho do desenho do atributo
+[Atrib. Desvio]
+Desvia o encaixe da ligação do atributo ao relacionamento (desvio em pontos)
+[Posicionamento]
+Alinhamento da fixação do atributo
+[Identificador]
+O atributo pode ser identificador, Opcional, composto e/ou multivalorado
+[Opcional]
+O atributo pode ser identificador, Opcional, composto e/ou multivalorado
+[Composto]
+O atributo pode ser identificador, Opcional, composto e/ou multivalorado
+[Multivalorado]
+O atributo pode ser identificador, Opcional, composto e/ou multivalorado
+[Card. Mínima]
+Cardinalidade mínima do atributo.
+Ex: (1, n), neste caso o "1"
+[Card. Máxima]
+Cardinalidade máxima do atributo.
+Ex: (1, n), neste caso o "n"
+[TipoDoValor]
+Tipo do atributo, podendo ser por exemplo: Texto(n), Número(n), boleano e etc. (ou qualquer outro definido pelo usuário)
+[Exclusiva]
+Especialização exclusiva (onde A é B "ou" C) não exclusiva (A pode ser B e/ou C)
+[Esp. Parcial]
+Especialização parcial
+[Chave Primária]
+[Chave Estrangeira]
+[Tipo]
+Tipo de dado no modelo
+[TabOrigem]
+Integridade referencial: Tabela de origem do campo chave estrangeira.
+[CampoOrigem]
+Integridade referencial: Campo de origem da chave estrangeira.
+[Posição (Índice)]
+Ordenamento do campo dentro a tabela
+[Cor]
+[Qtd. Campos]
+[Texto TamAuto]
+[Texto Cor]
+[Moldura]
+Forma de desenho da moldura do texto.
+[Alin. Texto]
+[RPOSISETA]
+Posiciona uma seta ao lado do relacionamento para enfatizar a melhor direção de leitura do diagrama
+[TBComplemento]
+Mineumônico de um complemento que, no futuro, poderá ser convertido em DDL para a futura tabela.
+[CPComplemento]
+Mineumônico de um complemento que, no futuro, poderá ser convertido em DDL para o futuro campo.
+[TBChaves]
+Chave(s) primária da tabela (nesta ordem).
+[OnUpdate]
+DDL ansi 2003: em caso de update na tabela pai, o que deverá acontecer.
+[OnDelete]
+DDL ansi 2003: em caso de exclusão na tabela pai, o que deverá acontecer.
+[TBcOrdem]
+Ordem de conversão da tabela para o modelo físico.
+</Flash>
+  </AJUDA>
+</APP>
