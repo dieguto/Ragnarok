@@ -144,10 +144,10 @@ export default class CadastroJogo extends Component {
         return(
             <div id="container">
 
-      <h1 className="titulo-cadastro-anuncio">Cadastro de Anuncios</h1>
-      <div class="row">
+      <h1 className="titulo-cadastro-anuncio fonte-padrao">Cadastro de Anuncios</h1>
+      {/* <div class="row">
         <div class="col-3.5 mr-auto ml-auto"><hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
-      </div>
+      </div> */}
       <div id="container-cadastro-anuncio">
         <form className="form-cadastro" onSubmit={console.log("teste enviar o form de fora")}>
           <div className="form-group">

@@ -1,0 +1,17 @@
+
+@font-face {
+    font-family: antiga;
+    src: url(../Utils/fontes/GoboldBlockyItalic.otf);
+}
+
+.fonte-padrao{
+    font-family: antiga;
+    font-size: 110px;
+    color: whitesmoke;
+}
+
+.legenda-padrao{
+    font-family: antiga;
+    font-size: 50px;
+    color: whitesmoke;
+}
