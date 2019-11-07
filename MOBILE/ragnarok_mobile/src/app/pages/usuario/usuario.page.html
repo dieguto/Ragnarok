@@ -1,14 +1,13 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <ion-header>
-  <ion-toolbar>
-      <ion-item >
-          <ion-label>
-           {{nome}}
-           <ion-icon (click)="showModal(id)" name="create"></ion-icon>
-          </ion-label>
-      </ion-item>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Ragnarok
+        <!-- <ion-icon name="logo-chrome"></ion-icon> -->
+      </ion-title>
+      <img src="../../assets/icon/logo-ragnarok.png">
+    </ion-toolbar>
+  </ion-header>
 
 <ion-content>
   <div class="caixa_conteudo1" >
@@ -28,24 +27,32 @@
               <img src="../../assets/boss.png" >
           </div>
         </div>
+        <div class="titulo_usuario">
+            <ion-item>
+                <ion-label>
+                 {{nome}}
+                 <ion-icon (click)="showModal(id)" name="create"></ion-icon>
+                </ion-label>
+            </ion-item>
+        </div>
   </div>
   <div class="caixa_conteudo2">
     <div class="anuncios">
       <ion-tabs>
         <ion-tab-bar>
-          <ion-tab-button>
+          <ion-tab-button (click)="buscarAcessorio()">
             <ion-icon  name="headset"></ion-icon>
             <ion-label>Acessorios</ion-label>
             <ion-badge>6</ion-badge>
           </ion-tab-button>
       
-          <ion-tab-button >
-            <ion-icon name="logo-xbox"></ion-icon>
+          <ion-tab-button (click)="buscarConsole()">
+            <ion-icon  name="logo-xbox"></ion-icon>
             <ion-label>Console</ion-label>
             <ion-badge>6</ion-badge>
           </ion-tab-button>
       
-          <ion-tab-button (click)="alert()">
+          <ion-tab-button (click)="buscarJogos()">
             <ion-icon name="logo-game-controller-b"></ion-icon>
             <ion-label>Jogos</ion-label>
             <ion-badge>6</ion-badge>
@@ -53,82 +60,28 @@
         </ion-tab-bar>
       </ion-tabs>    
     </div>
-  </div>
-  <div id="container">
-      <div class="box">
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <img src="../../assets/boss.png">
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              Nome 
-            </ion-col>
-            </ion-row>
-        </ion-grid>
-      </div>
-      <div class="box">
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="../../assets/boss.png">
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-col>
-                Nome 
-              </ion-col>
-              </ion-row>
-          </ion-grid>
-          
-        </div>
-        <div class="box">
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  <img src="../../assets/boss.png">
-                </ion-col>
-              </ion-row>
-              <ion-row>
-                <ion-col>
-                  Nome 
-                </ion-col>
-                </ion-row>
-            </ion-grid>
-            
-          </div>
-          <div class="box">
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    <img src="../../assets/boss.png">
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                  <ion-col>
-                    Nome 
-                  </ion-col>
-                  </ion-row>
-              </ion-grid>
-              
-            </div>
-            <div class="box">
-                <ion-grid>
-                  <ion-row>
-                    <ion-col>
-                      <img src="../../assets/boss.png">
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                    <ion-col>
-                      Nome 
-                    </ion-col>
-                    </ion-row>
-                </ion-grid>
-                
+    <div style="    overflow: auto;" class="teste">
+        <ion-item *ngFor="let item of usuario">
+            <ion-thumbnail style="height: 10vh; width: 10vh" *ngIf="item.info_rawg" slot="start">
+              <!-- <ion-card> -->
+                  <img style="height: 10vh; width: 10vh" src="{{item.info_rawg.jogo.imagem_fundo}}">
+              <!-- </ion-card> -->
+            </ion-thumbnail >
+            <ion-thumbnail style="height: 17vh; width: 17vh; border-radius: none;" *ngIf="!item.info_rawg" slot="start">
+                <div *ngFor="let foto of item.c_fotos" >
+                    <img style="max-width: 100%;"src="{{url}}/{{foto}}">
+                </div>  
+              </ion-thumbnail >
+            <ion-label>
+              <div *ngIf="item.info_rawg">
+                  <h2>
+                      {{item.info_rawg.jogo.nome}}
+                    </h2>
               </div>
+              <h3>{{item.titulo}}</h3>
+              <p>{{item.descricao}}</p>
+            </ion-label>
+          </ion-item>
     </div>
-
+  </div>
 </ion-content>

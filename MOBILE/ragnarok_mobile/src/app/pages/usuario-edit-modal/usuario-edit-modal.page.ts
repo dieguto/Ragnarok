@@ -92,6 +92,7 @@ export class UsuarioEditModalPage implements OnInit {
     try {
       this.usuarioEdit = this.formEditarUsuario.value
       const result  = await this.usuarioService.update(this.usuarioEdit, this.id);
+
       this.closeModal();
       console.log(result);
       alert('cadastrou');

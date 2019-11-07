@@ -36,51 +36,48 @@ export class UsuarioService {
               }
 
 
-      checkToken(){
-        this.storage.get(TOKEN_KEY).then(token => {
-          if(token){
-            let decoded = this.helper.decodeToken(token);
-            let isExpired = this.helper.isTokenExpired(token);
+  checkToken(){
+    this.storage.get(TOKEN_KEY).then(token => {
+      if(token){
+        let decoded = this.helper.decodeToken(token);
+        let isExpired = this.helper.isTokenExpired(token);
 
-            if(!isExpired){
-              this.usuario = decoded;
-              this.authenticationState.next(true);
-            }else{
-              this.storage.remove(TOKEN_KEY);
-            }
-          }
-
-        });
+        if(!isExpired){
+          this.usuario = decoded;
+          this.authenticationState.next(true);
+        }else{
+          this.storage.remove(TOKEN_KEY);
+        }
       }
+
+    });
+  }
   
-    login(crendentials){
-        return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
-          tap(res =>{
-            this.storage.set(TOKEN_KEY, res['token']);
-            this.storage.set(USUARIO_KEY, res['usuario']);
-            this.storage.set(PAGINA, 1);
+  login(crendentials){
+      return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
+        tap(res =>{
+          this.storage.set(TOKEN_KEY, res['token']);
+          this.storage.set(USUARIO_KEY, res['usuario']);
+          this.storage.set(PAGINA, 1);
 
-            this.usuario = this.helper.decodeToken(res['token']);
+          this.usuario = this.helper.decodeToken(res['token']);
 
-            console.log(res['token']);
-            this.authenticationState.next(true);
-          }),
-          catchError(e =>{
-            // console.log(e.error.msg);
-            
-            throw new Error('ola');
-          })
-        );
-      }
+          console.log(res['token']);
+          this.authenticationState.next(true);
+        }),
+        catchError(e =>{
+          // console.log(e.error.msg);
+          
+          throw new Error('ola');
+        })
+      );
+  }
 
-      isAuthenticated(){
-        return this.authenticationState.value;
-      }
+  isAuthenticated(){
+    return this.authenticationState.value;
+  }
 
-
-
-
-    criarUsuario(usuario : Usuario){
+  criarUsuario(usuario : Usuario){
       return this.http.post<Usuario>(`${this.url}/usuario/`, {
         nome: usuario.nome,
         email: usuario.email,
@@ -116,7 +113,7 @@ export class UsuarioService {
   }
 
 
-  async buscarCompleto(id){
+  async buscarAnunciosTipo(id, consoles, acessorios, jogos){
     
     const TOKEN_KEY = 'access_token';
     const token = await this.storage.get(TOKEN_KEY);
@@ -131,8 +128,8 @@ export class UsuarioService {
       })
     };
 
-
-    return this.http.get<Usuario>(`${this.url}/usuario/${id}/completo`, httpOptions).toPromise();
+    // /anuncios/usuario/:id_usuario/:jogos/:consoles/:acessorios
+    return this.http.get<Usuario>(`${this.url}/anuncios/usuario/${id}/${jogos}/${consoles}/${acessorios}`, httpOptions).toPromise();
   }
 
 
@@ -167,6 +164,29 @@ export class UsuarioService {
       senha: usuario.senha
     }, httpOptions ).toPromise();
   }
+
+
+  async buscarCompleto(id){
+    
+    const TOKEN_KEY = 'access_token';
+    const token = await this.storage.get(TOKEN_KEY);
+    alert(token);
+
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Accept": 'application/json',
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
+
+
+    return this.http.get<Usuario>(`${this.url}/usuario/${id}/completo`, httpOptions).toPromise();
+  }
+
+
+
 
 
 }
