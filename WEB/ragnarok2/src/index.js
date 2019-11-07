@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
-import Login from './components/Login';
-import CadastroJogos from './components/CadastroJogo';
-import CadastroUsuario from './components/CadastroUsuario';
 import App from './App';
-import Timeline from './components/Timeline';
-import Anuncio from './components/AnuncioEscolha';
+
+import Login from './components/Login';
 import Logout from './components/Logout';
+import CadastroUsuario from './components/CadastroUsuario';
+
+import Anuncio from './components/AnuncioEscolha';
+import CadastroJogos from './components/CadastroJogo';
+import CadastroAcessorio from './components/CadastroAcessorios';
+
+import Timeline from './components/Timeline';
+
+
+
+
+
 import './css/reset.css';
 
 // import './Utils/slider';
@@ -21,8 +30,11 @@ ReactDOM.render(
                       <Route path="/login" component={Login}/>
                       <Route path="/logout" component={Logout}/>
                       <Route path="/anuncio" component={Anuncio}/>
-
-                    <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
+                      <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
+                      <Route path="/anuncio/cadastroAcessorio" component={CadastroAcessorio}/>
+                      <Route path="/anuncio/cadastroConsole"/>
+                      <Route path="/anuncio/troca"/>
+                    
                     <Route path="/cadastroUsuario" component={CadastroUsuario}/>
                       
                       

@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-@font-face {
-    font-family: antiga;
-    src: url(../Utils/fontes/GoboldBlockyItalic.otf);
-}
-
 
 /* Inicio Classes padronização */
 .sem-borda{
@@ -29,6 +24,11 @@
     margin-right: auto;
 }   
 
+.titulo-cadastro-anuncio{
+    color: white; 
+    text-align: center; 
+}
+
 .texto-laranja{
     color: #f39c12;
 }
@@ -41,6 +41,11 @@
     background-color: #222222;
 }
 
+.linha-titulo{
+    width: 380px; 
+    height: 2px;
+    background-color: #f39c12;
+}
 /* Fim das classes de padronização */
 
 
@@ -62,6 +67,7 @@ header{
 }
 
 #menu-cover{
+    margin-bottom: 100px;
     width: 100%;
     height: 50px;
 }
@@ -86,91 +92,58 @@ header{
 
 
 /* Inicio Corpo */
-#container-anuncios{
-    width: inherit;
-    height: auto;
-    min-height: 500px;
-    overflow: hidden;
-    margin-top: 50px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 30px;
+.card-usuario{
+    margin-bottom: 100px;    
+    border: 2px solid black;
+    border-radius: 20px 20px 20px 20px;
+    clear: both;
 }
 
-#feed{
-    width: 70%;
-    height: auto;
-    min-height: inherit;
-    overflow: hidden;
-    margin-right: 5%;
-    float: left;
-    background-color: #333333;
-    padding: 30px;
-}
-
-.feed-titulo{
-    width: 100%;
-    color: #f39c12;
-    margin-bottom: 30px;
-    font-family: antiga;
-    font-size: 50px;
-}
-
-#mais-populares-titulo{
-    width: 100%;
+.header1, .header2{
+    height: 50px;
+    width: 200px;
+    background-color: #f39c12;
     color: white;
-    margin: 30px;
-}
-
-.card-anuncio{
-    background-color: #222222; 
-    color: white; 
-    margin-bottom: 50px;
-}
-
-.icone-usuario{
-    width: 70px; 
-    height: 70px;
-}
-
-.nome-usuario{
-    font-size: 30px;
-    margin-left: 5%;
-}
-
-.genero-anuncio{
-    padding: 10px; 
+    font-size: 25px;
+    margin-left: 25px;
+    border-radius: 20px 20px 0px 0px;
+    border: 2px solid black;
     float: left;
-    margin-top: 10px;
-    margin-left: 15px;
-    margin-bottom: 10px;
-    background-color: #f39c12; 
-    color:black
+    text-align: center;
 }
 
-.btn-leia-mais{
-    color: #f39c12;
-    background-color: #333333;
-    border: 1px solid #f39c12;
+.header2{
+    margin-left: 0px;
+    background-color: dimgray;
 }
 
-
-.mais-populares{
-    width: 25%;
-    height: auto;
-    min-height: 300px;
-    overflow: hidden;
-    background-color: #333333;
-    float: left;
+.header1:hover, .header2:hover{
+    cursor: pointer;
 }
 
-.card-body-anuncio{
-    padding-bottom: 0%;
+.imagem-usuario{
+    width: 80%;
+    height: 65%;
+    border: 4px solid #222222;
 }
 
-.card-img-anuncio{
-    margin-bottom: 0%;
-    border-radius: 3%;
+.btn-cancelar, .btn-salvar{
+    width: 50%;
+    height: 15%;
+    font-size: 150%;
+    background-color: #222222;
+    color: white;
+    margin-bottom: 15%;
+    border: 2px solid black;
+}
+
+.btn-salvar{
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-cancelar:hover, .btn-salvar:hover{
+    color: white;
 }
 /* Fim do Corpo */
 
