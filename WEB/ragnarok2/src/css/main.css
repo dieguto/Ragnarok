@@ -50,20 +50,10 @@ body{
 
 
 /* Inicio Menu */
-header{
-    background-color:#333333;
-    width: 100%; 
-    height: 50px; 
-    font-size: 25px;
-    color: #f39c12;
-    position: fixed;
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-#menu-cover{
+.menu-cover{
     width: 100%;
-    height: 50px;
+    height: 95px;
+    background-color: aqua;
 }
 
 #caixa-logo{

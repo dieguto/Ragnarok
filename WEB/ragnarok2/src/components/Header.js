@@ -27,7 +27,7 @@ export default class Menu extends Component{
                     </h1>
                   </Link>
                     <div className="form-inline">
-                        <Link to="/login" className="btn btn-outline-warning ">Entrar</Link>
+                        <Link to="/login" className="btn btn-outline-warning">Entrar</Link>
                         <Link to="/cadastroUsuario" className="btn btn-outline-warning ml-3">Cadastrar-se</Link>
                     </div>
                     
@@ -39,7 +39,7 @@ export default class Menu extends Component{
       console.log(usuario);
             return (
                 <>
-                <div style={zindex} className="header shadow-lg position-fixed">
+                <div style={zindex} className="header shadow-lg position-fixed mb-5">
               
                        {/* Segundo menu */}
                        <div className="navbar navbar-light bg-dark">
@@ -74,7 +74,7 @@ export default class Menu extends Component{
                             
                             <div className="dropdown-menu dropdown-menu-right">
                               
-                                  <button className="dropdown-item" type="button"> Bem vindo, Diego    </button> 
+                                <button className="dropdown-item" type="button"> Bem vindo, Diego    </button> 
                                 <button className="dropdown-item" type="button">Meus Anúncios</button>
                                 <button className="dropdown-item" type="button">Meus Jogos</button>
                                 <button className="dropdown-item" type="button">Configurações</button>
@@ -92,7 +92,7 @@ export default class Menu extends Component{
                       </div>
                       
                     </div>
-                  <div style={zindex} className="header mb-5 shadow-lg position-fixed">
+                  <div className="header menu-cover shadow-lg">
               
                  
                  

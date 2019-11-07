@@ -42,6 +42,15 @@
     color: #f39c12;
 }
 
+.texto-branco{
+    color: #ffffff;
+}
+
+.texto-branco:hover{
+    cursor: pointer;
+    color: #f39c12;
+}
+
 .background-333333{
     background-color: #333333;
 }
@@ -98,6 +107,11 @@ header{
 
 
 /* Inicio Corpo */
+.caixa-menu{
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+}
 /* Fim do Corpo */
 
 
