@@ -1,0 +1,343 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Inicio Classes padronização */
+.sem-borda{
+    border: none;
+}
+
+.borda-20px{
+    border-radius: 20px;
+}
+
+#container{
+    width: 90%;
+    height: auto;
+    min-height: 100%;
+    overflow: hidden;
+    padding-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+.titulo-cadastro-anuncio{
+    color: white; 
+    text-align: center; 
+}
+
+.texto-laranja{
+    color: #f39c12;
+}
+
+.background-333333{
+    background-color: #333333;
+}
+
+.background-222222{
+    background-color: #222222;
+}
+
+.linha-titulo{
+    width: 380px; 
+    height: 2px;
+    background-color: #f39c12;
+}
+/* Fim das classes de padronização */
+
+
+body{
+    background-color: #222222;
+}
+
+
+/* Inicio Menu */
+header{
+    background-color:#333333;
+    width: 100%; 
+    height: 50px; 
+    font-size: 25px;
+    color: #f39c12;
+    position: fixed;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+#menu-cover{
+    margin-bottom: 100px;
+    width: 100%;
+    height: 50px;
+}
+
+#caixa-logo{
+    width: 80%;
+    height: inherit;
+    float: left;
+    color: #f39c12;
+}
+
+#caixa_botao{
+    width: 20%;
+    height: inherit;
+    float: left;
+}
+
+.botoes-header{
+    background-color: #f39c12;
+}
+/* Fim do Menu */
+
+
+/* Inicio Corpo */
+.card-usuario{
+    margin-bottom: 100px;    
+    border: 2px solid black;
+    border-radius: 20px 20px 20px 20px;
+    clear: both;
+}
+
+.header1, .header2{
+    height: 50px;
+    width: 200px;
+    background-color: #f39c12;
+    color: white;
+    font-size: 25px;
+    margin-left: 25px;
+    border-radius: 20px 20px 0px 0px;
+    border: 2px solid black;
+    float: left;
+    text-align: center;
+}
+
+.header2{
+    margin-left: 0px;
+    background-color: dimgray;
+}
+
+.header1:hover, .header2:hover{
+    cursor: pointer;
+}
+
+.imagem-usuario{
+    width: 80%;
+    height: 65%;
+    border: 4px solid #222222;
+}
+
+.btn-cancelar, .btn-salvar{
+    width: 50%;
+    height: 15%;
+    font-size: 150%;
+    background-color: #222222;
+    color: white;
+    margin-bottom: 15%;
+    border: 2px solid black;
+}
+
+.btn-salvar{
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-cancelar:hover, .btn-salvar:hover{
+    color: white;
+}
+/* Fim do Corpo */
+
+
+/* Inicio Footer */
+footer{
+    color: white; 
+    background-color: #333333; 
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+#logo-footer{
+    position: relative; 
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.linha-footer{
+    width: 90px; 
+    background-color: #f39c12;
+}
+/* Fim Footer */
+
+
+/* Inicio Slider */
+#jssorl-009-spin{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    text-align:center;
+    background-color:rgba(0,0,0,0.7);
+}
+
+#jssorl-009-spin img{
+    animation-name: jssorl-009-spin;
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    margin-top:-19px;
+    position:relative;
+    top:50%;
+    width:38px;
+    height:38px;
+}
+
+#slides{
+    cursor:default;
+    position:relative;
+    top:0px;
+    left:0px;
+    width:980px;
+    height:380px;
+    overflow:hidden;
+}
+
+.p{
+    width:268px;
+    height:68px;
+}
+
+@keyframes jssorl-009-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.jssorb111{
+    position:absolute;
+    bottom:12px;
+    right:12px;
+}
+
+.jssorb111 .i {
+    position:absolute;
+    color:#fff;
+    font-family:"Helvetica neue",Helvetica,Arial,sans-serif;
+    text-align:center;
+    cursor:pointer;
+    z-index:0;
+}
+
+.jssorb111 .i .n {display:none;}
+
+.jssorb111 .i .b {
+    fill:#fff;
+    stroke:#000;
+    stroke-width:500;
+    stroke-miterlimit:10;
+    stroke-opacity:.5;
+}
+
+.jssorb111 .i:hover .b {
+    fill:#fea900;
+    stroke:#fea900;
+    stroke-width:6000;stroke-opacity:1;
+}
+
+.jssorb111 .iav .b {
+    fill:#000;
+    stroke-width:6000;
+    stroke-opacity:1;
+}
+
+.jssorb111 .i.idn {opacity:.3;}
+
+.jssorb111 .iav .n, .jssorb111 .i:hover .n {display:block;}
+
+.prototype{
+    width:24px;
+    height:24px;
+    font-size:12px;
+    line-height:24px;
+}
+
+svg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.jssort121{
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:268px;
+    height:380px;
+    overflow:hidden;
+    cursor:default;
+}
+
+.jssort121 .p {
+    position:absolute;
+    top:0;
+    left:0;
+    border-bottom:1px solid rgba(255,255,255,.2);
+    box-sizing:border-box;color:#fff;
+    background:rgba(0,0,0,.1);opacity:.7;
+}
+
+.jssort121 .p .t {
+    position:absolute;padding:10px;
+    box-sizing:border-box;top:0;
+    left:0;width:100%;
+    height:100%;
+    line-height:24px;
+    overflow:hidden;
+}
+
+.jssort121 .p .i {
+    margin-right:10px;
+    position:relative;
+    top:0;
+    left:0;
+    width:96px;
+    height:48px;
+    border:none;
+    float:left;
+}
+
+.jssort121 .pav, .jssort121 .p:hover {
+    color:#000;
+    background:rgba(255,255,255,.7);
+}
+
+.jssort121 .p:hover {opacity:.75;}
+
+.jssort121 .pav, .jssort121 .p:hover.pdn {opacity:1;}
+
+.jssort121 .ti {
+    position:relative;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.jssort121 .d {
+    position:relative;
+    font-size:12px;
+}
+
+#jssor_1{
+    position:relative;
+    margin:0 auto;
+    top:0px;
+    left:0px;
+    width:980px;
+    height:380px;
+    overflow:hidden;
+    visibility:hidden;
+}
+
+
+/* Fim Slider */

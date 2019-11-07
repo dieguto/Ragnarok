@@ -46,7 +46,6 @@ export default class Menu extends Component{
                          <Link to="/">
                             <h1 className="navbar-brand text-warning">                      
                                   Ragnarok
-                                  
                             </h1>
                          </Link>
                         

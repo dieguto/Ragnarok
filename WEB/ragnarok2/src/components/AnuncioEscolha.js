@@ -24,19 +24,22 @@ export default class AnuncioEscolha extends Component {
                                     <Link to="/anuncio/cadastroJogo">
                                         <img src={ImgJogo} className="img-thumbnail background-333333 imagem-escolha"/>
                                     </Link>
-                                    
                                 </div>
                                 <div className="card-footer text-center background-333333 texto-laranja footer-card-escolha legenda-padrao">Jogo</div>
                             </div>
                             <div className="col-md-2 ml-2 mr-2 card card-escolha background-333333">
                                 <div className="card-body body-card-escolha">
-                                    <img src={ImgAcessorio} className="img-thumbnail background-333333 imagem-escolha"/>
+                                    <Link to="/anuncio/cadastroAcessorio">
+                                        <img src={ImgAcessorio} className="img-thumbnail background-333333 imagem-escolha"/>
+                                    </Link> 
                                 </div>
                                 <div className="card-footer text-center background-333333 texto-laranja footer-card-escolha legenda-padrao">Acessorio</div>
                             </div>
                             <div className="col-md-2 ml-2 mr-2 card card-escolha background-333333">
                                 <div className="card-body body-card-escolha">
-                                    <img src={ImgConsole} className="img-thumbnail background-333333 imagem-escolha"/>
+                                    <Link to="/anuncio/cadastroConsole">
+                                        <img src={ImgConsole} className="img-thumbnail background-333333 imagem-escolha"/>
+                                    </Link>
                                 </div>
                                 <div className="card-footer text-center background-333333 texto-laranja footer-card-escolha legenda-padrao">Console</div>
                             </div>
