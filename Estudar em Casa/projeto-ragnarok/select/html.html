@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Ragnarok</title>
+        <link rel="stylesheet" type="text/css" href="jquery-nice-select-master/css/nice-select.css"/>
+        <link rel="stylesheet" type="text/css" href="jquery-nice-select-master/css/style.css"/>
+        
+    </head>
+    <body>
+        <script type="text/javascript" src="jquery-nice-select-master/js/fastclick.js"></script>
+        <script type="text/javascript" src="jquery-nice-select-master/js/jquery.js"></script>
+        <script type="text/javascript" src="jquery-nice-select-master/js/jquery.nice-select.js"></script>
+        <script type="text/javascript" src="jquery-nice-select-master/js/jquery.nice-select.min.js"></script>
+        <script type="text/javascript" src="jquery-nice-select-master/js/prism.js"></script>
+        <script type="text/javascript" src="jquery-nice-select-master/js/jquery.nice-select.js"></script>
+
+        <select id='seluser' class='small'>
+            <option value='0' data-display="Select" >-- Select user --</option>
+            <option value='1' data-display="Yogesh singh">Yogesh</option>
+            <option value='2' data-display="Sonarika bhadoria">Sonarika</option>
+            <option value='3'>Vishal</option>
+            <option value='4'>Vijay</option>
+            <option value='5'>Ravi</option>
+            <option value='6'>Anil</option>
+        </select>
+            
+        <!-- Script -->
+        <script type='text/javascript'>
+        $(document).ready(function(){
+        
+        $('#seluser').niceSelect();
+        
+        });
+        </script>
+
+    </body>
+</html>

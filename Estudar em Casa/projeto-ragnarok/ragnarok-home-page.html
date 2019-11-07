@@ -6,9 +6,19 @@
     <title>Ragnarok</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/nice-select.css"/>
+    <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/.css"/>
 </head>
 
 <body>
+
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/fastclick.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/prism.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
+
     <header class="shadow">
         <div id="caixa-logo">
             Ragnarok
@@ -25,22 +35,32 @@
     <div id="container">
 
         <div id="container-anuncios">
+
             <div id="feed">
-                
-                <div class="row">
-                    <h2 id="feed-titulo" class="col-4 mr-auto">Feed</h2>
-                    <div class="col-2"></div>
-                    <div class="col-6 mr-auto">
-                        <select class="">
-                                <option value="" selected></option>
-                        </select>
-                        <select class="">
-                                <option value="" selected> Anúncios por pagina</option>
-                        </select>
+                <h2 id="feed-titulo" class="col-2">Feed</h2>
+                <div class="row caixa-select">
+                    <div class="col-6 ml-auto">
+                        <div class="row">
+                            <div class="col-6">
+                                <select class='seluser selects'>
+                                    <option value='' selected disabled>Anúncios por página</option>
+                                    <option value='' >10</option>
+                                    <option value='' >15</option>
+                                    <option value=''>20</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <select class='seluser selects'>
+                                    <option value='' selected disabled>Ordem</option>
+                                    <option value='' >Preço Decrescente</option>
+                                    <option value='' >Preço Crescente</option>
+                                    <option value=''>Alfabética A-Z</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
-
-                
                 
                 <div class="row">
                     <div class="col-1"></div>
@@ -157,7 +177,20 @@
     
     </footer>
     <!-- Footer -->
-    
+
+    <!-- Script -->
+    <script type='text/javascript'>
+
+        $(document).ready(function(){
+            
+            $('.seluser').niceSelect();
+            
+        });
+
+    </script>
+
+   
+
 </body>
 
 </html>
