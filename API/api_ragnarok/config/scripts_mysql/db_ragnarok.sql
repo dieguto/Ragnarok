@@ -318,3 +318,10 @@ INSERT INTO tbl_anuncio VALUES
    '{"jogo_troca":{"nota_metacritic":null,"nota_geral":0,"nome":"Miner Ultra Adventures","dt_lancamento":"27 de Janeiro de 2017","imagem_fundo":"https://media.rawg.io/media/screenshots/ee6/ee659851099b2cdca5d583880386e8cc.jpg","imagem_fundo_adicional":"https://media.rawg.io/media/screenshots/6e3/6e31e98eda2f1cb4d9461c814f1501c3.jpg","video":null,"desenvolvedoras":["Old School Blender Addicted"],"publishers":["Manic Mind Game Lab"]},"jogo":{"nota_metacritic":61,"nota_geral":3.7,"nome":"No Mans Sky","dt_lancamento":"09 de Agosto de 2016","imagem_fundo":"https://media.rawg.io/media/games/174/1743b3dd185bda4a7be349347d4064df.jpg","imagem_fundo_adicional":"https://media.rawg.io/media/screenshots/914/914ad9dcc3603508f0200ed8073d00f4.jpg","video":"https://media.rawg.io/media/stories-640/7f6/7f6303ed351e6c2454ed909a90815d1d.mp4","preview_video":"https://media.rawg.io/media/stories-previews/322/322a68b347ebd990240b4b0a22b4a85b.jpg","desenvolvedoras":["Hello Games","Hello Games LTD"],"publishers":["Hello Games"]}}', 
    now(), now(), null
 );
+
+-- ESTRUTRA DO CHAT E DAS MENSAGENS --
+
+-- CREATE TABLE tbl_chat(
+-- 	id_chat INT PRIMARY KEY AUTO_INCREMENT,
+
+-- );

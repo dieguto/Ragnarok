@@ -1,6 +1,5 @@
-adicionar rota de todos (anuncios e usuarios)
 
-atualizar a api na amazon (não precisa de sql-linux)
+https://socket.io/docs/rooms-and-namespaces/#Namespaces
 
 DAO Anuncio
    criar - ok
