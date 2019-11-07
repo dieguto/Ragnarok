@@ -28,6 +28,19 @@
     margin-left: auto;
     margin-right: auto;
 }   
+
+.texto-laranja{
+    color: #f39c12;
+}
+
+.background-333333{
+    background-color: #333333;
+}
+
+.background-222222{
+    background-color: #222222;
+}
+
 /* Fim das classes de padronização */
 
 

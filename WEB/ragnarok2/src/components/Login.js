@@ -74,7 +74,7 @@ export default class Login extends Component {
                         <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
                         <label className="form-check-label">Senha:</label>
                         <input type="password" placeholder="5dbni?" ref={(input) => this.senha = input}/>
-                        <input className="btn btn-outline-warning"  type="submit" value="Entrar"/>
+                        <input className="btn btn-outline-warning" type="submit" value="Entrar"/>
                     </form>
                 </div>
             </>

@@ -48,7 +48,7 @@
 }
 
 .linha-titulo-jogo{
-    width: 270px; 
+    width: 33em; 
     height: 2px;
     background-color: #f39c12;
 }
@@ -114,6 +114,12 @@ body{
     color: #f39c12;
     font-size: 20px;
     text-align: center;
+}
+
+.btn-login{
+    border: 1px solid #f39c12;
+    border-radius: 10px;
+    color: #f39c12;
 }
 /* Fim botões */
 
