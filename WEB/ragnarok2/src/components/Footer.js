@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ImgLogo from '../assets/logo-ragnarok.png';
 
-
 import '../css/main.css';
 
 export default class Footer extends Component{
@@ -17,7 +16,7 @@ export default class Footer extends Component{
                 <div className="row mt-3">
             
                     {/* <!-- Grid column --> */}
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             
                     {/* <!-- Content --> */}
                     <h6 className="text-uppercase font-weight-bold">Pro.Code()</h6>

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './css/marketing.css';
+// import './css/marketing.css';
 import './css/bootstrap.min.css';
 import 'bootstrap';
 import 'bootstrap/js/dist/util';
