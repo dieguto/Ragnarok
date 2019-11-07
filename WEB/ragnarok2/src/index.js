@@ -15,10 +15,6 @@ import Troca from './components/Troca';
 
 import Timeline from './components/Timeline';
 
-
-
-
-
 import './css/reset.css';
 
 // import './Utils/slider';
@@ -36,10 +32,7 @@ ReactDOM.render(
                       <Route path="/anuncio/cadastroAcessorio" component={CadastroAcessorio}/>
                       <Route path="/anuncio/cadastroConsole" component={CadastroConsole}/>
                       <Route path="/anuncio/troca" component={Troca} />
-                    
-                    <Route path="/cadastroUsuario" component={CadastroUsuario}/>
-                      
-                      
+                      <Route path="/cadastroUsuario" component={CadastroUsuario}/>
                   </Route>
         </Router>
     ), 

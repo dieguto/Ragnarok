@@ -142,50 +142,50 @@ export default class CadastroJogo extends Component {
 
     render(){
         return(
-            <div id="container">
+                <div id="container">
 
-      <h1 className="titulo-cadastro-anuncio fonte-padrao">Cadastre o seu jogo!</h1>
-      {/* <div class="row">
-        <div class="col-3.5 mr-auto ml-auto"><hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
-      </div> */}
-      <div id="container-cadastro-anuncio">
-        <form className="form-cadastro" onSubmit={console.log("teste enviar o form de fora")}>
-          <div className="form-group">
-            <label for="" className="texto-laranja">Titulo:</label>
-            <input type="text" className="form-control" id="" placeholder="Digite o titulo do produto"/>
-          </div>
-          <div className="form-group">
-            <label for="" className="texto-laranja">Descrição:</label>
-            <input type="text" className="form-control" id="" placeholder="Descreva seu produto"/>
-          </div>
-          <SelectGenero></SelectGenero>
-          <SelectConsole></SelectConsole>
-        
-          <div className="form-group">
-            <label for="" className="texto-laranja">Preço:</label>
-            <input type="number" className="form-control" id="" placeholder="Digite o preço do produto"/>
-          </div>
-          <RetornaJogo/>  
-          <div class="form-group">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"/>
-              <label class="custom-file-label" for="">Selecione a foto do produto</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <div className="row">
-              <div id="" class="background-333333 mr-auto ml-auto card caixa-imagem col-6">
-                <div className="card-body">
-                  <img src={ImgTeste} className="card-img"></img>
+          <h1 class="titulo-cadastro-anuncio">Cadastro de Jogo</h1>
+                    <div class="row">
+                        <div class="col-3.5 mr-auto ml-auto"><hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
+                    </div>
+          <div id="container-cadastro-anuncio">
+            <form className="form-cadastro" onSubmit={console.log("teste enviar o form de fora")}>
+              <div className="form-group">
+                <label for="" className="texto-laranja">Titulo:</label>
+                <input type="text" className="form-control" id="" placeholder="Digite o titulo do produto"/>
+              </div>
+              <div className="form-group">
+                <label for="" className="texto-laranja">Descrição:</label>
+                <input type="text" className="form-control" id="" placeholder="Descreva seu produto"/>
+              </div>
+              <SelectGenero></SelectGenero>
+              <SelectConsole></SelectConsole>
+            
+              <div className="form-group">
+                <label for="" className="texto-laranja">Preço:</label>
+                <input type="number" className="form-control" id="" placeholder="Digite o preço do produto"/>
+              </div>
+              <RetornaJogo/>  
+              <div class="form-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01"/>
+                  <label class="custom-file-label" for="">Selecione a foto do produto</label>
                 </div>
               </div>
-            </div>
-          </div>        
-          <button type="submit" className="btn btn-outline-warning btn-cadastro">Cadastrar</button>
-        </form>        
-      </div>
-      
-    </div>
+              <div class="form-group">
+                <div className="row">
+                  <div id="" class="background-333333 mr-auto ml-auto card caixa-imagem col-6">
+                    <div className="card-body">
+                      <img src={ImgTeste} className="card-img"></img>
+                    </div>
+                  </div>
+                </div>
+              </div>        
+              <button type="submit" className="btn btn-outline-warning btn-cadastro">Cadastrar</button>
+            </form>        
+          </div>
+          
+        </div>
         );
     }
 
