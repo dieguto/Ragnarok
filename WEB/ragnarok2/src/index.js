@@ -10,6 +10,8 @@ import CadastroUsuario from './components/CadastroUsuario';
 import Anuncio from './components/AnuncioEscolha';
 import CadastroJogos from './components/CadastroJogo';
 import CadastroAcessorio from './components/CadastroAcessorios';
+import CadastroConsole from './components/CadastroConsole';
+import Troca from './components/Troca';
 
 import Timeline from './components/Timeline';
 
@@ -32,8 +34,8 @@ ReactDOM.render(
                       <Route path="/anuncio" component={Anuncio}/>
                       <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
                       <Route path="/anuncio/cadastroAcessorio" component={CadastroAcessorio}/>
-                      <Route path="/anuncio/cadastroConsole"/>
-                      <Route path="/anuncio/troca"/>
+                      <Route path="/anuncio/cadastroConsole" component={CadastroConsole}/>
+                      <Route path="/anuncio/troca" component={Troca} />
                     
                     <Route path="/cadastroUsuario" component={CadastroUsuario}/>
                       

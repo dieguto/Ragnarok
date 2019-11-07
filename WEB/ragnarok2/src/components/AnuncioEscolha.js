@@ -45,7 +45,10 @@ export default class AnuncioEscolha extends Component {
                             </div>
                             <div className="col-md-2 ml-2 mr-2 card card-escolha background-333333">
                                 <div className="card-body body-card-escolha">
-                                    <img src={ImgTroca} className="img-thumbnail background-333333 imagem-escolha"/>
+                                    <Link to="/anuncio/troca">
+                                        <img src={ImgTroca} className="img-thumbnail background-333333 imagem-escolha"/>
+                                    </Link>
+                                    
                                 </div>
                                 <div className="card-footer text-center background-333333 texto-laranja footer-card-escolha legenda-padrao">Troca</div>
                             </div>

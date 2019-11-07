@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import '../css/cadastro-anuncio.css'
+import '../css/cadastro-anuncio.css';
 
 
 import ImgTeste from '../assets/god-of-war.jpg'
@@ -144,7 +144,7 @@ export default class CadastroJogo extends Component {
         return(
             <div id="container">
 
-      <h1 className="titulo-cadastro-anuncio fonte-padrao">Cadastro de Anuncios</h1>
+      <h1 className="titulo-cadastro-anuncio fonte-padrao">Cadastre o seu jogo!</h1>
       {/* <div class="row">
         <div class="col-3.5 mr-auto ml-auto"><hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
       </div> */}

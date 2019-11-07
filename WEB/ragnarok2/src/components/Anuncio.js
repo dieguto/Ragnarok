@@ -116,37 +116,91 @@ export default class Anuncio extends Component {
                                                                           renderCenterRightControls={({ nextSlide }) => (
                                                                             <button className="d-none" onClick={nextSlide}></button>
                                                                           )}>
-                                                                            <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img card-img-anuncio"></img>
-                                                                            <video controls poster={anuncios.info_rawg.jogo.preview_video} className="card-img card-img-anuncio">
-                                                                                <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
-                                                                            </video>
+                                                                            {/* <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img card-img-anuncio"></img> */}
+                                                                            {
+                                                                                function(){
+                                                                                    if(typeof anuncios.info_rawg.jogo.imagem_fundo != 'null'){
+                                                                                        return <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img card-img-anuncio"></img>
+                                                                                    }
+                                                                                }()
+                                                                            }
+
+                                                                            {                               
+                                                                                function(){
+                                                                                    console.log(anuncios.info_rawg.jogo.video)
+                                                                                    if(anuncios.info_rawg != null){
+                                                                                        if(anuncios.info_rawg.jogo.video){
+                                                                                            return (
+                                                                                                <video controls poster={anuncios.info_rawg.jogo.preview_video} className="card-img card-img-anuncio">
+                                                                                                    <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
+                                                                                                </video>
+                                                                                            );
+                                                                                        }
+                                                                                    }
+                                                                                    
+                                                                                }()
+                                                                            }
+
+                                                                            
+                                                                            
+                                                                            {
+                                                                                function(){
+                                                                                    console.log(api + "/" + anuncios.c_fotos[0])
+                                                                                    return anuncios.c_fotos.map(
+        
+                                                                                        fotos => <img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                
+                                                                                    )
+                                                                                }()
+                                                                            }
                                                                             {/* <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/> */}
                                                                         </Carousel>
                                                                     );
-                                                                }else{
+                                                                }
+                                                                    console.log(anuncios.c_fotos)
                                                                     return(
                                                                         function(){
-                                                                            console.log(anuncios.c_fotos)
-                                                                            if(anuncios.c_fotos){
+                                                                           
+                                                                            // if(anuncios.c_fotos){
                                                                                 // console.log(anuncios.c_fotos.map())
-                                                                                anuncios.c_fotos.map(
+                                                                                console.log(api + "/" + anuncios.c_fotos[0])
+                                                                                return anuncios.c_fotos.map(
                                                                                     
-                                                                                    fotos => console.log(fotos) //<img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                    fotos =>{
+                                                                                        
+                                                                                        return <img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                        // <>
+                                                                                        // <Carousel 
+                                                                                        //     renderTopCenterControls={({ currentSlide }) => (
+                                                                                        //         <div>{currentSlide}</div>
+                                                                                        //     )}
+                                                                                        //     renderCenterLeftControls={({ previousSlide }) => (
+                                                                                        //         <button className="d-none" onClick={previousSlide}></button>
+                                                                                        //     )}
+                                                                                        //     renderCenterRightControls={({ nextSlide }) => (
+                                                                                        //         <button className="d-none" onClick={nextSlide}></button>
+                                                                                        //     )}>
+                                                                                        //     <img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                        //     {/* <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/> */}
+                                                                                        // </Carousel>
+                                                                                        // </>
+                                                                                    }
+                                                                                    
                                                                                     
                                                                                 )
                                                                                 // <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/>
-                                                                            }else{
-                                                                                anuncios.c_fotos.map(
+                                                                            // }else{
+                                                                            //     anuncios.c_fotos.map(
                                                                                     
-                                                                                    fotos => console.log(fotos) //<img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                            //         fotos => console.log(fotos) //<img src={api + "/" + fotos} className="card-img borda-20px"/>
                                                                                     
-                                                                                )
-                                                                            }
-                                                                        }
+                                                                            //     )
+                                                                            // }
+                                                                        }()
                                                                        
                                                                     );
                                                                     
-                                                                }
+                                                                
                                                             }() 
                                                             }
                                                             
