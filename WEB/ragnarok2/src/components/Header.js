@@ -73,11 +73,15 @@ export default class Menu extends Component{
                             </button> 
                             
                             <div className="dropdown-menu dropdown-menu-right">
+
+                                <Link to="/editarUsuario">
+                                  <button className="dropdown-item" type="button">Configurações</button>
+                                </Link>
                               
-                                <button className="dropdown-item" type="button"> Bem vindo, Diego    </button> 
                                 <button className="dropdown-item" type="button">Meus Anúncios</button>
                                 <button className="dropdown-item" type="button">Meus Jogos</button>
-                                <button className="dropdown-item" type="button">Configurações</button>
+                                <button className="dropdown-item" type="button">Chat</button>
+                                
                                 <Link to="/logout">
                                   <button className="dropdown-item" type="button">Sair</button>
                                 </Link>

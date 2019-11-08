@@ -6,6 +6,7 @@ import App from './App';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import CadastroUsuario from './components/CadastroUsuario';
+import EditarUsuario from './components/EditarUsuario';
 
 import Anuncio from './components/AnuncioEscolha';
 import CadastroJogos from './components/CadastroJogo';
@@ -33,6 +34,7 @@ ReactDOM.render(
                       <Route path="/anuncio/cadastroConsole" component={CadastroConsole}/>
                       <Route path="/anuncio/troca" component={Troca} />
                       <Route path="/cadastroUsuario" component={CadastroUsuario}/>
+                      <Route path="/editarUsuario" component={EditarUsuario}/>
                   </Route>
         </Router>
     ), 
