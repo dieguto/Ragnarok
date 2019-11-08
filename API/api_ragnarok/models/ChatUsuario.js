@@ -1,21 +1,21 @@
 const Sequelize = require("sequelize");
 const con = require("../config/conexao");
 
-class Chat extends Sequelize.Model { };
+class ChatUsuario extends Sequelize.Model { };
 
-Chat.init({
-   id_chat:{
+ChatUsuario.init({
+   id_chat_usuario:{
       type: Sequelize.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false
    },
-   id_anuncio:{
+   id_chat:{
       type: Sequelize.INTEGER,
       allowNull: false
    },
-   c_foto_conversa:{
-      type: Sequelize.STRING(300),
+   id_usuario:{
+      type: Sequelize.INTEGER,
       allowNull: false
    }
 },{
@@ -24,9 +24,9 @@ Chat.init({
    timestamps: true,
    underscored: true,
    paranoid: true,
-   tableName: 'tbl_chat',
-   modelName:'chat',
+   tableName: 'tbl_chat_usuario',
+   modelName:'chat_usuario',
    sequelize: con
 })
 
-module.exports = Chat;
+module.exports = ChatUsuario;

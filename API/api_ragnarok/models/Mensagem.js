@@ -10,20 +10,16 @@ Mensagem.init({
       autoIncrement: true,
       allowNull: false
    },
-   id_chat:{
+   para:{
       type: Sequelize.INTEGER,
-      allowNull: false
-   },
-   id_usuario_destino:{
-      type: Sequelize.INTEGER,
-      allowNull: false
-   },
-   visualizada:{
-      type: Sequelize.BOOLEAN,
       allowNull: false
    },
    mensagem:{
       type: Sequelize.TEXT,
+      allowNull: false
+   },
+   visualizada:{
+      type: Sequelize.BOOLEAN,
       allowNull: false
    }
 },{
@@ -36,3 +32,5 @@ Mensagem.init({
    modelName:'mensagem',
    sequelize: con
 })
+
+module.exports = Mensagem;

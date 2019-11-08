@@ -23,7 +23,18 @@
     </form>
 
     <script type="text/javascript">
-        var socket = io('http://localhost:3108')
+	
+		//TOKEN DA CARLA
+		const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6NSwibm9tZSI6IkNhcmxhIiwiZW5kZXJlY28iOiJTUCwgT3Nhc2NvIiwiaXNfYWRtaW4iOmZhbHNlfSwiaWF0IjoxNTczMTc0NDUzfQ.8rJDwIgA5bZfqn3F6TnyF_gXHuMYfoom8g16JbmNvXk";
+	
+		const opcoes = {
+		  query: {
+			token,
+			tipo: "notificacoes"
+		  }
+		};
+	
+        var socket = io('http://localhost:3108', opcoes)
     
         function renderMessage(message){
             $('.messages').append('<div class="message"><strong>'+ message.author +  '</strong>: '+ message.message +'</div>');
@@ -46,14 +57,14 @@
             var message = $('input[name=message]').val();
         
             if(author.length && message.length){
-                var messageObject = {
-                    author: author,
-                    message: message,
+                var opa = {
+                    author: "venoninho uetstemi",
+                    message: "é o venom uetstemi",
                 }; 
 
-                renderMessage(messageObject);
-
-                socket.emit('sendMessage', messageObject);
+                renderMessage(opa);
+				console.log(socket);
+                socket.emit('teste', messageObject);
             }
         })
     
