@@ -5,6 +5,11 @@ import api from '../services/api';
 import Carousel from 'nuka-carousel'
 import '../css/cadastro-anuncio.css';
 
+// import 'jquery-nice-select/js/fastclick';
+// import 'jquery-nice-select/js/jquery';
+// import 'jquery-nice-select/js/jquery.nice-select';
+// import 'jquery-nice-select/js/prism';
+
 // console.log(api)
 
 export default class Anuncio extends Component {
@@ -31,6 +36,28 @@ export default class Anuncio extends Component {
             <>
              <div id="feed">
                 <h2 className="feed-titulo">Feed</h2>
+                <div class="row caixa-select">
+                    <div class="col-4 ml-auto mr-5">
+                        <div class="row">
+                            <div class="col-6">
+                                <select class='seluser selects'>
+                                    <option value='' selected disabled>Ordem</option>
+                                    <option value='' >Preço Decrescente</option>
+                                    <option value='' >Preço Crescente</option>
+                                    <option value=''>Alfabética A-Z</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <select class='seluser selects'>
+                                    <option value='' selected disabled>Anúncios por página</option>
+                                    <option value='' >10</option>
+                                    <option value='' >15</option>
+                                    <option value=''>20</option>
+                                </select>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
                 {
                   
 
