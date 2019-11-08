@@ -14,7 +14,7 @@ export default class Menu extends Component{
       const zindex = {"z-index":"9999","width":"100%"}
      
 
-        if(localStorage.getItem('token') === null){
+        if(sessionStorage.getItem('token') === null){
           
             return (
                 <div className="header">
@@ -35,7 +35,7 @@ export default class Menu extends Component{
                 </div>
               )
         }else{
-      const usuario = JSON.parse(localStorage.getItem('usuario'));
+      const usuario = JSON.parse(sessionStorage.getItem('usuario'));
       console.log(usuario);
             return (
                 <>

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import '../css/edicao-usuario.css';
 import api from '../services/api';
+import UserIcon from '../assets/user.svg'
 
 export default class EditarUsuario extends Component{
 
@@ -10,8 +11,8 @@ export default class EditarUsuario extends Component{
     }
 
     componentDidMount(){
-        const usuario = JSON.parse(localStorage.getItem('usuario'));
-        const token = localStorage.getItem('token');
+        const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+        const token = sessionStorage.getItem('token');
         console.log(token);
 
         const requestInfo ={
@@ -49,7 +50,7 @@ export default class EditarUsuario extends Component{
                 
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-3 d-flex align-content-center flex-wrap"><img src="img/power.jpg" class="imagem-usuario rounded-circle" alt="" title=""/></div>
+                            <div class="col-3 d-flex align-content-center flex-wrap"><img src={UserIcon} class="imagem-usuario rounded-circle" alt="" title=""/></div>
                             <div class="col-6">
                                 <form>
                                     <div class="form-group">
@@ -58,11 +59,11 @@ export default class EditarUsuario extends Component{
                                     </div>
                                     <div class="form-group">
                                         <label for="">E-mail:</label>
-                                        <input type="text" class="form-control" id="" placeholder="Digite seu e-mail" ref={(input) => this.state.infos.nome = input} value={this.state.infos.nome}/>
+                                        <input type="text" class="form-control" id="" placeholder="Digite seu e-mail" ref={(input) => this.state.infos.email = input} value={this.state.infos.email}/>
                                     </div>  
                                     <div class="form-group">
                                         <label for="">CEP:</label>
-                                        <input type="text" class="form-control" id="" placeholder="00000-000" value={this.state.infos.cep}/>
+                                        <input type="text" class="form-control" id="" placeholder="00000-000" ref={(input) => this.state.infos.cep = input} value={this.state.infos.cep}/>
                                     </div>  
                                     <div class="form-group">
                                         <label for="">Senha:</label>
@@ -71,8 +72,8 @@ export default class EditarUsuario extends Component{
                                 </form>
                             </div>
                             <div class="col-3 d-flex align-self-bottom flex-column">
-                                <button type="button" class="btn btn-cancelar mt-auto mr-auto ml-auto">Cancelar</button>
-                                <button type="button" class="btn btn-salvar mr-auto ml-auto">Salvar</button>
+                                <button type="button" class="btn btn-salvar mt-auto mr-auto ml-auto">Salvar</button>
+                                <button type="button" class="btn btn-cancelar  mr-auto ml-auto">Cancelar</button>
                             </div>
                         </div>
                     </div>

@@ -15,13 +15,19 @@ import CadastroConsole from './components/CadastroConsole';
 import Troca from './components/Troca';
 
 import Chat from './components/Chat';
-
+import CMS from './components/CMS'
 
 
 import Timeline from './components/Timeline';
 
 import './css/reset.css';
+import { matchesPattern } from '@babel/types';
 
+function verificaAutenticacao(nextState, replace){
+    const resultado = matchesPattern('/anuncio(/:cadastroJogo)', nextState.location.pathname);
+    console.log(resultado)
+
+}
 
 ReactDOM.render(
     (
@@ -32,7 +38,7 @@ ReactDOM.render(
                       <Route path="/login" component={Login}/>
                       <Route path="/logout" component={Logout}/>
                       <Route path="/anuncio" component={Anuncio}/>
-                      <Route path="/anuncio/cadastroJogo" component={CadastroJogos}/>
+                      <Route path="/anuncio/cadastroJogo" onEnter={verificaAutenticacao} component={CadastroJogos}/>
                       <Route path="/anuncio/cadastroAcessorio" component={CadastroAcessorio}/>
                       <Route path="/anuncio/cadastroConsole" component={CadastroConsole}/>
                       <Route path="/anuncio/troca" component={Troca} />
@@ -40,6 +46,7 @@ ReactDOM.render(
                       <Route path="/editarUsuario" component={EditarUsuario}/>
 
                       <Route path="/chat" component={Chat}/>
+                      <Route path="/admin/cms" component={CMS} />
                   </Route>
         </Router>
     ), 

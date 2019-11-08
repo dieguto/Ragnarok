@@ -6,7 +6,7 @@ export default class CadastroConsole extends Component{
         return(
             <div id="container">
 
-            <h1 class="titulo-cadastro-anuncio">Cadastro de Jogo</h1>
+            <h1 class="titulo-cadastro-anuncio">Cadastro de Console</h1>
                 <div class="row">
                     <div class="col-3.5 mr-auto ml-auto"><hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
                 </div>

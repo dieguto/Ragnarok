@@ -39,8 +39,8 @@ export default class CadastroUsuario extends Component {
             })
             .then(dadosUsuario => {
                 // dadosUsuario = JSON.parse(dadosUsuario);
-                // localStorage.setItem('token', dadosUsuario.token);
-                // localStorage.setItem('usuario', JSON.parse(dadosUsuario.usuario));
+                // sessionStorage.setItem('token', dadosUsuario.token);
+                // sessionStorage.setItem('usuario', JSON.parse(dadosUsuario.usuario));
                 browserHistory.push('/login');
                 //console.log(token)
             })

@@ -43,7 +43,7 @@ class RetornaJogo extends Component {
             <div className="row">
                 <div className="col-4 card bg-transparent border-0">
                     <div className="card-header bg-transparent border-0"><h5 className="card-title texto-laranja">{jogo.nome}</h5></div>
-                    <div className="card-body bg-transparent border-0"><button type="button" onClick={localStorage.setItem('jogo', jogo.slug)} className="btn-confirmar mr-auto ml-auto">Clique aqui para confirmar</button></div>
+                    <div className="card-body bg-transparent border-0"><button type="button" onClick={sessionStorage.setItem('jogo', jogo.slug)} className="btn-confirmar mr-auto ml-auto">Clique aqui para confirmar</button></div>
                 </div>
                 <div className="col-8">
                     <img src={jogo.imagem_fundo} className="card-img"></img>

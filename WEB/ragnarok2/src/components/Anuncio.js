@@ -19,6 +19,7 @@ export default class Anuncio extends Component {
         this.state = {anuncios: []}
     }
 
+   
     
 
     componentDidMount(){

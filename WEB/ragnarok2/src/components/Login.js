@@ -38,18 +38,18 @@ export default class Login extends Component {
             })
             .then(dadosUsuario => {
                 dadosUsuario = JSON.parse(dadosUsuario);
-                localStorage.setItem('token', dadosUsuario.token);
-                localStorage.setItem('usuario', JSON.stringify(dadosUsuario.usuario));
-                // localStorage.setItem('nome', JSON.parse(usuario.nome));
+                sessionStorage.setItem('token', dadosUsuario.token);
+                sessionStorage.setItem('usuario', JSON.stringify(dadosUsuario.usuario));
+                // sessionStorage.setItem('nome', JSON.parse(usuario.nome));
                 browserHistory.push('/');
                 //console.log(token)
             })
             // .then(dadosUsuario => {
             //     dadosUsuario = JSON.parse(dadosUsuario);
             //     console.log(dadosUsuario)
-            //     localStorage.setItem('usuario', dadosUsuario.usuario);
-            //     // localStorage.setItem('usuario', dadosUsuario.usuario);
-            //     // localStorage.setItem('nome', JSON.parse(usuario.nome));
+            //     sessionStorage.setItem('usuario', dadosUsuario.usuario);
+            //     // sessionStorage.setItem('usuario', dadosUsuario.usuario);
+            //     // sessionStorage.setItem('nome', JSON.parse(usuario.nome));
             //     browserHistory.push('/');
             //     //console.log(token)
             // })
