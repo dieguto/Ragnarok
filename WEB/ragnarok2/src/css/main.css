@@ -48,31 +48,21 @@ body{
     background-color: #222222;
 }
 
-
-/* Inicio Menu */
-.menu-cover{
-    width: 100%;
-    height: 95px;
-    background-color: aqua;
+/* Início padronização Select */
+.caixa-select{
+    margin-bottom: 50px;
 }
 
-#caixa-logo{
-    width: 80%;
-    height: inherit;
-    float: left;
+.selects{
+    background-color: #222222;
     color: #f39c12;
+    border: #f39c12;
 }
 
-#caixa_botao{
-    width: 20%;
-    height: inherit;
-    float: left;
+.selects option{
+    border-color: #f39c12;
 }
-
-.botoes-header{
-    background-color: #f39c12;
-}
-/* Fim do Menu */
+/* Fim padronização Select */
 
 
 /* Inicio Corpo */
