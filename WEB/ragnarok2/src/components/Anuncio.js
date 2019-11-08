@@ -134,9 +134,6 @@ export default class Anuncio extends Component {
                                                                         // <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img borda-20px"/>
                                                                         
                                                                         <Carousel 
-                                                                        renderTopCenterControls={({ currentSlide }) => (
-                                                                            <div>{currentSlide}</div>
-                                                                          )}
                                                                           renderCenterLeftControls={({ previousSlide }) => (
                                                                             <button className="d-none" onClick={previousSlide}></button>
                                                                           )}
@@ -174,9 +171,16 @@ export default class Anuncio extends Component {
                                                                                 function(){
                                                                                     console.log(api + "/" + anuncios.c_fotos[0])
                                                                                     return anuncios.c_fotos.map(
-        
-                                                                                        fotos => <img src={api + "/" + fotos} className="card-img borda-20px"/>
-                                                
+                                                                                             
+                                                                                        fotos =>
+                                                                                        <Carousel renderCenterLeftControls={({ previousSlide }) => (
+                                                                                            <button className="d-none" onClick={previousSlide}></button>
+                                                                                          )}
+                                                                                          renderCenterRightControls={({ nextSlide }) => (
+                                                                                            <button className="d-none" onClick={nextSlide}></button>
+                                                                                          )}>
+                                                                                            <img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                        </Carousel>
                                                                                     )
                                                                                 }()
                                                                             }
@@ -186,45 +190,32 @@ export default class Anuncio extends Component {
                                                                 }
                                                                     console.log(anuncios.c_fotos)
                                                                     return(
-                                                                        function(){
-                                                                           
-                                                                            // if(anuncios.c_fotos){
-                                                                                // console.log(anuncios.c_fotos.map())
-                                                                                console.log(api + "/" + anuncios.c_fotos[0])
-                                                                                return anuncios.c_fotos.map(
-                                                                                    
-                                                                                    fotos =>{
+                                                                        <Carousel
+                                                                          renderCenterLeftControls={({ previousSlide }) => (
+                                                                            <button className="d-none" onClick={previousSlide}></button>
+                                                                          )}
+                                                                          renderCenterRightControls={({ nextSlide }) => (
+                                                                            <button className="d-none" onClick={nextSlide}></button>
+                                                                          )}>
+                                                                            {
+                                                                                function(){
+
+                                                                                        console.log(api + "/" + anuncios.c_fotos[0])
                                                                                         
-                                                                                        return <img src={api + "/" + fotos} className="card-img borda-20px"/>
-                                                                                        // <>
-                                                                                        // <Carousel 
-                                                                                        //     renderTopCenterControls={({ currentSlide }) => (
-                                                                                        //         <div>{currentSlide}</div>
-                                                                                        //     )}
-                                                                                        //     renderCenterLeftControls={({ previousSlide }) => (
-                                                                                        //         <button className="d-none" onClick={previousSlide}></button>
-                                                                                        //     )}
-                                                                                        //     renderCenterRightControls={({ nextSlide }) => (
-                                                                                        //         <button className="d-none" onClick={nextSlide}></button>
-                                                                                        //     )}>
-                                                                                        //     <img src={api + "/" + fotos} className="card-img borda-20px"/>
-                                                                                        //     {/* <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/> */}
-                                                                                        // </Carousel>
-                                                                                        // </>
-                                                                                    }
-                                                                                    
-                                                                                    
-                                                                                )
-                                                                                // <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/>
-                                                                            // }else{
-                                                                            //     anuncios.c_fotos.map(
-                                                                                    
-                                                                            //         fotos => console.log(fotos) //<img src={api + "/" + fotos} className="card-img borda-20px"/>
-                                                                                    
-                                                                            //     )
-                                                                            // }
-                                                                        }()
-                                                                       
+                                                                                        return anuncios.c_fotos.map(
+                                                                                            
+                                                                                            fotos =>{
+                                                                                                
+                                                                                                return <img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                                
+                                                                                            }
+                                                                                            
+                                                                                            
+                                                                                        )
+                                                                                       
+                                                                                }()
+                                                                            }
+                                                                        </Carousel>                                                                      
                                                                     );
                                                                     
                                                                 

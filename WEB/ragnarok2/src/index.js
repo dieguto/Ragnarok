@@ -6,19 +6,20 @@ import App from './App';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import CadastroUsuario from './components/CadastroUsuario';
-import EditarUsuario from './components/EditarUsuario';
 
 import Anuncio from './components/AnuncioEscolha';
 import CadastroJogos from './components/CadastroJogo';
 import CadastroAcessorio from './components/CadastroAcessorios';
 import CadastroConsole from './components/CadastroConsole';
 import Troca from './components/Troca';
+import Chat from './components/Chat';
+import EditarUsuario from './components/EditarUsuario';
+
 
 import Timeline from './components/Timeline';
 
 import './css/reset.css';
 
-// import './Utils/slider';
 
 ReactDOM.render(
     (
@@ -35,6 +36,8 @@ ReactDOM.render(
                       <Route path="/anuncio/troca" component={Troca} />
                       <Route path="/cadastroUsuario" component={CadastroUsuario}/>
                       <Route path="/editarUsuario" component={EditarUsuario}/>
+
+                      <Route path="/chat" component={Chat}/>
                   </Route>
         </Router>
     ), 

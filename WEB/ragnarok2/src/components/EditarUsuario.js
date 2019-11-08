@@ -1,8 +1,29 @@
 import React,{Component} from 'react';
 import '../css/edicao-usuario.css';
+import api from '../services/api';
 
 export default class EditarUsuario extends Component{
+
+    constructor(){
+        super();
+        this.state = { infos: []}
+    }
+
+    componentDidMount(){
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        
+        fetch(`${api}/usuario/${usuario.id}/completo`)
+        .then(response => response.json())
+        .then(infos => {
+            console.log(infos)
+        })
+    }
+
     render(){
+
+        
+
+
         return(
             <div id="container">
                 <div class="header1">
