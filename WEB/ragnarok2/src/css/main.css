@@ -9,6 +9,11 @@
     src: url(../Utils/fontes/GoboldBlockyItalic.otf);
 }
 
+.menu-cover{	    
+    width: 100%;	
+    height: 95px;	
+    background-color: aqua;	
+}
 
 /* Inicio Classes padronização */
 .sem-borda{

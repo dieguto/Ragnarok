@@ -15,16 +15,20 @@ export default class EditarUsuario extends Component{
         console.log(token);
 
         const requestInfo ={
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': 'Bearer' + token
+            
+            headers:new Headers({
+                'Content-type' : 'application/json',
+                'Authorization' : 'Bearer ' + token 
             })
+         
         }
 
         fetch(`${api}/usuario/${usuario.id}/completo`, requestInfo)
         .then(response => response.json())
         .then(infos => {
             console.log(infos)
+            this.setState({infos:infos})
+
         })
     }
 
@@ -50,15 +54,15 @@ export default class EditarUsuario extends Component{
                                 <form>
                                     <div class="form-group">
                                         <label for="">Nome do Usuário:</label>
-                                        <input type="text" class="form-control" id="" placeholder="Digite o nome de usuario"/>
+                                        <input type="text" class="form-control" id="" placeholder="Digite o nome de usuario" ref={(input) => this.state.infos.nome = input} value={this.state.infos.nome}/>
                                     </div>
                                     <div class="form-group">
                                         <label for="">E-mail:</label>
-                                        <input type="text" class="form-control" id="" placeholder="Digite seu e-mail"/>
+                                        <input type="text" class="form-control" id="" placeholder="Digite seu e-mail" ref={(input) => this.state.infos.nome = input} value={this.state.infos.nome}/>
                                     </div>  
                                     <div class="form-group">
                                         <label for="">CEP:</label>
-                                        <input type="text" class="form-control" id="" placeholder="00000-000"/>
+                                        <input type="text" class="form-control" id="" placeholder="00000-000" value={this.state.infos.cep}/>
                                     </div>  
                                     <div class="form-group">
                                         <label for="">Senha:</label>
