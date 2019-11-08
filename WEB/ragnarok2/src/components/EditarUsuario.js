@@ -11,8 +11,17 @@ export default class EditarUsuario extends Component{
 
     componentDidMount(){
         const usuario = JSON.parse(localStorage.getItem('usuario'));
-        
-        fetch(`${api}/usuario/${usuario.id}/completo`)
+        const token = localStorage.getItem('token');
+        console.log(token);
+
+        const requestInfo ={
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': 'Bearer' + token
+            })
+        }
+
+        fetch(`${api}/usuario/${usuario.id}/completo`, requestInfo)
         .then(response => response.json())
         .then(infos => {
             console.log(infos)

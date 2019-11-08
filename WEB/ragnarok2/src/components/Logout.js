@@ -5,7 +5,8 @@ export default class Logout extends Component{
     
     componentWillMount(){
         localStorage.removeItem('token');
-        browserHistory.push('/')
+        localStorage.removeItem('usuario');
+        browserHistory.push('/');
     }
     
     render(){

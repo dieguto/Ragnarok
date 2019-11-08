@@ -6,14 +6,16 @@ import App from './App';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import CadastroUsuario from './components/CadastroUsuario';
+import EditarUsuario from './components/EditarUsuario';
 
 import Anuncio from './components/AnuncioEscolha';
 import CadastroJogos from './components/CadastroJogo';
 import CadastroAcessorio from './components/CadastroAcessorios';
 import CadastroConsole from './components/CadastroConsole';
 import Troca from './components/Troca';
+
 import Chat from './components/Chat';
-import EditarUsuario from './components/EditarUsuario';
+
 
 
 import Timeline from './components/Timeline';

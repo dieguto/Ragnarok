@@ -25,7 +25,6 @@ export default class Anuncio extends Component {
          })
     }
 
-    
 
     render(){
         return(
@@ -38,8 +37,6 @@ export default class Anuncio extends Component {
                     this.state.anuncios.map(
                         anuncios => 
 
-                        
-                            
                             <div className="row" key={anuncios.id_anuncio}>
                                 <div className="col-1"></div>
                                 <div className="col-10">
