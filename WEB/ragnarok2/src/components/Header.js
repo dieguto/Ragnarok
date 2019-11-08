@@ -77,7 +77,10 @@ export default class Menu extends Component{
                               
                                 <button className="dropdown-item" type="button">Meus Anúncios</button>
                                 <button className="dropdown-item" type="button">Meus Jogos</button>
-                                <button className="dropdown-item" type="button">Chat</button>
+                                <Link to="/chat">
+                                  <button className="dropdown-item" type="button">Chat</button>
+                                </Link>
+                                
                                 
                                 <Link to="/editarUsuario">
                                   <button className="dropdown-item" type="button">Configurações</button>
