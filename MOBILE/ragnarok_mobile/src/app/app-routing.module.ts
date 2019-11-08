@@ -17,7 +17,9 @@ const routes: Routes = [
   { path: 'cadastro-acessorio', loadChildren: './pages/cadastro-acessorio/cadastro-acessorio.module#CadastroAcessorioPageModule' },
   { path: 'home-modal', loadChildren: './pages/home-modal/home-modal.module#HomeModalPageModule' },
   { path: 'usuario', loadChildren: './pages/usuario/usuario.module#UsuarioPageModule' },
-  { path: 'notificacoes', loadChildren: './pages/notificacoes/notificacoes.module#NotificacoesPageModule' },  { path: 'usuario-edit-modal', loadChildren: './pages/usuario-edit-modal/usuario-edit-modal.module#UsuarioEditModalPageModule' }
+  { path: 'notificacoes', loadChildren: './pages/notificacoes/notificacoes.module#NotificacoesPageModule' },  { path: 'usuario-edit-modal', loadChildren: './pages/usuario-edit-modal/usuario-edit-modal.module#UsuarioEditModalPageModule' },
+  { path: 'usuario-edit-jogos-modal', loadChildren: './pages/usuario-edit-jogos-modal/usuario-edit-jogos-modal.module#UsuarioEditJogosModalPageModule' },
+  { path: 'usuario-edit-console-modal', loadChildren: './pages/usuario-edit-console-modal/usuario-edit-console-modal.module#UsuarioEditConsoleModalPageModule' }
 
 
 

@@ -117,7 +117,7 @@ export class UsuarioService {
     
     const TOKEN_KEY = 'access_token';
     const token = await this.storage.get(TOKEN_KEY);
-    alert(token);
+    // alert(token);
 
 
     const httpOptions = {
@@ -170,7 +170,7 @@ export class UsuarioService {
     
     const TOKEN_KEY = 'access_token';
     const token = await this.storage.get(TOKEN_KEY);
-    alert(token);
+    // alert(token);
 
 
     const httpOptions = {

@@ -6,10 +6,18 @@
         <!-- <ion-icon name="logo-chrome"></ion-icon> -->
       </ion-title>
       <img src="../../assets/icon/logo-ragnarok.png">
+      <!-- <ion-icon style="font-size: 5vh; margin-left: -5%;"slot="end"name="cog"></ion-icon> -->
     </ion-toolbar>
   </ion-header>
 
 <ion-content>
+        <ion-refresher  slot="fixed"  pullFactor="2" pullMin="50" pullMax="50" style="background-color:none; height: 10vh;" (ionRefresh)="recarregar()">
+          <ion-refresher-content
+          style="background-color:none;height: 10vh;"
+          pullingIcon="null"
+          refreshingSpinner="lines-small"
+          ></ion-refresher-content>
+        </ion-refresher>
   <div class="caixa_conteudo1" >
     <!-- <img src="../../assets/fundo.jpg"> -->
       <!-- <div class="titulo_usuario">
@@ -62,16 +70,18 @@
     </div>
     <div style="    overflow: auto;" class="teste">
         <ion-item *ngFor="let item of usuario">
-            <ion-thumbnail style="height: 10vh; width: 10vh" *ngIf="item.info_rawg" slot="start">
-              <!-- <ion-card> -->
-                  <img style="height: 10vh; width: 10vh" src="{{item.info_rawg.jogo.imagem_fundo}}">
-              <!-- </ion-card> -->
-            </ion-thumbnail >
-            <ion-thumbnail style="height: 17vh; width: 17vh; border-radius: none;" *ngIf="!item.info_rawg" slot="start">
+            <div *ngIf="item.info_rawg" >
+              <ion-card>
+                  <img style="height: 9vh; width: 16vh" src="{{item.info_rawg.jogo.imagem_fundo}}">
+              </ion-card>
+            </div >
+            <div  *ngIf="!item.info_rawg" >
                 <div *ngFor="let foto of item.c_fotos" >
-                    <img style="max-width: 100%;"src="{{url}}/{{foto}}">
+                  <ion-card>
+                      <img style="height: 9vh; width: 16vh;"src="{{url}}/{{foto}}">
+                  </ion-card>
                 </div>  
-              </ion-thumbnail >
+              </div>
             <ion-label>
               <div *ngIf="item.info_rawg">
                   <h2>
@@ -81,6 +91,10 @@
               <h3>{{item.titulo}}</h3>
               <p>{{item.descricao}}</p>
             </ion-label>
+            <ion-button slot="end"  (click)="showModalAnuncios(item.id_anuncio, item.info_rawg)">
+                <ion-icon name="create"></ion-icon>
+            </ion-button>
+           
           </ion-item>
     </div>
   </div>

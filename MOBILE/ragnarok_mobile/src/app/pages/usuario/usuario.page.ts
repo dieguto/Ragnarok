@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import {Storage} from '@ionic/storage';
 import { Usuario } from '../../services/usuario/usuario.class';
 import  {UsuarioService}  from '../../services/usuario/usuario.service';
 import { environment } from 'src/environments/environment';
 import {Anuncio} from '../../services/anuncio/cadastro_anuncio/anuncio.class';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonContent, IonRefresher } from '@ionic/angular';
 import { UsuarioEditModalPage } from '../usuario-edit-modal/usuario-edit-modal.page';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioEditJogosModalPage } from '../usuario-edit-jogos-modal/usuario-edit-jogos-modal.page';
+import { UsuarioEditConsoleModalPage } from '../usuario-edit-console-modal/usuario-edit-console-modal.page';
 
 @Component({
   selector: 'app-usuario',
@@ -18,14 +20,16 @@ export class UsuarioPage implements OnInit {
 
   usuario: Usuario;
   usuario_storage: Usuario;
+  usuario_perfil:Usuario;
   anuncios:Anuncio;
   nome:String;
   foto: String;
   USUARIO_KEY: string;
   id:Number;
+  
   url =  environment.url;
-  // usuarioService: UsuarioService;
   public formConfirmarSenha : FormGroup;
+  @ViewChild(IonRefresher, { static: false }) refresher: IonRefresher;
 
   constructor(private usuarioService:UsuarioService, private storage:Storage,private modalCtrl: ModalController, formBuilder: FormBuilder) {
     this.formConfirmarSenha = formBuilder.group({
@@ -35,20 +39,18 @@ export class UsuarioPage implements OnInit {
 
 
   async ngOnInit() {
+   
+    
+    }
 
- 
-
-    this.USUARIO_KEY = "usuario";
-    this.usuario_storage = await this.storage.get(this.USUARIO_KEY);
-
-    this.nome = this.usuario_storage.nome;
-    this.id = this.usuario_storage.id;
-
-    this.buscarJogos();
-  
-    console.log(this.usuario);
+    async ionViewWillEnter() {
+      this.USUARIO_KEY = "usuario";
+      this.usuario_storage = await this.storage.get(this.USUARIO_KEY);
+      this.buscarJogos();
+      this.usuario_perfil = await this.usuarioService.buscarCompleto(this.usuario_storage.id);
+      this.nome = this.usuario_perfil.nome;
+      this.id = this.usuario_perfil.id;
   }
-
 
   async showModal(id_usuario){
     console.log(id_usuario);
@@ -60,6 +62,32 @@ export class UsuarioPage implements OnInit {
 
     return await modal.present();
   }
+
+
+  async showModalAnuncios(id_anuncio, tipo_anuncio){
+
+    if(tipo_anuncio === null){
+      console.log(id_anuncio);
+      let modal = await this.modalCtrl.create({
+        component : UsuarioEditConsoleModalPage,
+        componentProps: {id_anuncio: "id_usuario"}
+  
+      });
+
+      return await modal.present();
+    }else if(tipo_anuncio){
+      console.log(id_anuncio);
+      let modal = await this.modalCtrl.create({
+        component : UsuarioEditJogosModalPage,
+        componentProps: {id_anuncio: "id_usuario"}
+  
+      });
+      return await modal.present();
+    }
+
+    
+  }
+
 
 
   async alert(){
@@ -85,7 +113,7 @@ export class UsuarioPage implements OnInit {
     this.USUARIO_KEY = "usuario";
     this.usuario_storage = await this.storage.get(this.USUARIO_KEY);
     this.usuario = await this.usuarioService.buscarAnunciosTipo(this.usuario_storage.id, 1, 0, 0);
-    console.log(this.usuario);
+    console.log(this.usuario);  
     // this.anuncios = this.usuario.anuncios;
     // console.log(this.anuncios);
     return this.usuario;
@@ -97,7 +125,7 @@ export class UsuarioPage implements OnInit {
       this.USUARIO_KEY = "usuario";
       this.usuario_storage = await this.storage.get(this.USUARIO_KEY);
       this.usuario = await this.usuarioService.buscarAnunciosTipo(this.usuario_storage.id, 0, 1, 0);
-      console.log(this.usuario);
+      // console.log(this.usuario);
       // this.anuncios = this.usuario.anuncios;
       // console.log(this.anuncios);
       return this.usuario;
@@ -106,6 +134,20 @@ export class UsuarioPage implements OnInit {
       this.usuario.info_rawg = '';
     }
   }
+
+async recarregar(){
+  this.USUARIO_KEY = "usuario";
+  this.usuario_storage = await this.storage.get(this.USUARIO_KEY);
+  this.buscarJogos();
+  this.usuario_perfil = await this.usuarioService.buscarCompleto(this.usuario_storage.id);
+  this.nome = this.usuario_perfil.nome;
+  this.id = this.usuario_perfil.id;
+
+  setTimeout(() => {
+    console.log('Async operation has ended');
+    this.refresher.complete();
+  }, 500);
+}
 
 
 

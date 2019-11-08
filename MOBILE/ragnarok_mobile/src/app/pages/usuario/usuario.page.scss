@@ -16,7 +16,20 @@ ion-header{
         }
     }
 }
+$refresher-text-color:#f39c12;
+
 ion-content{
+    ion-refresher{
+        // --background: none;
+       --background:#222;
+       background-color: #222;
+
+        ion-refresher-content{
+            // --background: none;
+            --background:#222;
+            background-color: #222;
+        }
+    }     
     .caixa_conteudo1{
         width: 100vw;
         height: 25vh;
@@ -41,8 +54,8 @@ ion-content{
                 height: 85%;
                 // background-color: aqua;
                 // margin-right: auto;
-                margin-left: 3%;
-                margin-top: 3%;
+                margin-left: 10%;
+                margin-top: 12%;
                 float: left;
       
 
@@ -64,9 +77,12 @@ ion-content{
             width: 50%;
             height: 100%;
             float: left;
+            // background-color: #d6cfc5;
             ion-item{
+                border-bottom: solid 0.1vh #f39c12;
+                margin-top: 30%;
                 ion-label{
-                    margin-left: -15%;
+                    // margin-left: -15%;
                     ion-icon{
 
                     }
