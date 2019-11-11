@@ -3,6 +3,41 @@ import '../css/cadastro-anuncio.css';
 import $ from 'jquery';
 import ImgUtils from '../components/ImgUtils';
 
+class SelectConsole extends Component{
+    constructor(){
+      super();
+      this.state = {consoles: []}
+    }
+
+    componentDidMount(){
+      fetch('http://3.92.51.72:3107/console/todos')
+        .then(response => response.json())
+        .then(consoles => {
+            this.setState({consoles:consoles})
+            console.log(consoles)
+        })
+    }
+
+    render(){
+      return(
+          <div className="form-group">
+              <label for="" className="texto-laranja">Gênero:</label>
+              <select className="custom-select">
+                  {
+                      this.state.consoles.map(
+                          console => <option value={console.id} key={console.id} >{console.nome}</option>
+                      )
+
+                    
+                  }
+              
+              </select>
+          </div>
+      )
+  }
+
+}
+
 export default class CadastroConsole extends Component{
 
   transformar(){
@@ -47,8 +82,28 @@ export default class CadastroConsole extends Component{
   const token = sessionStorage.getItem("token")
     ImgUtils.fotosDaDivParaBase64(cs.getById("imgs_div"))
     .then(array_fotos_base64 => {
-    
-      fetch()
+    const requestInfo ={
+      method:'POST',
+      body:JSON.stringify({
+        titulo:this.titulo.value,
+        descricao:this.descricao.value,
+        is_jogo:false,
+        is_console:true,
+        is_acessorio:false,
+        id_genero:null,
+        id_console: this.console.value,
+        slug_jogo:null,
+        id_console_troca:null,
+        slug_jogo_troca:null,
+        preco: 300.00,
+        array_fotos_base64: array_fotos_base64
+      }),
+      headers:new Headers({
+        'Content-type' : 'application/json',
+        'Authorization' : 'Bearer ' + token 
+      })
+    }
+      fetch('http://3.92.51.72:3107/anuncio', requestInfo)
       console.log(array_fotos_base64)
 
     })
@@ -56,7 +111,11 @@ export default class CadastroConsole extends Component{
       alert(err)
     });    
   }    
-  //   }
+
+    constructor(props){
+      super(props);
+    }
+
     render(){
 
         return(
@@ -71,21 +130,22 @@ export default class CadastroConsole extends Component{
               <form class="form-cadastro" onSubmit={this.enviar}>
                 <div class="form-group">
                   <label for="">Titulo:</label>
-                  <input type="text" class="form-control" id="" placeholder="Digite o titulo do produto"/>
+                  <input type="text" class="form-control" id="" placeholder="Digite o titulo do produto" ref={(input) => this.titulo = input}/>
                 </div>
                 <div class="form-group">
                   <label for="">Descrição:</label>
-                  <input type="text" class="form-control" id="" placeholder="Descreva seu produto"/>
+                  <input type="text" class="form-control" id="" placeholder="Descreva seu produto" ref={(input) => this.descricao = input}/>
                 </div>
                 <div class="form-group">
-                  <label for="">Console do Jogo:</label>
+                  {/* <label for="">Console do Jogo:</label>
                   <select class="custom-select">
                       <option selected>Selecione um Console</option>
-                  </select>
+                  </select> */}
+                  <SelectConsole/>
                 </div>
                 <div class="form-group">
                   <label for="">Preço:</label>
-                  <input type="number" class="form-control" id="" placeholder="Digite o preço do produto"/>
+                  <input type="number" class="form-control" id="" placeholder="Digite o preço do produto" ref={(input) => this.preco = input}/>
                 </div>
                 <div class="form-group">
                   <div class="custom-file">
