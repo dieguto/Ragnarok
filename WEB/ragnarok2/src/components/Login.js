@@ -40,9 +40,7 @@ export default class Login extends Component {
                 dadosUsuario = JSON.parse(dadosUsuario);
                 sessionStorage.setItem('token', dadosUsuario.token);
                 sessionStorage.setItem('usuario', JSON.stringify(dadosUsuario.usuario));
-                // sessionStorage.setItem('nome', JSON.parse(usuario.nome));
                 browserHistory.push('/');
-                //console.log(token)
             })
             // .then(dadosUsuario => {
             //     dadosUsuario = JSON.parse(dadosUsuario);
@@ -63,7 +61,7 @@ export default class Login extends Component {
         return (
 
             <>
-                <h1 className="header-logo titulo-cadastro-anuncio">Login</h1>
+                <h1 className="header-logo titulo-cadastro-anuncio mt-5">Login</h1>
                 <div className="row">
                     <div className="col-3.5 mr-auto ml-auto"><hr className="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
                 </div>

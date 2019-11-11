@@ -55,15 +55,15 @@ export default class EditarUsuario extends Component{
                                 <form>
                                     <div class="form-group">
                                         <label for="">Nome do Usuário:</label>
-                                        <input type="text" class="form-control" id="" placeholder="Digite o nome de usuario" ref={(input) => this.state.infos.nome = input} value={this.state.infos.nome}/>
+                                        <input type="text" class="form-control" id="" placeholder="Digite o nome de usuario" ref={(input) => this.nome = input} value={this.state.infos.nome}/>
                                     </div>
                                     <div class="form-group">
                                         <label for="">E-mail:</label>
-                                        <input type="text" class="form-control" id="" placeholder="Digite seu e-mail" ref={(input) => this.state.infos.email = input} value={this.state.infos.email}/>
+                                        <input type="text" class="form-control" id="" placeholder="Digite seu e-mail" ref={(input) => this.email = input} value={this.state.infos.email}/>
                                     </div>  
                                     <div class="form-group">
                                         <label for="">CEP:</label>
-                                        <input type="text" class="form-control" id="" placeholder="00000-000" ref={(input) => this.state.infos.cep = input} value={this.state.infos.cep}/>
+                                        <input type="text" class="form-control" id="" placeholder="00000-000" ref={(input) => this.cep = input} value={this.state.infos.cep}/>
                                     </div>  
                                     <div class="form-group">
                                         <label for="">Senha:</label>
