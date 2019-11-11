@@ -37,19 +37,19 @@ export default class Anuncio extends Component {
             <>
              <div id="feed">
                 <h2 className="feed-titulo">Feed</h2>
-                <div class="row caixa-select">
-                    <div class="col-4 ml-auto mr-5">
-                        <div class="row">
-                            <div class="col-6">
-                                <select class='seluser selects'>
+                <div className="row caixa-select">
+                    <div className="col-4 ml-auto mr-5">
+                        <div className="row">
+                            <div className="col-6">
+                                <select className='seluser selects'>
                                     <option value='' selected disabled>Ordem</option>
                                     <option value='' >Preço Decrescente</option>
                                     <option value='' >Preço Crescente</option>
                                     <option value=''>Alfabética A-Z</option>
                                 </select>
                             </div>
-                            <div class="col-6">
-                                <select class='seluser selects'>
+                            <div className="col-6">
+                                <select className='seluser selects'>
                                     <option value='' selected disabled>Anúncios por página</option>
                                     <option value='' >10</option>
                                     <option value='' >15</option>
