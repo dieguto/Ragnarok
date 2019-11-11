@@ -23,6 +23,6 @@ const routes: Routes = [
     NgxMaskIonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [UsuarioEditModalPage]
+  declarations: []
 })
 export class UsuarioEditModalPageModule {}
