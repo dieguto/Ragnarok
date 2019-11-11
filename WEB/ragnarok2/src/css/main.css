@@ -83,10 +83,12 @@ body{
 }
 
 #feed{
-    width: 70%;
+    width: 65%;
     height: auto;
     min-height: inherit;
-    overflow: hidden;
+    overflow: hidden; 
+    margin-bottom: 5%;
+    margin-left: 5%;
     margin-right: 5%;
     float: left;
     background-color: #333333;
@@ -141,10 +143,11 @@ body{
 
 
 .mais-populares{
-    width: 25%;
+    width: 20%;
     height: auto;
     min-height: 300px;
     overflow: hidden;
+    margin-right: 5%;
     background-color: #333333;
     float: left;
 }
@@ -154,6 +157,12 @@ body{
 }
 
 .card-img-anuncio{
+    max-height: 500px;
+    min-height: 500px;
+    height: 500px;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
     margin-bottom: 0%;
     border-radius: 3%;
 }

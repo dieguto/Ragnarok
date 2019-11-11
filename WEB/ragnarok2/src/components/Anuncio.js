@@ -37,19 +37,19 @@ export default class Anuncio extends Component {
             <>
              <div id="feed">
                 <h2 className="feed-titulo">Feed</h2>
-                <div className="row caixa-select">
-                    <div className="col-4 ml-auto mr-5">
-                        <div className="row">
-                            <div className="col-6">
-                                <select className='seluser selects'>
+                <div classMa="row caixa-select">
+                    <div classMa="col-4 ml-auto mr-5">
+                        <div classMa="row">
+                            <div classMa="col-6">
+                                <select classMa='seluser selects'>
                                     <option value='' selected disabled>Ordem</option>
                                     <option value='' >Preço Decrescente</option>
                                     <option value='' >Preço Crescente</option>
                                     <option value=''>Alfabética A-Z</option>
                                 </select>
                             </div>
-                            <div className="col-6">
-                                <select className='seluser selects'>
+                            <div classMa="col-6">
+                                <select classMa='seluser selects'>
                                     <option value='' selected disabled>Anúncios por página</option>
                                     <option value='' >10</option>
                                     <option value='' >15</option>
@@ -122,7 +122,7 @@ export default class Anuncio extends Component {
                                                             }() 
                                                             }
                                                        
-                                                        <div className="card-body card-img-anuncio card-body-anuncio">
+                                                        <div className="card-body card-body-anuncio">
                                                             {
                                                                function(){
                                                                 // console.log(anuncios.info_rawg)
@@ -153,7 +153,7 @@ export default class Anuncio extends Component {
                                                                                     if(anuncios.info_rawg != null){
                                                                                         if(anuncios.info_rawg.jogo.video){
                                                                                             return (
-                                                                                                <video controls poster={anuncios.info_rawg.jogo.preview_video} className="card-img card-img-anuncio">
+                                                                                                <video controls poster={anuncios.info_rawg.jogo.preview_video} className="card-img card-img-anuncio align-middle">
                                                                                                     <source src={anuncios.info_rawg.jogo.video} type="video/mp4"></source>
                                                                                                 </video>
                                                                                             );
@@ -177,7 +177,7 @@ export default class Anuncio extends Component {
                                                                                           renderCenterRightControls={({ nextSlide }) => (
                                                                                             <button className="d-none" onClick={nextSlide}></button>
                                                                                           )}>
-                                                                                            <img src={api + "/" + fotos} className="card-img borda-20px"/>
+                                                                                            <img src={api + "/" + fotos} className="card-img borda-20px card-img-anuncio"/>
                                                                                         </Carousel>
                                                                                     )
                                                                                 }()
