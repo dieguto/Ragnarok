@@ -7,8 +7,8 @@ const cors = require("cors");
 const con = require("./config/conexao");
 
 //CONFIGURA O SOCKET.IO
-const getSocketIoAtualizado = require("./config/getSocketIoAtualizado");
-io = getSocketIoAtualizado(io);
+const SocketIoConfig = require("./config/SocketIoConfig");
+io = SocketIoConfig.get(io);
 
 //DECLARA AS PORTAS DO SERVIDORES
 const porta_api = 3107;

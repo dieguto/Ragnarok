@@ -49,6 +49,14 @@
         socket.on('receivedMessage', function(message){
             renderMessage(message);
         })
+		
+		socket.on("erro", (dados) => {
+			console.table(dados)
+		})
+		
+		socket.on("e bom", (dados) => {
+			console.table(dados)
+		})
 
         $('#chat').submit(function(event){
             event.preventDefault();
@@ -56,16 +64,15 @@
             var author = $('input[name=username]').val();
             var message = $('input[name=message]').val();
         
-            if(author.length && message.length){
-                var opa = {
-                    author: "venoninho uetstemi",
-                    message: "é o venom uetstemi",
-                }; 
+			var opa = {
+				author: "venoninho uetstemi",
+				message: "é o venom uetstemi",
+				id_anuncio: 1
+			}; 
 
-                renderMessage(opa);
-				console.log(socket);
-                socket.emit('teste', messageObject);
-            }
+			renderMessage(opa);
+			console.log(socket);
+			socket.emit('chat', opa);    
         })
     
         

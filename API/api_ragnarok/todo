@@ -4,6 +4,13 @@ https://socket.io/docs/rooms-and-namespaces/#Namespaces
 token infinito da carla: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6NSwibm9tZSI6IkNhcmxhIiwiZW5kZXJlY28iOiJTUCwgT3Nhc2NvIiwiaXNfYWRtaW4iOmZhbHNlfSwiaWF0IjoxNTczMTc0NDUzfQ.8rJDwIgA5bZfqn3F6TnyF_gXHuMYfoom8g16JbmNvXk
 token infinito do jeimer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6Niwibm9tZSI6IkplaW1lciIsImVuZGVyZWNvIjoiU1AsIFPDo28gUGF1bG8iLCJpc19hZG1pbiI6ZmFsc2V9LCJpYXQiOjE1NzMxNzQ3MTl9.j0FRwRWu1yoBI5SeLMQF3sDuUfyA5hhqxaF1EwlETzU
 
+perguntar se o pessoal que manter o "visualizado" (visto que iria adionar uma complexidade
+   ao front-end que principalmente agora por ser a 'primeira versão' talvez não fosse necessaria,
+   e também por não ter muito conhecimento de como realizar o feito da forma 'correta' [talvez] 
+   emitindo sempre o evento de 'lido' juntamente com o id do chat assim marcando todas as mensagem
+   com o visualizado de '0' para '1', funcionario, porém não haveria a 'atualização' do icone do 
+   visualizado)
+
 DAO Anuncio
    criar - ok
    editar - ok  
