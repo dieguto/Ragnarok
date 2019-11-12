@@ -4,8 +4,110 @@
         <ion-icon name="close-circle-outline"></ion-icon>
       </ion-button>
     </ion-toolbar>
-  </ion-header>
-
+</ion-header>
 <ion-content>
+  <form [formGroup]="formCriarAnuncio" (ngSubmit)="criarAnuncio()">
+    <ion-slides ion-fixed >
+      <ion-slide>
+          <div class="slide_cadastro" >
+            <!-- titulo do jogo -->
+              <ion-label class="label">Titulo</ion-label>
+              <ion-item  lines="none">
+                <ion-input formControlName="titulo" name="titulo" type="text" placeholder="Devil May Cry"   ></ion-input>
+              </ion-item>
+              <ion-label class="label">Preço</ion-label>
+              <ion-item  lines="none">
+                <ion-input formControlName="preco" name="preco" type="text" placeholder="Devil May Cry"   ></ion-input>
+              </ion-item>
+              <!-- descrição do jogo -->
+              <ion-label class="label">Descrição:</ion-label>
+              <ion-item lines="none">
+                <ion-textarea class="descricao" formControlName="descricao" name="descricao" type="text" placeholder="Jogo em bom estado"   ></ion-textarea>
+              </ion-item>
+              <ion-label class="label">Selecione o genero do seu jogo</ion-label>
+              <!-- generos do jogo -->
+              <ion-item lines="none">
+                  <ion-label class="label_produtos">Generos</ion-label>
+                  <ion-select formControlName="id_genero" name="id_genero"  ok-text="Ok" cancel-text="Cancelar">
+                    <ion-select-option style="--background:#322" *ngFor="let genero of generos" value="{{genero.id_genero}}">{{genero.nome}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <!-- plataforma do jogo -->
+                <ion-label class="label">Selecione a plataforma do seu jogo</ion-label>
+                <ion-item lines="none">
+                    <ion-label class="label_produtos">Console</ion-label>
+                    <ion-select formControlName="id_console" name="id_console" ok-text="Ok" cancel-text="Cancelar">
+                      <ion-select-option *ngFor="let console of consoles" value="{{console.id_console}}">{{console.nome}}</ion-select-option>
+                    </ion-select>
+                </ion-item>          
+          </div>
+        </ion-slide>
+          <ion-slide class="slide_busca">
+             <div class="slide_cadastro">
+                <ion-label class="label">Selecione o jogo</ion-label>
+                <ion-item lines="none">
+                  <ion-searchbar color="primary" name="jogos"  (ionInput)="filtrarJogos('jogo')" class="teste" placeholder="Nome"></ion-searchbar>
+                </ion-item>
+                 <ion-radio-group formControlName="slug_jogo" name="slug_jogo" allow-empty-selection>
+                    <ion-item lines="none" *ngFor="let sugestaoJogo of sugestoes_jogos">
+                        <ion-card>
+                            <img src="{{sugestaoJogo.imagem_fundo}}" />
+                            <ion-card-header>
+                              <ion-card-title>{{sugestaoJogo.nome}}</ion-card-title>
+                              <ion-card-subtitle>{{sugestaoJogo.dt_lancamento}}</ion-card-subtitle>
+                            </ion-card-header>
+                            <ion-radio slot="end" value="{{sugestaoJogo.slug}}" ></ion-radio>
+                          </ion-card>
+                      </ion-item>
+                  </ion-radio-group>             
+              </div>
+          </ion-slide>
+            <ion-slide class="slide_busca">
+              <div class="slide_cadastro">
+                  <ion-label class="label">Selecione a plataforma do jogo desejado</ion-label>
+                  <ion-item lines="none">
+                      <ion-label class="label_produtos">Console</ion-label>
+                      <ion-select formControlName="id_console_troca" name="id_console_troca" ok-text="Ok" cancel-text="Cancelar">
+                          <ion-select-option *ngFor="let console of consoles" value="{{console.id_console}}">{{console.nome}}</ion-select-option>
+                        </ion-select>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-searchbar  show-cancel-button color="primary" name="jogos" id="pop12"  (ionInput)="filtrarJogos('jogo_desejado')" class="teste" placeholder="Nome"></ion-searchbar>
+                    </ion-item>
+                  <ion-radio-group formControlName="slug_jogo_troca" name="slug_jogo_troca" allow-empty-selection>
+                      <ion-item lines="none" *ngFor="let sugestaoJogo of sugestoes_jogos_desejado">
+                          <ion-card>
+                              <img src="{{sugestaoJogo.imagem_fundo}}" />
+                              <ion-card-header>
+                                <ion-card-title>{{sugestaoJogo.nome}}</ion-card-title>
+                                <ion-card-subtitle>{{sugestaoJogo.dt_lancamento}}</ion-card-subtitle>
+                              </ion-card-header>
+                              <ion-radio slot="end" value="{{sugestaoJogo.slug}}" ></ion-radio>
+                            </ion-card>
+                        </ion-item>
+                    </ion-radio-group>   
+               </div>
+           </ion-slide>
+           <ion-slide>
+             <div class="slide_cadastro">
+              <ion-card>
+                  <img [src]="foto"/>
+                <!-- <ion-input formControlName="array_fotos_base64" name="array_fotos_base64" type="text" value="{{base_64}}" style="visibility:hidden;" ></ion-input> -->
+              </ion-card>
+              <ion-card>
+                  <ion-button (click)="galeria()">
+                      <ion-icon name="image"></ion-icon>
+                  </ion-button>
+                  <ion-button (click)="tirarFoto()">
+                      <ion-icon  name="camera"></ion-icon>
+                  </ion-button>
+              </ion-card>
 
+             </div>
+             <ion-button type="submit" >
+                Cadastrar
+              </ion-button>
+           </ion-slide>
+      </ion-slides>
+</form>
 </ion-content>
