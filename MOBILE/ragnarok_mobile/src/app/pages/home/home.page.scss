@@ -92,12 +92,12 @@ ion-content{
                     }
 
                     .caixa_botao{
-                        width: 50vh;
+                        width: 80%;
                         height: inherit;
                         // background-color: #989aa2;     
-                        margin-left: -1vh;
+                        margin-left: 10%;
                         --border-color: #f39c12;
-                        // margin-right: 25vh;
+                        margin-right: 10%;
                         // margin-top: -15.5vh;
                         // border-radius: 50%;
         
@@ -111,8 +111,8 @@ ion-content{
                             // --border: solid 2px #f39c12;
                             // --background: radial-gradient(circle closest-side,#333 0%,#333 98%,rgba(0,0,0,0) 100%);
                             // margin-top: 20%;
-                            margin-left: 2vh;
-                            // margin-right: 5%;
+                            
+                            margin-right: 2%;
                             // --box-shadow:3px 3px 3px rgba(0,0,0,.14)
                     
                             //  , 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
