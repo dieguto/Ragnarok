@@ -30,14 +30,19 @@
 		const opcoes = {
 		  query: {
 			token,
-			tipo: "notificacoes"
 		  }
 		};
 	
         var socket = io('http://localhost:3108', opcoes)
     
-        function renderMessage(message){
-            $('.messages').append('<div class="message"><strong>'+ message.author +  '</strong>: '+ message.message +'</div>');
+        function renderMessage(mensagem){
+			if(mensagem.is_para_usuario){
+				
+            $('.messages').append('<div style="width:100%; height:10%;margin:10px"><strong style="float:left;width:200px;min-height:10px;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br>'+ mensagem.enviada_em +'</div>');
+			} else {
+				
+            $('.messages').append('<div style="width:100%; height:10%;margin:10px"><strong style="float:right;width:200px;min-height:10px;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br>'+ mensagem.enviada_em +'</div>');
+			}
         }
 
         socket.on('mensagens_anteriores', function(messages){
@@ -64,16 +69,20 @@
             var author = $('input[name=username]').val();
             var message = $('input[name=message]').val();
         
-			var opa = {
+			 
+
+			//renderMessage(opa);
+			console.log(socket);   
+        })
+		
+		var opa = {
 				author: "venoninho uetstemi",
 				message: "é o venom uetstemi",
 				id_anuncio: 1
-			}; 
-
-			renderMessage(opa);
-			console.log(socket);
-			socket.emit('chat', opa);    
-        })
+			};
+		
+		
+			socket.emit('iniciar_chat', opa); 
     
         
 
