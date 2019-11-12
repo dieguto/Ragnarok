@@ -71,9 +71,9 @@ class SocketIoConfig {
             }
          }
 
-         socket.join("1");
+         //socket.join("1");
 
-         socket.join('queijo');
+         //socket.join('queijo');
 
          //socket.leave('queijo');
 
@@ -88,6 +88,9 @@ class SocketIoConfig {
          console.log(socket.adapter.sids[socket.id]);
 
          socket.on("iniciar_chat", async (dados) => {
+
+            this.sairDeTodasAsSalas(socket);
+
             if(dados.id_anuncio || dados.id_chat){
                const chat = await possuiChat(dados);
 
