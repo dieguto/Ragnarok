@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalController, IonSearchbar, IonSlides, IonItem, IonImg } from '@ionic/angular';
+import { ModalController, IonSearchbar, IonSlides, IonItem, IonImg, NavParams, IonSelect, IonSelectOption } from '@ionic/angular';
 import { GeneroJogoService } from '../../services/anuncio/genero/genero-jogo.service';
 import { ConsoleService } from '../../services/anuncio/consoles/console.service';
 import { SugestoesJogoService } from '../../services/sugestoes_jogo/sugestoes-jogo.service';
@@ -21,13 +21,13 @@ export class UsuarioEditJogosModalPage implements OnInit {
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
   @ViewChild(IonItem, {static:false}) ionItem: IonItem;
   @ViewChild(IonImg, {static:false})  ionImg: IonImg;
+  @ViewChild(IonSelectOption, {static:false}) ionSelect:IonSelectOption;
   
   
   jogos: String;
   fotos_base64: String[];
   anuncio: Anuncio;
   generos: Genero[];
-
   consoles: Console[];
   sugestoes_jogos: SugestoesJogo[];
   sugestoes_jogos_desejado:SugestoesJogo[];
@@ -45,6 +45,7 @@ export class UsuarioEditJogosModalPage implements OnInit {
     private SugestoesJogoService: SugestoesJogoService,
     private cadastroAnuncioService: CadastroAnuncioService,
     private sanitizer: DomSanitizer,
+    private navParam : NavParams, 
     formBuilder: FormBuilder 
     ) { 
 
@@ -65,8 +66,18 @@ export class UsuarioEditJogosModalPage implements OnInit {
 
     async ngOnInit() {
     this.generos = await this.generoJogoService.getGeneros();
+      console.log(this.navParam.get('id_anuncio'));
+    this.anuncio = await this.cadastroAnuncioService.buscarPorID(this.navParam.get('id_anuncio'));
+    console.log(this.anuncio);
 
+ 
+    // var inputValue = (<HTMLInputElement>document.getElementById('select_option_console')).value;
+    
     this.consoles = await this.consoleService.getConsoles();
+
+    
+
+    // this.ionSelect.value(4);
   }
 
   async closeModal(){

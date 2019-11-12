@@ -70,7 +70,7 @@ export class UsuarioPage implements OnInit {
       console.log(id_anuncio);
       let modal = await this.modalCtrl.create({
         component : UsuarioEditConsoleModalPage,
-        componentProps: {id_anuncio: "id_usuario"}
+        componentProps: {id_anuncio: id_anuncio}
   
       });
 
@@ -79,7 +79,7 @@ export class UsuarioPage implements OnInit {
       console.log(id_anuncio);
       let modal = await this.modalCtrl.create({
         component : UsuarioEditJogosModalPage,
-        componentProps: {id_anuncio: "id_usuario"}
+        componentProps: {id_anuncio: id_anuncio}
   
       });
       return await modal.present();

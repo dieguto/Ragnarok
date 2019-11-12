@@ -13,16 +13,16 @@
             <!-- titulo do jogo -->
               <ion-label class="label">Titulo</ion-label>
               <ion-item  lines="none">
-                <ion-input formControlName="titulo" name="titulo" type="text" placeholder="Devil May Cry"   ></ion-input>
+                <ion-input formControlName="titulo" name="titulo" value="{{anuncio.titulo}}" type="text" placeholder="Devil May Cry"   ></ion-input>
               </ion-item>
               <ion-label class="label">Preço</ion-label>
               <ion-item  lines="none">
-                <ion-input formControlName="preco" name="preco" type="text" placeholder="Devil May Cry"   ></ion-input>
+                <ion-input formControlName="preco" name="preco" value="{{anuncio.preco}}" type="text" placeholder="Devil May Cry"   ></ion-input>
               </ion-item>
               <!-- descrição do jogo -->
               <ion-label class="label">Descrição:</ion-label>
               <ion-item lines="none">
-                <ion-textarea class="descricao" formControlName="descricao" name="descricao" type="text" placeholder="Jogo em bom estado"   ></ion-textarea>
+                <ion-textarea class="descricao" formControlName="descricao" value="{{anuncio.descricao}}" name="descricao" type="text" placeholder="Jogo em bom estado"   ></ion-textarea>
               </ion-item>
               <ion-label class="label">Selecione o genero do seu jogo</ion-label>
               <!-- generos do jogo -->
@@ -36,10 +36,14 @@
                 <ion-label class="label">Selecione a plataforma do seu jogo</ion-label>
                 <ion-item lines="none">
                     <ion-label class="label_produtos">Console</ion-label>
-                    <ion-select formControlName="id_console" name="id_console" ok-text="Ok" cancel-text="Cancelar">
-                      <ion-select-option *ngFor="let console of consoles" value="{{console.id_console}}">{{console.nome}}</ion-select-option>
+                    <ion-select  formControlName="id_console" name="id_console" ok-text="Ok" cancel-text="Cancelar" >
+                      <div >
+                          <ion-select-option *ngFor="let console of consoles" value="{{console.id_console}}"
+                            selected="anuncio.console.id_console == console.id_console"  >{{console.nome}}</ion-select-option>
+                          <!-- <ion-select-option > {{console.nome}}</ion-select-option> -->
+                      </div>
                     </ion-select>
-                </ion-item>          
+                </ion-item> 
           </div>
         </ion-slide>
           <ion-slide class="slide_busca">
