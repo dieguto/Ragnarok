@@ -6,6 +6,7 @@ const Anuncio = require("../models/Anuncio");
 const Chat = require("../models/Chat");
 const ChatUsuario = require("../models/ChatUsuario");
 const Dt = require("../utils/DtUtils");
+const Mensagem = require("../models/Mensagem");
 
 class SocketIoConfig {
 
@@ -37,13 +38,20 @@ class SocketIoConfig {
 
          if(usuarios_online.indexOf(socket.usuario.id) === -1){
             usuarios_online.push(socket.usuario.id);
+         } else {
+            io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "somente é permitido um socket por usuario conectado"});
+            socket.disconnect();
          }
+
+         socket.join("usuario_" + socket.usuario.id);
 
          console.log(usuarios_online)
 
          //socket.join("1");
 
          //socket.join('queijo');
+
+         //console.log(this.getTotalDeUsuariosNaSala(io, 'queijo'))
 
          //socket.leave('queijo');
 
@@ -57,6 +65,11 @@ class SocketIoConfig {
    
          //console.log(socket.adapter.sids[socket.id]);
 
+         // EXEMPLO DE 'dados'
+         // const dados = {
+         //    id_chat: 12 OU id_anuncio: 12 
+         //    mensagem: "Olá mundo!"
+         // }
          socket.on("iniciar_chat", async (dados) => {
 
             this.sairDeTodasAsSalas(socket);
@@ -65,14 +78,23 @@ class SocketIoConfig {
                const chat = await this.getChat(socket, dados);
 
                if(chat){
+
+                  const nome_sala = `chat_${chat.id_chat}`;
                   
-                  await this.marcarMensagensComoLidas(socket.usuario.id, chat.id_chat);
+                  const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
 
-                  io.sockets.connected[socket.id].emit("mensagens_anteriores", await this.getMensagensTratadas(socket, chat.id_chat));
+                  if(total_na_sala < 1){
 
-                  socket.join(`${chat.id_chat}`);
+                     await this.marcarMensagensComoLidas(socket.usuario.id, chat.id_chat);
 
-                  console.log("chat existe")
+                     io.sockets.connected[socket.id].emit("mensagens_anteriores", await this.getMensagensTratadas(socket, chat.id_chat));
+
+                     socket.join(nome_sala);
+
+                  } else {
+                     io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "erro, mais de uma pessoa no chat de id '" + chat.id_chat + "'"});
+                  }
+
                } else {
                   const anuncio = await Anuncio.findByPk(dados.id_anuncio);
 
@@ -86,7 +108,9 @@ class SocketIoConfig {
 
                      await ChatUsuario.create({ id_chat: chat.id_chat, id_usuario: anuncio.id_usuario });
 
-                     socket.join(`${chat.id_chat}`);
+                     //EVENTO DE CHAT CRIADO E ENVIAR INFORMAÇÕES DO CHAT E DEN QUEM TA CONVERSDANDO COM A PESSOA
+
+                     socket.join(`chat_${chat.id_chat}`);
 
                   } else {
                      io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "anuncio de id '" + dados.id_anuncio + "' não existe"});
@@ -98,20 +122,44 @@ class SocketIoConfig {
             }
          })
 
-         socket.on("mensagem", async (dados) => {
+         // EXEMPLO DE 'dados'
+         // const dados = {
+         //    id_chat: 12,
+         //    mensagem: "Olá mundo!"
+         // }
+         socket.on("enviar_mensagem", async (dados) => {
             if(dados.id_chat){
 
                const chat = await this.getChat(socket, dados);
 
                if(chat){
 
-                  const possui_sala = this.possuiSala(socket, sala);
+                  const nome_sala = `chat_${chat.id_chat}`;
+
+                  const possui_sala = this.possuiSala(socket, nome_sala);
 
                   if(possui_sala){
                      
-                     const para = this.getPara(socket.usuario.id, chat.id_chat);
+                     const cuDoUsuarioEnviando = ChatUsuario.findOne({ where: { id_chat: chat.id_chat, id_usuario: socket.usuario.id } });
+                     const cuDoUsuarioPara = ChatUsuario.findOne({ where: { id_chat: chat.id_chat, id_usuario: { $ne:socket.usuario.id } } });
 
+                     const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
 
+                     const mensagem = await Mensagem.scope("simples").create({
+                        para: cuDoUsuarioPara.id_chat_usuario,
+                        mensagem: dados.mensagem,
+                        visualizada: total_na_sala == 2
+                     })
+
+                     console.log(mensagem);
+
+                     if(total_na_sala == 2){
+
+                        //socket.to(nome_sala).broadcast.emit("nova_mensagem", )
+                        
+                     } else {
+
+                     }
 
                   } else {
                      io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "só e possivel enviar uma mensagem caso você inicie chat antes com o evento 'iniciar_chat'"});
@@ -126,22 +174,23 @@ class SocketIoConfig {
             }
          })
 
-         socket.on("denovo", socket => {
-
-         })
-
          socket.on("disconnect", socket => {
             const indice = socket.usuario ? usuarios_online.indexOf(socket.usuario.id) : -1;
+            
+            usuarios_online.splice(indice, 1);
 
-            if(indice !== -1){
-               usuarios_online.splice(indice, 1);
-            }
             console.log(usuarios_online)
          });
 
       });
     
       return io;
+   }
+
+   static getTotalDeUsuariosNaSala(io, nome_sala){
+      const sala = io.sockets.adapter.rooms[nome_sala];
+
+      return sala ? sala.length : 0;
    }
 
    static possuiSala(socket, sala){
@@ -173,32 +222,13 @@ class SocketIoConfig {
       return salas;
    }
 
-   static async getPara(id_usuario_enviando, id_chat){
-
-      const query = `
-         SELECT 
-         cu.id_chat_usuario, cu.id_usuario  
-         FROM
-         tbl_chat_usuario AS cu
-         WHERE
-         cu.id_usuario <> ${id_usuario_enviando}
-         AND
-         cu.id_chat = ${id_chat}
-         AND
-         cu.excluido_em IS NULL
-         ;
-      `;
-
-      const paras = await con.query(query, { type: Sequelize.QueryTypes.SELECT });
-
-      return paras[0];
-   }
-
    static sairDeTodasAsSalas(socket){
       const salas = this.getSalas(socket);
 
       for(let i = 0; i < salas.length; i++){
-         socket.leave(salas[i]);
+         if(!salas[i].includes("usuario_")){
+            socket.leave(salas[i]);
+         }
       }
 
       return;
