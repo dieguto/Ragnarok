@@ -132,8 +132,6 @@ class DtUtils {
       
       const horas = this.addZero(data.getHours());
 
-      console.log("horas" + data.getHours())
-
       const hora_completa = horas + ":" + minutos + ":" + segundos;
 
       const dia  = this.addZero(data.getDate());
