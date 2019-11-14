@@ -146,6 +146,8 @@ class ControllerSocketIo {
          //    id_chat: 12,
          //    mensagem: "Olá mundo!"
          // }
+         // Pode emitir notificação, nova_mensagem, ou erro
+
          socket.on("mensagem", async (dados) => {
             if(dados.id_chat && dados.mensagem){
 
@@ -195,6 +197,13 @@ class ControllerSocketIo {
             }
          })
 
+         socket.on("get_chats", async () => {
+            
+            const chats = await this.getChats(socket.usuario.id, usuarios_online);
+
+            io.sockets.connected[socket.id].emit("chats", chats);
+         })
+
          socket.on("disconnect", () => {
             
             if(socket.usuario){
@@ -210,6 +219,133 @@ class ControllerSocketIo {
       });
     
       return io;
+   }
+
+   static async getChats(id_usuario, usuarios_online){
+      const query = `
+         SELECT
+         c.id_chat, c.id_anuncio, c.c_foto 
+         FROM
+         tbl_chat AS c
+         INNER JOIN
+         tbl_chat_usuario AS cu
+         ON
+         c.id_chat = cu.id_chat
+         AND
+         cu.id_usuario = ${id_usuario}
+         AND
+         cu.excluido_em IS NULL
+         AND
+         c.excluido_em IS NULL;
+      `;
+
+      console.log("query", query)
+
+      try {
+         const chats_query = await con.query(query, { type: Sequelize.QueryTypes.SELECT });
+
+         console.log("chats_query", chats_query)
+
+         let total_nao_lidas = await this.getTotalMsgsLidasPorChat(id_usuario);
+
+         console.log("total_nao_lidas", total_nao_lidas)
+
+         for(let i = 0; i < chats_query.length; i++){
+            if(!this.isChatOnLidas(chats_query[i], total_nao_lidas)){
+               const chat_add = { id_chat: chats_query[i].id_chat, nao_lidas: 0 };
+
+               total_nao_lidas.push(chat_add);
+            }
+         }
+
+         console.log("total_nao_lidas", total_nao_lidas)
+
+         let chats = [];
+
+         let i = 0;
+
+         const addAoChats = async () => {
+
+            if(i == total_nao_lidas.length){
+
+               
+
+               console.log(chats)
+               return;
+
+            } else {
+
+               let chat = await this.getInfoChat(id_usuario, total_nao_lidas[i].id_chat, usuarios_online);
+
+               chat.dataValues.nao_lidas = total_nao_lidas[i].nao_lidas;
+
+               chats.push(chat);
+
+               i++;
+
+               await addAoChats();
+            }
+
+         }
+
+         await addAoChats();
+
+         return chats;
+
+      } catch (err) {
+         return null;
+      }
+   }
+
+   static isChatOnLidas(chat, total_nao_lidas){
+      let is_on_lidas = false;
+
+      for(let i = 0; i < total_nao_lidas.length; i++){
+         if(chat.id_chat == total_nao_lidas[i].id_chat){
+            is_on_lidas = true;
+         }
+      }
+
+      return is_on_lidas;
+   }
+
+   static async getTotalMsgsLidasPorChat(id_usuario){
+      const query = `
+         SELECT
+         c.id_chat, 
+         COUNT(IF(m.visualizada = 0, 1, NULL)) as nao_lidas
+         FROM
+         tbl_mensagem AS m
+         INNER JOIN
+         tbl_chat_usuario AS cu
+         ON
+         cu.id_chat_usuario = m.para
+         INNER JOIN
+         tbl_chat AS c
+         ON
+         cu.id_chat = c.id_chat
+         WHERE
+         cu.id_usuario = ${id_usuario}
+         AND
+         m.excluido_em IS NULL
+         AND
+         cu.excluido_em IS NULL
+         AND
+         c.excluido_em IS NULL
+         GROUP BY 
+         m.para
+         ORDER BY
+         m.criado_em DESC;
+      `;
+
+      try {
+         const total_nao_lidas = await con.query(query, { type: Sequelize.QueryTypes.SELECT });
+
+         return total_nao_lidas;
+
+      } catch (err) {
+         return [];
+      }
    }
 
    static async getInfoChat(id_usuario, id_chat, usuarios_online){

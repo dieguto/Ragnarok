@@ -149,13 +149,20 @@
 		
 		socket.emit('iniciar_chat', iniciar_chat); 
 		
-		
 		socket.on('iniciou', (info_chat_iniciou) => {
 			
 			info_chat = info_chat_iniciou;
 			
-			alert("conectado!")
+			console.log("conectado!")
 			console.log(info_chat);
+		
+		}); 
+		
+		socket.emit('get_chats'); 
+		
+		socket.on('chats', (info_chats) => {
+
+			console.log(info_chats);
 		
 		}); 
         

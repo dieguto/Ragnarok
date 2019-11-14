@@ -336,6 +336,8 @@ CREATE TABLE tbl_chat(
 -- CRIANDO CHAT SOBRE O PRIMEIRO ANUNCIO, O DO GTA SAN ANDREAS
 INSERT INTO tbl_chat VALUES (0, 1, 'fotos/1/0.jpg', now(), now(), NULL);
 
+INSERT INTO tbl_chat VALUES (0, 3, 'fotos/3/0.jpg', now(), now(), NULL);
+
 CREATE TABLE tbl_chat_usuario(
    id_chat_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_chat INT NOT NULL,
@@ -357,6 +359,9 @@ CREATE TABLE tbl_chat_usuario(
 INSERT INTO tbl_chat_usuario VALUES (0, 1, 5, now(), now(), NULL);
 INSERT INTO tbl_chat_usuario VALUES (0, 1, 6, now(), now(), NULL);
 
+INSERT INTO tbl_chat_usuario VALUES (0, 2, 5, now(), now(), NULL);
+INSERT INTO tbl_chat_usuario VALUES (0, 2, 7, now(), now(), NULL);
+
 CREATE TABLE tbl_mensagem(
    id_mensagem INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
    para INT NOT NULL,
@@ -375,3 +380,6 @@ CREATE TABLE tbl_mensagem(
 INSERT INTO tbl_mensagem VALUES (0, 1, "Oi Carla, tudo bem?", 1, now(), now(), NULL);
 INSERT INTO tbl_mensagem VALUES (0, 2, "OLÁ Jeimer, está tudo sim", 1, now(), now(), NULL);
 INSERT INTO tbl_mensagem VALUES (0, 1, "Faz rolo desse gta num moto g2 trincado?", 0, now(), now(), NULL);
+
+INSERT INTO tbl_mensagem VALUES (0, 3, "Oi carla", 0, now(), now(), NULL);
+INSERT INTO tbl_mensagem VALUES (0, 3, "Oi carla dnc", 0, now(), now(), NULL);
