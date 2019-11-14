@@ -4,16 +4,16 @@ https://socket.io/docs/rooms-and-namespaces/#Namespaces
 token infinito da carla: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6NSwibm9tZSI6IkNhcmxhIiwiZW5kZXJlY28iOiJTUCwgT3Nhc2NvIiwiaXNfYWRtaW4iOmZhbHNlfSwiaWF0IjoxNTczMTc0NDUzfQ.8rJDwIgA5bZfqn3F6TnyF_gXHuMYfoom8g16JbmNvXk
 token infinito do jeimer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6Niwibm9tZSI6IkplaW1lciIsImVuZGVyZWNvIjoiU1AsIFPDo28gUGF1bG8iLCJpc19hZG1pbiI6ZmFsc2V9LCJpYXQiOjE1NzMxNzQ3MTl9.j0FRwRWu1yoBI5SeLMQF3sDuUfyA5hhqxaF1EwlETzU
 
+feito - ADD EVENTO SAIR DOS CHATS
 ADD ULTIMA MENSAGEM AO GET CHATS
+ARRUMAR ANUNCIO CRIANDO MESMO SEM A INFO DO RAWG
+ARRUMAR ANUNCIO DA WS COM UNDEFINEDS
 E ADICIONAR EXEMPLO DE USUARIO ONLINE
-enviar mensagem ao
-enviar evento nova_mensagem_para_IDDOUSUARIO (talvez enviar direto para a sala do chat)
-criar as 'notificações' que busca todas as mensagens não lidas
 
-tentar verificar o parametro 'para' e o array dos online pra 
-ver seda para
+FAZER FUNÇÕES DE DATA PARA O FRONT END, E TRANFORMAR O
+'enviado_em' EM JSON
 
-talvex fazer o front end marcar a mensagem como lida
+
 
 DAO Anuncio
    criar - ok

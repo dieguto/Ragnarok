@@ -8,6 +8,7 @@
         
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="DtUtils.js"></script>
 
     <link rel="stylesheet" href="styles.css">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -23,56 +24,11 @@
     </form>
 
     <script type="text/javascript">
-	
-	
-	
-		const addZero = (num) => {
-		  const num_str = num + "";
-
-		  if(num_str.length > 1){
-			 return num_str;
-		  } else {
-			 return "0" + num_str;
-		  }
-	   }
-	   
-		const convMes = (mes) => {
-		  return addZero(mes + 1);
-	   }
-	
-		const getDtAtual = () => {
-      
-		  const data = new Date();
-
-		  const segundos = addZero(data.getSeconds());
-
-		  const minutos = addZero(data.getMinutes());
-		  
-		  const horas = addZero(data.getHours());
-
-		  const hora_completa = horas + ":" + minutos + ":" + segundos;
-
-		  const dia  = addZero(data.getDate());
-
-		  const mes = convMes(data.getMonth());
-
-		  const ano = data.getFullYear();
-
-		  const dt_completa = dia + "/" + mes + "/" + ano;
-
-		  return dt_completa + " às " + hora_completa;
-	 
-	   }
-	   
 	   
 	    function scrollToBottom(id){
 		   var div = document.getElementById(id);
 		   div.scrollTop = div.scrollHeight - div.clientHeight;
 	    }
-		
-		//scrollToBottom("msgs");
-		
-		
 	   
 		let info_chat = {};
 	
@@ -90,10 +46,10 @@
         function renderMessage(mensagem){
 			if(mensagem.is_para_usuario){
 				
-            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px"><strong style="float:left;width:180px;height:100%;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br>'+ mensagem.enviada_em +'</div>');
+            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px"><strong style="float:left;width:180px;height:100%;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
 			} else {
 				
-            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px;"><strong style="float:right;width:180px;height:100%;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br>'+ mensagem.enviada_em +'</div>');
+            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px;"><strong style="float:right;width:180px;height:100%;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
 			}
 			
 			var objDiv = document.getElementById("msgs");
@@ -121,6 +77,7 @@
 
         $('#chat').submit(function(event){
             event.preventDefault();
+			
 			if(info_chat != {}){
 				var message = $('input[name=message]').val();
 				
@@ -130,8 +87,6 @@
 				};
 				
 				socket.emit('mensagem', mensagem);
-				
-				mensagem.enviada_em = getDtAtual();
 				
 				mensagem.is_para_usuario = false;
 				
@@ -144,7 +99,7 @@
         })
 		
 		var iniciar_chat = {
-			id_anuncio: 1
+			id_chat: 1
 		};
 		
 		socket.emit('iniciar_chat', iniciar_chat); 
@@ -165,7 +120,6 @@
 			console.log(info_chats);
 		
 		}); 
-        
 
     </script>
 </body>
