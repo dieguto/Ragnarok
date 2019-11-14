@@ -56,6 +56,8 @@ export class UsuarioService {
   login(crendentials){
       return this.http.post(`${this.url}/auth/login/usuario/`, crendentials).pipe(
         tap(res =>{
+
+          localStorage.setItem("token", res['token']);
           this.storage.set(TOKEN_KEY, res['token']);
           this.storage.set(USUARIO_KEY, res['usuario']);
           this.storage.set(PAGINA, 1);

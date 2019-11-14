@@ -147,7 +147,7 @@
 			id_anuncio: 1
 		};
 		
-		//socket.emit('iniciar_chat', iniciar_chat); 
+		socket.emit('iniciar_chat', iniciar_chat); 
 		
 		
 		socket.on('iniciou', (info_chat_iniciou) => {

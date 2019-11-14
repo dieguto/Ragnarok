@@ -33,7 +33,9 @@
     "br-mask": "0.0.8",
     "core-js": "^2.5.4",
     "ngx-mask-ionic": "^1.1.2",
+    "ngx-socket-io": "^3.0.1",
     "rxjs": "~6.5.1",
+    "socket.io": "^2.3.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

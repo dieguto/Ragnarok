@@ -121,30 +121,6 @@ class DtUtils {
       return dt_completa + " às " + hora_completa;
  
    }
-
-   static FormatoBrComHoras(dt_string){
-      
-      const data = new Date(dt_string);
-
-      const segundos = this.addZero(data.getSeconds());
-
-      const minutos = this.addZero(data.getMinutes());
-      
-      const horas = this.addZero(data.getHours());
-
-      const hora_completa = horas + ":" + minutos + ":" + segundos;
-
-      const dia  = this.addZero(data.getDate());
-
-      const mes = this.convMes(data.getMonth());
-
-      const ano = data.getFullYear();
-
-      const dt_completa = dia + "/" + mes + "/" + ano;
-
-      return dt_completa + " às " + hora_completa;
- 
-   }
 }
 
 module.exports = DtUtils;

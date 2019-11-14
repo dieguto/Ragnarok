@@ -19,7 +19,9 @@ const routes: Routes = [
   { path: 'usuario', loadChildren: './pages/usuario/usuario.module#UsuarioPageModule' },
   { path: 'notificacoes', loadChildren: './pages/notificacoes/notificacoes.module#NotificacoesPageModule' },  { path: 'usuario-edit-modal', loadChildren: './pages/usuario-edit-modal/usuario-edit-modal.module#UsuarioEditModalPageModule' },
   { path: 'usuario-edit-jogos-modal', loadChildren: './pages/usuario-edit-jogos-modal/usuario-edit-jogos-modal.module#UsuarioEditJogosModalPageModule' },
-  { path: 'usuario-edit-console-modal', loadChildren: './pages/usuario-edit-console-modal/usuario-edit-console-modal.module#UsuarioEditConsoleModalPageModule' }
+  { path: 'usuario-edit-console-modal', loadChildren: './pages/usuario-edit-console-modal/usuario-edit-console-modal.module#UsuarioEditConsoleModalPageModule' },
+  { path: 'direct', loadChildren: './pages/direct/direct.module#DirectPageModule' },
+  { path: 'chat', loadChildren: './pages/chat/chat.module#ChatPageModule' }
 
 
 

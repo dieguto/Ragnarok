@@ -6,16 +6,16 @@
         <!-- <ion-icon name="logo-chrome"></ion-icon> -->
       </ion-title>
       <img src="../../assets/icon/logo-ragnarok.png">
-
-  
-
+      <ion-button id="direct" routerLink="/direct" slot="end">
+        <ion-icon style="font-size:5vh;" mode="ios" name="chatboxes"></ion-icon>
+      </ion-button>
     </ion-toolbar>
   </ion-header>
 <ion-content>
     <!-- <ion-item> -->
-      <ion-range (ionChange)="filtrar_km()" min="0" max="100" step="10" snaps pin color="secondary">
-        <ion-icon slot="start" size="small" name="pin"></ion-icon>
-        <ion-icon slot="end" name="pin"></ion-icon>
+      <ion-range (ionChange)="filtrar_km()" min="0" max="100" step="10"  snaps pin color="secondary">
+        <ion-icon slot="start "   size="small" name="pin"></ion-icon>
+        <ion-icon slot="end"  name="pin"></ion-icon>
       </ion-range>
     <!-- </ion-item> -->
   <!-- IonSlides Pai -->
@@ -29,7 +29,7 @@
             </ion-slide>
                   <ion-slide *ngFor=" let anuncio of anuncios">
                       <!-- IonCard Neto -->
-                        <ion-card >
+                        <ion-card mode="ios" >
                             <ion-card-header style="background-color: #333; height: 10vh; max-height: 10vh; min-height: 10vh;">
                             <ion-card-subtitle style="float: left;">{{anuncio.distancia}}</ion-card-subtitle>
                           

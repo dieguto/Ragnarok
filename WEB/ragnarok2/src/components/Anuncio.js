@@ -7,6 +7,18 @@ import '../css/cadastro-anuncio.css';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
+// import 'jquery-nice-select/js/fastclick';
+// import 'jquery-nice-select/js/jquery';
+// import 'jquery-nice-select/js/jquery.nice-select';
+// import 'jquery-nice-select/js/prism';
+
+// import Select from '@material-ui/core/Select';
+// import TextField from '@material-ui/core/TextField';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+
+// console.log(api)
+
 export default class Anuncio extends Component {
 
     constructor(){
@@ -36,24 +48,25 @@ export default class Anuncio extends Component {
             <>
              <div id="feed">
                 <h2 className="feed-titulo">Feed</h2>
-                <div classMa="row caixa-select">
-                    <div classMa="col-4 ml-auto mr-5">
-                        <div classMa="row">
-                            <div classMa="col-6">
-                                <select classMa='seluser selects'>
-                                    <option value='' selected disabled>Ordem</option>
-                                    <option value='' >Preço Decrescente</option>
-                                    <option value='' >Preço Crescente</option>
-                                    <option value=''>Alfabética A-Z</option>
-                                </select>
+                <div className="row caixa-select">
+                    <div className="col-4 ml-auto mr-5">
+                        <div className="row">
+                            <div className="col-6">
+                                {/* <InputLabel id="">Anúncios por página</InputLabel>
+                                <Select labelId="label" id="" value="">
+                                    <MenuItem value="">Anúncios por página</MenuItem>
+                                    <MenuItem value="">10</MenuItem>
+                                    <MenuItem value="">15</MenuItem>
+                                    <MenuItem value="">20</MenuItem>
+                                </Select> */}
                             </div>
-                            <div classMa="col-6">
-                                <select classMa='seluser selects'>
-                                    <option value='' selected disabled>Anúncios por página</option>
-                                    <option value='' >10</option>
-                                    <option value='' >15</option>
-                                    <option value=''>20</option>
-                                </select>
+                            <div className="col-6">
+                                {/* <Select labelId="label" id="" value="">
+                                    <MenuItem value="" selected disabled>Ordem</MenuItem>
+                                    <MenuItem value="">Preço Decrescente</MenuItem>
+                                    <MenuItem value="">Preço Crescente</MenuItem>
+                                    <MenuItem value="">Alfabética A-Z</MenuItem>
+                                </Select> */}
                             </div>
                         </div>                        
                     </div>

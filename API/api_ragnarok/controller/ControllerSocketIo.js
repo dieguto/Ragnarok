@@ -197,6 +197,13 @@ class ControllerSocketIo {
             }
          })
 
+         socket.on("sair_chat", () => {
+            
+            this.sairDeTodasAsSalas(socket);
+
+         })
+
+
          socket.on("get_chats", async () => {
             
             const chats = await this.getChats(socket.usuario.id, usuarios_online);
@@ -239,16 +246,10 @@ class ControllerSocketIo {
          c.excluido_em IS NULL;
       `;
 
-      console.log("query", query)
-
       try {
          const chats_query = await con.query(query, { type: Sequelize.QueryTypes.SELECT });
 
-         console.log("chats_query", chats_query)
-
          let total_nao_lidas = await this.getTotalMsgsLidasPorChat(id_usuario);
-
-         console.log("total_nao_lidas", total_nao_lidas)
 
          for(let i = 0; i < chats_query.length; i++){
             if(!this.isChatOnLidas(chats_query[i], total_nao_lidas)){
@@ -258,8 +259,6 @@ class ControllerSocketIo {
             }
          }
 
-         console.log("total_nao_lidas", total_nao_lidas)
-
          let chats = [];
 
          let i = 0;
@@ -268,9 +267,6 @@ class ControllerSocketIo {
 
             if(i == total_nao_lidas.length){
 
-               
-
-               console.log(chats)
                return;
 
             } else {
@@ -589,7 +585,7 @@ class ControllerSocketIo {
 
    //Dt.FormatoBrComHoras
    static getMensagemTratada(mensagem){
-      mensagem.dataValues.enviada_em = Dt.FormatoBrComHoras(mensagem.criado_em);
+      mensagem.dataValues.enviada_em = mensagem.criado_em;
 
       delete mensagem.dataValues.criado_em;
       delete mensagem.dataValues.atualizado_em;
@@ -606,7 +602,7 @@ class ControllerSocketIo {
 
       for(let i = 0; i < mensagens.length; i++){
 
-         mensagens[i].enviada_em = Dt.FormatoBrComHoras(mensagens[i].enviada_em);
+         mensagens[i].enviada_em = mensagens[i].enviada_em;
 
          mensagens[i].is_para_usuario = false;
 

@@ -1,0 +1,31 @@
+.a:active{
+    background: #f39c12;
+    --background:#f39c12;
+}
+
+ion-content{
+
+    ion-searchbar{
+        color: #f39c12;
+        --background:#333;
+        --cancel-button-color:#f39c12;
+        --clear-button-color:#f39c12;
+    }
+    ion-item{
+        background: #333;
+        --background:#333;
+        margin-top: 1vh;
+        width: 95%;
+        margin-left: 2.5%;
+        // border-radius: 10% 10% 0% 0%;
+        
+
+        ion-label{
+            border-bottom: solid 0.1vh #f39c12;
+
+            h2{
+                color: #f39c12;
+            }
+        }
+    }
+}

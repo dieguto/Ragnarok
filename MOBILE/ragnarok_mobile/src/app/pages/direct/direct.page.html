@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Conversas</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-refresher  slot="fixed"  pullFactor="2" pullMin="50" pullMax="50" style="background-color:none; height: 10vh;" (ionRefresh)="recarregar()">
+        <ion-refresher-content
+        style="background-color:none;height: 10vh;"
+        pullingIcon="null"
+        refreshingSpinner="lines-small"
+        ></ion-refresher-content>
+      </ion-refresher>  
+  <ion-searchbar placeholder="Pesquisar" mode="ios" ></ion-searchbar>
+  <ion-item class="a" (click)="showModalChat()" >
+    <ion-avatar slot="start">
+      <img src="../../assets/boss.png" >
+    </ion-avatar>
+    <ion-label>
+      <h2>Finn</h2>
+      <p>Listen, I've had a pretty messed up day...</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-item  class="a" (click)="showModalChat()">
+    <ion-avatar slot="start">
+      <img src="../../assets/boss.png" >
+    </ion-avatar>
+    <ion-label>
+      <h2>Han</h2>
+
+      <p>I've got enough on my plate as it is, and I...</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-item  class="a" (click)="showModalChat()">
+    <ion-avatar slot="start">
+      <img src="../../assets/boss.png" >
+    </ion-avatar>
+    <ion-label>
+      <h2>Rey</h2>
+      <p>You will remove these restraints and leave...</p>
+    </ion-label>
+  </ion-item>
+</ion-content>
