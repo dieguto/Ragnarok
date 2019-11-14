@@ -31,7 +31,7 @@ function verificaAutenticacao(nextState, replace){
 
 ReactDOM.render(
     (
-        /* historíco de navegação para podermos realizar a navegação entra as rotas */
+        /* historíco de navegação para podermos realizar a navegação entre as rotas */
         <Router history={browserHistory}>
                   <Route path="/" component={App}>
                       <IndexRoute component={Timeline}/>

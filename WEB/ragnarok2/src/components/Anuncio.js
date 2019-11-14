@@ -46,7 +46,6 @@ export default class Anuncio extends Component {
                     <div className="col-4 ml-auto mr-5">
                         <div className="row">
                             <div className="col-6">
-                                
                                 {/* <InputLabel id="">Anúncios por página</InputLabel>
                                 <Select labelId="label" id="" value="">
                                     <MenuItem value="">Anúncios por página</MenuItem>
