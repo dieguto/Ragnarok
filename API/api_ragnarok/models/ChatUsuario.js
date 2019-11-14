@@ -19,7 +19,17 @@ ChatUsuario.init({
       allowNull: false
    }
 },{
+   defaultScope: {
+      attributes: { 
+         exclude: [
+            'criado_em',
+            'atualizado_em',
+            'excluido_em'
+         ] 
+      }
+   },
    createdAt: 'criado_em',
+   updatedAt: 'atualizado_em',
    deletedAt: 'excluido_em',
    timestamps: true,
    underscored: true,

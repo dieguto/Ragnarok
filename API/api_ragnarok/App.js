@@ -5,10 +5,10 @@ const http = require("http").createServer();
 let io = require("socket.io")(http);
 const cors = require("cors");
 const con = require("./config/conexao");
+const ControllerSocketIo = require("./controller/ControllerSocketIo");
 
 //CONFIGURA O SOCKET.IO
-const SocketIoConfig = require("./config/SocketIoConfig");
-io = SocketIoConfig.get(io);
+io = ControllerSocketIo.get(io);
 
 //DECLARA AS PORTAS DO SERVIDORES
 const porta_api = 3107;

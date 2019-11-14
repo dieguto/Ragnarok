@@ -14,12 +14,22 @@ Chat.init({
       type: Sequelize.INTEGER,
       allowNull: false
    },
-   c_foto_conversa:{
+   c_foto:{
       type: Sequelize.STRING(300),
       allowNull: false
    }
 },{
+   defaultScope: {
+      attributes: { 
+         exclude: [
+            'criado_em',
+            'atualizado_em',
+            'excluido_em'
+         ] 
+      }
+   },
    createdAt: 'criado_em',
+   updatedAt: 'atualizado_em',
    deletedAt: 'excluido_em',
    timestamps: true,
    underscored: true,

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Chat Ragnarok</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+        
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  
+    <script src='main.js'></script>
+</head>
+<body>
+    <form id="chat">
+        <h1>Jeimer</h1> 
+        <div class="messages" id="msgs" style="max-height:400px;overflow-y:scroll"></div>
+        <input type="text" name="message" placeholder="Digite sua mensagem"> 
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script type="text/javascript">
+	
+	
+	
+		const addZero = (num) => {
+		  const num_str = num + "";
+
+		  if(num_str.length > 1){
+			 return num_str;
+		  } else {
+			 return "0" + num_str;
+		  }
+	   }
+	   
+		const convMes = (mes) => {
+		  return addZero(mes + 1);
+	   }
+	
+		const getDtAtual = () => {
+      
+		  const data = new Date();
+
+		  const segundos = addZero(data.getSeconds());
+
+		  const minutos = addZero(data.getMinutes());
+		  
+		  const horas = addZero(data.getHours());
+
+		  const hora_completa = horas + ":" + minutos + ":" + segundos;
+
+		  const dia  = addZero(data.getDate());
+
+		  const mes = convMes(data.getMonth());
+
+		  const ano = data.getFullYear();
+
+		  const dt_completa = dia + "/" + mes + "/" + ano;
+
+		  return dt_completa + " às " + hora_completa;
+	 
+	   }
+	   
+	   
+	    function scrollToBottom(id){
+		   var div = document.getElementById(id);
+		   div.scrollTop = div.scrollHeight - div.clientHeight;
+	    }
+		
+		//scrollToBottom("msgs");
+		
+		
+	   
+		let info_chat = {};
+	
+		//TOKEN DO JEIMER
+		const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6Niwibm9tZSI6IkplaW1lciIsImVuZGVyZWNvIjoiU1AsIFPDo28gUGF1bG8iLCJpc19hZG1pbiI6ZmFsc2V9LCJpYXQiOjE1NzMxNzQ3MTl9.j0FRwRWu1yoBI5SeLMQF3sDuUfyA5hhqxaF1EwlETzU";
+	
+		const opcoes = {
+		  query: {
+			token,
+		  }
+		};
+	
+        var socket = io('http://localhost:3108', opcoes)
+    
+        function renderMessage(mensagem){
+			if(mensagem.is_para_usuario){
+				
+            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px"><strong style="float:left;width:180px;height:100%;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br>'+ mensagem.enviada_em +'</div>');
+			} else {
+				
+            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px;"><strong style="float:right;width:180px;height:100%;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br>'+ mensagem.enviada_em +'</div>');
+			}
+			
+			var objDiv = document.getElementById("msgs");
+			objDiv.scrollTop = objDiv.scrollHeight;
+        }
+
+        socket.on('mensagens_anteriores', function(messages){
+            for (message of messages){
+                renderMessage(message)
+            }
+        })
+
+        socket.on('nova_mensagem', function(message){
+			message.is_para_usuario = true;
+            renderMessage(message);
+        })
+
+        socket.on('notificação', function(message){
+			alert("messagem do usuario '" + message.usuario.nome + "' -> '" + message.mensagem + "'")
+        })
+		
+		socket.on("erro", (erro) => {
+			alert(erro)
+		})
+
+        $('#chat').submit(function(event){
+            event.preventDefault();
+			if(info_chat != {}){
+				var message = $('input[name=message]').val();
+				
+				let mensagem = {
+					id_chat: info_chat.id_chat,
+					mensagem: message
+				};
+				
+				socket.emit('mensagem', mensagem);
+				
+				mensagem.enviada_em = getDtAtual();
+				
+				mensagem.is_para_usuario = false;
+				
+				renderMessage(mensagem);
+			} else {
+				alert("entre em um chat primeiro")
+			}
+
+			  
+        })
+		
+		var iniciar_chat = {
+			id_anuncio: 1
+		};
+		
+		socket.emit('iniciar_chat', iniciar_chat); 
+		
+		
+		socket.on('iniciou', (info_chat_iniciou) => {
+			
+			info_chat = info_chat_iniciou;
+			
+			alert("conectado!")
+			console.log(info_chat);
+		
+		}); 
+        
+
+    </script>
+</body>
+</html>

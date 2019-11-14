@@ -323,8 +323,9 @@ INSERT INTO tbl_anuncio VALUES
 CREATE TABLE tbl_chat(
 	id_chat INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
    id_anuncio INT NOT NULL,
-   c_foto_conversa VARCHAR(300) NOT NULL,
+   c_foto VARCHAR(300) NOT NULL,
    criado_em TIMESTAMP,
+	atualizado_em TIMESTAMP,
    excluido_em TIMESTAMP NULL,
 
    CONSTRAINT fk_id_anuncio_on_tbl_chat
@@ -333,13 +334,14 @@ CREATE TABLE tbl_chat(
 );
 
 -- CRIANDO CHAT SOBRE O PRIMEIRO ANUNCIO, O DO GTA SAN ANDREAS
-INSERT INTO tbl_chat VALUES (0, 1, 'fotos/1/0.jpg', now(), NULL);
+INSERT INTO tbl_chat VALUES (0, 1, 'fotos/1/0.jpg', now(), now(), NULL);
 
 CREATE TABLE tbl_chat_usuario(
    id_chat_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	id_chat INT NOT NULL,
    id_usuario INT NOT NULL,
    criado_em TIMESTAMP,
+	atualizado_em TIMESTAMP,
    excluido_em TIMESTAMP NULL,
    
    CONSTRAINT fk_id_usuario_on_tbl_chat_usuario
@@ -352,8 +354,8 @@ CREATE TABLE tbl_chat_usuario(
 );
 
 -- ADICIONANDO A CARLA (DONA DO ANUNCIO), E JEIMER AO CHAT
-INSERT INTO tbl_chat_usuario VALUES (0, 1, 5, now(), NULL);
-INSERT INTO tbl_chat_usuario VALUES (0, 1, 6, now(), NULL);
+INSERT INTO tbl_chat_usuario VALUES (0, 1, 5, now(), now(), NULL);
+INSERT INTO tbl_chat_usuario VALUES (0, 1, 6, now(), now(), NULL);
 
 CREATE TABLE tbl_mensagem(
    id_mensagem INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -361,6 +363,7 @@ CREATE TABLE tbl_mensagem(
    mensagem TEXT NOT NULL,
    visualizada TINYINT NOT NULL,
    criado_em TIMESTAMP,
+	atualizado_em TIMESTAMP,
    excluido_em TIMESTAMP NULL,
 
    CONSTRAINT fk_id_chat_usuario_on_tbl_mensagem
@@ -369,6 +372,6 @@ CREATE TABLE tbl_mensagem(
 );
 
 -- ADICIONANDO ALGUMAS MENSAGENS AO CHAT
-INSERT INTO tbl_mensagem VALUES (0, 1, "Oi Carla, tudo bem?", 1, now(), NULL);
-INSERT INTO tbl_mensagem VALUES (0, 2, "OLÁ Jeimer, está tudo sim", 1, now(), NULL);
-INSERT INTO tbl_mensagem VALUES (0, 1, "Faz rolo desse gta num moto g2 trincado?", 0, now(), NULL);
+INSERT INTO tbl_mensagem VALUES (0, 1, "Oi Carla, tudo bem?", 1, now(), now(), NULL);
+INSERT INTO tbl_mensagem VALUES (0, 2, "OLÁ Jeimer, está tudo sim", 1, now(), now(), NULL);
+INSERT INTO tbl_mensagem VALUES (0, 1, "Faz rolo desse gta num moto g2 trincado?", 0, now(), now(), NULL);

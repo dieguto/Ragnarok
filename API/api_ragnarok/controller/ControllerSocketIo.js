@@ -1,21 +1,24 @@
 const jwt = require('jsonwebtoken');
 const JwtAuth = require("../utils/JwtAuth");
 const Sequelize = require("sequelize");
-const con = require("./conexao");
+const Op = Sequelize.Op; 
+const con = require("../config/conexao");
 const Anuncio = require("../models/Anuncio");
 const Chat = require("../models/Chat");
 const ChatUsuario = require("../models/ChatUsuario");
 const Dt = require("../utils/DtUtils");
 const Mensagem = require("../models/Mensagem");
+const Usuario = require("../models/Usuario");
 
-class SocketIoConfig {
+
+class ControllerSocketIo {
 
    static verificarToken(socket, next){
       const token = socket.handshake.query.token;
    
       jwt.verify(token, JwtAuth.getKey(), (err, dadosToken)=>{
          if(err){
-            io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "o parametro 'token' é necessario para que o socket se conecte"});
+            io.sockets.connected[socket.id].emit("erro", "o parametro 'token' é necessario para que o socket se conecte");
             socket.disconnect();
    
          } else {
@@ -27,9 +30,9 @@ class SocketIoConfig {
    };
    
    static get(io){
-
-      let usuarios_online = [];
       
+      let usuarios_online = [];
+
       io.use(this.verificarToken);
    
       io.on("connection", socket => {
@@ -39,37 +42,26 @@ class SocketIoConfig {
          if(usuarios_online.indexOf(socket.usuario.id) === -1){
             usuarios_online.push(socket.usuario.id);
          } else {
-            io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "somente é permitido um socket por usuario conectado"});
+            io.sockets.connected[socket.id].emit("erro", "somente é permitido um socket por usuario conectado");
             socket.disconnect();
          }
 
          socket.join("usuario_" + socket.usuario.id);
 
-         console.log(usuarios_online)
-
-         //socket.join("1");
-
-         //socket.join('queijo');
-
-         //console.log(this.getTotalDeUsuariosNaSala(io, 'queijo'))
-
-         //socket.leave('queijo');
-
-         //socket.to("1").broadcast.emit("batata_evento", { batata: "batata" });
-
-         //socket.to("queijo").broadcast.emit("queijo_evento", { queijo: "queijo" });
-
-         //socket.leaveAll();
-
-         //this.sairDeTodasAsSalas(socket);
-   
-         //console.log(socket.adapter.sids[socket.id]);
+         socket.broadcast.emit("usuario_" + socket.usuario.id + "_online");
 
          // EXEMPLO DE 'dados'
          // const dados = {
          //    id_chat: 12 OU id_anuncio: 12 
-         //    mensagem: "Olá mundo!"
+         // 
          // }
+         // 
+         // RETORNO) 3 emits - ("iniciou")[com json do info chat(chat, usuario[e se esta online] e anuncio)] e ("mensagens_anteriores")[e json das mensagem anteriores], ou o ("erro")
+         //  
+         // io.sockets.connected[socket.id].emit("iniciou", info_chat);
+         // 
+         // io.sockets.connected[socket.id].emit("mensagens_anteriores", []);
+         
          socket.on("iniciar_chat", async (dados) => {
 
             this.sairDeTodasAsSalas(socket);
@@ -83,42 +75,69 @@ class SocketIoConfig {
                   
                   const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
 
-                  if(total_na_sala < 1){
+                  if(total_na_sala < 2){
 
                      await this.marcarMensagensComoLidas(socket.usuario.id, chat.id_chat);
 
-                     io.sockets.connected[socket.id].emit("mensagens_anteriores", await this.getMensagensTratadas(socket, chat.id_chat));
-
                      socket.join(nome_sala);
 
+                     let info_chat = await this.getInfoChat(socket.usuario.id, chat.id_chat, usuarios_online);
+                     
+                     io.sockets.connected[socket.id].emit("iniciou", info_chat);
+
+                     io.sockets.connected[socket.id].emit("mensagens_anteriores", await this.getMensagensTratadas(socket, chat.id_chat));
+
+                     console.log(`chat '${chat.id_chat}' iniciado!`)
+
                   } else {
-                     io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "erro, mais de uma pessoa no chat de id '" + chat.id_chat + "'"});
+                     io.sockets.connected[socket.id].emit("erro", "erro, mais de uma pessoa no chat de id '" + chat.id_chat + "'");
                   }
 
                } else {
                   const anuncio = await Anuncio.findByPk(dados.id_anuncio);
 
                   if(anuncio){
-                     console.log("tem")
-                     //cria o chat e então manda a mensagem
 
-                     const chat = await Chat.create({ id_anuncio: anuncio.id_anuncio, c_foto_conversa: anuncio.c_fotos[0] });
+                     if(anuncio.usuario.id != socket.usuario.id){
+                        
+                        //cria o chat e então manda a mensagem
 
-                     await ChatUsuario.create({ id_chat: chat.id_chat, id_usuario: socket.usuario.id });
+                        const chat_novo = await Chat.create({ id_anuncio: anuncio.id_anuncio, c_foto: anuncio.c_fotos[0] });
 
-                     await ChatUsuario.create({ id_chat: chat.id_chat, id_usuario: anuncio.id_usuario });
+                        await ChatUsuario.create({ id_chat: chat_novo.id_chat, id_usuario: socket.usuario.id });
 
-                     //EVENTO DE CHAT CRIADO E ENVIAR INFORMAÇÕES DO CHAT E DEN QUEM TA CONVERSDANDO COM A PESSOA
+                        await ChatUsuario.create({ id_chat: chat_novo.id_chat, id_usuario: anuncio.usuario.id });
 
-                     socket.join(`chat_${chat.id_chat}`);
+                        //EVENTO DE CHAT CRIADO E ENVIAR INFORMAÇÕES DO CHAT E DEN QUEM TA CONVERSANDO COM A PESSOA
+                        //get_chats, get_notificacoes, info_chat
+                        socket.join(`chat_${chat_novo.id_chat}`);
+
+                        let info_chat = await this.getInfoChat(socket.usuario.id, chat_novo.id_chat, usuarios_online);
+                     
+                        io.sockets.connected[socket.id].emit("iniciou", info_chat);
+
+                        io.sockets.connected[socket.id].emit("mensagens_anteriores", []);
+
+                        console.log(`chat '${chat_novo.id_chat}' criado e iniciado!`)
+                     } else {
+                        io.sockets.connected[socket.id].emit("erro", "é impossivel iniciar um chat consigo mesmo");
+                     }
 
                   } else {
-                     io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "anuncio de id '" + dados.id_anuncio + "' não existe"});
+                     let erro = "";
+
+                     if(dados.id_anuncio){
+                        erro = "anuncio de id '" + dados.id_anuncio + "' não existe";
+                     } else {
+                        erro = "chat de id '" + dados.id_chat + "' não existe";
+                     }
+                     
+                     io.sockets.connected[socket.id].emit("erro", erro);
                   }
                }
 
             } else {
-               io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "para entrar em um chat é necessario informar o id do anuncio, ou o id do chat"});
+               io.sockets.connected[socket.id].emit("erro", "para entrar em um chat é necessario informar o id do anuncio, ou o id do chat");
             }
          })
 
@@ -127,8 +146,8 @@ class SocketIoConfig {
          //    id_chat: 12,
          //    mensagem: "Olá mundo!"
          // }
-         socket.on("enviar_mensagem", async (dados) => {
-            if(dados.id_chat){
+         socket.on("mensagem", async (dados) => {
+            if(dados.id_chat && dados.mensagem){
 
                const chat = await this.getChat(socket, dados);
 
@@ -139,52 +158,116 @@ class SocketIoConfig {
                   const possui_sala = this.possuiSala(socket, nome_sala);
 
                   if(possui_sala){
-                     
-                     const cuDoUsuarioEnviando = ChatUsuario.findOne({ where: { id_chat: chat.id_chat, id_usuario: socket.usuario.id } });
-                     const cuDoUsuarioPara = ChatUsuario.findOne({ where: { id_chat: chat.id_chat, id_usuario: { $ne:socket.usuario.id } } });
 
                      const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
 
-                     const mensagem = await Mensagem.scope("simples").create({
+                     const { cuDoUsuario, cuDoUsuarioPara } = await this.getCusDoChat(socket.usuario.id, chat.id_chat);
+
+                     let mensagem = await Mensagem.scope("simples").create({
                         para: cuDoUsuarioPara.id_chat_usuario,
                         mensagem: dados.mensagem,
                         visualizada: total_na_sala == 2
-                     })
+                     });
 
-                     console.log(mensagem);
+                     mensagem = this.getMensagemTratada(mensagem);
 
                      if(total_na_sala == 2){
 
-                        //socket.to(nome_sala).broadcast.emit("nova_mensagem", )
+                        socket.to(nome_sala).broadcast.emit("nova_mensagem", mensagem);
                         
                      } else {
 
+                        mensagem.dataValues.usuario = socket.usuario;
+
+                        socket.to("usuario_" + cuDoUsuarioPara.id_usuario).broadcast.emit("notificação", mensagem);
                      }
 
                   } else {
-                     io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "só e possivel enviar uma mensagem caso você inicie chat antes com o evento 'iniciar_chat'"});
+                     io.sockets.connected[socket.id].emit("erro", "só e possivel enviar uma mensagem caso você inicie chat antes com o evento 'iniciar_chat'");
                   }
 
                } else {
-                  io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "só é possivel enviar uma mensagem para um chat ao qual exista, e que você pertança ao mesmo também"});
+                  io.sockets.connected[socket.id].emit("erro", "só é possivel enviar uma mensagem para um chat ao qual exista, e que você pertança ao mesmo também");
                }
 
             } else {
-               io.sockets.connected[socket.id].emit("erro", {status: 400, msg: "para enviar uma mensagam é necessario informar o id do chat"});
+               io.sockets.connected[socket.id].emit("erro", "para enviar uma mensagam é necessario informar o id do chat e tambem a mensagem");
             }
          })
 
-         socket.on("disconnect", socket => {
-            const indice = socket.usuario ? usuarios_online.indexOf(socket.usuario.id) : -1;
+         socket.on("disconnect", () => {
             
-            usuarios_online.splice(indice, 1);
+            if(socket.usuario){
+               socket.emit("usuario_" + socket.usuario.id + "_offline");
 
-            console.log(usuarios_online)
+               const indice = usuarios_online.indexOf(socket.usuario.id);
+               
+               usuarios_online.splice(indice, 1);
+            }
+
          });
 
       });
     
       return io;
+   }
+
+   static async getInfoChat(id_usuario, id_chat, usuarios_online){
+
+      let chat = await Chat.findByPk(id_chat);
+
+      const cuDoUsuarioPara = await this.getCuDoPara(id_usuario, id_chat);
+
+      let usuarioPara = await Usuario.scope("anuncio").findByPk(cuDoUsuarioPara.id_usuario);
+
+      usuarioPara.dataValues.is_online = this.isUsuarioOnline(usuarioPara.id, usuarios_online);
+
+      delete usuarioPara.dataValues.lat;
+
+      delete usuarioPara.dataValues.lon;
+
+      const anuncio = await Anuncio.findByPk(chat.id_anuncio);
+
+      if(anuncio.preco){
+         anuncio.dataValues.preco = "R$ " + anuncio.dataValues.preco.replace(/\./g, ",");
+      }
+
+      delete chat.dataValues.id_anuncio;
+
+      chat.dataValues.anuncio = anuncio;
+
+      chat.dataValues.usuario = usuarioPara;
+
+      return chat;
+   }
+
+   static isUsuarioOnline(id_usuario, usuarios_online){
+
+      return usuarios_online.indexOf(id_usuario) != -1 ? true : false;
+
+   }
+
+   static async getCusDoChat(id_usuario, id_chat){
+      
+      const cuDoUsuario = await this.getCuDoUsuario(id_usuario, id_chat);
+
+      const cuDoUsuarioPara = await this.getCuDoPara(id_usuario, id_chat);
+
+      return { cuDoUsuario, cuDoUsuarioPara };
+   }
+
+   static async getCuDoPara(id_usuario, id_chat){
+
+      const cuDoUsuarioPara = await ChatUsuario.findOne({ where: { id_chat: id_chat, id_usuario: { [Op.ne]: id_usuario } } });
+
+      return cuDoUsuarioPara;
+   }
+
+   static async getCuDoUsuario(id_usuario, id_chat){
+   
+      const cuDoUsuario = await ChatUsuario.findOne({ where: { id_chat: id_chat, id_usuario: id_usuario } });
+
+      return cuDoUsuario;
    }
 
    static getTotalDeUsuariosNaSala(io, nome_sala){
@@ -353,6 +436,7 @@ class SocketIoConfig {
          m.excluido_em IS NULL
          AND
          cu.excluido_em IS NULL
+         ORDER BY m.criado_em ASC
          ;
       `;
 
@@ -365,6 +449,20 @@ class SocketIoConfig {
       } catch (err) {
          return [];
       }
+   }
+
+   //Dt.FormatoBrComHoras
+   static getMensagemTratada(mensagem){
+      mensagem.dataValues.enviada_em = Dt.FormatoBrComHoras(mensagem.criado_em);
+
+      delete mensagem.dataValues.criado_em;
+      delete mensagem.dataValues.atualizado_em;
+      delete mensagem.dataValues.excluido_em;
+      delete mensagem.dataValues.visualizada;
+      delete mensagem.dataValues.id_mensagem;
+      delete mensagem.dataValues.para;
+
+      return mensagem;
    }
 
    static async getMensagensTratadas(socket, id_chat){
@@ -383,10 +481,8 @@ class SocketIoConfig {
          delete mensagens[i].para_usuario;
       }
 
-      //console.log(mensagens)
-
       return mensagens;
    };
 }
 
-module.exports = SocketIoConfig;
+module.exports = ControllerSocketIo;

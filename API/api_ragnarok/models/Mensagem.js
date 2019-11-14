@@ -21,12 +21,6 @@ Mensagem.init({
    visualizada:{
       type: Sequelize.BOOLEAN,
       allowNull: false
-   },
-   criado_em:{
-      type:Sequelize.DATE,
-      get(){
-         return Dt.FormatoBrComHoras(this.getDataValue("criado_em"))
-      }
    }
 },{
    scopes:{
@@ -35,6 +29,7 @@ Mensagem.init({
       }
    },
    createdAt: 'criado_em',
+   updatedAt: 'atualizado_em',
    deletedAt: 'excluido_em',
    timestamps: true,
    underscored: true,
