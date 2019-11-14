@@ -1,26 +1,25 @@
-import React,{Component} from 'react';
+import React,{Component, useState} from 'react';
 import IconeUser from '../assets/user.svg'
 
 import api from '../services/api';
-import Carousel from 'nuka-carousel'
+import Carousel from 'nuka-carousel';
 import '../css/cadastro-anuncio.css';
-
-// import 'jquery-nice-select/js/fastclick';
-// import 'jquery-nice-select/js/jquery';
-// import 'jquery-nice-select/js/jquery.nice-select';
-// import 'jquery-nice-select/js/prism';
-
-// console.log(api)
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 export default class Anuncio extends Component {
 
     constructor(){
         super();
-        this.state = {anuncios: []}
+        this.state = {anuncios: [], showModal: false}
+        this.abrirModal = this.abrirModal.bind(this)
     }
 
-   
-    
+    abrirModal(){
+        this.setState({showModal:!this.state.modal})
+        // this.setState({abrirmodal:true}) 
+        console.log(this.state.modal)
+    }
 
     componentDidMount(){
          fetch( `${api}/anuncios/todos/1/0/1/100/distancia/0/9999/asc`)
@@ -227,7 +226,8 @@ export default class Anuncio extends Component {
                                             </div>
                                             
                                         </div>
-                                        <div className="card-footer"><button className="btn btn-leia-mais">Leia Mais</button></div>
+                                    
+                                        <div className="card-footer"><button className="btn btn-leia-mais" onClick={this.abrirModal}>Leia Mais</button></div>
                                     </div>
                                 </div>
                                 <div className="col-1"></div>
