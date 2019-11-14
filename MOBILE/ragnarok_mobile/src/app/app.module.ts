@@ -13,6 +13,8 @@ import {Storage, IonicStorageModule} from '@ionic/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 
+
+
 import {NgxMaskIonicModule} from 'ngx-mask-ionic';
 
 export function jwtOptionsFacgtory(storage){
@@ -20,7 +22,7 @@ export function jwtOptionsFacgtory(storage){
     tokenGetter: ()=>{
       return storage.get('access_token');
     },  
-    whitelistedDomains:['10.107.144.9:3107']
+    whitelistedDomains:['http://3.92.51.72:3107']
   }
 }
 

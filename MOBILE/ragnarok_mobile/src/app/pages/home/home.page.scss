@@ -4,7 +4,15 @@
 }
 
 $height100: 100%;
-
+#direct{
+    --background:none;	
+    --border-color:none;	
+    --border-radius:none;	
+    --border-style:	none;	
+    --border-width:none;	
+    --box-shadow:none;	
+    
+}
 ion-grid {
     width:100%;
     height: $height100;

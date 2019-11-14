@@ -97,7 +97,8 @@ export class LoginPage implements OnInit {
           this.usuario = this.formFazerLogin.value;    
           this.usuarioService.login(this.usuario).subscribe(async(result) =>{
               console.log(result);
-              this.toast('Login efetuado com sucesso');
+              this.toast('Login efetuado com sucesso ');
+              console.log('eu sou o token ',localStorage.getItem("token"));
           }, async (error) =>{
             console.log('sou erro ', error);
             this.toast('Erro ao efetuar login');

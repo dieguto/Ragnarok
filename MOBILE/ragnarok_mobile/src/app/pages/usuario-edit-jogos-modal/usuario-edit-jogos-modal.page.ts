@@ -73,7 +73,7 @@ export class UsuarioEditJogosModalPage implements OnInit {
  
     // var inputValue = (<HTMLInputElement>document.getElementById('select_option_console')).value;
     
-    this.consoles = await this.consoleService.getConsoles();
+    // this.consoles = await this.consoleService.getConsoles();
 
     
 
