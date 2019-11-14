@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.6.1",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "cleave": "^1.0.0-alpha.10",
     "cleave.js": "^1.5.3",
     "jquery": "^1.11.3",
+    "jquery-nice-select": "^1.1.0",
     "jssor-slider": "^27.5.0",
     "node-sass": "^4.13.0",
     "nuka-carousel": "^4.5.12",
@@ -19,6 +21,7 @@
     "react-responsive-carousel": "^3.1.51",
     "react-router": "^3.2.4",
     "react-scripts": "3.2.0",
+    "react-select": "^3.0.8",
     "scss": "^0.2.4"
   },
   "scripts": {
