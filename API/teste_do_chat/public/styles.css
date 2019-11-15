@@ -2,6 +2,10 @@ html, body {
     height: 100%;
   }
   
+  h1, h2, h3{
+	  text-align: center
+  }
+  
   * {
     margin: 0;
     padding: 0;
@@ -42,4 +46,15 @@ html, body {
     margin: 20px 0;
     border: 1px solid #ddd;
     padding: 20px;
+  }
+  
+  .verde{
+	  width: 20px;
+	  height: 20px;
+  }
+  
+  .foto{
+	  width: 15px;
+	  height: 15px;
+	  display: none
   }

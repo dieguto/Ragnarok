@@ -54,12 +54,8 @@ class DtUtils {
    static getDtConf(info_data){
 
       const agora = this.getInfoDtJson();
-	  
-	  console.log("agora", agora)
 
       const dif_millis = agora.millis - info_data.millis;
-	  
-	  console.log(dif_millis)
 
       if(dif_millis < 86400000){
          info_data.data = "Hoje";
@@ -75,12 +71,8 @@ class DtUtils {
    static getDt(dt_string){
       
       const info_data = this.getInfoDtJson(dt_string);
-	  
-	  console.log("info_data", info_data)
 
       const dt_conf = this.getDtConf(info_data);
-	  
-	  console.log("dt_conf", dt_conf)
 
       return dt_conf;
    }

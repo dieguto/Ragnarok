@@ -149,7 +149,7 @@ class ControllerSocketIo {
          // Pode emitir notificação, nova_mensagem, ou erro
 
          socket.on("mensagem", async (dados) => {
-            if(dados.id_chat && dados.mensagem){
+            if(dados.id_chat && dados.mensagem && dados.mensagem != ""){
 
                const chat = await this.getChat(socket, dados);
 
@@ -163,7 +163,7 @@ class ControllerSocketIo {
 
                      const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
 
-                     const { cuDoUsuario, cuDoUsuarioPara } = await this.getCusDoChat(socket.usuario.id, chat.id_chat);
+                     const cuDoUsuarioPara = await this.getCuDoPara(socket.usuario.id, chat.id_chat);
 
                      let mensagem = await Mensagem.scope("simples").create({
                         para: cuDoUsuarioPara.id_chat_usuario,
@@ -193,7 +193,7 @@ class ControllerSocketIo {
                }
 
             } else {
-               io.sockets.connected[socket.id].emit("erro", "para enviar uma mensagam é necessario informar o id do chat e tambem a mensagem");
+               io.sockets.connected[socket.id].emit("erro", "para enviar uma mensagam é necessario informar o id do chat e tambem a mensagem (a mesma não pode ser vazia)");
             }
          })
 
@@ -203,7 +203,6 @@ class ControllerSocketIo {
 
          })
 
-
          socket.on("get_chats", async () => {
             
             const chats = await this.getChats(socket.usuario.id, usuarios_online);
@@ -211,10 +210,18 @@ class ControllerSocketIo {
             io.sockets.connected[socket.id].emit("chats", chats);
          })
 
+         // socket.on("disconnecting", () => {
+            
+         //    if(socket.usuario){
+         //       socket.emit("usuario_" + socket.usuario.id + "_offline");
+         //    }
+
+         // });
+
          socket.on("disconnect", () => {
             
             if(socket.usuario){
-               socket.emit("usuario_" + socket.usuario.id + "_offline");
+               socket.broadcast.emit("usuario_" + socket.usuario.id + "_offline");
 
                const indice = usuarios_online.indexOf(socket.usuario.id);
                
@@ -305,6 +312,55 @@ class ControllerSocketIo {
       return is_on_lidas;
    }
 
+   static async getUltimaMensagemDoChat(id_chat, id_usuario){
+
+      const query = `
+         SELECT m.mensagem, 
+         m.criado_em AS enviada_em,
+         cu.id_usuario AS para_usuario  
+         FROM 
+         tbl_chat_usuario AS cu
+         INNER JOIN 
+         tbl_mensagem AS m
+         ON
+         m.para = cu.id_chat_usuario
+         AND
+         cu.id_chat = ${id_chat}
+         AND
+         m.excluido_em IS NULL
+         AND
+         cu.excluido_em IS NULL
+         ORDER BY m.criado_em DESC
+         LIMIT 1;
+      `;
+
+      try {
+         let ultima_mensagem = await con.query(query, { type: Sequelize.QueryTypes.SELECT });
+
+         ultima_mensagem = ultima_mensagem[0];
+
+         if(ultima_mensagem){
+
+            ultima_mensagem.is_para_usuario = false;
+
+            if(id_usuario == ultima_mensagem.para_usuario){
+               ultima_mensagem.is_para_usuario = true;
+            }
+
+            delete ultima_mensagem.para_usuario;
+
+            return ultima_mensagem;
+
+         } else {
+            return null
+         }
+
+      } catch (err) {
+         return null;
+      }
+
+   }
+
    static async getTotalMsgsLidasPorChat(id_usuario){
       const query = `
          SELECT
@@ -331,7 +387,7 @@ class ControllerSocketIo {
          GROUP BY 
          m.para
          ORDER BY
-         m.criado_em DESC;
+         nao_lidas DESC;
       `;
 
       try {
@@ -369,6 +425,8 @@ class ControllerSocketIo {
       chat.dataValues.anuncio = anuncio;
 
       chat.dataValues.usuario = usuarioPara;
+
+      chat.dataValues.ultima_mensagem = await this.getUltimaMensagemDoChat(id_chat, id_usuario);
 
       return chat;
    }
@@ -601,8 +659,6 @@ class ControllerSocketIo {
       let mensagens = await this.getMensagens(id_chat);
 
       for(let i = 0; i < mensagens.length; i++){
-
-         mensagens[i].enviada_em = mensagens[i].enviada_em;
 
          mensagens[i].is_para_usuario = false;
 

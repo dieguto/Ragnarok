@@ -17,18 +17,13 @@
 </head>
 <body>
     <form id="chat">
-        <h1>Jeimer</h1> 
+        <h1>Jeimer</h1><span id="conv_com"></span><img id="status" src="pvm.jpg" class="foto"> 
         <div class="messages" id="msgs" style="max-height:400px;overflow-y:scroll"></div>
-        <input type="text" name="message" placeholder="Digite sua mensagem"> 
+        <input type="text" name="mensagem" placeholder="Digite sua mensagem"> 
         <button type="submit">Enviar</button>
     </form>
 
     <script type="text/javascript">
-	   
-	    function scrollToBottom(id){
-		   var div = document.getElementById(id);
-		   div.scrollTop = div.scrollHeight - div.clientHeight;
-	    }
 	   
 		let info_chat = {};
 	
@@ -37,38 +32,51 @@
 	
 		const opcoes = {
 		  query: {
-			token,
+			token
 		  }
 		};
 	
         var socket = io('http://localhost:3108', opcoes)
     
-        function renderMessage(mensagem){
+        function carregarMensagem(mensagem){
+		
 			if(mensagem.is_para_usuario){
-				
-            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px"><strong style="float:left;width:180px;height:100%;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
+				$('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px"><strong style="float:left;width:180px;height:100%;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
 			} else {
-				
-            $('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px;"><strong style="float:right;width:180px;height:100%;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
+				$('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px;"><strong style="float:right;width:180px;height:100%;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
 			}
 			
 			var objDiv = document.getElementById("msgs");
 			objDiv.scrollTop = objDiv.scrollHeight;
         }
+		
+		function setStatus(is_online){
+			
+			const status = document.getElementById("status");
+			
+			status.style.display = "block";
+		
+			if(is_online){
+				status.src = "pvd.jpg";
+			} else {
+				status.src = "pvm.jpg";
+			}
+		
+		}
 
-        socket.on('mensagens_anteriores', function(messages){
-            for (message of messages){
-                renderMessage(message)
+        socket.on('mensagens_anteriores', function(mensagens){
+            for (mensagem of mensagens){
+                carregarMensagem(mensagem)
             }
         })
 
-        socket.on('nova_mensagem', function(message){
-			message.is_para_usuario = true;
-            renderMessage(message);
+        socket.on('nova_mensagem', function(mensagem){
+			mensagem.is_para_usuario = true;
+            carregarMensagem(mensagem);
         })
 
-        socket.on('notificação', function(message){
-			alert("messagem do usuario '" + message.usuario.nome + "' -> '" + message.mensagem + "'")
+        socket.on('notificação', function(mensagem){
+			alert("messagem do usuario '" + mensagem.usuario.nome + "' -> '" + mensagem.mensagem + "'")
         })
 		
 		socket.on("erro", (erro) => {
@@ -78,19 +86,26 @@
         $('#chat').submit(function(event){
             event.preventDefault();
 			
-			if(info_chat != {}){
-				var message = $('input[name=message]').val();
+			if(info_chat.c_foto){
+				var txt_msg = $('input[name=mensagem]').val();
 				
-				let mensagem = {
-					id_chat: info_chat.id_chat,
-					mensagem: message
-				};
+				if(txt_msg && txt_msg != ""){
 				
-				socket.emit('mensagem', mensagem);
+					let mensagem = {
+						id_chat: info_chat.id_chat,
+						mensagem: txt_msg
+					};
+					
+					socket.emit('mensagem', mensagem);
+					
+					mensagem.is_para_usuario = false;
+					
+					carregarMensagem(mensagem);
+					
+				} else {
+					alert("Digite uma mensagem!")
+				}
 				
-				mensagem.is_para_usuario = false;
-				
-				renderMessage(mensagem);
 			} else {
 				alert("entre em um chat primeiro")
 			}
@@ -104,12 +119,26 @@
 		
 		socket.emit('iniciar_chat', iniciar_chat); 
 		
-		socket.on('iniciou', (info_chat_iniciou) => {
+		socket.on('iniciou', (ic) => {
+
+			info_chat = ic;
+		
+			const conv_com = document.getElementById("conv_com");
 			
-			info_chat = info_chat_iniciou;
+			setStatus(info_chat.usuario.is_online)
+			
+			conv_com.innerHTML = "<h3>Conversando com</h3> <h2>" + info_chat.usuario.nome + "</h2>";
 			
 			console.log("conectado!")
-			console.log(info_chat);
+			console.log("informações do chat conectado (evento 'iniciou')", info_chat);
+		
+			socket.on("usuario_" + info_chat.usuario.id + "_online", () => {
+				setStatus(true);
+			});
+			
+			socket.on("usuario_" + info_chat.usuario.id + "_offline", () => {
+				setStatus(false);
+			});
 		
 		}); 
 		
@@ -117,9 +146,9 @@
 		
 		socket.on('chats', (info_chats) => {
 
-			console.log(info_chats);
+			console.log("informações de todos os chats no qual o usuario possui conversas (evento 'chats', recebido após o 'get_chats')", info_chats);
 		
-		}); 
+		});
 
     </script>
 </body>

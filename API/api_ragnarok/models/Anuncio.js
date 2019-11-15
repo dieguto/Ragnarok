@@ -35,6 +35,12 @@ Anuncio.init({
    info_rawg:{
       type:Sequelize.TEXT,
       allowNull: true,
+      validate:{
+         notEmpty:{
+            args: true,
+            msg: "Não é possivel salvar o info rawg como uma string vazia"
+         }
+      },
       get(){
          if(this.getDataValue("info_rawg")){
             return JSON.parse(this.getDataValue("info_rawg"));
