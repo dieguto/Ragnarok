@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CardPrincipal from '../components/ComponentCardPrincipal';
 import CardRota from '../components/ComponentCardRota';
 
-class BoxGenero extends Component{
+class BoxSugestoes extends Component{
 
    componentWillMount(){
       this.titulo = "Sugestões"
@@ -121,4 +121,4 @@ class BoxGenero extends Component{
 
 }
 
-export default BoxGenero;
+export default BoxSugestoes;

@@ -43,6 +43,7 @@ app.use("/anuncios", require("./rotas/RotaAnuncios"));
 app.use("/genero", require("./rotas/RotaGenero"));
 app.use("/console", require("./rotas/RotaConsole"));
 app.use("/sugestoes", require("./rotas/RotaSugestoes"));
+app.use("/chat", require("./rotas/RotaChat"));
 
 //ADICIONA A ROTA PARA 'SERVIR' AS FOTOS
 app.use("/fotos", express.static(__dirname + "/fotos"));

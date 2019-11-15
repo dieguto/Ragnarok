@@ -8,6 +8,7 @@ const path = require("path");
 const https = require('https');
 const round = require("../utils/Round");
 const Dt = require("../utils/DtUtils");
+const controllerChat = require("../controller/ControllerChat");
 
 class ControllerAnuncio {
 
@@ -1149,7 +1150,19 @@ class ControllerAnuncio {
          console.log("Um anuncio deve possuir um slug_jogo e um id_genero caso seja para vendas, ou, um slug_jogo_troca e um id_console troca caso seja para troca!!!");
       }
       
-      if (!anuncio.is_jogo && !anuncio.is_acessorio && !anuncio.is_console) {
+      if (anuncio.is_jogo) {
+
+         anuncio_json.is_jogo = true;
+
+      } else if(anuncio.is_acessorio){
+
+         anuncio_json.is_acessorio = true;
+         
+      } else if(anuncio.is_console){
+
+         anuncio_json.is_console = true;
+
+      } else {
          err = true;
          console.log("is_jogo, is_acessorio ou is_console é obrigatório!!!");
       }
@@ -1451,8 +1464,11 @@ class ControllerAnuncio {
                   console.log("Erro ao exluir a pasta no cmainho: " + caminho_fotos);
                   reject(500)
                } else {
-                  anuncio.destroy();
-                  resolve()
+                  controllerChat.excluirChatsByAnuncio(anuncio.id_anuncio)
+                  .then(() => {
+                     anuncio.destroy();
+                     resolve()
+                  })
                }
 
             });

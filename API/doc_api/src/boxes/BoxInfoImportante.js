@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CardInfoImportante from '../components/ComponentCardInfoImportante.js';
 
-class BoxUsuario extends Component{
+class BoxImportante extends Component{
    
    render(){
       return(
@@ -92,4 +92,4 @@ class BoxUsuario extends Component{
 
 }
 
-export default BoxUsuario;
+export default BoxImportante;

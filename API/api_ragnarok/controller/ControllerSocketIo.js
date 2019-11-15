@@ -22,7 +22,11 @@ class ControllerSocketIo {
             socket.disconnect();
    
          } else {
+
+            delete dadosToken.usuario.is_admin;
+
             socket.usuario = dadosToken.usuario;
+            
             next();
          }
       });
@@ -179,7 +183,11 @@ class ControllerSocketIo {
                         
                      } else {
 
-                        mensagem.dataValues.usuario = socket.usuario;
+                        let info_chat = await this.getInfoChat(socket.usuario.id, cuDoUsuarioPara.id_chat, usuarios_online);
+
+                        info_chat.dataValues.usuario = socket.usuario;
+
+                        mensagem.dataValues.info_chat = info_chat;
 
                         socket.to("usuario_" + cuDoUsuarioPara.id_usuario).broadcast.emit("notificação", mensagem);
                      }
@@ -209,14 +217,6 @@ class ControllerSocketIo {
 
             io.sockets.connected[socket.id].emit("chats", chats);
          })
-
-         // socket.on("disconnecting", () => {
-            
-         //    if(socket.usuario){
-         //       socket.emit("usuario_" + socket.usuario.id + "_offline");
-         //    }
-
-         // });
 
          socket.on("disconnect", () => {
             

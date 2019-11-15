@@ -17,7 +17,7 @@
 </head>
 <body>
     <form id="chat">
-        <h1>Carla</h1><span id="conv_com"></span><img id="status" src="pvm.jpg" class="foto"> 
+        <h1>Jeimer</h1><span id="conv_com"></span><img id="status" src="pvm.jpg" class="foto"> 
         <div class="messages" id="msgs" style="max-height:400px;overflow-y:scroll"></div>
         <input type="text" name="mensagem" placeholder="Digite sua mensagem"> 
         <button type="submit">Enviar</button>
@@ -27,8 +27,8 @@
 	   
 		let info_chat = {};
 	
-		//TOKEN DA CARLA
-		const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6NSwibm9tZSI6IkNhcmxhIiwiZW5kZXJlY28iOiJTUCwgT3Nhc2NvIiwiaXNfYWRtaW4iOmZhbHNlfSwiaWF0IjoxNTczMTc0NDUzfQ.8rJDwIgA5bZfqn3F6TnyF_gXHuMYfoom8g16JbmNvXk";
+		//TOKEN DO JEIMER
+		const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImNyaWFkb19lbSI6IjA3IGRlIE5vdmVtYnJvIGRlIDIwMTkiLCJpZCI6Niwibm9tZSI6IkplaW1lciIsImVuZGVyZWNvIjoiU1AsIFPDo28gUGF1bG8iLCJpc19hZG1pbiI6ZmFsc2V9LCJpYXQiOjE1NzMxNzQ3MTl9.j0FRwRWu1yoBI5SeLMQF3sDuUfyA5hhqxaF1EwlETzU";
 	
 		const opcoes = {
 		  query: {
@@ -41,9 +41,9 @@
         function carregarMensagem(mensagem){
 		
 			if(mensagem.is_para_usuario){
-				$('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px"><strong style="float:left;width:180px;height:100%;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
+				$('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px"><strong style="float:left;width:180px;height:100%;overflow:auto;background-color:#A9A9A9">'+ mensagem.mensagem +'<br><br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
 			} else {
-				$('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px;"><strong style="float:right;width:180px;height:100%;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
+				$('.messages').append('<div style="width:100%; min-height:10%;overflow:auto;margin:10px;"><strong style="float:right;width:180px;height:100%;overflow:auto;background-color:green">'+ mensagem.mensagem +'<br><br>'+ DtUtils.getDt(mensagem.enviada_em).string +'</div>');
 			}
 			
 			var objDiv = document.getElementById("msgs");
@@ -76,7 +76,8 @@
         })
 
         socket.on('notificação', function(mensagem){
-			alert("messagem do usuario '" + mensagem.usuario.nome + "' -> '" + mensagem.mensagem + "'")
+			console.log("notificação", mensagem)
+			alert("messagem do usuario '" + mensagem.info_chat.usuario.nome + "' -> '" + mensagem.mensagem + "'")
         })
 		
 		socket.on("erro", (erro) => {
