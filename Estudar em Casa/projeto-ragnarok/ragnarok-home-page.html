@@ -7,17 +7,10 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/nice-select.css"/>
-    <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/.css"/>
+    <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/style.css"/>
 </head>
 
 <body>
-
-        <script type="text/javascript" src="js/jquery-nice-select-master/js/fastclick.js"></script>
-        <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.js"></script>
-        <script type="text/javascript" src="js/jquery-n ice-select-master/js/jquery.nice-select.js"></script>
-        <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.min.js"></script>
-        <script type="text/javascript" src="js/jquery-nice-select-master/js/prism.js"></script>
-        <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
 
     <header class="shadow">
         <div id="caixa-logo">
@@ -44,16 +37,16 @@
                             <div class="col-6">
                                 <select class='seluser selects'>
                                     <option value='' selected disabled>Anúncios por página</option>
-                                    <option value='' >10</option>
-                                    <option value='' >15</option>
+                                    <option value=''>10</option>
+                                    <option value=''>15</option>
                                     <option value=''>20</option>
                                 </select>
                             </div>
                             <div class="col-6">
                                 <select class='seluser selects'>
                                     <option value='' selected disabled>Ordem</option>
-                                    <option value='' >Preço Decrescente</option>
-                                    <option value='' >Preço Crescente</option>
+                                    <option value=''>Preço Decrescente</option>
+                                    <option value=''>Preço Crescente</option>
                                     <option value=''>Alfabética A-Z</option>
                                 </select>
                             </div>
@@ -220,22 +213,26 @@
     </footer>
     <!-- Footer -->
 
+
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/fastclick.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.min.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/prism.js"></script>
+    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
+
     <!-- Script -->
     <script type='text/javascript'>
-
-        $(document).ready(function(){
-            
-            $('.seluser').niceSelect();
-            
+        $(document).ready(function() {
+            $('.selects').niceSelect();
         });
-
     </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery/jquery.slim.min.js" crossorigin="anonymous"></script>
-    <script src="js/popper/popper.min.js" crossorigin="anonymous"></script>
-    <script src="js/js-bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="js/jquery/jquery.slim.min.js"></script>
+    <script src="js/popper/popper.min.js"></script>
+    <script src="js/js-bootstrap/bootstrap.min.js"></script>
 
 </body>
 
