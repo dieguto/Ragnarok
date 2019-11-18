@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
 import '../css/chat.css';
 
+import socketIOClient from 'socket.io-client';
+
+
+
+
 // import { Container } from './styles';
 
 export default class Chat extends Component {
-  render() {
+	constructor(){
+		super();
+		this.state = {
+			response: false,
+			endpoint: 'http://localhost:3107'
+		}
+	}
+	
+	render() {
     return (
         <div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
