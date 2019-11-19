@@ -69,6 +69,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'pesquisar-jogos',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pesquisar-jogos/pesquisar-jogos.module').then(m => m.PesquisarJogosPageModule)
+          }
+        ]
+      },
+      {
         path: 'notificacoes',
         children: [
           {

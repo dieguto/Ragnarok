@@ -22,4 +22,15 @@ export class GeneroJogoService {
       })
     ).toPromise();
   }
+
+
+  getGenerosPopulares(){
+    return this.http.get<Genero[]>(`${this.url}/genero/populares`).pipe(
+      map(data =>{
+        const generosPopularesArray = data as any[];
+        const generosPopulares = generosPopularesArray.map(item => new Genero(item));
+        return generosPopulares;
+      })
+    ).toPromise();
+  }
 }

@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'usuario-edit-jogos-modal', loadChildren: './pages/usuario-edit-jogos-modal/usuario-edit-jogos-modal.module#UsuarioEditJogosModalPageModule' },
   { path: 'usuario-edit-console-modal', loadChildren: './pages/usuario-edit-console-modal/usuario-edit-console-modal.module#UsuarioEditConsoleModalPageModule' },
   { path: 'direct', loadChildren: './pages/direct/direct.module#DirectPageModule' },
-  { path: 'chat', loadChildren: './pages/chat/chat.module#ChatPageModule' }
+  { path: 'chat', loadChildren: './pages/chat/chat.module#ChatPageModule' },
+  { path: 'pesquisar-jogos', loadChildren: './pages/pesquisar-jogos/pesquisar-jogos.module#PesquisarJogosPageModule' }
 
 
 

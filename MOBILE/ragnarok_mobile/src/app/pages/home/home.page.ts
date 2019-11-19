@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides, IonRange, ModalController, IonSlide, IonContent } from '@ionic/angular';
+import { IonSlides, IonRange, ModalController, IonSlide, IonContent, IonRefresher } from '@ionic/angular';
 import {Anuncio} from '../../services/anuncio/cadastro_anuncio/anuncio.class';
 import {CadastroAnuncioService} from '../../services/anuncio/cadastro_anuncio/cadastro-anuncio.service';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
   @ViewChild(IonContent, { static: false }) ionContent: IonContent;
   @ViewChild(IonRange, { static: false }) ionRange: IonRange;
+  @ViewChild(IonRefresher, { static: false }) refresher: IonRefresher;
 
   anuncios: Anuncio[];
   url =  environment.url;
@@ -129,6 +130,18 @@ async  filtrar_km(){
 
   proximoJogo(){
    return this.slides.slideNext();
+  }
+
+  async recarregar(){
+
+    this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(1, 1);
+
+    console.log(this.anuncios);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.refresher.complete();
+    }, 500);
   }
 
 

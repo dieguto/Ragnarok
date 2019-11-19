@@ -39,7 +39,7 @@
                     <ion-select  formControlName="id_console" name="id_console" ok-text="Ok" cancel-text="Cancelar" >
                       <div >
                           <ion-select-option *ngFor="let console of consoles" value="{{console.id_console}}"
-                            selected="anuncio.console.id_console == console.id_console"  >{{console.nome}}</ion-select-option>
+                          selected="anuncio.console.id_console == console.id_console"  >{{console.nome}}</ion-select-option>
                           <!-- <ion-select-option > {{console.nome}}</ion-select-option> -->
                       </div>
                     </ion-select>

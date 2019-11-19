@@ -12,6 +12,13 @@
     </ion-toolbar>
   </ion-header>
 <ion-content>
+    <ion-refresher  slot="fixed"  pullFactor="2" pullMin="50" pullMax="50" style="background-color:none; height: 10vh;" (ionRefresh)="recarregar()">
+        <ion-refresher-content
+        style="background-color:none;height: 10vh;"
+        pullingIcon="null"
+        refreshingSpinner="lines-small"
+        ></ion-refresher-content>
+      </ion-refresher>
     <!-- <ion-item> -->
       <ion-range (ionChange)="filtrar_km()" min="0" max="100" step="10"  snaps pin color="secondary">
         <ion-icon slot="start "   size="small" name="pin"></ion-icon>

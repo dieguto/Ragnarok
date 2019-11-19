@@ -1,0 +1,14 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<ion-header>
+  <ion-toolbar>
+      <ion-searchbar  mode="ios" placeholder="Ex: God of War"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="categorias">
+      <ion-chip *ngFor="let genero of generos">
+          <ion-label>{{genero.nome}}</ion-label>
+      </ion-chip>
+  </div>
+</ion-content>

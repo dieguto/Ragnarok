@@ -1,0 +1,26 @@
+ion-header{
+    ion-toolbar{
+        ion-searchbar{
+            color: #f39c12;
+            --background:#333;
+            --cancel-button-color:#f39c12;
+            --clear-button-color:#f39c12;
+            text-align: center;
+            
+        }
+    }
+}
+
+
+ion-content{
+    .categorias{
+        width: 100vw;
+        height: 7vh;
+        // background: chocolate;
+        
+        ion-chip{
+            --background:#f39c12;
+            --color: #222;
+        }
+    }
+}
