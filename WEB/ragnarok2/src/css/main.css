@@ -158,6 +158,10 @@ body{
     color: white;
 }
 
+.background-aqua{
+    background-color: aqua;
+}
+
 .mais-populares{
     width: 20%;
     height: auto;

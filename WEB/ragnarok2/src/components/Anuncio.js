@@ -267,7 +267,8 @@ export default class Anuncio extends Component {
                                                                         );
                                                                     }else{
                                                                         return(
-                                                                            <span className="modal-title texto-branco text-center ml-auto">{anuncios.titulo}</span>
+                                                                            // <span className="modal-title texto-branco text-center ml-auto">{anuncios.titulo}</span>
+                                                                            <span>teste</span>
                                                                         ); 
                                                                     }
                                                                 }() 
@@ -296,12 +297,60 @@ export default class Anuncio extends Component {
                                                                         } */}
                                                                         <div className="col-6"><img src={GOW} class="img-fluid" alt="" title=""/></div>
                                                                         <div className="col-6 mt-3">
-                                                                            <p><span className="texto-laranja">Nome:</span> Meu tênis</p>
-                                                                            <p><span className="texto-laranja">Cep:</span> 06612-120  </p>
+                                                                            {
+                                                                                function(){
+                                                                                    return(
+                                                                                        <p><span className="texto-laranja">Anunciante:</span> {anuncios.usuario.nome}</p>
+                                                                                    ); 
+                                                                                }() 
+                                                                            }
+                                                                            {
+                                                                                function(){
+                                                                                    return(
+                                                                                        <p><span className="texto-laranja">Endereço:</span> {anuncios.usuario.endereco}</p>
+                                                                                    ); 
+                                                                                }() 
+                                                                            }
+                                                                            {
+                                                                                function(){
+                                                                                    return(
+                                                                                        <p><span className="texto-laranja">Titulo:</span> {anuncios.titulo}</p>
+                                                                                    ); 
+                                                                                }() 
+                                                                            }
+                                                                            {
+                                                                                function(){
+                                                                                    return(
+                                                                                        <p><span className="texto-laranja">Descricao:</span> {anuncios.descricao}</p>
+                                                                                    ); 
+                                                                                }() 
+                                                                            }
                                                                         </div>
                                                                     </div>
-                                                                    <div className="row mt-4">
-                                                                        <div className="col-8"><p><span className="texto-laranja">Nome:</span> Meu tênis</p></div>
+                                                                    <div className="row mt-2">
+                                                                        <div className="col-8">                                                                            
+                                                                            {
+                                                                                function(){
+                                                                                    return(
+                                                                                        <p><span className="texto-laranja">Preço:</span> {anuncios.preco}</p>
+                                                                                    ); 
+                                                                                }() 
+                                                                            }
+                                                                            {/* {
+                                                                                function(){
+                                                                                    return(
+                                                                                        <p><span className="texto-laranja">Nome do Jogo:</span> {anuncios.info_rawg.jogo.nome}</p>
+                                                                                    ); 
+                                                                                }() 
+                                                                            } */}
+                                                                            {
+                                                                                function(){
+                                                                                    return(
+                                                                                        <p><span className="texto-laranja">Console:</span> {anuncios.console.nome}</p>
+                                                                                    ); 
+                                                                                }() 
+                                                                            }
+                                                                        </div>
                                                                     </div>
                                                             </div>
                                                         </div>
@@ -310,7 +359,7 @@ export default class Anuncio extends Component {
                                                         {/* Rodapé do modal */}
                                                         <div className="modal-footer background-333333 border-0">
                                                             <Link to="/chat">
-                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat">
+                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" >
                                                                     <img src={IconChat} alt="" title=""/>Iniciar Chat
                                                                 </button>
                                                             </Link>                                                            
