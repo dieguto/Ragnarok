@@ -1,0 +1,103 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Informações 
+    </ion-title>
+      <ion-button (click)="closeModal()" slot="start">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+<!-- */*************** -->
+    <ion-label>
+        Dono:
+     </ion-label>
+   <ion-item>
+       <ion-label>
+       {{anuncios.usuario.nome}}
+       </ion-label>
+    </ion-item>
+    <!-- ********************** -->
+    <ion-label>
+        Data de criação:
+    </ion-label>
+    <ion-item>
+      <ion-label>
+          {{anuncios.criado_em}}
+      </ion-label>
+      </ion-item>
+      <!-- ************************** -->
+      <ion-label>
+          Titulo:
+      </ion-label>
+      <ion-item>
+        <ion-label>
+      {{anuncios.titulo}}
+       </ion-label>
+    </ion-item>
+    <!-- ******************* -->
+    <ion-label>
+        Descrição:
+    </ion-label>
+    <ion-item>
+        <ion-label>
+        {{anuncios.descricao}}
+      </ion-label>
+    </ion-item>
+    <!-- ********************** -->
+    <ion-label>
+        Console:
+    </ion-label>
+    <ion-item>
+        <ion-label>
+        {{anuncios.console.nome}}
+      </ion-label>
+    </ion-item>
+      <!-- *********************** -->
+    <ion-label>
+        genero:
+    </ion-label>
+    <ion-item>
+        <ion-label>
+        {{anuncios.genero.nome}}
+      </ion-label>
+    </ion-item>
+      <!-- *********************** -->
+      <ion-label>
+          Data de Lançamento do jogo:
+      </ion-label>
+    <ion-item *ngIf="verificarCampo(anuncios.info_rawg, 'dt_lancamento')">
+        <ion-label>
+            {{anuncios.info_rawg.jogo.dt_lancamento}}
+        </ion-label>
+    </ion-item>
+    <!-- ********************** -->
+    <ion-label *ngIf="verificarCampo(anuncios.info_rawg, 'nota_geral')">
+        Nota geral::
+    </ion-label>
+    <ion-item *ngIf="verificarCampo(anuncios.info_rawg, 'nota_geral')">
+        <ion-label>
+            {{anuncios.info_rawg.jogo.nota_geral}}
+        </ion-label>  
+    </ion-item>
+    <!-- ********************* -->
+    <ion-label *ngIf="verificarCampo(anuncios.info_rawg, 'nota_metacritic')">
+        Nota metacritic:
+    </ion-label>
+    <ion-item *ngIf="verificarCampo(anuncios.info_rawg, 'nota_metacritic')">
+        <ion-label>
+        {{anuncios.info_rawg.jogo.nota_metacritic}}
+      </ion-label>  
+    </ion-item>
+    <ion-label>
+        Desenvolvedores e produtoras:
+    </ion-label>
+    <div *ngIf="verificarCampo(anuncios.info_rawg, 'nome')">
+        <ion-item *ngFor="let item of anuncios.info_rawg.jogo.desenvolvedoras">
+            <ion-label>
+            {{item}}
+          </ion-label>  
+        </ion-item>
+    </div>  
+</ion-content>

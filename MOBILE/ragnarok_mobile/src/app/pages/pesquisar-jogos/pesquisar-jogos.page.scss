@@ -1,8 +1,8 @@
 ion-header{
     ion-toolbar{
         ion-searchbar{
-            color: #f39c12;
-            --background:#333;
+            // color: #f39c12;
+            // --background:#333;
             --cancel-button-color:#f39c12;
             --clear-button-color:#f39c12;
             text-align: center;
@@ -14,13 +14,52 @@ ion-header{
 
 ion-content{
     .categorias{
-        width: 100vw;
+        width: 150vw;
+        max-width: auto;
         height: 7vh;
+        max-height: 7vh;
+        min-height: 7vh;
         // background: chocolate;
         
         ion-chip{
             --background:#f39c12;
             --color: #222;
         }
+    }
+
+    .jogos{
+        width: 100vw;
+        height: 100vh;
+        max-height: auto;
+        min-height: 100vh;
+        // background-color: #f39c12;
+
+        .caixa_jogo{
+            width:33.3vw;
+            height: 12.5vh;
+            // background-color: #1246f3;
+            float: left;
+
+            img{
+                width: 33vw;
+                height: 12.5vh;
+                // border: solid 0.2vw white;
+            }
+        }
+
+        .caixa_consoles_acessorios{
+            width:33.3vw;
+            height: 12.5vh;
+            // background-color: #1246f3;
+            float: left;
+
+            img{
+                width: 33vw;
+                height: 12.5vh;
+                // border: solid 0.2vw #f39c12;
+            }
+        }
+
+
     }
 }

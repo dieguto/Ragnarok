@@ -117,6 +117,25 @@ export class CadastroAnuncioService {
     ).toPromise();
   }
 
+
+  async buscarTodosPesquisa(max, pagina:number){
+
+    const USUARIO_KEY = "usuario";
+    const usuario = await this.storage.get(USUARIO_KEY);
+    console.log(pagina);
+
+    console.log(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/5/distancia/0/${max}/asc`);
+    return this.http.get<Anuncio[]>(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/100/distancia/0/${max}/asc`).pipe(
+      map(data => {
+        const anunciosArray = data as any[];
+
+        const anuncios = anunciosArray.map(item => new Anuncio(item));
+
+        return anuncios;
+      })
+    ).toPromise();
+  }
+
   async buscarPorID(id){
     return this.http.get<Anuncio>(`${this.url}/anuncio/${id}`, ).toPromise();
 

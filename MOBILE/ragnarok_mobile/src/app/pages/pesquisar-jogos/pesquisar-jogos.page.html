@@ -1,7 +1,7 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <ion-header>
   <ion-toolbar>
-      <ion-searchbar  mode="ios" placeholder="Ex: God of War"></ion-searchbar>
+      <ion-searchbar  placeholder="Ex: God of War"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -10,5 +10,23 @@
       <ion-chip *ngFor="let genero of generos">
           <ion-label>{{genero.nome}}</ion-label>
       </ion-chip>
+  </div>
+  <div class="jogos" >
+    <div *ngFor="let jogos of anuncios">
+        <div (click)="showModal(jogos.id_anuncio)" *ngIf="verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_jogo">
+            <div >
+                <img src="{{jogos.info_rawg.jogo.imagem_fundo}}">
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let jogos of anuncios">
+      <div *ngIf="!verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_consoles_acessorios">
+          <div >
+              <div  *ngFor="let foto of jogos.c_fotos">
+                  <img src="{{url}}/{{foto}}">
+              </div>
+          </div>
+      </div>
+    </div>
   </div>
 </ion-content>
