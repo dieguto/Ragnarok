@@ -12,10 +12,22 @@ import { HttpClientModule } from '@angular/common/http';
 import {Storage, IonicStorageModule} from '@ionic/storage';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
-
-
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import {NgxMaskIonicModule} from 'ngx-mask-ionic';
+import { UsuarioService } from './services/usuario/usuario.service';
+
+// storage: Storage
+const config: SocketIoConfig = { url: 'http://localhost:3108', options: {
+  query:{
+    token: localStorage.getItem("token")
+  }
+} 
+};
+
+console.log("PASSEI DOOOOOOOOOOOOOOO SocketIoConfig")
+
+console.log(config);
 
 export function jwtOptionsFacgtory(storage){
   return{
@@ -36,6 +48,7 @@ export function jwtOptionsFacgtory(storage){
       HttpClientModule,
       ReactiveFormsModule,
       FormsModule,
+      SocketIoModule.forRoot(config),
       NgxMaskIonicModule.forRoot(),
       IonicStorageModule.forRoot(),
       JwtModule.forRoot({
@@ -54,4 +67,6 @@ export function jwtOptionsFacgtory(storage){
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+
+
+export class AppModule { }

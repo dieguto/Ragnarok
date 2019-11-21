@@ -18,7 +18,7 @@ class ControllerSocketIo {
    
       jwt.verify(token, JwtAuth.getKey(), (err, dadosToken)=>{
          if(err){
-            io.sockets.connected[socket.id].emit("erro", "o parametro 'token' é necessario para que o socket se conecte");
+            socket.emit("erro", "o parametro 'token' é necessario para que o socket se conecte");
             socket.disconnect();
    
          } else {

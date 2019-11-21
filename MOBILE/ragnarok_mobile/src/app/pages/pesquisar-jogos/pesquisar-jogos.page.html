@@ -1,14 +1,21 @@
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <ion-header>
   <ion-toolbar>
-      <ion-searchbar  placeholder="Ex: God of War"></ion-searchbar>
+      <ion-searchbar  placeholder="Ex: God of War" (ionInput)="filtrarPesquisa()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-refresher  slot="fixed"  pullFactor="2" pullMin="50" pullMax="50" style="background-color:none; height: 10vh;" (ionRefresh)="recarregar()">
+            <ion-refresher-content
+            style="background-color:none;height: 10vh;"
+            pullingIcon="null"
+            refreshingSpinner="lines-small"
+            ></ion-refresher-content>
+    </ion-refresher>
   <div class="categorias">
-      <ion-chip *ngFor="let genero of generos">
-          <ion-label>{{genero.nome}}</ion-label>
+      <ion-chip  *ngFor="let genero of generos">
+          <ion-label (click)="buscarPorCategoria(genero.id_genero)">{{genero.nome}}</ion-label>
       </ion-chip>
   </div>
   <div class="jogos" >
@@ -17,14 +24,12 @@
             <div >
                 <img src="{{jogos.info_rawg.jogo.imagem_fundo}}">
             </div>
-        </div>
+      </div>
     </div>
     <div *ngFor="let jogos of anuncios">
       <div *ngIf="!verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_consoles_acessorios">
           <div >
-              <div  *ngFor="let foto of jogos.c_fotos">
-                  <img src="{{url}}/{{foto}}">
-              </div>
+              <img src="{{url}}/{{jogos.c_fotos[0]}}">
           </div>
       </div>
     </div>

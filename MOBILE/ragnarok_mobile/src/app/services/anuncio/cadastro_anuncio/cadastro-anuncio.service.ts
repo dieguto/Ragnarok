@@ -118,14 +118,34 @@ export class CadastroAnuncioService {
   }
 
 
-  async buscarTodosPesquisa(max, pagina:number){
+  async buscarTodosPesquisa(max, pagina:number, termo_pesquisa){
+
+    const USUARIO_KEY = "usuario";
+
+    termo_pesquisa = termo_pesquisa || 0;
+    const usuario = await this.storage.get(USUARIO_KEY);
+    console.log(pagina);
+
+    console.log(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/5/distancia/0/${max}/asc`);
+    return this.http.get<Anuncio[]>(`${this.url}/anuncios/todos/${usuario.id}/${termo_pesquisa}/${pagina}/100/distancia/0/${max}/asc`).pipe(
+      map(data => {
+        const anunciosArray = data as any[];
+
+        const anuncios = anunciosArray.map(item => new Anuncio(item));
+
+        return anuncios;
+      })
+    ).toPromise();
+  }
+
+  async buscarPorCategoria(max, pagina:number, id_genero){
 
     const USUARIO_KEY = "usuario";
     const usuario = await this.storage.get(USUARIO_KEY);
     console.log(pagina);
 
-    console.log(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/5/distancia/0/${max}/asc`);
-    return this.http.get<Anuncio[]>(`${this.url}/anuncios/todos/${usuario.id}/0/${pagina}/100/distancia/0/${max}/asc`).pipe(
+    console.log(`${this.url}/anuncios/jogos/${usuario.id}/0/${id_genero}/0/${pagina}/100/distancia/0/${max}/asc`);
+    return this.http.get<Anuncio[]>(`${this.url}/anuncios/jogos/${usuario.id}/0/${id_genero}/0/${pagina}/100/distancia/0/${max}/asc`).pipe(
       map(data => {
         const anunciosArray = data as any[];
 

@@ -13,18 +13,47 @@ ion-header{
 
 
 ion-content{
+    $refresher-text-color:#f39c12;
+    ion-refresher{
+        // --background: none;
+       --background:#222;
+       background-color: #222;
+       color:#f39c12;
+       --color:#f39c12;
+
+        ion-refresher-content{
+            // --background: none;
+            --background:#222;
+            background-color: #222;
+        }
+
+    }
     .categorias{
-        width: 150vw;
-        max-width: auto;
-        height: 7vh;
-        max-height: 7vh;
-        min-height: 7vh;
-        // background: chocolate;
+        // min-width: 150vw;
+        // max-width: auto;
+        width: 95vw;
+        height: 11vh;
+        margin: auto;
+
+        overflow: auto;
+        overflow-y: hidden;
+        
+        white-space: nowrap;
         
         ion-chip{
             --background:#f39c12;
             --color: #222;
+            margin-top: 2vh;
+            display: inline-block;
+            
         }
+
+    }
+
+    .categorias::-webkit-scrollbar{
+        background: transparent;
+        margin: 0;
+        padding: 0px;
     }
 
     .jogos{
@@ -32,6 +61,7 @@ ion-content{
         height: 100vh;
         max-height: auto;
         min-height: 100vh;
+        // margin-top: 1vh;
         // background-color: #f39c12;
 
         .caixa_jogo{

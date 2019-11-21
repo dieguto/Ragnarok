@@ -4,30 +4,33 @@
         <ion-item>
             <ion-avatar  class="a" (click)="closeModal()" slot="start">
                 <ion-icon  style="position: absolute; margin-left: -4%; color: #f39c12; margin-top: 2%;" name="arrow-back"></ion-icon>
-              <img src="../../assets/boss.png" >
+              <img src="{{url}}/{{infoChat.c_foto}}" >
 
             </ion-avatar>
 
             <ion-label>
-              <h2>Han</h2>
-              <p>Online</p>
+              <h2>{{infoChat.usuario.nome}}</h2>
+              <p *ngIf="infoChat.usuario.is_online">Online</p>
+              <p *ngIf="!infoChat.usuario.is_online">Offline</p>
             </ion-label>
           </ion-item>
     </ion-toolbar>
   </ion-header>
   <ion-content>
-  
+    <div id="mensagens">
+
+    </div>
   </ion-content>
   <ion-footer>
     <ion-toolbar>
       <div id="caixa_de_envio">
-          <ion-input  autofocus="true" padding-start type="text" placeholder="Digite">
+          <ion-input id="txt_mensagem" autofocus="true" padding-start type="text" placeholder="Digite">
    
          </ion-input>
       </div>
       <div id="botao_de_envio">
           <ion-fab>
-              <ion-fab-button>
+              <ion-fab-button (click)="enviarMensagem()">
                 <ion-icon name="send"></ion-icon>
               </ion-fab-button>
           </ion-fab>

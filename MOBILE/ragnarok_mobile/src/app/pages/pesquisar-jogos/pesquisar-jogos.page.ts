@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { GeneroJogoService } from '../../services/anuncio/genero/genero-jogo.service';
 import { Genero } from '../../services/anuncio/genero/genero_jogo.class';
 import { CadastroAnuncioService } from '../../services/anuncio/cadastro_anuncio/cadastro-anuncio.service';
 import { Anuncio } from '../../services/anuncio/cadastro_anuncio/anuncio.class';
 import { environment } from 'src/environments/environment';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonSearchbar, IonRefresher } from '@ionic/angular';
 import { JogoPesquisaModalPage } from '../jogo-pesquisa-modal/jogo-pesquisa-modal.page';
 
 @Component({
@@ -13,7 +13,8 @@ import { JogoPesquisaModalPage } from '../jogo-pesquisa-modal/jogo-pesquisa-moda
   styleUrls: ['./pesquisar-jogos.page.scss',  '../classes_padrao_scss/formatacao_tolbar.scss'],
 })
 export class PesquisarJogosPage implements OnInit {
-
+  @ViewChild(IonSearchbar, {static:false}) ionSearchBar: IonSearchbar;
+  @ViewChild(IonRefresher, { static: false }) refresher: IonRefresher;
   generos: Genero[];
   anuncios: Anuncio[];
   url =  environment.url;
@@ -23,7 +24,7 @@ export class PesquisarJogosPage implements OnInit {
   async ngOnInit() {
 
     this.generos = await this.generoJogoService.getGenerosPopulares();
-    this.anuncios = await this.cadastroAnuncioService.buscarTodosPesquisa(999999,1);
+    this.anuncios = await this.cadastroAnuncioService.buscarTodosPesquisa(999999,1, 0);
 
     console.log(this.anuncios);
 
@@ -52,5 +53,25 @@ export class PesquisarJogosPage implements OnInit {
     return await modal.present();
   }
 
+  async filtrarPesquisa(){
+    this.anuncios = await this.cadastroAnuncioService.buscarTodosPesquisa(999999,1, this.ionSearchBar.value);
+  }
+
+
+  async buscarPorCategoria(id_genero){
+    this.anuncios = await this.cadastroAnuncioService.buscarPorCategoria(999999, 1, id_genero);
+  }
+
+  async recarregar(){
+
+    this.anuncios = await this.cadastroAnuncioService.buscarTodosPesquisa(999999,1, 0);
+
+    console.log(this.anuncios);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.refresher.complete();
+    }, 500);
+  }
 
 }

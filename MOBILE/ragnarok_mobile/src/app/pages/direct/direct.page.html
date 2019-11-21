@@ -12,34 +12,16 @@
         ></ion-refresher-content>
       </ion-refresher>  
   <ion-searchbar placeholder="Pesquisar" mode="ios" ></ion-searchbar>
-  <ion-item class="a" (click)="showModalChat()" >
+  
+  <ion-item *ngFor="let item of chats" class="a" (click)="showModalChat(item.id_chat)" >
     <ion-avatar slot="start">
-      <img src="../../assets/boss.png" >
+      <img src="{{url}}/{{item.c_foto}}" >
     </ion-avatar>
     <ion-label>
-      <h2>Finn</h2>
-      <p>Listen, I've had a pretty messed up day...</p>
+      <h2>{{item.usuario.nome}}</h2>
+      <p *ngIf="item.ultima_mensagem.is_para_usuario">{{item.usuario.nome}}: {{item.ultima_mensagem.mensagem}}</p>
+      <p *ngIf="!item.ultima_mensagem.is_para_usuario">Você: {{item.ultima_mensagem.mensagem}}</p>
     </ion-label>
-  </ion-item>
-
-  <ion-item  class="a" (click)="showModalChat()">
-    <ion-avatar slot="start">
-      <img src="../../assets/boss.png" >
-    </ion-avatar>
-    <ion-label>
-      <h2>Han</h2>
-
-      <p>I've got enough on my plate as it is, and I...</p>
-    </ion-label>
-  </ion-item>
-
-  <ion-item  class="a" (click)="showModalChat()">
-    <ion-avatar slot="start">
-      <img src="../../assets/boss.png" >
-    </ion-avatar>
-    <ion-label>
-      <h2>Rey</h2>
-      <p>You will remove these restraints and leave...</p>
-    </ion-label>
+    <ion-badge *ngIf="item.nao_lidas != 0" style="--background:#f39c12; --color:#333" name="notifications">{{item.nao_lidas}}</ion-badge>
   </ion-item>
 </ion-content>

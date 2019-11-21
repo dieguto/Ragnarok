@@ -5,6 +5,7 @@ import {CadastroAnuncioService} from '../../services/anuncio/cadastro_anuncio/ca
 import { environment } from 'src/environments/environment';
 import { HomeModalPage } from '../home-modal/home-modal.page';
 import {Storage} from '@ionic/storage';
+import { Socket } from 'ngx-socket-io';
 
 
 @Component({
@@ -23,11 +24,11 @@ export class HomePage implements OnInit {
   url =  environment.url;
   isVazio = false;
 
-  constructor(private cadastroAnuncioService: CadastroAnuncioService, private modalCtrl: ModalController, private storage:Storage) {
+  constructor(private cadastroAnuncioService: CadastroAnuncioService, private socket: Socket, private modalCtrl: ModalController, private storage:Storage) {
   }
 
   async ngOnInit() {
-    
+  this.socket.connect();
    this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(1, 1);
 
    console.log(this.anuncios);

@@ -89,6 +89,16 @@ export class UsuarioService {
       }).toPromise();
   }
 
+  getToken(){
+    this.storage.get('access_token')
+    .then(token => {
+      console.log(token);
+    })
+    .catch(err => {
+      console.error("erro ao pegar o token: ", err);
+    }) 
+  }
+
   buscarPorIdComAnuncios(id){
     console.log(`${this.url}/usuario/${id}/com/9999/anuncios`);
     return this.http.get<Usuario>(`${this.url}/usuario/${id}/com/9999/anuncios`, ).toPromise();
