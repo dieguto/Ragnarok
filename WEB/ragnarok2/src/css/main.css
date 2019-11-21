@@ -141,6 +141,22 @@ body{
     border: 1px solid #f39c12;
 }
 
+.btn-iniciar-chat, .btn-fechar{
+    border: 1px solid #f39c12;
+}   
+
+.btn-icone-fechar{
+    border: none;
+    color: white;
+}
+
+.btn-icone-fechar:hover{
+    color: white;
+}
+
+.btn-iniciar-chat:hover, .btn-fechar:hover{
+    color: white;
+}
 
 .mais-populares{
     width: 20%;

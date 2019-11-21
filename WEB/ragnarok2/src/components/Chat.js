@@ -19,7 +19,7 @@ export default class Chat extends Component {
 	
 	render() {
     return (
-        <div class="container-fluid h-100">
+        <div class="container-fluid h-100 mt-5 mb-5">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card card-chat mb-sm-3 mb-md-0 contacts_card">
 					<div class="card-header card-header-chat">
@@ -193,7 +193,7 @@ export default class Chat extends Component {
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn-chat"><i class="fas fa-paperclip"></i></span>
 								</div>
-								<textarea name="" class="form-control type_msg-chat" placeholder="Type your message..."></textarea>
+								<textarea name="" class="form-control type_msg-chat pl-0" placeholder="Digite sua mensagem..."></textarea>
 								<div class="input-group-append">
 									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 								</div>

@@ -1,5 +1,9 @@
 import React,{Component, useState} from 'react';
-import IconeUser from '../assets/user.svg'
+import {Link} from 'react-router';
+
+import IconeUser from '../assets/user.svg';
+import IconChat from '../assets/chat.png'
+import GOW from '../assets/god-of-war.jpg';
 
 import api from '../services/api';
 import Carousel from 'nuka-carousel';
@@ -119,8 +123,8 @@ export default class Anuncio extends Component {
                                                 <div className="col-1"></div>
                                                 <div className="col-10">
                                                     <div className="card card-anuncio sem-borda">
-                                                            {
-                                                               function(){
+                                                        {
+                                                            function(){
                                                                 // console.log(anuncios.info_rawg)
                                                                 if(anuncios.info_rawg){
                                                                     return(
@@ -132,7 +136,7 @@ export default class Anuncio extends Component {
                                                                     ); 
                                                                 }
                                                             }() 
-                                                            }
+                                                        }
                                                        
                                                         <div className="card-body card-body-anuncio">
                                                             {
@@ -154,7 +158,9 @@ export default class Anuncio extends Component {
                                                                             {
                                                                                 function(){
                                                                                     if(typeof anuncios.info_rawg.jogo.imagem_fundo != 'null'){
-                                                                                        return <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img card-img-anuncio"></img>
+                                                                                        return (
+                                                                                            <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img card-img-anuncio"></img>
+                                                                                        );
                                                                                     }
                                                                                 }()
                                                                             }
@@ -240,7 +246,82 @@ export default class Anuncio extends Component {
                                             
                                         </div>
                                     
-                                        <div className="card-footer"><button className="btn btn-leia-mais" onClick={this.abrirModal}>Leia Mais</button></div>
+                                        <div className="card-footer">
+                                            {/* <button className="btn btn-leia-mais" onClick={this.abrirModal}>Leia Mais</button> */}
+                                            <button className="btn btn-leia-mais" data-toggle="modal" data-target=".modal">Leia Mais</button>
+                                            {/* Modal  */}
+                                            <div className="modal fade" role="dialog">
+                                                <div className="modal-dialog modal-dialog-centered modal-lg">
+                                                    {/* Conteúdo do modal */}
+                                                    <div className="modal-content borda-20px background-222222">
+                                            
+                                                        {/* Cabeçalho do modal */}
+                                                        <div className="modal-header texto-laranja background-333333 border-0">
+
+                                                            {
+                                                                function(){
+                                                                    if(anuncios.info_rawg){
+                                                                        console.log(anuncios.id_anuncio);
+                                                                        return(
+                                                                            <span className="modal-title texto-branco text-center ml-auto">{anuncios.info_rawg.jogo.nome}</span>
+                                                                        );
+                                                                    }else{
+                                                                        return(
+                                                                            <span className="modal-title texto-branco text-center ml-auto">{anuncios.titulo}</span>
+                                                                        ); 
+                                                                    }
+                                                                }() 
+                                                            }
+                                                                                                                        
+                                                            <button type="button" className="close border-0 btn-icone-fechar" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                            
+                                                        {/* Corpo do modal */}
+                                                        <div className="modal-body background-222222 border-0">
+                                                        <div className="row">
+                                                            <div className="col-11 mr-auto ml-auto">
+                                                                    <div className="row">
+                                                                        {/* {
+                                                                            function(){
+                                                                                if(typeof anuncios.info_rawg.jogo.imagem_fundo != 'null'){
+                                                                                    return(
+                                                                                        <div className="col-6"><img src={anuncios.info_rawg.jogo.imagem_fundo} class="img-fluid" alt="" title=""/></div>
+                                                                                    );
+                                                                                }else{
+                                                                                    return(
+                                                                                        <div className="col-6"><img src={anuncios.info_rawg.jogo.imagem_fundo} class="img-fluid" alt="" title=""/></div>
+                                                                                    );
+                                                                                }
+                                                                            }()
+                                                                        } */}
+                                                                        <div className="col-6"><img src={GOW} class="img-fluid" alt="" title=""/></div>
+                                                                        <div className="col-6 mt-3">
+                                                                            <p><span className="texto-laranja">Nome:</span> Meu tênis</p>
+                                                                            <p><span className="texto-laranja">Cep:</span> 06612-120  </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="row mt-4">
+                                                                        <div className="col-8"><p><span className="texto-laranja">Nome:</span> Meu tênis</p></div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                            
+                                                        {/* Rodapé do modal */}
+                                                        <div className="modal-footer background-333333 border-0">
+                                                            <Link to="/chat">
+                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat">
+                                                                    <img src={IconChat} alt="" title=""/>Iniciar Chat
+                                                                </button>
+                                                            </Link>                                                            
+                                                            <button type="button" className="btn background-222222 texto-laranja ml-auto btn-fechar" data-dismiss="modal">Fechar</button>
+                                                        </div>
+                                            
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {/* Fim Modal */}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-1"></div>

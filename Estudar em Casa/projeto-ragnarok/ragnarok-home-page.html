@@ -7,10 +7,17 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/nice-select.css"/>
-    <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="js/jquery-nice-select-master/css/.css"/>
 </head>
 
 <body>
+
+        <script type="text/javascript" src="js/jquery-nice-select-master/js/fastclick.js"></script>
+        <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery-n ice-select-master/js/jquery.nice-select.js"></script>
+        <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.min.js"></script>
+        <script type="text/javascript" src="js/jquery-nice-select-master/js/prism.js"></script>
+        <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
 
     <header class="shadow">
         <div id="caixa-logo">
@@ -37,16 +44,16 @@
                             <div class="col-6">
                                 <select class='seluser selects'>
                                     <option value='' selected disabled>Anúncios por página</option>
-                                    <option value=''>10</option>
-                                    <option value=''>15</option>
+                                    <option value='' >10</option>
+                                    <option value='' >15</option>
                                     <option value=''>20</option>
                                 </select>
                             </div>
                             <div class="col-6">
                                 <select class='seluser selects'>
                                     <option value='' selected disabled>Ordem</option>
-                                    <option value=''>Preço Decrescente</option>
-                                    <option value=''>Preço Crescente</option>
+                                    <option value='' >Preço Decrescente</option>
+                                    <option value='' >Preço Crescente</option>
                                     <option value=''>Alfabética A-Z</option>
                                 </select>
                             </div>
@@ -82,9 +89,9 @@
                                 
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-leia-mais" data-toggle="modal" data-target="#modal">Leia Mais</button>
+                                <button class="btn btn-leia-mais" data-toggle="modal" data-target=".modal">Leia Mais</button>
                                  <!-- Modal -->
-                                <div id="modal" class="modal fade" role="dialog">
+                                <div class="modal fade" role="dialog">
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
                                         <!-- Conteúdo do modal-->
                                         <div class="modal-content borda-20px background-222222">
@@ -213,19 +220,15 @@
     </footer>
     <!-- Footer -->
 
-
-    <script type="text/javascript" src="js/jquery-nice-select-master/js/fastclick.js"></script>
-    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
-    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.min.js"></script>
-    <script type="text/javascript" src="js/jquery-nice-select-master/js/prism.js"></script>
-    <script type="text/javascript" src="js/jquery-nice-select-master/js/jquery.nice-select.js"></script>
-
     <!-- Script -->
     <script type='text/javascript'>
-        $(document).ready(function() {
-            $('.selects').niceSelect();
+
+        $(document).ready(function(){
+            
+            $('.seluser').niceSelect();
+            
         });
+
     </script>
 
     <!-- Optional JavaScript -->

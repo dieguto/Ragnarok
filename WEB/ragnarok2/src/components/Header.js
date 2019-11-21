@@ -18,20 +18,20 @@ export default class Menu extends Component{
           
             return (
                 <div className="header">
-                <div className="navbar navbar-light bg-dark">
-                 
-          
-                  <Link to="/" className="navbar-brand">
-                    <h1 className="navbar-brand text-warning">
-                      Ragnarok
-                    </h1>
-                  </Link>
+                  <div className="navbar navbar-light bg-dark">
+                  
+                    <Link to="/" className="navbar-brand">
+                      <h1 className="navbar-brand text-warning">
+                        Ragnarok
+                      </h1>
+                    </Link>
+                    
                     <div className="form-inline">
                         <Link to="/login" className="btn btn-outline-warning">Entrar</Link>
                         <Link to="/cadastroUsuario" className="btn btn-outline-warning ml-3">Cadastrar-se</Link>
                     </div>
-                    
-                </div>
+                      
+                  </div>
                 </div>
               )
         }else{

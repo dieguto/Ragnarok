@@ -47,8 +47,7 @@ export default class Timeline extends Component {
                 
                  <div id="container-anuncios">
                      
-                    <Anuncio></Anuncio>
-                
+                    <Anuncio></Anuncio>                
              
                     <GeneroJogo></GeneroJogo>
 
