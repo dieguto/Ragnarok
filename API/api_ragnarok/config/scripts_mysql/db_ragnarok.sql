@@ -382,4 +382,95 @@ INSERT INTO tbl_mensagem VALUES (0, 2, "OLÁ Jeimer, está tudo sim", 1, now(), 
 INSERT INTO tbl_mensagem VALUES (0, 1, "Faz rolo desse gta num moto g2 trincado?", 0, now(), now(), NULL);
 
 INSERT INTO tbl_mensagem VALUES (0, 3, "Oi carla", 0, now(), now(), NULL);
-INSERT INTO tbl_mensagem VALUES (0, 3, "Oi carla dnc", 0, now(), now(), NULL);
+INSERT INTO tbl_mensagem VALUES (0, 3, "Hoje é terça feira?", 0, now(), now(), NULL);
+
+CREATE TABLE tbl_notificacao(
+   id_notificacao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   id_chat  INT NOT NULL,
+   para_usuario  INT NOT NULL,
+   info TEXT NOT NULL,
+   is_mensagem TINYINT NOT NULL,
+   is_chat TINYINT NOT NULL,
+   visualizada TINYINT NOT NULL,
+   criado_em TIMESTAMP,
+	atualizado_em TIMESTAMP,
+   excluido_em TIMESTAMP NULL,
+   
+   CONSTRAINT fk_id_usuario_on_tbl_notificacao
+	FOREIGN KEY (para_usuario)
+	REFERENCES tbl_usuario(id),
+
+	CONSTRAINT fk_id_chat_on_tbl_notificacao
+	FOREIGN KEY (id_chat)
+	REFERENCES tbl_chat(id_chat)
+);
+
+INSERT INTO tbl_notificacao 
+VALUES (
+   0, 
+   1, 
+   5, 
+   "O usuario Jeimer iniciou um chat de troca com você",
+   0,
+   1,
+   0,
+   now(),
+   now(),
+   null
+);
+
+INSERT INTO tbl_notificacao 
+VALUES (
+   0, 
+   1, 
+   5, 
+   "Jeimer enviou 'Faz rolo desse gta num moto g2 trincado?'",
+   1,
+   0,
+   0,
+   now(),
+   now(),
+   null
+);
+
+INSERT INTO tbl_notificacao 
+VALUES (
+   0, 
+   2, 
+   5, 
+   "O usuario Sausage Dog iniciou um chat com você",
+   0,
+   1,
+   0,
+   now(),
+   now(),
+   null
+);
+
+INSERT INTO tbl_notificacao 
+VALUES (
+   0, 
+   2, 
+   5, 
+   "Sausage Dog enviou 'Oi carla'",
+   1,
+   0,
+   0,
+   now(),
+   now(),
+   null
+);
+
+INSERT INTO tbl_notificacao 
+VALUES (
+   0, 
+   2, 
+   5, 
+   "Sausage Dog enviou 'Hoje é terça feira?'",
+   1,
+   0,
+   0,
+   now(),
+   now(),
+   null
+);

@@ -75,10 +75,16 @@
             carregarMensagem(mensagem);
         })
 
-        socket.on('notificação', function(mensagem){
-			console.log("notificação", mensagem)
-			alert("messagem do usuario '" + mensagem.usuario.nome + "' -> '" + mensagem.mensagem + "'")
-        })
+        socket.on('notificacao', function(notificacao){
+			console.log("notificação do evento 'notificacao'", notificacao)
+			
+			if(notificacao.is_chat){
+				alert("NOTIFICAÇÃO DE CHAT: " + notificacao.info)
+				
+			} else if(notificacao.is_mensagem) {
+				alert("NOTIFICAÇÃO DE MENSAGEM: " + notificacao.info)
+			}
+		})
 		
 		socket.on("erro", (erro) => {
 			alert(erro)
@@ -149,6 +155,19 @@
 
 			console.log("informações de todos os chats no qual o usuario possui conversas (evento 'chats', recebido após o 'get_chats')", info_chats);
 		
+		});
+		
+		socket.emit("get_notificacoes")
+		
+        socket.on("notificacoes", notificacoes => {
+			console.log("notificações vindas do 'get_notificacoes'", notificacoes)
+		});
+		
+		//total de notificacoes não visualizadas
+		socket.emit("get_tnnv")
+		
+        socket.on("tnnv", tnnv => {
+			console.log("notificações não visualizadas do 'get_tnnv'", tnnv)
 		});
 
     </script>

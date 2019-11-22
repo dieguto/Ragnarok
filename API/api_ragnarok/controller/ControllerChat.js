@@ -1,7 +1,7 @@
 const Chat = require("../models/Chat");
 const Anuncio = require("../models/Anuncio");
 const Sequelize = require("sequelize");
-const con = require("../config/conexao")
+const con = require("../config/conexao");
 
 class ControllerChat {
    static deletar(id_chat, usuario_token, callback){
@@ -48,50 +48,50 @@ class ControllerChat {
       
    }
 
-   static async excluirTodosOsChatDoUsuario(id_usuario){
+   // static async excluirTodosOsChatDoUsuario(id_usuario){
 
-      const query = ` 
-         SELECT
-         c.id_chat, c.id_anuncio, c.c_foto 
-         FROM
-         tbl_chat AS c
-         INNER JOIN
-         tbl_chat_usuario AS cu
-         ON
-         c.id_chat = cu.id_chat
-         AND
-         cu.id_usuario = ${id_usuario}
-         AND
-         cu.excluido_em IS NULL
-         AND
-         c.excluido_em IS NULL;
-      `;
+   //    const query = ` 
+   //       SELECT
+   //       c.id_chat, c.id_anuncio, c.c_foto 
+   //       FROM
+   //       tbl_chat AS c
+   //       INNER JOIN
+   //       tbl_chat_usuario AS cu
+   //       ON
+   //       c.id_chat = cu.id_chat
+   //       AND
+   //       cu.id_usuario = ${id_usuario}
+   //       AND
+   //       cu.excluido_em IS NULL
+   //       AND
+   //       c.excluido_em IS NULL;
+   //    `;
 
-      const chats = await con.query(query, { type: Sequelize.QueryTypes.SELECT });
+   //    const chats = await con.query(query, { type: Sequelize.QueryTypes.SELECT });
 
-      let i = 0;
+   //    let i = 0;
 
-      const deletarChat = async () => {
+   //    const deletarChat = async () => {
 
-         if(i == chats.length){
+   //       if(i == chats.length){
 
-            return;
+   //          return;
 
-         } else {
+   //       } else {
 
-            await this.excluirChat(id_chat[i].id_chat)
+   //          await this.excluirChat(id_chat[i].id_chat)
 
-            i++;
+   //          i++;
 
-            await deletarChat();
-         }
+   //          await deletarChat();
+   //       }
 
-      }
+   //    }
 
-      await deletarChat();
+   //    await deletarChat();
 
-      return;
-   }
+   //    return;
+   // }
 
    static async excluirChat(id_chat){
       const query = `
@@ -105,16 +105,23 @@ class ControllerChat {
          tbl_mensagem AS m
          ON
          m.para = cu.id_chat_usuario
+         INNER JOIN
+         tbl_notificacao AS n
+         ON
+         n.id_chat = c.id_chat
          SET 
          c.excluido_em = now(),
          cu.excluido_em = now(),
-         m.excluido_em = now()
+         m.excluido_em = now(),
+         n.excluido_em = now()
          WHERE
          c.excluido_em IS NULL
          AND
          cu.excluido_em IS NULL
          AND
          m.excluido_em IS NULL
+         AND
+         n.excluido_em IS NULL
          AND
          c.id_chat = ${id_chat};
       `;
@@ -137,16 +144,23 @@ class ControllerChat {
          tbl_mensagem AS m
          ON
          m.para = cu.id_chat_usuario
+         INNER JOIN
+         tbl_notificacao AS n
+         ON
+         n.id_chat = c.id_chat
          SET 
          c.excluido_em = now(),
          cu.excluido_em = now(),
-         m.excluido_em = now()
+         m.excluido_em = now(),
+         n.excluido_em = now()
          WHERE
          c.excluido_em IS NULL
          AND
          cu.excluido_em IS NULL
          AND
          m.excluido_em IS NULL
+         AND
+         n.excluido_em IS NULL
          AND
          c.id_anuncio = ${id_anuncio};
       `;

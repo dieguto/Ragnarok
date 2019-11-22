@@ -17,7 +17,7 @@ const sql = linhasArrayFiltrado.join("").replace(/\s/g, " ");
 const con = mysql.createConnection({
    host: 'localhost',
    user: 'root',
-   password: '',
+   password: 'bcd127',
    port: 3306,
    multipleStatements: true
 });

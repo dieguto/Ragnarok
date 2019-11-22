@@ -39,7 +39,9 @@ Exemplo:
 var iniciar_chat = {
    id_chat: 1
    //OU
-   id_anuncio: 2
+   id_anuncio: 2,
+ 
+   tipo_chat: "OPCIONAL, string, pode ser 'venda' ou 'troca', usado no sistema de matching"
 };
 		
 socket.emit('iniciar_chat', iniciar_chat);
@@ -202,17 +204,76 @@ Notificações podem ser recebidas de todos os chats, exceto pelo o qual você t
 
 Exemplo:
 ```javascript
-const formato_mensagem = {
-   mensagem: "texto da mensagem",
-   enviada_em: "data_no_formato_do_javascript"
+const formato_notificacao  = {
+   id_chat: 25,
+   info: "string contendo o 'texto' da notificação",
    info_chat:{
       //Mesmo JSON do "iniciou" ..
-   }
+   },
+   is_chat: true //Retorna se a notificação é de sobre de chat novo
+   is_mensagem: false //Retorna se a notificação é sobre uma mensagem nova
 }
 
-socket.on('notificação', mensagem => {
-   console.log(mensagem)
+socket.on('notificacao', notificacao => {
+   console.log(notificacao)
 })
+
+//Sempre que um evento de notificação é enviado
+//é sempre enviado novamente (sem a necessidade do
+// 'get_tnnv') o evento contendo o total
+//de notificações não visualizadas (mais informações nos
+//tópicos abaixo)
+socket.on('tnnv', total=> {
+   console.log(total);		
+});
 ```
 
+&nbsp;
+## Buscando todas as notificações do usuario
+---
+Ao buscar todas as notificações do usuario com o evento "get_notificacoes", é enviado de volta o evento "notificacoes" contendo um array com todos as notificacoes do usuario
 
+Exemplo:
+```javascript
+//Sem JSON de envio
+socket.emit('get_notificacoes');
+```
+
+&nbsp;
+#### Retornos possiveis:
+
+* Notificações
+```javascript
+//Retorna os chats no formato
+const formato_notificacoes = [
+   //Retorna um array de JSONs iguais ao de receber uma notificação
+];
+
+socket.on('notificacoes', notificacoes => {
+   console.log(notificacoes);		
+});
+```
+
+&nbsp;
+## Buscando o total de notificacoes não lidas
+---
+Ao buscar o total de notificações não visualizadas do usuario com o evento "get_tnnv", é enviado de volta o evento "tnnv" e o total
+
+Exemplo:
+```javascript
+//Sem JSON de envio
+socket.emit('get_tnnv');
+```
+
+&nbsp;
+#### Retornos possiveis:
+
+* Notificações não visualizadas
+```javascript
+//Retorna o total de notificações não visualizadas
+const formato_tnnv = 15;
+
+socket.on('tnnv', total=> {
+   console.log(total);		
+});
+```

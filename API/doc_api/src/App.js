@@ -16,7 +16,7 @@ class App extends Component {
             <h1 className="text-center" style={{margin:20+"px"}}>Documentação Da Api Ragnarok</h1>
 
             <h3 className="text-center" style={{margin:20+"px"}}>
-               <a rel="noopener noreferrer" target="_blank" href="https://rentry.co/nyo8p">
+               <a rel="noopener noreferrer" target="_blank" href="https://rentry.co/h9hfd">
                   Documentação Do Chat 
                </a>
             </h3>
