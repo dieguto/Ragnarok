@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import CadastroUsuario from './components/CadastroUsuario';
 import EditarUsuario from './components/EditarUsuario';
+import MeusAnuncios from './components/MeusAnuncios';
 
 import Anuncio from './components/AnuncioEscolha';
 import CadastroJogos from './components/CadastroJogo';
@@ -44,6 +45,7 @@ ReactDOM.render(
                       <Route path="/anuncio/troca" component={Troca} />
                       <Route path="/cadastroUsuario" component={CadastroUsuario}/>
                       <Route path="/editarUsuario" component={EditarUsuario}/>
+                      <Route path="/meusAnuncios" component={MeusAnuncios}/>
 
                       <Route path="/chat" component={Chat}/>
                       <Route path="/admin/cms" component={CMS} />
