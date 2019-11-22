@@ -106,14 +106,18 @@ header{
 .header1, .header2{
     height: 50px;
     width: 200px;
-    background-color: dimgray;
     color: white;
     font-size: 25px;
+    margin-top: 80px;
     margin-left: 25px;
     border-radius: 20px 20px 0px 0px;
-    border: 2px solid black;
+    border: 1px solid black;
     float: left;
     text-align: center;
+}
+
+.header1{    
+    background-color: dimgray;
 }
 
 .header2{
@@ -137,13 +141,17 @@ header{
 }
 
 .tab1, .tab2, .tab3{
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 100px solid black;
+    border-width: 1px;
 }
 
 .tab1{
     border-radius: 20px 0px 0px 0px;
+}
+
+.tab2{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .tab3{

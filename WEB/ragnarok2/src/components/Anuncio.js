@@ -28,7 +28,8 @@ export default class Anuncio extends Component {
     constructor(){
         super();
         this.state = {anuncios: [], showModal: false}
-        this.abrirModal = this.abrirModal.bind(this)
+        this.abrirModal = this.abrirModal.bind(this)        
+        this.cont = 0;
     }
 
     abrirModal(){
@@ -76,15 +77,13 @@ export default class Anuncio extends Component {
                     </div>
                 </div>
                 {
-                  
-
                     this.state.anuncios.map(
                         anuncios => 
 
                             <div className="row" key={anuncios.id_anuncio}>
                                 <div className="col-1"></div>
                                 <div className="col-10">
-                                    <div className="card card-anuncio borda-20px">
+                                    <div className="card card-anuncio">
                                         <div className="card-header">
                                             <div className="row">
                                                 <div className="col-9"><img src={IconeUser} className="rounded-circle icone-usuario"/> <span className="nome-usuario align-middle feed-titulo" >{anuncios.usuario.nome}</span></div>
@@ -165,7 +164,7 @@ export default class Anuncio extends Component {
                                                                                 }()
                                                                             }
 
-                                                                            {                               
+                                                                            {                                
                                                                                 function(){
                                                                                     console.log(anuncios.info_rawg.jogo.video)
                                                                                     if(anuncios.info_rawg != null){
@@ -188,22 +187,15 @@ export default class Anuncio extends Component {
                                                                                     console.log(api + "/" + anuncios.c_fotos[0])
                                                                                     return anuncios.c_fotos.map(
                                                                                              
-                                                                                        fotos =>
-                                                                                        <Carousel renderCenterLeftControls={({ previousSlide }) => (
-                                                                                            <button className="d-none" onClick={previousSlide}></button>
-                                                                                          )}
-                                                                                          renderCenterRightControls={({ nextSlide }) => (
-                                                                                            <button className="d-none" onClick={nextSlide}></button>
-                                                                                          )}>
-                                                                                            <img src={api + "/" + fotos} className="card-img borda-20px card-img-anuncio"/>
-                                                                                        </Carousel>
+                                                                                        fotos => <img src={api + "/" + fotos} className="card-img borda-20px card-img-anuncio"/>
+                                                                                        
                                                                                     )
                                                                                 }()
                                                                             }
                                                                             {/* <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/> */}
                                                                         </Carousel>
                                                                     );
-                                                                }
+                                                                } else {
                                                                     console.log(anuncios.c_fotos)
                                                                     return(
                                                                         <Carousel
@@ -215,25 +207,17 @@ export default class Anuncio extends Component {
                                                                           )}>
                                                                             {
                                                                                 function(){
-
-                                                                                        console.log(api + "/" + anuncios.c_fotos[0])
+                                                                                    console.log(api + "/" + anuncios.c_fotos[0])
+                                                                                    return anuncios.c_fotos.map(
+                                                                                             
+                                                                                        fotos => <img src={api + "/" + fotos} className="card-img borda-20px card-img-anuncio"/>
                                                                                         
-                                                                                        return anuncios.c_fotos.map(
-                                                                                            
-                                                                                            fotos =>{
-                                                                                                
-                                                                                                return <img src={api + "/" + fotos} className="card-img borda-20px"/>
-                                                                                                
-                                                                                            }
-                                                                                            
-                                                                                            
-                                                                                        )
-                                                                                       
+                                                                                    )
                                                                                 }()
                                                                             }
                                                                         </Carousel>                                                                      
                                                                     );
-                                                                    
+                                                                }  
                                                                 
                                                             }() 
                                                             }
@@ -248,9 +232,9 @@ export default class Anuncio extends Component {
                                     
                                         <div className="card-footer">
                                             {/* <button className="btn btn-leia-mais" onClick={this.abrirModal}>Leia Mais</button> */}
-                                            <button className="btn btn-leia-mais" data-toggle="modal" data-target=".modal">Leia Mais</button>
+                                            <button className="btn btn-leia-mais" data-toggle="modal" data-target={".anuncio" + this.cont}>Leia Mais</button>
                                             {/* Modal  */}
-                                            <div className="modal fade" role="dialog">
+                                            <div className={"modal fade anuncio" + this.cont} role="dialog">
                                                 <div className="modal-dialog modal-dialog-centered modal-lg">
                                                     {/* Conteúdo do modal */}
                                                     <div className="modal-content borda-20px background-222222">
@@ -267,8 +251,7 @@ export default class Anuncio extends Component {
                                                                         );
                                                                     }else{
                                                                         return(
-                                                                            // <span className="modal-title texto-branco text-center ml-auto">{anuncios.titulo}</span>
-                                                                            <span>teste</span>
+                                                                            <span className="modal-title texto-branco text-center ml-auto">{anuncios.titulo}</span>
                                                                         ); 
                                                                     }
                                                                 }() 
@@ -282,20 +265,26 @@ export default class Anuncio extends Component {
                                                         <div className="row">
                                                             <div className="col-11 mr-auto ml-auto">
                                                                     <div className="row">
-                                                                        {/* {
+                                                                        {
+                                                                            
                                                                             function(){
-                                                                                if(typeof anuncios.info_rawg.jogo.imagem_fundo != 'null'){
-                                                                                    return(
-                                                                                        <div className="col-6"><img src={anuncios.info_rawg.jogo.imagem_fundo} class="img-fluid" alt="" title=""/></div>
+                                                                                if(anuncios.info_rawg){
+                                                                                    if(typeof anuncios.info_rawg.jogo.imagem_fundo != 'null'){
+                                                                                        return(
+                                                                                            <div className="col-6"><img src={anuncios.info_rawg.jogo.imagem_fundo} class="img-fluid" alt="" title=""/></div>
+                                                                                        );
+                                                                                    }else{
+                                                                                        return (
+                                                                                            <div className="col-6"><img src={api + "/" + anuncios.c_fotos[0]} class="img-fluid" alt="" title=""/></div>
+                                                                                        );
+                                                                                    }
+                                                                                } else {
+                                                                                    return (
+                                                                                        <div className="col-6"><img src={api + "/" + anuncios.c_fotos[0]} class="img-fluid" alt="" title=""/></div>
                                                                                     );
-                                                                                }else{
-                                                                                    return(
-                                                                                        <div className="col-6"><img src={anuncios.info_rawg.jogo.imagem_fundo} class="img-fluid" alt="" title=""/></div>
-                                                                                    );
-                                                                                }
+                                                                                }                                                                               
                                                                             }()
-                                                                        } */}
-                                                                        <div className="col-6"><img src={GOW} class="img-fluid" alt="" title=""/></div>
+                                                                        }
                                                                         <div className="col-6 mt-3">
                                                                             {
                                                                                 function(){
@@ -374,9 +363,10 @@ export default class Anuncio extends Component {
                                     </div>
                                 </div>
                                 <div className="col-1"></div>
+                                <span style={{display:"none"}}>{this.cont = this.cont + 1}</span>
                         </div>
         
-             
+                        
                     )
                 }
             </div> 

@@ -157,6 +157,7 @@ export class CadastroAnuncioService {
   }
 
   async buscarPorID(id){
+    console.log(`${this.url}/anuncio/${id}`);
     return this.http.get<Anuncio>(`${this.url}/anuncio/${id}`, ).toPromise();
 
   }
