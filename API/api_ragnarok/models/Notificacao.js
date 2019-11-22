@@ -36,16 +36,13 @@ Notificacao.init({
    }
 },{
    defaultScope: {
-      attributes: { 
-         exclude: [
-            'criado_em',
-            'atualizado_em',
-            'excluido_em',
-            'para_usuario',
-            'id_notificacao',
-            'visualizada'
-         ] 
-      }
+      attributes: [
+         'id_chat', 
+         'info', 
+         'is_chat', 
+         'is_mensagem', 
+         ['criado_em', 'enviada_em']
+      ]
    },
    createdAt: 'criado_em',
    updatedAt: 'atualizado_em',
