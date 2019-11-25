@@ -136,16 +136,17 @@
 		margin-bottom: auto;
 		margin-left: 10px;
 		border-radius: 25px;
-		background-color: #82ccdd;
+		background-color: rgb(10, 10, 10);
 		padding: 10px;
 		position: relative;
+		min-width: 100px;
 	}
 	.msg_cotainer_send-chat{
 		margin-top: auto;
 		margin-bottom: auto;
 		margin-right: 10px;
 		border-radius: 25px;
-		background-color: #78e08f;
+		background-color: #f39c12;
 		padding: 10px;
 		position: relative;
 	}
@@ -203,6 +204,12 @@
 		cursor: pointer;
 		background-color: rgba(0,0,0,0.2);
 	}
+
+	.botao_enviar_chat{
+		width: 30px;
+		height: 30px;
+	}
+
 	@media(max-width: 576px){
 	.contacts_card-chat{
 		margin-bottom: 15px !important;
