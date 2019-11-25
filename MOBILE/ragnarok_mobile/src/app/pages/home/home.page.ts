@@ -156,10 +156,13 @@ async  filtrar_km(){
 
 
   trocar(id_anuncio){
+    console.log(id_anuncio);
     const json = {
       id_anuncio: id_anuncio,
-      tipo:"troca"
+      tipo_chat:"troca"
     }
+
+    console.log(json);
 
     this.socket.emit('iniciar_chat', json);
   }
