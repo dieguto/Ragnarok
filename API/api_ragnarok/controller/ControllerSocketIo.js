@@ -104,7 +104,7 @@ class ControllerSocketIo {
 
                         let is_ativo = true;
 
-                        const tipo_chat = "";
+                        let tipo_chat = "";
 
                         if(dados.tipo_chat == "troca" || dados.tipo_chat == "venda"){
                            tipo_chat = "de " + dados.tipo_chat + " ";
