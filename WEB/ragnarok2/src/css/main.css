@@ -180,9 +180,9 @@ body{
 }
 
 .card-img-anuncio{
-    max-height: 500px;
-    min-height: 500px;
-    height: 500px;
+    max-height: 400px;
+    min-height: 400px;
+    height: 400px;
     max-width: 100%;
     min-width: 100%;
     width: 100%;

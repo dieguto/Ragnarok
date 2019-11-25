@@ -3,7 +3,7 @@ import {browserHistory} from  'react-router';
 import '../css/cadastro-anuncio.css'
 import '../css/Cadastro.css';
 import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO } from '../Alerta';
-
+import * as Yup from 'yup';
 
 export default class Login extends Component {
 
@@ -11,6 +11,10 @@ export default class Login extends Component {
         super(props);        
         this.state = {msg:this.props.location.query.msg};
     }
+
+    validarFomulario = Yup.object().shape({
+        name: Yup.string().required('Informe o nome!').min(5, 'O nome deve conter mais de 5 letras!').max(100, "O nome deve conter menos de 100 letras!  ")
+    })
 
     envia(event){
         event.preventDefault();
@@ -69,13 +73,9 @@ export default class Login extends Component {
                 </div>                
                 <p className="text-center cor-erro">{this.state.msg}</p>
                 <div className="login-container">
-<<<<<<< HEAD
-=======
-                    {/* <span>{this.state.msg}</span> */} 
->>>>>>> 9e6db9ab9702b1cdebdb31b4c5d2058d61901c23
                     <form onSubmit={this.envia.bind(this)}>
                         <label className="form-check-label">E-mail:</label>
-                        <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
+                        <input type="text" placeholder="batatinhaxpto@senaisp.com" name="name" ref={(input) => this.login = input}/>
                         <label className="form-check-label">Senha:</label>
                         <input type="password" placeholder="5dbni?" ref={(input) => this.senha = input}/>
                         <input className="btn btn-outline-warning" type="submit" onClick={() => Notificacao(AVISO, CAMPO_VAZIO)} value="Entrar" />
