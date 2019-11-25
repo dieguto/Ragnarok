@@ -18,6 +18,7 @@ import {NgxMaskIonicModule} from 'ngx-mask-ionic';
 import { UsuarioService } from './services/usuario/usuario.service';
 
 // storage: Storage
+console.log(localStorage.getItem("token"));
 const config: SocketIoConfig = { url: 'http://localhost:3108', options: {
   query:{
     token: localStorage.getItem("token")
