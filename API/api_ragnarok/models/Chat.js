@@ -17,6 +17,10 @@ Chat.init({
    c_foto:{
       type: Sequelize.STRING(300),
       allowNull: false
+   },
+   is_ativo:{
+      type: Sequelize.BOOLEAN,
+      allowNull: false
    }
 },{
    defaultScope: {
