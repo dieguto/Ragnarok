@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import '../css/chat.css';
+import DtUtils from "../Utils/DtUtils"
 
-import socketIOClient from 'socket.io-client';
+import io from 'socket.io-client';
+import api from '../services/api';
+import cursor from '../assets/cursor.png';
 
+const token = sessionStorage.getItem("token");
 
+const opcoes = {
+	query: {
+		token: token
+	}
+};
+
+const socket = io('http://localhost:3108', opcoes);
 
 
 // import { Container } from './styles';
@@ -13,7 +24,80 @@ export default class Chat extends Component {
 		super();
 		this.state = {
 			response: false,
-			endpoint: 'http://localhost:3107'
+			endpoint: 'http://localhost:3107',
+			chats: [],
+			mensagens_anteriores: [],
+			usuario: {nome:"Clique a esquerda para abrir um chat ;)"},
+			info_chat: {c_foto:"fotos/padrao.jpg"}
+		}
+		
+	}
+
+	componentDidMount(){
+		socket.on("erro", erro => {
+			alert(erro)
+		})
+
+		 socket.emit('get_chats');
+
+		 socket.on('chats', info_chats => {
+			 console.log(info_chats);
+			 this.setState({chats:info_chats});
+		 })
+	}
+
+	iniciarChat(id_chat){
+
+	
+		socket.off("iniciou");
+
+		socket.off("mensagens_anteriores");
+
+
+		console.log(id_chat)
+		var iniciar_chat = {
+			id_chat: id_chat
+		}
+
+		socket.emit('iniciar_chat',iniciar_chat);
+
+		socket.on('iniciou', info_chat => {
+			console.log("conectado!")
+			console.log(info_chat);
+			this.setState({usuario:info_chat.usuario})
+			
+			this.setState({info_chat})
+
+		 });
+
+		 socket.on("mensagens_anteriores", msgs_ant => {
+			 this.setState({mensagens_anteriores: msgs_ant})
+		 })
+	}
+
+	carregarMensagem(mensagem){
+		if(mensagem.is_para_usuario){
+			return(
+				<div class="d-flex justify-content-start mb-4">
+					
+					<div class="msg_cotainer-chat">
+						{mensagem.mensagem}
+						<span class="msg_time-chat">{DtUtils.getDt(mensagem.enviada_em).string}</span>
+					</div>
+				</div>
+			);
+		} else {
+			return(
+				<div class="d-flex justify-content-end mb-4">
+					<div class="msg_cotainer_send-chat">
+						{mensagem.mensagem}
+						<span class="msg_time_send-chat">{DtUtils.getDt(mensagem.enviada_em).string}</span>
+					</div>
+					{/* <div class="img_cont_msg-chat">
+						<img></img>
+					</div> */}
+				</div>
+			);
 		}
 	}
 	
@@ -32,66 +116,36 @@ export default class Chat extends Component {
 					</div>
 					<div class="card-body contacts_body-chat">
 						<ui class="contacts-chat">
-						<li class="active-chat">
-							<div class="d-flex bd-highlight">
-								<div class="img_cont-chat">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat"></span>
-								</div>
-								<div class="user_info-chat">
-									<span>Khalid</span>
-									<p>Kalid is online</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="d-flex bd-highlight">
-								<div class="img_cont-chat">
-									<img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat offline-chat"></span>
-								</div>
-								<div class="user_info-chat">
-									<span>Taherah Big</span>
-									<p>Taherah left 7 mins ago</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="d-flex bd-highlight">
-								<div class="img_cont-chat">
-									<img src="https://i.pinimg.com/originals/ac/b9/90/acb990190ca1ddbb9b20db303375bb58.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat"></span>
-								</div>
-								<div class="user_info-chat">
-									<span>Sami Rafi</span>
-									<p>Sami is online</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="d-flex bd-highlight">
-								<div class="img_cont-chat">
-									<img src="http://profilepicturesdp.com/wp-content/uploads/2018/07/sweet-girl-profile-pictures-9.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat offline-chat"></span>
-								</div>
-								<div class="user_info-chat">
-									<span>Nargis Hawa</span>
-									<p>Nargis left 30 mins ago</p>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="d-flex bd-highlight">
-								<div class="img_cont-chat">
-									<img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat offline-chat"></span>
-								</div>
-								<div class="user_info-chat">
-									<span>Rashid Samim</span>
-									<p>Rashid left 50 mins ago</p>
-								</div>
-							</div>
-						</li>
+						{
+							this.state.chats.map(chat => {
+								return(
+									
+									<li class="" >
+										<div class="d-flex bd-highlight" onClick={() => this.iniciarChat(chat.id_chat)}>
+											<div class="img_cont-chat">
+												<img src={api + "/" + chat.c_foto} class="rounded-circle user_img-chat"/>
+												{
+													(() => {
+														if(chat.usuario.is_online){
+															return <span class="online_icon-chat"></span>;
+														} else {
+															return <span class="online_icon-chat offline-chat"></span>
+														}
+													})()
+												}
+											</div>
+											<div class="user_info-chat">
+												<span>{chat.usuario.nome}</span>
+												<p>{chat.usuario.nome} está {chat.usuario.is_online ? "online" : "offline"}</p>
+											</div>
+										</div>
+									</li>
+
+								);
+							})
+						}
+
+						
 						</ui>
 					</div>
 					<div class="card-footer card-footer-chat"></div>
@@ -101,12 +155,20 @@ export default class Chat extends Component {
 						<div class="card-header card-header-chat msg_head-chat">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont-chat">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat"></span>
+									<img src={api + "/" + this.state.info_chat.c_foto} class="rounded-circle user_img-chat"/>
+									{
+										(() => {
+											if(this.state.usuario.is_online){
+												return <span class="online_icon-chat"></span>;
+											} else {
+												return <span class="online_icon-chat offline-chat"></span>
+											}
+										})()
+									}
 								</div>
 								<div class="user_info-chat">
-									<span>Chat with Khalid</span>
-									<p>1767 Messages</p>
+									<span>{this.state.usuario.nome}</span>
+									
 								</div>
 								<div class="video_cam-chat">
 									<span><i class="fas fa-video"></i></span>
@@ -124,69 +186,19 @@ export default class Chat extends Component {
 							</div>
 						</div>
 						<div class="card-body msg_card_body">
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg-chat">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg-chat"/>
-								</div>
-								<div class="msg_cotainer-chat">
-									Hi, how are you samim?
-									<span class="msg_time-chat">8:40 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send-chat">
-									Hi Khalid i am good tnx how about you?
-									<span class="msg_time_send-chat">8:55 AM, Today</span>
-								</div>
-								<div class="img_cont_msg-chat">
-							        <img src=""></img>
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg-chat">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg-chat"/>
-								</div>
-								<div class="msg_cotainer-chat">
-									I am good too, thank you for your chat template
-									<span class="msg_time-chat">9:00 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send-chat">
-									You are welcome
-									<span class="msg_time_send-chat">9:05 AM, Today</span>
-								</div>
-								<div class="img_cont_msg-chat">
-							        <img></img>
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg-chat">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg-chat"/>
-								</div>
-								<div class="msg_cotainer-chat">
-									I am looking for your next templates
-									<span class="msg_time-chat">9:07 AM, Today</span>
-								</div>
-							</div>
-							<div class="d-flex justify-content-end mb-4">
-								<div class="msg_cotainer_send-chat">
-									Ok, thank you have a good day
-									<span class="msg_time_send-chat">9:10 AM, Today</span>
-								</div>
-								<div class="img_cont_msg-chat">
-						            <img></img>
-								</div>
-							</div>
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg-chat">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg-chat"/>
-								</div>
-								<div class="msg_cotainer-chat">
-									Bye, see you
-									<span class="msg_time-chat">9:12 AM, Today</span>
-								</div>
-							</div>
+							
+							
+							{
+
+								this.state.mensagens_anteriores.map(msg => {
+									const c = new Chat();
+
+									return c.carregarMensagem(msg);
+								})
+
+							}
+							
+							
 						</div>
 						<div class="card-footer card-footer-chat">
 							<div class="input-group">
@@ -196,6 +208,12 @@ export default class Chat extends Component {
 								<textarea name="" class="form-control type_msg-chat pl-0" placeholder="Digite sua mensagem..."></textarea>
 								<div class="input-group-append">
 									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+									
+									<button className="btn">
+										<img className="botao_enviar_chat" src={cursor}></img>
+									</button>
+										
+									
 								</div>
 							</div>
 						</div>

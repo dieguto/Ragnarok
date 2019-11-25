@@ -53,9 +53,9 @@
                                 <ion-slide *ngIf="verificarCampo(anuncio.info_rawg, 'imagem_fundo')">
                                     <ion-img  src="{{anuncio.info_rawg.jogo.imagem_fundo}}"> </ion-img>
                                 </ion-slide>
-                                <ion-slide *ngIf="verificarCampo(anuncio.info_rawg, 'imagem_fundo_adicional')">
+                                <!-- <ion-slide *ngIf="verificarCampo(anuncio.info_rawg, 'imagem_fundo_adicional')">
                                     <ion-img src="{{anuncio.info_rawg.jogo.imagem_fundo_adicional}}"> </ion-img>
-                                </ion-slide>
+                                </ion-slide> -->
                                 <ion-slide *ngIf="verificarCampo(anuncio.info_rawg, 'video')">
                                     <video controls poster="{{anuncio.info_rawg.jogo.preview_video}}">
                                       <source  src="{{anuncio.info_rawg.jogo.video}}"  type="video/mp4">
