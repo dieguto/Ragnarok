@@ -6,6 +6,8 @@ import io from 'socket.io-client';
 import api from '../services/api';
 import cursor from '../assets/cursor.png';
 
+import $ from 'jquery';
+
 const token = sessionStorage.getItem("token");
 
 const opcoes = {
@@ -15,6 +17,9 @@ const opcoes = {
 };
 
 const socket = io('http://localhost:3108', opcoes);
+
+const rolagem = {"max-height":"320px", "overflow":"auto"};
+const arredondando = {"border-radius":"20px"};
 
 
 // import { Container } from './styles';
@@ -75,6 +80,7 @@ export default class Chat extends Component {
 		 })
 	}
 
+
 	carregarMensagem(mensagem){
 		if(mensagem.is_para_usuario){
 			return(
@@ -88,17 +94,36 @@ export default class Chat extends Component {
 			);
 		} else {
 			return(
+				// $('#caixa-mensagem').append('');
 				<div class="d-flex justify-content-end mb-4">
 					<div class="msg_cotainer_send-chat">
 						{mensagem.mensagem}
 						<span class="msg_time_send-chat">{DtUtils.getDt(mensagem.enviada_em).string}</span>
 					</div>
-					{/* <div class="img_cont_msg-chat">
-						<img></img>
-					</div> */}
 				</div>
 			);
+		} 
+	}
+
+	
+	enviarMensagem(id_chat, mensagem){
+		console.log(id_chat)
+		console.log(mensagem)
+		const msg = {
+			id_chat: id_chat,
+			mensagem
 		}
+
+		socket.emit('mensagem', msg);
+
+		$('#caixa-mensagem').append(`
+		<div class="d-flex justify-content-end mb-4">
+			<div class="msg_cotainer_send-chat">
+				${mensagem}
+				<span class="msg_time_send-chat">${DtUtils.getDt(mensagem.enviada_em).string}</span>
+			</div>
+		</div>
+		`)
 	}
 	
 	render() {
@@ -151,7 +176,7 @@ export default class Chat extends Component {
 					<div class="card-footer card-footer-chat"></div>
 				</div></div>
 				<div class="col-md-8 col-xl-6 chat">
-					<div class="card">
+					<div class="card" style={arredondando}>
 						<div class="card-header card-header-chat msg_head-chat">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont-chat">
@@ -185,7 +210,7 @@ export default class Chat extends Component {
 								</ul>
 							</div>
 						</div>
-						<div class="card-body msg_card_body">
+						<div class="card-body msg_card_body" id="caixa-mensagem" style={rolagem}>
 							
 							
 							{
@@ -200,16 +225,17 @@ export default class Chat extends Component {
 							
 							
 						</div>
+						
 						<div class="card-footer card-footer-chat">
 							<div class="input-group">
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn-chat"><i class="fas fa-paperclip"></i></span>
 								</div>
-								<textarea name="" class="form-control type_msg-chat pl-0" placeholder="Digite sua mensagem..."></textarea>
+								<input name="" class="form-control type_msg-chat pl-0" placeholder="Digite sua mensagem..."  ref={(input) => this.mensagem_chat = input} ></input>
 								<div class="input-group-append">
 									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
 									
-									<button className="btn">
+									<button className="btn" onClick={e => this.enviarMensagem(this.state.info_chat.id_chat, this.mensagem_chat.value)}>
 										<img className="botao_enviar_chat" src={cursor}></img>
 									</button>
 										
