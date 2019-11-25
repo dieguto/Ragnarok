@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Socket } from 'ngx-socket-io';
+import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-tabs',
@@ -7,6 +9,24 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  total:number;
+  constructor(private socket: Socket) {
+
+  }
+
+  ngOnInit(){
+    console.log("entrei no setime");
+    this.socket.emit('get_tnnv');
+
+    this.socket.on('tnnv', notificacoes =>{
+
+      console.log('eu sou a notificacao',notificacoes);
+      this.total = notificacoes; 
+    });    
+
+    this.socket.on('notificacao', notificacao =>{
+      alert(notificacao.info);
+    })
+  }
 
 }

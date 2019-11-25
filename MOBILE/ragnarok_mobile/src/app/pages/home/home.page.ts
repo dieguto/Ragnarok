@@ -23,12 +23,21 @@ export class HomePage implements OnInit {
   anuncios: Anuncio[];
   url =  environment.url;
   isVazio = false;
+  total:number;
 
   constructor(private cadastroAnuncioService: CadastroAnuncioService, private socket: Socket, private modalCtrl: ModalController, private storage:Storage) {
   }
 
   async ngOnInit() {
-  this.socket.connect();
+    this.socket.connect();
+    console.log("entrei no setime");
+    this.socket.emit('get_tnnv');
+
+    this.socket.on('tnnv', notificacoes =>{
+
+    console.log('eu sou a notificacao',notificacoes);
+    this.total = notificacoes; 
+    });    
    this.anuncios = await this.cadastroAnuncioService.buscarTodosHome(1, 1);
 
    console.log(this.anuncios);
@@ -143,6 +152,16 @@ async  filtrar_km(){
       console.log('Async operation has ended');
       this.refresher.complete();
     }, 500);
+  }
+
+
+  trocar(id_anuncio){
+    const json = {
+      id_anuncio: id_anuncio,
+      tipo:"troca"
+    }
+
+    this.socket.emit('iniciar_chat', json);
   }
 
 

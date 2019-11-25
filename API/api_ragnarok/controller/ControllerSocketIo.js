@@ -251,6 +251,7 @@ class ControllerSocketIo {
 
          socket.on("get_notificacoes", async () => {
             socket.emit("notificacoes", await this.getNotificacoes(socket.usuario.id, usuarios_online));
+			socket.emit("tnnv", await this.getTotalNotificacoesNaoVisualizadas(socket.usuario.id));
          })
 
          //total_notificacoes_nao_visualizadas
