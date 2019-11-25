@@ -86,7 +86,7 @@ export default class Anuncio extends Component {
                                     <div className="card card-anuncio">
                                         <div className="card-header">
                                             <div className="row">
-                                                <div className="col-9"><img src={IconeUser} className="rounded-circle icone-usuario"/> <span className="nome-usuario align-middle feed-titulo" >{anuncios.usuario.nome}</span></div>
+                                                <div className="col-9"><img src={IconeUser} alt="Icone Usuario" title="Icone Usuario" className="rounded-circle icone-usuario"/> <span className="nome-usuario align-middle feed-titulo" >{anuncios.usuario.nome}</span></div>
                                                 {
                                                     function(){
                                                         // console.log(anuncios.is_jogo)
@@ -158,7 +158,7 @@ export default class Anuncio extends Component {
                                                                                 function(){
                                                                                     if(typeof anuncios.info_rawg.jogo.imagem_fundo != 'null'){
                                                                                         return (
-                                                                                            <img src={anuncios.info_rawg.jogo.imagem_fundo} className="card-img card-img-anuncio"></img>
+                                                                                            <img src={anuncios.info_rawg.jogo.imagem_fundo} alt={anuncios.info_rawg.jogo.nome} title={anuncios.info_rawg.jogo.nome} className="card-img card-img-anuncio"></img>
                                                                                         );
                                                                                     }
                                                                                 }()
@@ -185,11 +185,19 @@ export default class Anuncio extends Component {
                                                                             {
                                                                                 function(){
                                                                                     console.log(api + "/" + anuncios.c_fotos[0])
-                                                                                    return anuncios.c_fotos.map(
+                                                                                    if(anuncios.c_fotos != null){
+                                                                                        return anuncios.c_fotos.map(
                                                                                              
-                                                                                        fotos => <img src={api + "/" + fotos} className="card-img borda-20px card-img-anuncio"/>
-                                                                                        
-                                                                                    )
+                                                                                            fotos => <img src={api + "/" + fotos} alt={"Foto " + anuncios.info_rawg.jogo.nome} title={"Foto " + anuncios.info_rawg.jogo.nome} className="card-img borda-20px card-img-anuncio"/>
+                                                                                            
+                                                                                        )
+                                                                                    }else{
+                                                                                        return(
+                                                                                             
+                                                                                            <p className="text-center align-middle">Não foi cadastrada nenhuma imagem deste anuncio</p>
+                                                                                            
+                                                                                        )
+                                                                                    }
                                                                                 }()
                                                                             }
                                                                             {/* <img src={api + "/" + anuncios.c_fotos} className="card-img borda-20px"/> */}
@@ -210,7 +218,7 @@ export default class Anuncio extends Component {
                                                                                     console.log(api + "/" + anuncios.c_fotos[0])
                                                                                     return anuncios.c_fotos.map(
                                                                                              
-                                                                                        fotos => <img src={api + "/" + fotos} className="card-img borda-20px card-img-anuncio"/>
+                                                                                        fotos => <img src={api + "/" + fotos} alt={"Foto " + anuncios.titulo} title={"Foto " + anuncios.titulo} className="card-img borda-20px card-img-anuncio"/>
                                                                                         
                                                                                     )
                                                                                 }()
@@ -271,16 +279,16 @@ export default class Anuncio extends Component {
                                                                                 if(anuncios.info_rawg){
                                                                                     if(typeof anuncios.info_rawg.jogo.imagem_fundo != 'null'){
                                                                                         return(
-                                                                                            <div className="col-6"><img src={anuncios.info_rawg.jogo.imagem_fundo} class="img-fluid" alt="" title=""/></div>
+                                                                                            <div className="col-6"><img src={anuncios.info_rawg.jogo.imagem_fundo} alt={anuncios.info_rawg.jogo.nome} title={anuncios.info_rawg.jogo.nome} class="img-fluid img-modal-anuncio"/></div>
                                                                                         );
                                                                                     }else{
                                                                                         return (
-                                                                                            <div className="col-6"><img src={api + "/" + anuncios.c_fotos[0]} class="img-fluid" alt="" title=""/></div>
+                                                                                            <div className="col-6"><img src={api + "/" + anuncios.c_fotos[0]} alt={"Foto " + anuncios.info_rawg.jogo.nome} title={"Foto " + anuncios.info_rawg.jogo.nome} class="img-fluid img-modal-anuncio"/></div>
                                                                                         );
                                                                                     }
                                                                                 } else {
                                                                                     return (
-                                                                                        <div className="col-6"><img src={api + "/" + anuncios.c_fotos[0]} class="img-fluid" alt="" title=""/></div>
+                                                                                        <div className="col-6"><img src={api + "/" + anuncios.c_fotos[0]} alt={"Foto " +  anuncios.titulo} title={"Foto " +  anuncios.titulo} class="img-fluid img-modal-anuncio"/></div>
                                                                                     );
                                                                                 }                                                                               
                                                                             }()
@@ -320,9 +328,15 @@ export default class Anuncio extends Component {
                                                                         <div className="col-8">                                                                            
                                                                             {
                                                                                 function(){
-                                                                                    return(
-                                                                                        <p><span className="texto-laranja">Preço:</span> {anuncios.preco}</p>
-                                                                                    ); 
+                                                                                    if(anuncios.preco != null){
+                                                                                        return(
+                                                                                            <p><span className="texto-laranja">Preço:</span> {anuncios.preco}</p>
+                                                                                        ); 
+                                                                                    }else{
+                                                                                        return(
+                                                                                            <p>Jogo apenas para troca</p>
+                                                                                        ); 
+                                                                                    }                                                                                    
                                                                                 }() 
                                                                             }
                                                                             {/* {
@@ -349,7 +363,7 @@ export default class Anuncio extends Component {
                                                         <div className="modal-footer background-333333 border-0">
                                                             <Link to="/chat">
                                                                 <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" >
-                                                                    <img src={IconChat} alt="" title=""/>Iniciar Chat
+                                                                    <img src={IconChat} alt="Icone Chat" title="Icone Chat"/>Iniciar Chat
                                                                 </button>
                                                             </Link>                                                            
                                                             <button type="button" className="btn background-222222 texto-laranja ml-auto btn-fechar" data-dismiss="modal">Fechar</button>

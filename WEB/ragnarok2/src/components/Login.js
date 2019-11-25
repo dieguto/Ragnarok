@@ -64,9 +64,9 @@ export default class Login extends Component {
                 <h1 className="header-logo titulo-cadastro-anuncio mt-5">Login</h1>
                 <div className="row">
                     <div className="col-3.5 mr-auto ml-auto"><hr className="accent-2 mb-4 mt-0 d-inline-block mx-auto linha-titulo-jogo"/></div>
-                </div>
+                </div>                
+                <p className="text-center cor-erro">{this.state.msg}</p>
                 <div className="login-container">
-                    <span>{this.state.msg}</span>
                     <form onSubmit={this.envia.bind(this)}>
                         <label className="form-check-label">E-mail:</label>
                         <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
