@@ -6,11 +6,7 @@ import 'bootstrap/js/dist/util';
 import './css/main.css';
 import Menu from './components/Header';
 import Footer from './components/Footer';
-import { ToastContainer } from 'react-toastify';
-
-
-
-
+import { ToastContainer } from 'react-toastify';  
 
 class App extends Component {
   render(){

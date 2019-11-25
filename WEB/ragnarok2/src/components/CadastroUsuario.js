@@ -3,7 +3,8 @@ import {browserHistory} from  'react-router';
 import Cleave from 'cleave.js/dist/cleave-react'
 import '../css/Cadastro.css';
 import '../css/cadastro-anuncio.css';
-
+import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO } from '../Alerta';
+import { ToastContainer } from 'react-toastify';
 
 export default class CadastroUsuario extends Component {
 
@@ -31,9 +32,12 @@ export default class CadastroUsuario extends Component {
             .then(response => {
                 //o "ok" é do proprio response, que retorna um boolean
                 if(response.ok) {
+                    Notificacao(INFO, CAMPO_VAZIO)
                     return response.text();
+                    
                 } else {
                     // criamos um novo erro, para interromper o fluxo
+                    Notificacao(INFO, CAMPO_VAZIO)
                     throw new Error('não foi possível fazer o cadastro');
                 }
             })
@@ -54,6 +58,7 @@ export default class CadastroUsuario extends Component {
     render(){
         return(
             <div className="login-container">
+                <ToastContainer />
                    
                         <form onSubmit={this.envia.bind(this)} name="formcadastro">   
                                 <h1 className="header-logo titulo-cadastro-anuncio">Cadastro</h1> 
