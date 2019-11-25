@@ -8,7 +8,7 @@ class JwtAuth {
 
    static verificarToken(req, res, next) {
       //PEGA O VALOR DO HEADER AUTHORIZATION
-      const header_auth_value = req.headers['authorization'];
+      let header_auth_value = req.headers['authorization'];
 
       if (header_auth_value) {
          //SEPARA A PALAVRA 'BEARER' DO TOKEN, PRA ASSIM CONSEGUIR O MESMO

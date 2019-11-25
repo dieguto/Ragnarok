@@ -18,6 +18,10 @@ class ControllerChat {
                .then(anuncio => {
 
                   if(anuncio){
+					  
+					  console.log("id do usuario do token", usuario_token.id);
+					  
+					  console.log("id do usuario do anuncio", usuario_token.id);
 
                      if(usuario_token.id == anuncio.id_usuario || usuario_token.is_admin){
 

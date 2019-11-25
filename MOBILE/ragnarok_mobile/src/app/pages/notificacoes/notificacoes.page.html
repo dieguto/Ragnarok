@@ -29,6 +29,10 @@
                   <!-- <h3>{{notificacao.info_chat.usuario.nome}}</h3> -->
                   <p>{{notificacao.info}}</p>
                 </ion-label>
+                <ion-button (click)="aceitarChat(notificacao.info_chat.id_chat)" *ngIf="!notificacao.info_chat.is_ativo">
+                  Abrir chat 
+                </ion-button>
+                
               </ion-item>
         </div>
       </ion-list>
