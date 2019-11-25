@@ -4,6 +4,7 @@ import DtUtils from "../Utils/DtUtils"
 
 import io from 'socket.io-client';
 import api from '../services/api';
+import cursor from '../assets/cursor.png';
 
 const token = sessionStorage.getItem("token");
 
@@ -119,7 +120,7 @@ export default class Chat extends Component {
 							this.state.chats.map(chat => {
 								return(
 									
-									<li class="active-chat" >
+									<li class="" >
 										<div class="d-flex bd-highlight" onClick={() => this.iniciarChat(chat.id_chat)}>
 											<div class="img_cont-chat">
 												<img src={api + "/" + chat.c_foto} class="rounded-circle user_img-chat"/>
@@ -143,31 +144,7 @@ export default class Chat extends Component {
 								);
 							})
 						}
-						<li class="active-chat">
-							<div class="d-flex bd-highlight">
-								<div class="img_cont-chat">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat"></span>
-								</div>
-								<div class="user_info-chat">
-									<span>Khalid</span>
-									<p>Kalid is online</p>
-								</div>
-							</div>
-						</li>
-						
-						<li >
-							<div class="d-flex bd-highlight">
-								<div class="img_cont-chat">
-									<img src="http://profilepicturesdp.com/wp-content/uploads/2018/07/sweet-girl-profile-pictures-9.jpg" class="rounded-circle user_img-chat"/>
-									<span class="online_icon-chat offline-chat"></span>
-								</div>
-								<div class="user_info-chat">
-									<span>Nargis Hawa</span>
-									<p>Nargis left 30 mins ago</p>
-								</div>
-							</div>
-						</li>
+
 						
 						</ui>
 					</div>
@@ -191,7 +168,7 @@ export default class Chat extends Component {
 								</div>
 								<div class="user_info-chat">
 									<span>{this.state.usuario.nome}</span>
-									<p>1767 Messages</p>
+									
 								</div>
 								<div class="video_cam-chat">
 									<span><i class="fas fa-video"></i></span>
@@ -231,6 +208,12 @@ export default class Chat extends Component {
 								<textarea name="" class="form-control type_msg-chat pl-0" placeholder="Digite sua mensagem..."></textarea>
 								<div class="input-group-append">
 									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+									
+									<button className="btn">
+										<img className="botao_enviar_chat" src={cursor}></img>
+									</button>
+										
+									
 								</div>
 							</div>
 						</div>

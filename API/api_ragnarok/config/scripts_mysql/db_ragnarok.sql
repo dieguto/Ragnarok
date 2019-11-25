@@ -327,6 +327,7 @@ CREATE TABLE tbl_chat(
    criado_em TIMESTAMP,
 	atualizado_em TIMESTAMP,
    excluido_em TIMESTAMP NULL,
+	is_ativo TINYINT NOT NULL,
 
    CONSTRAINT fk_id_anuncio_on_tbl_chat
 	FOREIGN KEY (id_anuncio)
@@ -334,9 +335,9 @@ CREATE TABLE tbl_chat(
 );
 
 -- CRIANDO CHAT SOBRE O PRIMEIRO ANUNCIO, O DO GTA SAN ANDREAS
-INSERT INTO tbl_chat VALUES (0, 1, 'fotos/1/0.jpg', now(), now(), NULL);
+INSERT INTO tbl_chat VALUES (0, 1, 'fotos/1/0.jpg', now(), now(), NULL, 1);
 
-INSERT INTO tbl_chat VALUES (0, 3, 'fotos/3/0.jpg', now(), now(), NULL);
+INSERT INTO tbl_chat VALUES (0, 3, 'fotos/3/0.jpg', now(), now(), NULL, 1);
 
 CREATE TABLE tbl_chat_usuario(
    id_chat_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
