@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-tabs',
