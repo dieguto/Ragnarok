@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {browserHistory} from  'react-router';
 import '../css/cadastro-anuncio.css'
 import '../css/Cadastro.css';
+import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO } from '../Alerta';
 
 
 export default class Login extends Component {
@@ -34,6 +35,7 @@ export default class Login extends Component {
                 } else {
                     // criamos um novo erro, para interromper o fluxo
                     throw new Error('não foi possível fazer o login');
+                    Notificacao(INFO, CAMPO_VAZIO)
                 }
             })
             .then(dadosUsuario => {
@@ -67,12 +69,16 @@ export default class Login extends Component {
                 </div>                
                 <p className="text-center cor-erro">{this.state.msg}</p>
                 <div className="login-container">
+<<<<<<< HEAD
+=======
+                    {/* <span>{this.state.msg}</span> */} 
+>>>>>>> 9e6db9ab9702b1cdebdb31b4c5d2058d61901c23
                     <form onSubmit={this.envia.bind(this)}>
                         <label className="form-check-label">E-mail:</label>
                         <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
                         <label className="form-check-label">Senha:</label>
                         <input type="password" placeholder="5dbni?" ref={(input) => this.senha = input}/>
-                        <input className="btn btn-outline-warning" type="submit" value="Entrar"/>
+                        <input className="btn btn-outline-warning" type="submit" onClick={() => Notificacao(AVISO, CAMPO_VAZIO)} value="Entrar" />
                     </form>
                 </div>
             </>

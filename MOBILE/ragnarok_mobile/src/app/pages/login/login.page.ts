@@ -99,6 +99,7 @@ export class LoginPage implements OnInit {
               console.log(result);
               this.toast('Login efetuado com sucesso ');
               console.log('eu sou o token ',localStorage.getItem("token"));
+              window.location.reload();
           }, async (error) =>{
             console.log('sou erro ', error);
             this.toast('Erro ao efetuar login');

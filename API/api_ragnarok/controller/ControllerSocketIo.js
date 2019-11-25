@@ -63,27 +63,37 @@ class ControllerSocketIo {
 
                if(chat){
 
-                  const nome_sala = `chat_${chat.id_chat}`;
+                  console.log("o chat esta ativo?: ", chat.is_ativo)
+
+                  if(chat.is_ativo){
+
+                     const nome_sala = `chat_${chat.id_chat}`;
                   
-                  const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
+                     const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
 
-                  if(total_na_sala < 2){
+                     if(total_na_sala < 2){
 
-                     await this.marcarMensagensComoLidas(socket.usuario.id, chat.id_chat);
+                        await this.marcarMensagensComoLidas(socket.usuario.id, chat.id_chat);
 
-                     socket.join(nome_sala);
+                        socket.join(nome_sala);
 
-                     let info_chat = await this.getInfoChat(socket.usuario.id, chat.id_chat, usuarios_online);
-                     
-                     socket.emit("iniciou", info_chat);
+                        let info_chat = await this.getInfoChat(socket.usuario.id, chat.id_chat, usuarios_online);
+                        
+                        socket.emit("iniciou", info_chat);
 
-                     socket.emit("mensagens_anteriores", await this.getMensagensTratadas(socket, chat.id_chat));
+                        socket.emit("mensagens_anteriores", await this.getMensagensTratadas(socket, chat.id_chat));
 
-                     console.log(`chat '${chat.id_chat}' iniciado!`)
+                        console.log(`chat '${chat.id_chat}' iniciado!`)
+
+                     } else {
+                        socket.emit("erro", "erro, mais de uma pessoa no chat de id '" + chat.id_chat + "'");
+                     }
 
                   } else {
-                     socket.emit("erro", "erro, mais de uma pessoa no chat de id '" + chat.id_chat + "'");
+                     socket.emit("erro", "erro, o chat '" + chat.id_chat + "' deve estar ativo para que se inicie a conversa");
                   }
+
+                  
 
                } else {
                   const anuncio = await Anuncio.findByPk(dados.id_anuncio);
@@ -91,10 +101,17 @@ class ControllerSocketIo {
                   if(anuncio){
 
                      if(anuncio.usuario.id != socket.usuario.id){
-                        
-                        //cria o chat e então manda a mensagem
 
-                        const chat_novo = await Chat.create({ id_anuncio: anuncio.id_anuncio, c_foto: anuncio.c_fotos[0] });
+                        let is_ativo = true;
+
+                        let tipo_chat = "";
+
+                        if(dados.tipo_chat == "troca" || dados.tipo_chat == "venda"){
+                           tipo_chat = "de " + dados.tipo_chat + " ";
+                           is_ativo = false;
+                        }
+
+                        const chat_novo = await Chat.create({ id_anuncio: anuncio.id_anuncio, c_foto: anuncio.c_fotos[0], is_ativo });
 
                         await ChatUsuario.create({ id_chat: chat_novo.id_chat, id_usuario: socket.usuario.id });
 
@@ -111,12 +128,6 @@ class ControllerSocketIo {
                         socket.emit("mensagens_anteriores", []);
 
                         console.log(`chat '${chat_novo.id_chat}' criado e iniciado!`);
-
-                        const tipo_chat = "";
-
-                        if(dados.tipo_chat == "troca" || dados.tipo_chat == "venda"){
-                           tipo_chat = "de " + dados.tipo_chat + " ";
-                        }                        
 
                         const notificacao = await Notificacao.create({
                            id_chat: chat_novo.id_chat,
@@ -164,51 +175,57 @@ class ControllerSocketIo {
 
                if(chat){
 
-                  const nome_sala = `chat_${chat.id_chat}`;
+                  if(chat.is_ativo){
 
-                  const possui_sala = this.possuiSala(socket, nome_sala);
+                     const nome_sala = `chat_${chat.id_chat}`;
 
-                  if(possui_sala){
+                     const possui_sala = this.possuiSala(socket, nome_sala);
 
-                     const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
+                     if(possui_sala){
 
-                     const cuDoUsuarioPara = await this.getCuDoPara(socket.usuario.id, chat.id_chat);
+                        const total_na_sala = this.getTotalDeUsuariosNaSala(io, nome_sala);
 
-                     let mensagem = await Mensagem.scope("simples").create({
-                        para: cuDoUsuarioPara.id_chat_usuario,
-                        mensagem: dados.mensagem,
-                        visualizada: total_na_sala == 2
-                     });
+                        const cuDoUsuarioPara = await this.getCuDoPara(socket.usuario.id, chat.id_chat);
 
-                     mensagem = this.getMensagemTratada(mensagem);
-
-                     if(total_na_sala == 2){
-
-                        socket.to(nome_sala).broadcast.emit("nova_mensagem", mensagem);
-                        
-                     } else {                   
-
-                        const notificacao = await Notificacao.create({
-                           id_chat: cuDoUsuarioPara.id_chat,
-                           para_usuario: cuDoUsuarioPara.id_usuario,
-                           info: `${socket.usuario.nome} enviou '${mensagem.mensagem}'`,
-                           is_mensagem: true,
-                           is_chat: false,
-                           visualizada: false
+                        let mensagem = await Mensagem.scope("simples").create({
+                           para: cuDoUsuarioPara.id_chat_usuario,
+                           mensagem: dados.mensagem,
+                           visualizada: total_na_sala == 2
                         });
 
-                        let info_chat = await this.getInfoChat(cuDoUsuarioPara.id_usuario, cuDoUsuarioPara.id_chat, usuarios_online);
+                        mensagem = this.getMensagemTratada(mensagem);
 
-                        notificacao.dataValues.info_chat = info_chat;
+                        if(total_na_sala == 2){
 
-                        socket.to("usuario_" + cuDoUsuarioPara.id_usuario).broadcast.emit("tnnv", await this.getTotalNotificacoesNaoVisualizadas(socket.usuario.id));
+                           socket.to(nome_sala).broadcast.emit("nova_mensagem", mensagem);
+                           
+                        } else {                   
 
-                        socket.to("usuario_" + cuDoUsuarioPara.id_usuario).broadcast.emit("notificacao", this.getNotificacaoTratada(notificacao));
+                           const notificacao = await Notificacao.create({
+                              id_chat: cuDoUsuarioPara.id_chat,
+                              para_usuario: cuDoUsuarioPara.id_usuario,
+                              info: `${socket.usuario.nome} enviou '${mensagem.mensagem}'`,
+                              is_mensagem: true,
+                              is_chat: false,
+                              visualizada: false
+                           });
+
+                           let info_chat = await this.getInfoChat(cuDoUsuarioPara.id_usuario, cuDoUsuarioPara.id_chat, usuarios_online);
+
+                           notificacao.dataValues.info_chat = info_chat;
+
+                           socket.to("usuario_" + cuDoUsuarioPara.id_usuario).broadcast.emit("tnnv", await this.getTotalNotificacoesNaoVisualizadas(socket.usuario.id));
+
+                           socket.to("usuario_" + cuDoUsuarioPara.id_usuario).broadcast.emit("notificacao", this.getNotificacaoTratada(notificacao));
+                        }
+
+                     } else {
+                        socket.emit("erro", "só e possivel enviar uma mensagem caso você inicie chat antes com o evento 'iniciar_chat'");
                      }
 
                   } else {
-                     socket.emit("erro", "só e possivel enviar uma mensagem caso você inicie chat antes com o evento 'iniciar_chat'");
-                  }
+                     socket.emit("erro", "erro, o chat '" + chat.id_chat + "' deve estar ativo para que se inicie a conversa");
+                  }  
 
                } else {
                   socket.emit("erro", "só é possivel enviar uma mensagem para um chat ao qual exista, e que você pertança ao mesmo também");
@@ -234,6 +251,7 @@ class ControllerSocketIo {
 
          socket.on("get_notificacoes", async () => {
             socket.emit("notificacoes", await this.getNotificacoes(socket.usuario.id, usuarios_online));
+			socket.emit("tnnv", await this.getTotalNotificacoesNaoVisualizadas(socket.usuario.id));
          })
 
          //total_notificacoes_nao_visualizadas
@@ -301,6 +319,8 @@ class ControllerSocketIo {
          cu.id_usuario = ${id_usuario}
          AND
          cu.excluido_em IS NULL
+         AND
+         c.is_ativo = 1
          AND
          c.excluido_em IS NULL;
       `;
@@ -458,6 +478,8 @@ class ControllerSocketIo {
          m.excluido_em IS NULL
          AND
          cu.excluido_em IS NULL
+         AND
+         c.is_ativo = 1
          AND
          c.excluido_em IS NULL
          GROUP BY 
@@ -636,14 +658,20 @@ class ControllerSocketIo {
    static async usuarioPossuiChatByIdChat(id_usuario, id_chat){
 
       const query = `
-         SELECT cu.* FROM 
+         SELECT c.* FROM 
          tbl_chat_usuario AS cu
+         INNER JOIN
+         tbl_chat AS c
+         ON
+         c.id_chat = cu.id_chat
          WHERE
          cu.id_chat = ${id_chat}
          AND
          cu.id_usuario = ${id_usuario}
          AND
          cu.excluido_em IS NULL
+         AND
+         c.excluido_em IS NULL
          ;       
       `;
 

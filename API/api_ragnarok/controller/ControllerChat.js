@@ -4,6 +4,59 @@ const Sequelize = require("sequelize");
 const con = require("../config/conexao");
 
 class ControllerChat {
+
+
+   static ativar(id_chat, usuario_token, callback){
+
+      if(!isNaN(id_chat)){
+
+         Chat.findByPk(id_chat)
+         .then(chat => {
+
+            if(chat){
+               Anuncio.findByPk(chat.id_anuncio)
+               .then(anuncio => {
+
+                  if(anuncio){
+
+                     if(usuario_token.id == anuncio.id_usuario || usuario_token.is_admin){
+
+
+                        Object.assign(chat, {is_ativo:  true});
+
+                        chat
+                        .save()
+                        .then(() => {
+                           callback(200, null);
+                        })
+                        .catch((err)=>{
+                           callback(400, err);
+                        })
+
+                     } else {
+                        callback(401, null);
+                     }
+
+                  } else {
+                     console.log("Anuncio não encontrado")
+                     callback(404, null);
+                  }
+
+               })
+            } else {
+               console.log("Chat não encontrado")
+               callback(404, null);
+            }
+
+         });
+
+      } else {
+         console.log("o campo 'id_chat' deve ser um numero inteiro")
+         callback(400, null);
+      }
+
+   }
+
    static deletar(id_chat, usuario_token, callback){
 
       if(!isNaN(id_chat)){
