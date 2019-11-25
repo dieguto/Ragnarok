@@ -11,17 +11,20 @@ import '../css/cadastro-anuncio.css';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
-// import 'jquery-nice-select/js/fastclick';
-// import 'jquery-nice-select/js/jquery';
-// import 'jquery-nice-select/js/jquery.nice-select';
-// import 'jquery-nice-select/js/prism';
+import io from 'socket.io-client';
 
-// import Select from '@material-ui/core/Select';
-// import TextField from '@material-ui/core/TextField';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import MenuItem from '@material-ui/core/MenuItem';
+const token = sessionStorage.getItem("token");
 
-// console.log(api)
+const opcoes = {
+    query: {
+        token: token
+    }
+};
+
+const socket = io('http://localhost:3108', opcoes);
+
+
+
 
 export default class Anuncio extends Component {
 
@@ -45,8 +48,23 @@ export default class Anuncio extends Component {
              this.setState({anuncios:anuncios})
              console.log(anuncios)
          })
+
+        
     }
 
+    iniciarChat(id_anuncio, tipo_chat){
+
+
+        var iniciar_chat = {
+
+            id_anuncio: id_anuncio,
+            tipo_chat: tipo_chat
+         };
+        
+         console.log(iniciar_chat)
+
+         socket.emit('iniciar_chat', iniciar_chat);
+    }
 
     render(){
         return(
@@ -347,11 +365,11 @@ export default class Anuncio extends Component {
                                             
                                                         {/* Rodapé do modal */}
                                                         <div className="modal-footer background-333333 border-0">
-                                                            <Link to="/chat">
-                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" >
-                                                                    <img src={IconChat} alt="" title=""/>Iniciar Chat
+                                                            {/* <Link to="/chat"> */}
+                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" onClick={e => this.iniciarChat(anuncios.id_anuncio, anuncios.preco != null ? "venda" : "troca")} >
+                                                                    <img src={IconChat} alt="" title=""/> Tenho interesse !
                                                                 </button>
-                                                            </Link>                                                            
+                                                            {/* </Link>                                                             */}
                                                             <button type="button" className="btn background-222222 texto-laranja ml-auto btn-fechar" data-dismiss="modal">Fechar</button>
                                                         </div>
                                             

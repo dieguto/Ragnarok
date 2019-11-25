@@ -15,6 +15,7 @@
 		}
 		.msg_card_body-chat{
 			overflow-y: auto;
+			
 		}
 		.card-header-chat{
 			border-radius: 15px 15px 0 0 !important;
@@ -116,6 +117,7 @@
 	.user_info-chat span{
 		font-size: 20px;
 		color: white;
+		cursor: pointer;
 	}
 	.user_info-chat p{
 	font-size: 10px;
@@ -140,6 +142,7 @@
 		padding: 10px;
 		position: relative;
 		min-width: 100px;
+		text-align: center;
 	}
 	.msg_cotainer_send-chat{
 		margin-top: auto;
@@ -149,6 +152,8 @@
 		background-color: #f39c12;
 		padding: 10px;
 		position: relative;
+		min-width: 100px;
+		text-align: center;
 	}
 	.msg_time-chat{
 		position: absolute;
