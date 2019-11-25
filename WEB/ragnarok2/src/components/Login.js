@@ -26,33 +26,29 @@ export default class Login extends Component {
                 // 'Authorization' : 'Bearer ' + token 
             })
         };
-  
+
+       
         fetch('http://3.92.51.72:3107/auth/login/usuario',requestInfo) // Versão para o TCC
             .then(response => {
                 //o "ok" é do proprio response, que retorna um boolean
                 if(response.ok) {
+                   
                     return response.text();
                 } else {
                     // criamos um novo erro, para interromper o fluxo
+                    // Notificacao(INFO, CAMPO_VAZIO)
                     throw new Error('não foi possível fazer o login');
-                    Notificacao(INFO, CAMPO_VAZIO)
+                    
                 }
             })
             .then(dadosUsuario => {
                 dadosUsuario = JSON.parse(dadosUsuario);
                 sessionStorage.setItem('token', dadosUsuario.token);
                 sessionStorage.setItem('usuario', JSON.stringify(dadosUsuario.usuario));
+                
                 browserHistory.push('/');
             })
-            // .then(dadosUsuario => {
-            //     dadosUsuario = JSON.parse(dadosUsuario);
-            //     console.log(dadosUsuario)
-            //     sessionStorage.setItem('usuario', dadosUsuario.usuario);
-            //     // sessionStorage.setItem('usuario', dadosUsuario.usuario);
-            //     // sessionStorage.setItem('nome', JSON.parse(usuario.nome));
-            //     browserHistory.push('/');
-            //     //console.log(token)
-            // })
+           
             
             .catch(error => {
                 this.setState({msg:error.message});
@@ -69,16 +65,13 @@ export default class Login extends Component {
                 </div>                
                 <p className="text-center cor-erro">{this.state.msg}</p>
                 <div className="login-container">
-<<<<<<< HEAD
-=======
-                    {/* <span>{this.state.msg}</span> */} 
->>>>>>> 9e6db9ab9702b1cdebdb31b4c5d2058d61901c23
                     <form onSubmit={this.envia.bind(this)}>
                         <label className="form-check-label">E-mail:</label>
                         <input type="text" placeholder="batatinhaxpto@senaisp.com" ref={(input) => this.login = input}/>
                         <label className="form-check-label">Senha:</label>
                         <input type="password" placeholder="5dbni?" ref={(input) => this.senha = input}/>
-                        <input className="btn btn-outline-warning" type="submit" onClick={() => Notificacao(ERRO, this.state.msg)} value="Entrar" />
+                        {/* onClick={() => Notificacao(ERRO, this.state.msg)} */}
+                        <input className="btn btn-outline-warning" type="submit" value="Entrar" />
                     </form>
                 </div>
             </>

@@ -379,15 +379,9 @@ export default class Anuncio extends Component {
                                             
                                                         {/* Rodapé do modal */}
                                                         <div className="modal-footer background-333333 border-0">
-<<<<<<< HEAD
                                                             {/* <Link to="/chat"> */}
                                                                 <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" onClick={e => this.iniciarChat(anuncios.id_anuncio, anuncios.preco != null ? "venda" : "troca")} >
                                                                     <img src={IconChat} alt="" title=""/> Tenho interesse !
-=======
-                                                            <Link to="/chat">
-                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" >
-                                                                    <img src={IconChat} alt="Icone Chat" title="Icone Chat"/>Iniciar Chat
->>>>>>> 674e8e690c1821b22c63058f740d09d6391add4c
                                                                 </button>
                                                             {/* </Link>                                                             */}
                                                             <button type="button" className="btn background-222222 texto-laranja ml-auto btn-fechar" data-dismiss="modal">Fechar</button>

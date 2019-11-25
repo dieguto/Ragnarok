@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router';
 import { GiBrutalHelm } from 'react-icons/gi';
 import 'bootstrap/js/dist/util'
+import bell from '../assets/bell.png'
+
 
 
 
@@ -11,6 +13,7 @@ export default class Menu extends Component{
 
     render(){
 
+      const bellnotification = {"width":"20px","height":"20px","cursor":"pointer"};
       const zindex = {"z-index":"9999","width":"100%"}
      
 
@@ -50,7 +53,11 @@ export default class Menu extends Component{
                          </Link>
                         
                         
+                        
                            <div className="btn-group">
+                           <div className="form-inline ml-3 mr-3">
+                             <img style={bellnotification} src={bell} ></img>
+                           </div>
                            <div className="form-inline ml-3 mr-3">
                              <Link to="/anuncio" className="btn btn-outline-warning ">Novo Anúncio</Link>
                            </div>
