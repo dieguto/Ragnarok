@@ -95,19 +95,22 @@ export class ChatPage implements OnInit {
     var mensagens = (<HTMLInputElement>document.getElementById('mensagens'));
 
     if(mensagem.is_para_usuario === true){
-      mensagens.innerHTML += `<div style="width:100vw; min-height: 10vh; overflow: auto; float:right; background-color:gray; display: inline-block">
+      mensagens.innerHTML += `<div  style="width:auto; margin-bottom:2vh;  padding-top: 1vh; padding-right: 1vh;  padding-left: 1vh; margin-top:2vh; clear:both;  min-height: 5vh; float:right; margin-right:5%; background-color:#333; color:#f39c12;   border-radius: 1vw 1vw 1vw 1vw; display: inline-block">
         ${mensagem.mensagem}
-      </div>`;
+      </div>
+      `;
     } else if(mensagem.is_para_usuario === false) {
-      mensagens.innerHTML += `<div style="width:100vw; min-height: 10vh; overflow: auto; float:left; background-color:green; display: inline-block">
+      mensagens.innerHTML += `<div style="width:auto; margin-bottom:2vh; padding-top: 1vh; padding-right: 1vh;  padding-left: 1vh; margin-top:2vh; min-height: 5vh; clear:both; float:left; margin-left:5%; background-color:#f39c12; color:#222;  border-radius: 1vw 1vw 1vw 1vw; display: inline-block">
         ${mensagem.mensagem}
       </div>`;
-
-
-      jQuery('#mensagens').appe
 
     }
 
+
+
+    
+
+    // ${mensagem.enviada_em}
     mensagens.scrollBy(0, 500);
 
     // mensagens.scrol

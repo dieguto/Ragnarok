@@ -1,0 +1,82 @@
+
+.balloon {
+    background: #fafafa;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 75%;
+}
+
+
+.balloon .time-done {
+    float: right;
+}
+
+.balloon .time {
+    font-size: 13px;
+    color: #444;
+    line-height: 24px;
+    height: 20px;
+    display: inline-block;
+}
+
+.balloon.sended {
+    margin-left: auto;
+    background: #c6f88c;
+}
+
+.balloon.received .visualized {
+    display: none;
+}
+
+.balloon.sended .visualized {
+    color: darkcyan;
+    font-size: 15px;
+}
+
+.case-send {
+    display: flex;
+    padding: 0 8px;
+    margin: 8px 0;
+}
+
+.case-send .input-container {
+    height: 44px;
+    display: flex;
+    border-radius: 27px;
+    background-color: #ffffff;
+    padding: 0 8px;
+    width: calc(100% - 54px);
+    box-sizing: border-box;
+}
+
+.case-send .input-container input {
+    border: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    width: 100%;
+}
+
+.case-send .input-container button {
+    border: 0;
+    margin-right: 8px;
+    background-color: transparent;
+    color: #777777;
+}
+
+.case-send .fab {
+    border: 0;
+    height: 44px;
+    margin-left: 8px;
+    width: 44px;
+    background-color: #004d40;
+    color: #ffffff;
+    border-radius: 27px;
+}
+
+.case-send .fab i {
+    font-size: 20px;
+    line-height: 44px;
+}
+
