@@ -44,17 +44,14 @@ class BoxChat extends Component{
 		 <>
             <CardPrincipal titulo={ this.titulo }>
 
+			   <CardRota parentAcc={ this.parentAcc } titulo='Ativar chat - REQUER TOKEN' metodo='patch' 
+                  rota="/chat/ativar/:id_chat" jsonResp={ this.respSugestoes } />
+			
                <CardRota parentAcc={ this.parentAcc } titulo='Deletar chat - REQUER TOKEN' metodo='delete' 
                   rota="/chat/:id_chat" jsonResp={ this.respSugestoes } />
 
             </CardPrincipal>
-      
-            <CardPrincipal titulo={ this.titulo }>
-
-               <CardRota parentAcc={ this.parentAcc } titulo='Ativar chat - REQUER TOKEN' metodo='patch' 
-                  rota="/chat/ativar/:id_chat" jsonResp={ this.respSugestoes } />
-   
-            </CardPrincipal>
+           
 		 </>
       );
    }
