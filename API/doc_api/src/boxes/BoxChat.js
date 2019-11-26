@@ -41,14 +41,21 @@ class BoxChat extends Component{
    
    render(){
       return(
+		 <>
+            <CardPrincipal titulo={ this.titulo }>
+
+               <CardRota parentAcc={ this.parentAcc } titulo='Deletar chat - REQUER TOKEN' metodo='delete' 
+                  rota="/chat/:id_chat" jsonResp={ this.respSugestoes } />
+
+            </CardPrincipal>
       
-         <CardPrincipal titulo={ this.titulo }>
+            <CardPrincipal titulo={ this.titulo }>
 
-            <CardRota parentAcc={ this.parentAcc } titulo='Deletar chat - REQUER TOKEN' metodo='delete' 
-               rota="/chat/:id_chat" jsonResp={ this.respSugestoes } />
-
-         </CardPrincipal>
-
+               <CardRota parentAcc={ this.parentAcc } titulo='Ativar chat - REQUER TOKEN' metodo='patch' 
+                  rota="/chat/ativar/:id_chat" jsonResp={ this.respSugestoes } />
+   
+            </CardPrincipal>
+		 </>
       );
    }
 
