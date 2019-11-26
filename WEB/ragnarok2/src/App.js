@@ -8,13 +8,15 @@ import Menu from './components/Header';
 import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';  
 
+
+
 class App extends Component {
   render(){
   return (
     <div className="App">
       <ToastContainer></ToastContainer>
         <Menu/>
-       {this.props.children}
+          {this.props.children}
         <Footer></Footer>
     </div>
   );}

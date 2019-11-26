@@ -4,12 +4,19 @@ import { GiBrutalHelm } from 'react-icons/gi';
 import 'bootstrap/js/dist/util'
 import bell from '../assets/bell.png'
 
+import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO } from '../Alerta';
 
-
+import {socket} from './Anuncio';
 
 export default class Menu extends Component{
 
+    componentDidMount(){
+      socket.on('notificacao', notificacao => {
+        Notificacao(PADRAO, notificacao.info)
+        console.log(notificacao)
+      })
 
+    }
 
     render(){
 
