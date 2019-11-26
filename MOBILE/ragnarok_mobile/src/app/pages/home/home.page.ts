@@ -165,6 +165,12 @@ async  filtrar_km(){
     console.log(json);
 
     this.socket.emit('iniciar_chat', json);
+
+
+    this.socket.on("iniciou", info_chat => {
+      this.socket.emit('sair_chat');
+    })
+    
   }
 
 

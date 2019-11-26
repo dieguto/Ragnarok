@@ -1,44 +1,31 @@
+        ion-header{
+            ion-toolbar{
+                ion-grid{
+                    margin-left: auto;
+                    margin-right: auto;
+                }
 
+                ion-col{
+                    #botao_direito{
+                        margin-left: 20%;
+                    }
+                    ion-title{
+                        
+                    }
 
-    
-    ion-header{
-        height: 9.5%;
-        width: 100%;
-        background: #333;
+                    ion-button{
+                        --background:none;
+                        --border-color:none;
+                        --border-radius:none;
+                        --border-style:none;
+                        --background: none;
+                        --box-shadow: none;
+                        --color-focused:none;
+                        
+                    }
 
-        .kkk{
-            height: inherit;
-            width: inherit;
-            background: #333;
-
-            ion-title{
-                --color:#f39c12 ;
-                // --margin-left:50%;
-                text-align: center;
-                margin-top:5%;
-                width: 70%;
-                margin-left: 15%;
+                }
             }
-
-            .next{
-                position: absolute;
-                margin-left: 80%;
-                margin-top: -1%;
-                color:#f39c12 ;
-                --background: none;
-                --box-shadow: none;
-                // justify-content: flex-end
-            }
-            .prev{
-                margin-left: 1%;
-                position: absolute;
-                margin-top: -7.5%;
-                // background: #f39c12;
-                color:#f39c12 ;
-                --background: none;
-                --box-shadow: none;
-            }
-        }
         }
 
         ion-slides{

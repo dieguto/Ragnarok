@@ -23,8 +23,11 @@ export class TabsPage {
       this.total = notificacoes; 
     });    
 
+
+
     this.socket.on('notificacao', notificacao =>{ 
       alert(notificacao.info);
+      this.socket.emit('get_notificacoes');
     })    
 
     this.socket.on('erro', erro =>{ 

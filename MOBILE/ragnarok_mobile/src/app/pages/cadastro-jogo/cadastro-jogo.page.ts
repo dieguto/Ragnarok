@@ -98,7 +98,6 @@ export class CadastroJogoPage implements OnInit {
              });
           }
       }else if(valor == "jogo_desejado"){
-        // console.log( this.ionSearchBar.type);
         var inputValue = (<HTMLInputElement>document.getElementById('pop12')).value;
 
         console.log("eu", inputValue);

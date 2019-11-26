@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalController, NavParams, IonContent } from '@ionic/angular';
 import { Socket } from 'ngx-socket-io';
 import { environment } from 'src/environments/environment';
+// import {jQuery} from '@jquery';
 
 
 
@@ -102,6 +103,9 @@ export class ChatPage implements OnInit {
         ${mensagem.mensagem}
       </div>`;
 
+
+      jQuery('#mensagens').appe
+
     }
 
     mensagens.scrollBy(0, 500);
@@ -117,6 +121,7 @@ export class ChatPage implements OnInit {
     // this.socket.removeAllListeners("mensagens_anteriores");
 
     // this.socket.removeAllListeners("nova_mensagem");
+    this.socket.emit("sair_chat");
 
     this.modalCtrl.dismiss();
   }

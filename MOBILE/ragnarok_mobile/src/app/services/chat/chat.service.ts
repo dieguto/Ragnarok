@@ -36,4 +36,28 @@ export class ChatService {
 
     return this.http.patch(`http://localhost:3107/chat/ativar/${id_chat}`, {}, httpOptions).toPromise();
   }
+
+  async deletarChat(id_chat){
+    const TOKEN_KEY = 'access_token';
+    const token = await this.storage.get(TOKEN_KEY);
+
+    var xxx = {   
+      "Accept": 'application/json',
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + token
+    };
+
+    alert("JSON do ativar: " + JSON.stringify(xxx));
+
+
+    const httpOptions = {
+      headers: new HttpHeaders({   
+        "Accept": 'application/json',
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + token
+      })
+    };
+
+    return this.http.delete(`http://localhost:3107/chat/${id_chat}`, httpOptions).toPromise();
+  }
 }

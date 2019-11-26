@@ -22,7 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DirectPage, ChatPage],
-  entryComponents: [ChatPage]
+  declarations: [DirectPage],
+  entryComponents: []
 })
 export class DirectPageModule {}

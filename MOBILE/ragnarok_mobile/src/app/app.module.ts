@@ -16,6 +16,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
 import {NgxMaskIonicModule} from 'ngx-mask-ionic';
 import { UsuarioService } from './services/usuario/usuario.service';
+import { ChatPage } from './pages/chat/chat.page';
 
 // storage: Storage
 console.log(localStorage.getItem("token"));
@@ -40,8 +41,8 @@ export function jwtOptionsFacgtory(storage){
 }
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ChatPage],
+  entryComponents: [ChatPage],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(),

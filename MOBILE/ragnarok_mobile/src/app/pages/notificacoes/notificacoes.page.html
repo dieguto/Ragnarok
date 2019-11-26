@@ -32,6 +32,9 @@
                 <ion-button (click)="aceitarChat(notificacao.info_chat.id_chat)" *ngIf="!notificacao.info_chat.is_ativo">
                   Abrir chat 
                 </ion-button>
+                <ion-button (click)="excluirChat(notificacao.info_chat.id_chat)" *ngIf="!notificacao.info_chat.is_ativo">
+                  Deletar chat 
+                </ion-button>
                 
               </ion-item>
         </div>

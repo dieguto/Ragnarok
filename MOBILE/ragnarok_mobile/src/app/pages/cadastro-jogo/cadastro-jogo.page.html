@@ -1,16 +1,25 @@
 <ion-header>
-  <!-- <ion-toolbar> -->
-    <div class="kkk">
-      <ion-button class="next" (click)="slides.slideNext()">
-          <ion-icon size="large" name="arrow-round-forward"></ion-icon>
-      </ion-button>
-    
-    <ion-title >Cadastrar produto</ion-title>
-    <ion-button class="prev" (click)="slides.slidePrev()">
-    <ion-icon size="large"  name="arrow-round-back"></ion-icon>
-    </ion-button>
-    </div>
-  <!-- </ion-toolbar> -->
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-button  (click)="slides.slidePrev()">
+              <ion-icon name="arrow-round-back"></ion-icon>
+            </ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-title style="padding-top: 5%;">
+              Cadastrar produto
+            </ion-title>
+        </ion-col>
+        <ion-col>
+            <ion-button id="botao_direito"   (click)="slides.slideNext()">
+              <ion-icon  name="arrow-round-forward"></ion-icon>
+            </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
 </ion-header>
 <ion-content >
   <form [formGroup]="formCriarAnuncio" (ngSubmit)="criarAnuncio()">

@@ -146,7 +146,7 @@ class ControllerChat {
    // }
 
    static async excluirChat(id_chat){
-      const query = `
+      const query1 = `
          UPDATE 
          tbl_chat AS c
          INNER JOIN
@@ -177,15 +177,44 @@ class ControllerChat {
          AND
          c.id_chat = ${id_chat};
       `;
+	  
+      const query2 = `
+         UPDATE 
+         tbl_chat AS c
+         INNER JOIN
+         tbl_chat_usuario AS cu
+         ON
+         cu.id_chat = c.id_chat
+         INNER JOIN
+         tbl_notificacao AS n
+         ON
+         n.id_chat = c.id_chat
+         SET 
+         c.excluido_em = now(),
+         cu.excluido_em = now(),
+         n.excluido_em = now()
+         WHERE
+         c.excluido_em IS NULL
+         AND
+         cu.excluido_em IS NULL
+         AND
+         n.excluido_em IS NULL
+         AND
+         c.id_chat = ${id_chat};
+      `;
+	  
+	  //console.log(query);
 
-      await con.query(query, { type: Sequelize.QueryTypes.UPDATE });
+      await con.query(query1, { type: Sequelize.QueryTypes.UPDATE });
+	  
+      await con.query(query2, { type: Sequelize.QueryTypes.UPDATE });
 
       return;
 
    }
 
    static async excluirChatsByAnuncio(id_anuncio){
-      const query = `
+      const query1 = `
          UPDATE 
          tbl_chat AS c
          INNER JOIN
@@ -217,7 +246,34 @@ class ControllerChat {
          c.id_anuncio = ${id_anuncio};
       `;
 
-      await con.query(query, { type: Sequelize.QueryTypes.UPDATE });
+      const query2 = `
+         UPDATE 
+         tbl_chat AS c
+         INNER JOIN
+         tbl_chat_usuario AS cu
+         ON
+         cu.id_chat = c.id_chat
+         INNER JOIN
+         tbl_notificacao AS n
+         ON
+         n.id_chat = c.id_chat
+         SET 
+         c.excluido_em = now(),
+         cu.excluido_em = now(),
+         n.excluido_em = now()
+         WHERE
+         c.excluido_em IS NULL
+         AND
+         cu.excluido_em IS NULL
+         AND
+         n.excluido_em IS NULL
+         AND
+         c.id_anuncio = ${id_anuncio};
+      `;
+
+      await con.query(query1, { type: Sequelize.QueryTypes.UPDATE });
+	  
+      await con.query(query2, { type: Sequelize.QueryTypes.UPDATE });
 
       return;
 
