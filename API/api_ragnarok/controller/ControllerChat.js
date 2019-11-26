@@ -18,13 +18,8 @@ class ControllerChat {
                .then(anuncio => {
 
                   if(anuncio){
-					  
-					  console.log("id do usuario do token", usuario_token.id);
-					  
-					  console.log("id do usuario do anuncio", usuario_token.id);
 
-                     if(usuario_token.id == anuncio.id_usuario || usuario_token.is_admin){
-
+                     if(usuario_token.id == anuncio.usuario.id || usuario_token.is_admin){
 
                         Object.assign(chat, {is_ativo:  true});
 
@@ -74,7 +69,7 @@ class ControllerChat {
 
                   if(anuncio){
 
-                     if(usuario_token.id == anuncio.id_usuario || usuario_token.is_admin){
+                     if(usuario_token.id == anuncio.usuario.id || usuario_token.is_admin){
 
                         this.excluirChat(id_chat)
                         .then(() => {
