@@ -21,18 +21,23 @@ const opcoes = {
     }
 };
 
-const socket = io('http://localhost:3108', opcoes);
+export const socket = io('http://localhost:3108', opcoes);
 
 
 
 
 export default class Anuncio extends Component {
 
+
+
     constructor(){
         super();
         this.state = {anuncios: [], showModal: false}
         this.abrirModal = this.abrirModal.bind(this)        
         this.cont = 0;
+        socket.on('erro', erro => {
+            alert(erro);
+        })
     }
 
     abrirModal(){
@@ -58,7 +63,6 @@ export default class Anuncio extends Component {
         var iniciar_chat = {
 
             id_anuncio: id_anuncio,
-            tipo_chat: tipo_chat
          };
         
          console.log(iniciar_chat)

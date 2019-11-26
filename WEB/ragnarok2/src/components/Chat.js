@@ -2,21 +2,18 @@ import React, { Component } from 'react';
 import '../css/chat.css';
 import DtUtils from "../Utils/DtUtils"
 
-import io from 'socket.io-client';
+
 import api from '../services/api';
 import cursor from '../assets/cursor.png';
 
 import $ from 'jquery';
 
-const token = sessionStorage.getItem("token");
+import {socket} from './Anuncio';
 
-const opcoes = {
-	query: {
-		token: token
-	}
-};
 
-const socket = io('http://localhost:3108', opcoes);
+
+
+
 
 const rolagem = {"max-height":"320px", "overflow":"auto"};
 const arredondando = {"border-radius":"20px"};
@@ -78,6 +75,10 @@ export default class Chat extends Component {
 		 socket.on("mensagens_anteriores", msgs_ant => {
 			 this.setState({mensagens_anteriores: msgs_ant})
 		 })
+
+		 socket.on("nova_mensagem", mensagem => {
+			 this.carregarMsgRecebida(mensagem)
+		 })
 	}
 
 
@@ -105,6 +106,17 @@ export default class Chat extends Component {
 		} 
 	}
 
+	carregarMsgRecebida(mensagem){
+		$('#caixa-mensagem').append(`
+		<div class="d-flex justify-content-start mb-4">		
+			<div class="msg_cotainer-chat">
+				${mensagem.mensagem}
+				<span class="msg_time-chat">${DtUtils.getDt(mensagem.enviada_em).string}</span>
+			</div>
+		</div>
+		`)
+	}
+
 	
 	enviarMensagem(id_chat, mensagem){
 		console.log(id_chat)
@@ -120,7 +132,7 @@ export default class Chat extends Component {
 		<div class="d-flex justify-content-end mb-4">
 			<div class="msg_cotainer_send-chat">
 				${mensagem}
-				<span class="msg_time_send-chat">${DtUtils.getDt(mensagem.enviada_em).string}</span>
+				<span class="msg_time_send-chat">${DtUtils.getDt().string}</span>
 			</div>
 		</div>
 		`)
