@@ -19,8 +19,8 @@ import { UsuarioService } from './services/usuario/usuario.service';
 import { ChatPage } from './pages/chat/chat.page';
 
 // storage: Storage
-console.log(localStorage.getItem("token"));
-const config: SocketIoConfig = { url: 'http://localhost:3108', options: {
+console.log('eu sou o token do socket', localStorage.getItem("token"));
+const config: SocketIoConfig = { url: 'http://3.92.51.72:3108', options: {
   query:{
     token: localStorage.getItem("token")
   }

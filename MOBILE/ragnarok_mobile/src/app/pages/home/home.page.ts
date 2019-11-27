@@ -29,8 +29,21 @@ export class HomePage implements OnInit {
   }
 
   async ngOnInit() {
-    this.socket.connect();
-    console.log("entrei no setime");
+    alert(localStorage.getItem("token"));
+    
+    if(localStorage.getItem("reiniciou") == "nao"){
+
+      localStorage.setItem("reiniciou", "sim");
+
+      setTimeout(() => {
+        window.location.replace('/');
+      }, 1000);
+
+    } else {
+      this.socket.connect();
+    }
+    
+
     this.socket.emit('get_tnnv');
 
     this.socket.on('tnnv', notificacoes =>{

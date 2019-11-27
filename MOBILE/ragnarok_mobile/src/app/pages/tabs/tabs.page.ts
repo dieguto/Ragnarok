@@ -14,6 +14,8 @@ export class TabsPage {
   }
 
   ngOnInit(){
+    
+
     console.log("entrei no setime");
     this.socket.emit('get_tnnv');
 
@@ -33,6 +35,8 @@ export class TabsPage {
     this.socket.on('erro', erro =>{ 
       alert("ERRO: " + erro);
     })
+
+
   }
 
 }
