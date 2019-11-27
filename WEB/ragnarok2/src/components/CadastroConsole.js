@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../css/cadastro-anuncio.css';
 import $ from 'jquery';
 import ImgUtils from '../components/ImgUtils';
+import {browserHistory} from  'react-router';
 
 export default class CadastroConsole extends Component{
 
@@ -51,7 +52,7 @@ export default class CadastroConsole extends Component{
   }
 
   getById(elemento){
-    console.log("estou aqui na linha 28")
+    // console.log("estou aqui na linha 28")
     console.log(document.getElementById(elemento));
     return document.getElementById(elemento);
   }
@@ -106,9 +107,14 @@ export default class CadastroConsole extends Component{
     .then(response => {
       if(response.ok){
         return response.text();
+       
       } else {
         // throw new Error('não foi possível realizar o cadastro');
       }
+    })
+    .then(console =>{
+      
+      browserHistory.push('/');
     })
     
     })
@@ -166,7 +172,13 @@ export default class CadastroConsole extends Component{
                 <div className="form-group">
                   <div className="background-333333 mr-auto ml-auto caixa_imagem"></div>
                 </div>
-                <div id="imgs_div"></div>
+                <div className="row">
+                  <div class="background-333333 mr-auto ml-auto card caixa-imagem col-6">
+                    <div className="card-body mr-auto ml-auto">
+                      <div className="float-left " id="imgs_div"></div>
+                    </div>
+                  </div>
+                </div>
                 <button type="submit" className="btn btn-cadastro">Cadastrar</button>
               </form>      
             </div>  
