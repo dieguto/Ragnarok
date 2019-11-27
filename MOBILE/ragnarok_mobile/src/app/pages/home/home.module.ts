@@ -22,7 +22,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [HomePage, HomeModalPage],
-  entryComponents: [HomeModalPage]
+  declarations: [HomePage],
+  entryComponents: []
 })
 export class HomePageModule {}
