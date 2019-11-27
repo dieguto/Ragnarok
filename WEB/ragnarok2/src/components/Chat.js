@@ -26,7 +26,7 @@ export default class Chat extends Component {
 		super();
 		this.state = {
 			response: false,
-			endpoint: 'http://localhost:3107',
+			endpoint: 'http://3.92.51.72:3107/',
 			chats: [],
 			mensagens_anteriores: [],
 			usuario: {nome:"Clique a esquerda para abrir um chat ;)"},

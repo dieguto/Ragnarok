@@ -34,7 +34,7 @@ export default class Footer extends Component{
                     {/* <!-- Grid column --> */}
                     <div className="col-md-5 col-lg-2 col-xl-2 mx-auto mb-4">
                     <div id="logo-footer">
-                        <img src={ImgLogo} class="img-fluid"/>
+                        <img src={ImgLogo} className="img-fluid"/>
                     </div>
                     </div>
                     {/* <!-- Grid column --> */}
