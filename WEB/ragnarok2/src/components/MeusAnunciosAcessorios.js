@@ -17,22 +17,13 @@ export default class MeusAnuncios extends Component{
     }
 
     componentDidMount(){
-        fetch( `${api}/anuncios/todos/1/0/1/100/distancia/0/9999/asc`)
+        fetch( `${api}/anuncios/usuario/1/1/0/0/0/0/0/0/0/0`)
         .then(response => response.json())
         .then(anuncios => {
             this.setState({anuncios:anuncios})
             console.log(anuncios)
         })        
    }
-
-    buscarJogos(){
-        fetch( `${api}/anuncios/jogos/1/0/1/100/distancia/0/9999/asc`)
-        .then(response => response.json())
-        .then(anuncios => {
-            this.setState({anuncios:anuncios})
-            console.log(anuncios)
-        })        
-    }
 
     buscarAcessorios(){
         
@@ -62,10 +53,16 @@ export default class MeusAnuncios extends Component{
                         <div className="card background-333333 texto-laranja card-usuario">
                             <div className="row">
                                 <div className="col-12">
-                                    <div className="row">                                        
-                                        <div className="col-4 tab1 text-center"><img className="icone-tab1" src={IconeJogo} alt="Icone Jogos" title="Icone Jogos"/></div>
-                                        <div className="col-4 tab2 text-center"><img className="icone-tab2" src={IconeAcessorio} alt="Icone Acessorio" title="Icone Acessorio"/></div>
-                                        <div className="col-4 tab3 text-center"><img className="icone-tab2" src={IconeConsole} alt="Icone Console" title="Icone Console"/></div>
+                                    <div className="row">                
+                                        <Link to="/meusAnuncios">
+                                            <div className="col-4 tab1 text-center"><img className="icone-tab1" src={IconeJogo} alt="Icone Jogos" title="Icone Jogos"/></div>
+                                        </Link>                        
+                                        <Link to="/meusAnunciosAcessorios">
+                                            <div className="col-4 tab2 text-center"><img className="icone-tab2" src={IconeAcessorio} alt="Icone Acessorio" title="Icone Acessorio"/></div>
+                                        </Link>
+                                        <Link to="/meusAnunciosConsoles">
+                                            <div className="col-4 tab3 text-center"><img className="icone-tab2" src={IconeConsole} alt="Icone Console" title="Icone Console"/></div>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

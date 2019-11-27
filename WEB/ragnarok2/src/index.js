@@ -8,6 +8,8 @@ import Logout from './components/Logout';
 import CadastroUsuario from './components/CadastroUsuario';
 import EditarUsuario from './components/EditarUsuario';
 import MeusAnuncios from './components/MeusAnuncios';
+import MeusAnunciosAcessorios from './components/MeusAnunciosAcessorios';
+import MeusAnunciosConsoles from './components/MeusAnunciosConsoles';
 
 import Anuncio from './components/AnuncioEscolha';
 import CadastroJogos from './components/CadastroJogo';
@@ -46,6 +48,8 @@ ReactDOM.render(
                       <Route path="/cadastroUsuario" component={CadastroUsuario}/>
                       <Route path="/editarUsuario" component={EditarUsuario}/>
                       <Route path="/meusAnuncios" component={MeusAnuncios}/>
+                      <Route path="/meusAnunciosAcessorios" component={MeusAnunciosAcessorios}/>
+                      <Route path="/meusAnunciosConsoles" component={MeusAnunciosConsoles}/>
 
                       <Route path="/chat" component={Chat}/>
                       <Route path="/admin/cms" component={CMS} />

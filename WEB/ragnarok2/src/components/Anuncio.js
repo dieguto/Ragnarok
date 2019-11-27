@@ -24,8 +24,6 @@ const opcoes = {
 export const socket = io('http://localhost:3108', opcoes);
 
 
-
-
 export default class Anuncio extends Component {
 
 
@@ -52,9 +50,7 @@ export default class Anuncio extends Component {
          .then(anuncios => {
              this.setState({anuncios:anuncios})
              console.log(anuncios)
-         })
-
-        
+         })        
     }
 
     iniciarChat(id_anuncio, tipo_chat){
