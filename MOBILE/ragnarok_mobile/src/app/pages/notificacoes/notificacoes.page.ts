@@ -32,6 +32,7 @@ export class NotificacoesPage implements OnInit {
       console.log(id_chat);
       const result = await this.chatService.ativarChat(id_chat);
       console.log(result);
+      console.log('eu sou o result', result);
       // Abrindo chat para conversa 
       let modal = await this.modalCtrl.create({
         component : ChatPage,

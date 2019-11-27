@@ -34,7 +34,11 @@ export class ChatService {
       })
     };
 
-    return this.http.patch(`http://3.92.51.72:3108/chat/ativar/${id_chat}`, {}, httpOptions).toPromise();
+
+
+    console.log("url do aceitar chat", `http://3.92.51.72:3108/chat/ativar/${id_chat}`)
+
+    return this.http.patch(`http://3.92.51.72:3107/chat/ativar/${id_chat}`, {}, httpOptions).toPromise();
   }
 
   async deletarChat(id_chat){
@@ -58,6 +62,8 @@ export class ChatService {
       })
     };
 
-    return this.http.delete(`http://3.92.51.72:3108/chat/${id_chat}`, httpOptions).toPromise();
+    return this.http.delete(`http://3.92.51.72:3107/chat/${id_chat}`, httpOptions).toPromise();
+
+
   }
 }
