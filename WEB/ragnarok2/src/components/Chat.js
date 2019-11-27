@@ -10,23 +10,15 @@ import $ from 'jquery';
 
 import {socket} from './Anuncio';
 
-
-
-
-
-
 const rolagem = {"max-height":"320px", "overflow":"auto"};
 const arredondando = {"border-radius":"20px"};
-
-
-// import { Container } from './styles';
 
 export default class Chat extends Component {
 	constructor(){
 		super();
 		this.state = {
 			response: false,
-			endpoint: 'http://localhost:3107',
+			endpoint: 'http://3.92.51.72:3108/',
 			chats: [],
 			mensagens_anteriores: [],
 			usuario: {nome:"Clique a esquerda para abrir um chat ;)"},

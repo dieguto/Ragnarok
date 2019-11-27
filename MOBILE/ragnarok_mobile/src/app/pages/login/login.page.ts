@@ -44,6 +44,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     // this.usuario = new Usuario();
+    const t = localStorage.getItem("token");
+    if(t === null || t === undefined){
+      localStorage.setItem("reiniciou", "nao");
+    }
+    
   }
 // slide
 
@@ -99,7 +104,18 @@ export class LoginPage implements OnInit {
               console.log(result);
               this.toast('Login efetuado com sucesso ');
               console.log('eu sou o token ',localStorage.getItem("token"));
-              window.location.reload();
+
+
+              // setTimeout(() => {
+              //   console.log(result);
+              //   this.toast('Login efetuado com sucesso ');
+              //   console.log('eu sou o token ',localStorage.getItem("token"));
+                
+              //   setTimeout(() => {
+              //     window.location.reload();
+              //   }, 2500);
+                
+              // }, 2000);
           }, async (error) =>{
             console.log('sou erro ', error);
             this.toast('Erro ao efetuar login');

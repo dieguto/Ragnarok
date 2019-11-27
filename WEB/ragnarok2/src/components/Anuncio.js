@@ -21,7 +21,7 @@ const opcoes = {
     }
 };
 
-export const socket = io('http://localhost:3108', opcoes);
+export const socket = io('http://3.92.51.72:3108/', opcoes);
 
 
 export default class Anuncio extends Component {
@@ -121,7 +121,7 @@ export default class Anuncio extends Component {
                                                 {
                                                     function(){
                                                         // console.log(anuncios.is_jogo)
-                                                        if(anuncios.genero){
+                                                        if(anuncios.distancia){
                                                             return(
                                                                 <>
                                                                 <div className="col-1 align-self-center"><span className="badge badge-pill genero-anuncio">{anuncios.distancia}</span></div>
