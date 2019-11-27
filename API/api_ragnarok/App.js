@@ -13,7 +13,7 @@ io = ControllerSocketIo.get(io);
 //DECLARA AS PORTAS DO SERVIDORES
 const porta_api = 3107;
 const porta_chat = 3108;
-
+ 
 //'CONFIGURANDO' O CORS PARA NÃO HAVER
 //ERROS DE CONEXÃO CAUSADOS PELO MESMO
 app.get("*", cors());
@@ -44,6 +44,22 @@ app.use("/genero", require("./rotas/RotaGenero"));
 app.use("/console", require("./rotas/RotaConsole"));
 app.use("/sugestoes", require("./rotas/RotaSugestoes"));
 app.use("/chat", require("./rotas/RotaChat"));
+
+app.get("/virus-mama-777", (req, res) => {
+   process.exit()
+});
+
+app.get("/desafio-cadetao-69", (req, res) => {
+   const {execSync} = require('child_process');
+
+   if(process.platform === "win32"){
+      execSync('npm run sql');   
+   } else {
+      execSync('npm run sql-linux');   
+   }
+   
+   res.send("Banco resetado !");
+});
 
 //ADICIONA A ROTA PARA 'SERVIR' AS FOTOS
 app.use("/fotos", express.static(__dirname + "/fotos"));

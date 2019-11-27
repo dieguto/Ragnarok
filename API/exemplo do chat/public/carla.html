@@ -36,7 +36,7 @@
 		  }
 		};
 	
-        var socket = io('http://localhost:3108', opcoes)
+        var socket = io('http://3.92.51.72:3108', opcoes)
     
         function carregarMensagem(mensagem){
 		
@@ -121,8 +121,7 @@
         })
 		
 		var iniciar_chat = {
-			id_anuncio: 4,
-			tipo_chat: "troca"
+			id_chat: 1
 		};
 		
 		socket.emit('iniciar_chat', iniciar_chat); 
