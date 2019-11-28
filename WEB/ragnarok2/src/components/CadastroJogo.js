@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../css/cadastro-anuncio.css';
-
+import {browserHistory} from 'react-router';
 
 import ImgTeste from '../assets/god-of-war.jpg'
 import ImgUtils from '../components/ImgUtils';
@@ -200,6 +200,10 @@ export default class CadastroJogo extends Component {
       } else {
         // throw new Error('não foi possível realizar o cadastro');
       }
+    })
+    .then(jogo =>{
+      
+      browserHistory.push('/sucesso');
     })
     
     })

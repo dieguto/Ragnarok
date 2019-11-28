@@ -114,7 +114,7 @@ export default class CadastroConsole extends Component{
     })
     .then(console =>{
       
-      browserHistory.push('/');
+      browserHistory.push('/sucesso');
     })
     
     })

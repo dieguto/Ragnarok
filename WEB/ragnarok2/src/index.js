@@ -17,6 +17,8 @@ import CadastroAcessorio from './components/CadastroAcessorios';
 import CadastroConsole from './components/CadastroConsole';
 import Troca from './components/Troca';
 
+import Sucesso from './components/SucessoCadastro';
+
 import Chat from './components/Chat';
 import CMS from './components/CMS'
 
@@ -50,6 +52,7 @@ ReactDOM.render(
                       <Route path="/meusAnuncios" component={MeusAnuncios}/>
                       <Route path="/meusAnunciosAcessorios" component={MeusAnunciosAcessorios}/>
                       <Route path="/meusAnunciosConsoles" component={MeusAnunciosConsoles}/>
+                      <Route path="/sucesso" component={Sucesso} />
 
                       <Route path="/chat" component={Chat}/>
                       <Route path="/admin/cms" component={CMS} />
