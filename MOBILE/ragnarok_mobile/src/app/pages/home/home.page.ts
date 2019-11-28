@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
   }
 
   async ngOnInit() {
-    alert(localStorage.getItem("token"));
+    // alert(localStorage.getItem("token"));
     
     if(localStorage.getItem("reiniciou") == "nao"){
 

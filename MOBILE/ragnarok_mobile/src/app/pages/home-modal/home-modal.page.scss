@@ -1,111 +1,52 @@
 *{
-    color:#f39c12;
+    // color:#f39c12;
     --background: #333;
     margin: 0;
     padding: 0;
 }
 
 ion-content{
+    --background:#222;
     .imagem_jogo{
         width: 100vw;
         height: 30vh;
-        background: rgb(243,156,18);
-        background: linear-gradient(180deg,  rgba(51,51,51,1) 0%, rgba(51,51,51,1) 10%, rgba(34,34,34,1) 100%);
+        // background: rgb(243,156,18);
+        // background: linear-gradient(180deg,  rgba(51,51,51,1) 0%, rgba(51,51,51,1) 10%, rgba(34,34,34,1) 100%);
         // background-color: red;
 
-        .circulo_jogo{
-            width: 30vh;
-            height: inherit;
-            // background-color: aliceblue;
-            margin:auto;
-            // margin-top: 15vh;
+        ion-card{
+            // width: 100vw;
+            // height: 30vh;
 
-            .circulo{
-                width: 25vh;
-                height: 25vh;
-                position: absolute;
-                margin-left: 2.5vh;
-                margin-top:2.5vh;
-                border-radius: 50%;
-                // box-shadow: 3px 0px 5px 18px rgba(243,156,18,1);
-                box-shadow: 0 0 2vh rgba(243,156,18,1);
-
-                img{
-                    width: 25vh;
-                    height: 25vh;
-                    border-radius: 50%;
+            ion-card-header{
+                ion-card-title{
+                    h1{
+                        color: #f39c12;
+                    }
                 }
-                // margin-right: auto;
+            }
+
+            img{
+                width: 100vw;
+                height: 30vh;
             }
         }
     }
 
-    .titulo_jogo{
-        width: 100vw;
-        height: 10vh;
-        // background-color: rgb(151, 136, 0);
 
-        .caixa_titulo_jogo{
-            min-width: 60%;
-            width: 60%;
-            text-align: center;
-            height: inherit;
-            // background-color: #333;
-            margin: auto;
-            border-radius: 25% 25% 0  0;
-            border-bottom: solid 0.5vh #f39c12;
-            font-size: 5vh;
-
-            h1{
-                padding-top: 10%;
-                text-align: center;
-            }
-        }
-
-    }
 
     .espaco{
         width: 100vw;
         height: 2vh;
     }
 
-
-    .descricao_jogo{
-        width: 100vw;
-        height: 15vh;
-        // background-color: rgb(151, 136, 0);
-
-        .caixa_descricao_jogo{
-            width: 85%;
-            height: 80%;
-            // min-height: 20%;
-            // max-height: 60%;
-            background-color: lightcoral;
-            margin: auto;
-            margin-top: auto;
-
-            // border-radius: 25% 25% 0  0;
-            box-shadow: 0 0 1vh rgba(243,156,18,1);
-            background-color: #333;
-
-            p{
-                width: 80%;
-                height: 95%;            
-                text-align: center;
-                margin: auto;
-                margin-top: auto;
-                overflow-y: scroll;
-               
-            }
-        }
-    }
-
-    .produtoras{
+    .inf{
         width: 100vw;
         height: 7vh;
+        margin-top: 11vh;
         // background-color: rgb(151, 136, 0);
 
-        .caixa_produtoras{
+        .caixa_inf{
             width: 80%;
             height: inherit;
             margin: auto;
@@ -126,7 +67,7 @@ ion-content{
 
                         .teste{
                             width: 25vw;
-                            height: 6vh;
+                            height: 7vh;
                             border-radius: 5%;
                             background-color: #f39c12;
                             color: #222;
@@ -136,6 +77,27 @@ ion-content{
                 }
             }
 
+        }
+    }
+
+    .produtoras{
+        width: 100vw;
+        height: 7vh;
+        background-color: white;
+        // margin-top:2vh;
+
+        ion-list{
+            ion-list-header{
+                h1{
+                    text-align: center;
+                    color: #f39c12;
+                }
+            }
+
+            ion-item{
+                color: #737373;
+                --color: #737373;
+            }
         }
     }
 }

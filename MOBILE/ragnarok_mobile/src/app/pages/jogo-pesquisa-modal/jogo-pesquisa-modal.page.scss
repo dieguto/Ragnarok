@@ -1,4 +1,103 @@
 *{
-    color:#f39c12;
+    // color:#f39c12;
     --background: #333;
+    margin: 0;
+    padding: 0;
+}
+
+ion-content{
+    --background:#222;
+    .imagem_jogo{
+        width: 100vw;
+        height: 30vh;
+        // background: rgb(243,156,18);
+        // background: linear-gradient(180deg,  rgba(51,51,51,1) 0%, rgba(51,51,51,1) 10%, rgba(34,34,34,1) 100%);
+        // background-color: red;
+
+        ion-card{
+            // width: 100vw;
+            // height: 30vh;
+
+            ion-card-header{
+                ion-card-title{
+                    h1{
+                        color: #f39c12;
+                    }
+                }
+            }
+
+            img{
+                width: 100vw;
+                height: 30vh;
+            }
+        }
+    }
+
+
+
+    .espaco{
+        width: 100vw;
+        height: 2vh;
+    }
+
+    .inf{
+        width: 100vw;
+        height: 7vh;
+        margin-top: 11vh;
+        // background-color: rgb(151, 136, 0);
+
+        .caixa_inf{
+            width: 80%;
+            height: inherit;
+            margin: auto;
+            // background-color: rgb(78, 0, 151);
+
+            ion-grid{
+                // padding-top: 2%;
+                --background: none;
+                background-color: none;
+                ion-row{
+                    --background: none;
+                    background-color: none;
+                    ion-col{
+                        --background: none;
+                        background-color: none;
+                        height: 5vh;
+                        text-align: center;
+
+                        .teste{
+                            width: 25vw;
+                            height: 7vh;
+                            border-radius: 5%;
+                            background-color: #f39c12;
+                            color: #222;
+                            // margin-top: 2%;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .produtoras{
+        width: 100vw;
+        height: 7vh;
+        background-color: white;
+        // margin-top:2vh;
+
+        ion-list{
+            ion-list-header{
+                h1{
+                    text-align: center;
+                    color: #f39c12;
+                }
+            }
+
+            ion-item{
+                color: #737373;
+                --color: #737373;
+            }
+        }
+    }
 }
