@@ -1,0 +1,29 @@
+*{
+
+}
+ion-content{
+    ion-card{
+        height: 50vh;
+        width: 90vw;
+
+
+        ion-card-header{
+            ion-card-title{
+                color: #f39c12;
+                --color: #f39c12;
+            }
+        }
+
+        #img_foto{
+            height: 35vh;
+            width: 90vw;
+        }
+
+        ion-slides{
+
+            ion-slide{
+
+            }
+        }
+    }
+}

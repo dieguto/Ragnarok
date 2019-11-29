@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'direct', loadChildren: './pages/direct/direct.module#DirectPageModule' },
   { path: 'chat', loadChildren: './pages/chat/chat.module#ChatPageModule' },
   { path: 'pesquisar-jogos', loadChildren: './pages/pesquisar-jogos/pesquisar-jogos.module#PesquisarJogosPageModule' },
-  { path: 'jogo-pesquisa-modal', loadChildren: './pages/jogo-pesquisa-modal/jogo-pesquisa-modal.module#JogoPesquisaModalPageModule' }
+  { path: 'jogo-pesquisa-modal', loadChildren: './pages/jogo-pesquisa-modal/jogo-pesquisa-modal.module#JogoPesquisaModalPageModule' },
+  { path: 'notificacoes-inf-modal', loadChildren: './pages/notificacoes-inf-modal/notificacoes-inf-modal.module#NotificacoesInfModalPageModule' }
 
 
 

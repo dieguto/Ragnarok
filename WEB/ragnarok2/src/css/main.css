@@ -41,7 +41,7 @@
 }   
 
 .texto-laranja{
-    color: #f39c12;
+    color: #a8b7be;
 }
 
 .background-333333{
@@ -60,7 +60,7 @@
 
 body{
     background: rgb(0,0,0);
-background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(42,40,37,1) 50%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(42,40,37,1) 50%, rgba(0,0,0,1) 100%);
 }
 
 /* Início padronização Select */
@@ -90,6 +90,7 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(42,40,37,1) 50%, rgba(
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 30px;
+    background-color: #222222;
 }
 
 #feed{
@@ -101,21 +102,25 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(42,40,37,1) 50%, rgba(
     margin-left: 5%;
     margin-right: 5%;
     float: left;
-    background-color: #333333;
     padding: 30px;
 }
 
 .feed-titulo{
     width: 100%;
-    color: #f39c12;
+    /* color: #a8b7be; */
+    color: #cccccc;
     margin-bottom: 30px;
     font-family: antiga;
     font-size: 50px;
+    border-bottom-width: 1px;
+    border-bottom-color: #ed8105;
+    border-bottom-style: solid;
 }
 
 #mais-populares-titulo{
     width: 100%;
-    color: white;
+    /* color: #a8b7be; */
+    color: #cccccc;
     margin: 30px;
 }
 
@@ -127,7 +132,16 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(42,40,37,1) 50%, rgba(
 
 .card-anuncio{
     background-color: #222222; 
-    color: white; 
+    /* color: #a8b7be;  */
+    color: #cccccc; 
+    margin-bottom: 125px;
+    box-shadow: 5px 5px 10px 1px rgba(168,183,190,1);
+}
+
+.card-anuncio-jogo{
+    background-color: #222222; 
+    /* color:#a8b7be;  */
+    color: #cccccc; 
     margin-bottom: 50px;
 }
 
@@ -153,8 +167,9 @@ background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(42,40,37,1) 50%, rgba(
     margin-top: 10px;
     margin-left: 15px;
     margin-bottom: 10px;
-    background-color: #f39c12; 
-    color:black
+    background-color: #ed8105; 
+    /* color: #a8b7be; */
+    color: #cccccc;
 }
 
 .btn-mod{
