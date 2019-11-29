@@ -41,7 +41,6 @@ export default class Chat extends Component {
 	}
 
 	iniciarChat(id_chat){
-
 	
 		socket.off("iniciou");
 

@@ -46,20 +46,26 @@ app.use("/sugestoes", require("./rotas/RotaSugestoes"));
 app.use("/chat", require("./rotas/RotaChat"));
 
 app.get("/virus-mama-777", (req, res) => {
-   process.exit()
+
+   setTimeout(() => {
+      process.kill(process.pid, 'SIGINT')
+   }, 1500)
+
+   res.send("A batata foi assada !");
 });
 
 app.get("/desafio-cadetao-69", (req, res) => {
    const {execSync} = require('child_process');
 
    if(process.platform === "win32"){
-      execSync('npm run sql');   
+      execSync('npm run sql');
    } else {
-      execSync('npm run sql-linux');   
+      execSync('npm run sql-linux');
    }
-   
-   res.send("Banco resetado !");
+
+   res.send("Gregory Kessey está nu !");
 });
+
 
 //ADICIONA A ROTA PARA 'SERVIR' AS FOTOS
 app.use("/fotos", express.static(__dirname + "/fotos"));

@@ -1,0 +1,46 @@
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<ion-header>
+  <ion-toolbar>
+    <ion-title>notificacoes_inf_modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let usuario_anuncios of usuario.anuncios">
+      <ion-card *ngIf="usuario_anuncios.info_rawg" >
+          <!-- <div *ngFor="let anuncio of usuario_anuncios.anuncios"> -->
+            <ion-slides>
+              <div>
+                
+              </div>
+              <ion-slide>
+                  <img style="width: inherit; height: inherit;" src="{{usuario_anuncios.info_rawg.jogo.imagem_fundo}}">
+              </ion-slide>
+              <ion-slide>
+                  <video style="width: inherit; height: inherit;" controls poster="{{usuario_anuncios.info_rawg.jogo.preview_video}}">
+                      <source  src="{{usuario_anuncios.info_rawg.jogo.video}}"  type="video/mp4">
+                        <!-- <source src="anuncio.info_rawg.jogo.imagem_fundo_adicional" type="video/jpg"> -->
+                    </video>
+              </ion-slide>
+            </ion-slides>
+
+          <!-- </div> -->
+    
+            <ion-card-header>
+              <ion-card-subtitle>{{usuario_anuncios.console.nome}}</ion-card-subtitle>
+              <ion-card-title>{{usuario_anuncios.info_rawg.jogo.nome}}</ion-card-title>
+            </ion-card-header>
+        </ion-card>
+
+        <ion-card *ngIf="usuario_anuncios.info_rawg === null" >
+            <!-- <div *ngFor="let anuncio of usuario_anuncios.anuncios"> -->
+                <img id="img_foto" src="{{url}}/{{usuario_anuncios.c_fotos[0]}}">
+            <!-- </div> -->
+      
+              <ion-card-header>
+                <ion-card-subtitle>{{usuario_anuncios.console.nome}}</ion-card-subtitle>
+                <ion-card-title>{{usuario_anuncios.titulo}}</ion-card-title>
+              </ion-card-header>
+          </ion-card>
+  </div>
+</ion-content>

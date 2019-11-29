@@ -15,28 +15,32 @@
 
 <ion-content>
     <ion-list>
-        <ion-list-header>
+        <ion-list-header style="border-bottom: solid 1vw #f39c12;">
           Notificações
         </ion-list-header>
         <div *ngFor="let notificacao of notificacoes">
-            <ion-item *ngIf="notificacao.is_chat === true">
-                <ion-avatar slot="start">
-                  <img src="{{url}}/{{notificacao.info_chat.c_foto}}">
-                </ion-avatar>
-                <ion-label>
-                  <h2 *ngIf="notificacao.info_chat.anuncio.info_rawg != null">{{notificacao.info_chat.anuncio.info_rawg.jogo.nome}}</h2>
-                  <h2 *ngIf="notificacao.info_chat.anuncio.info_rawg == null">{{notificacao.info_chat.anuncio.titulo}}</h2>
-                  <!-- <h3>{{notificacao.info_chat.usuario.nome}}</h3> -->
-                  <p>{{notificacao.info}}</p>
-                </ion-label>
-                <ion-button (click)="aceitarChat(notificacao.info_chat.id_chat)" *ngIf="!notificacao.info_chat.is_ativo">
-                  Abrir chat 
-                </ion-button>
-                <ion-button (click)="excluirChat(notificacao.info_chat.id_chat)" *ngIf="!notificacao.info_chat.is_ativo">
-                  Deletar chat 
-                </ion-button>
-                
-              </ion-item>
+          <div *ngIf="!notificacao.info_chat.is_ativo">
+              <ion-item *ngIf="notificacao.is_chat === true" (click)="presentActionSheet(notificacao.info_chat.usuario.id, notificacao.info_chat.id_chat )" >
+                  <ion-avatar slot="start">
+                    <img src="{{url}}/{{notificacao.info_chat.c_foto}}">
+                  </ion-avatar>
+                  <ion-label>
+                    <h2 *ngIf="notificacao.info_chat.anuncio.info_rawg != null">{{notificacao.info_chat.anuncio.info_rawg.jogo.nome}}</h2>
+                    <h2 *ngIf="notificacao.info_chat.anuncio.info_rawg == null">{{notificacao.info_chat.anuncio.titulo}}</h2>
+                    <!-- <h3>{{notificacao.info_chat.usuario.nome}}</h3> -->
+                    <p>{{notificacao.info}}</p>
+                  </ion-label>
+                  <!-- <ion-button (click)="aceitarChat(notificacao.info_chat.id_chat)" *ngIf="!notificacao.info_chat.is_ativo">
+                    Abrir chat 
+                  </ion-button>
+                  <ion-button (click)="excluirChat(notificacao.info_chat.id_chat)" *ngIf="!notificacao.info_chat.is_ativo">
+                    Deletar chat 
+                  </ion-button> -->
+                  <!-- <ion-button (click)="presentActionSheet()" *ngIf="!notificacao.info_chat.is_ativo">
+                      teste
+                  </ion-button>  -->
+                </ion-item>
+          </div>
         </div>
       </ion-list>
 </ion-content>
