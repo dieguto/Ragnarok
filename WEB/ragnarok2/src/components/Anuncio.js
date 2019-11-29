@@ -139,7 +139,7 @@ export default class Anuncio extends Component {
                                             <div className="row">
                                                 <div className="col-1"></div>
                                                 <div className="col-10">
-                                                    <div className="card card-anuncio sem-borda">
+                                                    <div className="card card-anuncio-jogo sem-borda">
                                                         {
                                                             function(){
                                                                 // console.log(anuncios.info_rawg)
