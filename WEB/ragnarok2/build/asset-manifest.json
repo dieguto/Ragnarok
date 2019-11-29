@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.33f8d243.chunk.css",
+    "main.js": "/static/js/main.dc63d3d1.chunk.js",
+    "main.js.map": "/static/js/main.dc63d3d1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.a634196b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.a634196b.js.map",
+    "static/js/2.009451b0.chunk.js": "/static/js/2.009451b0.chunk.js",
+    "static/js/2.009451b0.chunk.js.map": "/static/js/2.009451b0.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.a19d6be0e62cd1a6359e34594d66cf5b.js": "/precache-manifest.a19d6be0e62cd1a6359e34594d66cf5b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.33f8d243.chunk.css.map": "/static/css/main.33f8d243.chunk.css.map",
+    "static/media/god-of-war.jpg": "/static/media/god-of-war.22dd93e4.jpg",
+    "static/media/user.svg": "/static/media/user.926b6f67.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a634196b.js",
+    "static/js/2.009451b0.chunk.js",
+    "static/css/main.33f8d243.chunk.css",
+    "static/js/main.dc63d3d1.chunk.js"
+  ]
+}
