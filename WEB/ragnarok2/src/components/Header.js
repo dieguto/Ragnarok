@@ -60,6 +60,9 @@ export default class Menu extends Component{
                            <div className="form-inline ml-3 mr-3">
                              <Link to="/anuncio" className="btn btn-outline-warning ">Novo Anúncio</Link>
                            </div>
+                           <div className="form-inline ml-3 mr-3">
+                             <Link to="/anuncio" className="btn-mod btn4 link">Novo Anúncio</Link>
+                           </div>
                            <div>
                            <Link
                               className="nav-link">

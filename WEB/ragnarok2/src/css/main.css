@@ -8,6 +8,12 @@
     font-family: antiga;
     src: url(../Utils/fontes/GoboldBlockyItalic.otf);
 }
+@font-face {
+    font-family: montserrat;
+    src: url(../Utils/fontes/montserrat/Montserrat/Montserrat-SemiBold.ttf);
+}
+
+
 
 .menu-cover{	    
     width: 100%;	
@@ -53,7 +59,8 @@
 
 
 body{
-    background-color: #222222;
+    background: rgb(0,0,0);
+background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(42,40,37,1) 50%, rgba(0,0,0,1) 100%);
 }
 
 /* Início padronização Select */
@@ -112,7 +119,19 @@ body{
     margin: 30px;
 }
 
+.card-body{
+    background-image: url('../assets/photo-1569470451072-68314f596aec.jfif');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .card-anuncio{
+    background-color: #222222; 
+    color: white; 
+    margin-bottom: 50px;
+}
+
+.card-anuncio-jogo{
     background-color: #222222; 
     color: white; 
     margin-bottom: 50px;
@@ -137,6 +156,64 @@ body{
     background-color: #f39c12; 
     color:black
 }
+
+.btn-mod{
+  border: 1px solid #3498db;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "montserrat";
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+.btn1,.btn2{
+  color: #3498db;
+}
+.btn3,.btn4{
+  color: #fff;
+}
+.btn1:hover,.btn2:hover{
+  color: #fff;
+}
+.btn3:hover,.btn4:hover{
+  color: #3498db;
+}
+.btn-mod::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: #3498db;
+  z-index: -1;
+  transition: 0.8s;
+}
+.btn1::before,.btn3::before{
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+.btn2::before,.btn4::before{
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+.btn3::before,.btn4::before{
+  height: 180%;
+}
+.btn1:hover::before,.btn2:hover::before{
+  height: 180%;
+}
+.btn3:hover::before,.btn4:hover::before{
+  height: 0%;
+}
+
+.link{
+    text-decoration: none !important;
+    /* color: currentColor; */
+}
+
 
 .btn-leia-mais{
     color: #f39c12;
