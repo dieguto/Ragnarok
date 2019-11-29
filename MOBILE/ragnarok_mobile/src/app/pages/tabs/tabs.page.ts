@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
+import {
+  Plugins,
+  PushNotification,
+  PushNotificationToken,
+  PushNotificationActionPerformed,
+  ModalsPlugin,
+  PushNotificationChannel
+} from '@capacitor/core';
 
+const {PushNotifications, Modals} = Plugins;
+// private pushNotification:PushNotification, private modals:ModalsPlugin
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -9,7 +19,7 @@ import { Socket } from 'ngx-socket-io';
 export class TabsPage {
 
   total:number;
-  constructor(private socket: Socket) {
+  constructor(private socket: Socket ) {
 
   }
 
@@ -22,21 +32,19 @@ export class TabsPage {
     this.socket.on('tnnv', notificacoes =>{
 
       console.log('eu sou a notificacao',notificacoes);
-      this.total = notificacoes; 
-    });    
+      this.total = notificacoes;
+    });
 
 
 
-    this.socket.on('notificacao', notificacao =>{ 
+    this.socket.on('notificacao', notificacao =>{
       alert(notificacao.info);
       this.socket.emit('get_notificacoes');
-    })    
+    });
 
-    this.socket.on('erro', erro =>{ 
+    this.socket.on('erro', erro =>{
       alert("ERRO: " + erro);
-    })
-
-
-  }
+    });
+}
 
 }

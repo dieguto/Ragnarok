@@ -22,6 +22,10 @@ ion-content{
                     white-space: normal;
                 }
             }
+
+            ion-action-sheet{
+                --background:#333;
+            }
         }
     }
 }
