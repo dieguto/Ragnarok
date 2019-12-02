@@ -102,7 +102,7 @@ export default class Anuncio extends Component {
                                 <div className="col-1"></div>
                                 <div className="col-10">
                                     <div className="card background-black card-anuncio">
-                                        <div className="card-header ">
+                                        <div className="card-header border-0 background-diferenciado">
                                             <div className="row">
                                                 <div className="col-8 mr-5">
                                                     <img src={IconeUser} alt="Icone Usuario" title="Icone Usuario" className="rounded-circle icone-usuario"/> 
@@ -259,7 +259,7 @@ export default class Anuncio extends Component {
                                             
                                         </div>
                                     
-                                        <div className="card-footer">
+                                        <div className="card-footer background-diferenciado">
                                             {/* <button className="btn btn-leia-mais" onClick={this.abrirModal}>Leia Mais</button> */}
                                             <button className="btn btn-leia-mais" data-toggle="modal" data-target={".anuncio" + this.cont}>Leia Mais</button>
                                             {/* Modal  */}
