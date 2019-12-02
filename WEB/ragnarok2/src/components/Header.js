@@ -59,7 +59,7 @@ export default class Menu extends Component{
                            </div>
                            <div className="form-inline ml-3 mr-3">
                              <Link to="/anuncio" className="link">
-                                <div class="teste teste1 align-items-center text-center">
+                                <div class="teste teste1 align-items-center font1 text-center">
                                   <span>Novo Anúncio</span>
                                 </div>
                              </Link>

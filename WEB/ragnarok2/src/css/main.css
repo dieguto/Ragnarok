@@ -109,6 +109,8 @@ body{
 
 .teste:hover{
     color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
 }
 
 .teste span{
