@@ -58,10 +58,11 @@ export default class Menu extends Component{
                              <img style={bellnotification} src={bell} ></img>
                            </div>
                            <div className="form-inline ml-3 mr-3">
-                             <Link to="/anuncio" className="btn btn-outline-warning ">Novo Anúncio</Link>
-                           </div>
-                           <div className="form-inline ml-3 mr-3">
-                             <Link to="/anuncio" className="btn-mod btn4 link">Novo Anúncio</Link>
+                             <Link to="/anuncio" className="link">
+                                <div class="teste teste1 align-items-center text-center">
+                                  <span>Novo Anúncio</span>
+                                </div>
+                             </Link>
                            </div>
                            <div>
                            <Link

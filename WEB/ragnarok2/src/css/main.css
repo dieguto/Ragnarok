@@ -35,7 +35,6 @@
     height: auto;
     min-height: 100%;
     overflow: hidden;
-    padding-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }   
@@ -81,12 +80,71 @@ body{
 
 
 /* Inicio Corpo */
+
+.teste{
+    position: relative;
+    color: #f39c12;
+    width: 134px;
+    height: 36px;
+    max-width: 134px;
+    max-height: 36px;
+    line-height: 36px;
+    transition: all 0.3s;
+    
+  border: 1px solid #f39c12;
+  border-radius: 5px;
+
+}
+
+.teste:hover{
+    color: white;
+}
+
+.teste span{
+    transition: all 0.3s;
+    transform: scale(1, 1);
+}
+    
+.teste::before, .teste::after {
+    content: '';
+    position: absolute;
+    transition: all 0.3s;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.teste1::before {
+	left: 0px;
+	z-index: 1;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0.1, 1);
+}
+
+.teste1:hover::before {
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.teste1::after {
+  transition: all 0.3s;
+}
+
+.teste1:hover::after {
+  transform: scale(1, .1);
+  opacity: 0;
+}
+  
+
+
 #container-anuncios{
     width: inherit;
     height: auto;
     min-height: 500px;
     overflow: hidden;
-    margin-top: 50px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 30px;
@@ -145,12 +203,6 @@ body{
     margin-bottom: 50px;
 }
 
-.card-anuncio-jogo{
-    background-color: #222222; 
-    color: white; 
-    margin-bottom: 50px;
-}
-
 .icone-usuario{
     width: 70px; 
     height: 70px;
@@ -172,60 +224,9 @@ body{
     color: #cccccc;
 }
 
-.btn-mod{
-  border: 1px solid #3498db;
-  background: none;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.8s;
-  position: relative;
-  overflow: hidden;
-}
-.btn1,.btn2{
-  color: #3498db;
-}
-.btn3,.btn4{
-  color: #fff;
-}
-.btn1:hover,.btn2:hover{
-  color: #fff;
-}
-.btn3:hover,.btn4:hover{
-  color: #3498db;
-}
-.btn-mod::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 0%;
-  background: #3498db;
-  z-index: -1;
-  transition: 0.8s;
-}
-.btn1::before,.btn3::before{
-  top: 0;
-  border-radius: 0 0 50% 50%;
-}
-.btn2::before,.btn4::before{
-  bottom: 0;
-  border-radius: 50% 50% 0 0;
-}
-.btn3::before,.btn4::before{
-  height: 180%;
-}
-.btn1:hover::before,.btn2:hover::before{
-  height: 180%;
-}
-.btn3:hover::before,.btn4:hover::before{
-  height: 0%;
-}
-
 .link{
     text-decoration: none !important;
+    border: none;
     /* color: currentColor; */
 }
 
@@ -269,6 +270,7 @@ body{
 
 .card-body-anuncio{
     padding-bottom: 0%;
+    background-color: transparent;
 }
 
 .card-img-anuncio{

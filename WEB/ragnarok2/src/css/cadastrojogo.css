@@ -80,7 +80,6 @@ header{
     height: auto;
     min-height: 100%;
     overflow: hidden;
-    padding-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }   
@@ -90,7 +89,6 @@ header{
     height: auto;
     min-height: 500px;
     overflow: hidden;
-    margin-top: 50px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 30px;

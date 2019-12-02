@@ -19,7 +19,6 @@
     height: auto;
     min-height: 100%;
     overflow: hidden;
-    padding-top: 20px;
     margin-left: auto;
     margin-right: auto;
 }   
@@ -188,6 +187,7 @@ header{
 .btn-iniciar-chat:hover, .btn-fechar:hover{
     color: #f39c12;
 }
+
 /* Fim do Corpo */
 
 
