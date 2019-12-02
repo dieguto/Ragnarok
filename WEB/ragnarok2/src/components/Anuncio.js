@@ -101,17 +101,20 @@ export default class Anuncio extends Component {
                             <div className="row" key={anuncios.id_anuncio}>
                                 <div className="col-1"></div>
                                 <div className="col-10">
-                                    <div className="card card-anuncio">
-                                        <div className="card-header">
+                                    <div className="card background-black card-anuncio">
+                                        <div className="card-header ">
                                             <div className="row">
-                                                <div className="col-9"><img src={IconeUser} alt="Icone Usuario" title="Icone Usuario" className="rounded-circle icone-usuario"/> <span className="nome-usuario align-middle feed-titulo" >{anuncios.usuario.nome}</span></div>
+                                                <div className="col-8 mr-5">
+                                                    <img src={IconeUser} alt="Icone Usuario" title="Icone Usuario" className="rounded-circle icone-usuario"/> 
+                                                    <span className="nome-usuario align-middle feed-titulo" >{anuncios.usuario.nome}</span>
+                                                </div>
                                                 {
                                                     function(){
                                                         // console.log(anuncios.is_jogo)
                                                         if(anuncios.genero){
                                                             return(
                                                                 <>
-                                                                <div key={anuncios.genero.id_genero} className="col-1 align-self-center mr-4"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
+                                                                <div key={anuncios.genero.id_genero} className="col-2.5 align-self-center mr-1"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
                                                                 {/* <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
                                                                 </>
                                                             );
@@ -124,7 +127,7 @@ export default class Anuncio extends Component {
                                                         if(anuncios.distancia){
                                                             return(
                                                                 <>
-                                                                <div className="col-1 align-self-center"><span className="badge badge-pill mr-4 genero-anuncio">{anuncios.distancia}</span></div>
+                                                                <div className="col-2.5 pl-0 align-self-center"><span className="badge badge-pill genero-anuncio">{anuncios.distancia}</span></div>
                                                                 {/* <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
                                                                 </>
                                                             );
