@@ -138,11 +138,11 @@ export class CadastroConsolePage implements OnInit {
       console.log(this.anuncio);
       console.log(result);
 
-      alert(result)
-      alert(JSON.stringify(result));
+      // alert(result)
+      // alert(JSON.stringify(result));
     } catch (error) {
-      alert(error);
-      alert(JSON.stringify(error));
+      // alert(error);
+      // alert(JSON.stringify(error));
       console.log(error);
     }
 

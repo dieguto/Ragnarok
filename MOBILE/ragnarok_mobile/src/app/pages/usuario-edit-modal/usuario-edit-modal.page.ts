@@ -82,7 +82,7 @@ export class UsuarioEditModalPage implements OnInit {
       console.error(error);
       if(error.status === 404){
         console.error(error);
-        alert("Senha incorreta");
+        // alert("Senha incorreta");
       }
     }
   }
@@ -95,7 +95,7 @@ export class UsuarioEditModalPage implements OnInit {
 
       this.closeModal();
       console.log(result);
-      alert('cadastrou');
+      // alert('cadastrou');
 
     } catch (error) {
       console.error(error);
