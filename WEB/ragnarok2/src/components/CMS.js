@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import '../css/cms.css';
 
-// import { Container } from './styles';
+
 
 export default class CMS extends Component {
   render() {
     return (
         <div id="container">
+
 
         <div class="row caixa-menu">
             <div class="col-3 background-333333">

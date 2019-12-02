@@ -46,7 +46,7 @@ export default class Menu extends Component{
                        {/* Segundo menu */}
                        <div className="navbar navbar-light bg-dark">
                          <Link to="/">
-                            <h1 className="navbar-brand text-warning">                      
+                            <h1 className="navbar-brand text-warning font1">                      
                                   Ragnarok
                             </h1>
                          </Link>
@@ -66,7 +66,7 @@ export default class Menu extends Component{
                            </div>
                            <div>
                            <Link
-                              className="nav-link">
+                              className="nav-link font1">
                              <span>Bem vindo, {usuario.nome} </span>
                             </Link>
                          
@@ -85,18 +85,18 @@ export default class Menu extends Component{
                             <div className="dropdown-menu dropdown-menu-right">
 
                               
-                                <button className="dropdown-item" type="button">Meus Anúncios</button>
-                                <button className="dropdown-item" type="button">Meus Jogos</button>
+                                <button className="dropdown-item font1" type="button">Meus Anúncios</button>
+                                <button className="dropdown-item font1" type="button">Meus Jogos</button>
                                 <Link to="/chat">
-                                  <button className="dropdown-item" type="button">Chat</button>
+                                  <button className="dropdown-item font1" type="button">Chat</button>
                                 </Link>
                                 
                                 
                                 <Link to="/editarUsuario">
-                                  <button className="dropdown-item" type="button">Configurações</button>
+                                  <button className="dropdown-item font1" type="button">Configurações</button>
                                 </Link>
                                 <Link to="/logout">
-                                  <button className="dropdown-item" type="button">Sair</button>
+                                  <button className="dropdown-item font1" type="button">Sair</button>
                                 </Link>
                                 
                             </div> 

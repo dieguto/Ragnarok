@@ -111,7 +111,7 @@ export default class Anuncio extends Component {
                                                         if(anuncios.genero){
                                                             return(
                                                                 <>
-                                                                <div key={anuncios.genero.id_genero} className="col-1 align-self-center"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
+                                                                <div key={anuncios.genero.id_genero} className="col-1 align-self-center mr-4"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
                                                                 {/* <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
                                                                 </>
                                                             );
@@ -124,7 +124,7 @@ export default class Anuncio extends Component {
                                                         if(anuncios.distancia){
                                                             return(
                                                                 <>
-                                                                <div className="col-1 align-self-center"><span className="badge badge-pill genero-anuncio">{anuncios.distancia}</span></div>
+                                                                <div className="col-1 align-self-center"><span className="badge badge-pill mr-4 genero-anuncio">{anuncios.distancia}</span></div>
                                                                 {/* <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
                                                                 </>
                                                             );
@@ -135,7 +135,7 @@ export default class Anuncio extends Component {
                                             </div>
                                             
                                         </div>
-                                        <div className="card-body"> 
+                                        <div className="card-body card-body-diferenciado"> 
                                             <div className="row">
                                                 <div className="col-1"></div>
                                                 <div className="col-10">
@@ -145,17 +145,17 @@ export default class Anuncio extends Component {
                                                                 // console.log(anuncios.info_rawg)
                                                                 if(anuncios.info_rawg){
                                                                     return(
-                                                                        <div className="card-header bg-transparent text-center sem-borda">{anuncios.info_rawg.jogo.nome}</div>
+                                                                        <div className="card-header fonte-padrao2 bg-transparent text-center sem-borda">{anuncios.info_rawg.jogo.nome}</div>
                                                                     );
                                                                 }else{
                                                                     return(
-                                                                        <div className="card-header bg-transparent text-center sem-borda">{anuncios.titulo}</div>
+                                                                        <div className="card-header fonte-padrao2 bg-transparent text-center sem-borda">{anuncios.titulo}</div>
                                                                     ); 
                                                                 }
                                                             }() 
                                                         }
                                                        
-                                                        <div className="card-body card-body-anuncio">
+                                                        <div className="card-body card-body-anuncio ">
                                                             {
                                                                function(){
                                                                 // console.log(anuncios.info_rawg)
@@ -266,7 +266,7 @@ export default class Anuncio extends Component {
                                                     <div className="modal-content borda-20px background-222222">
                                             
                                                         {/* Cabeçalho do modal */}
-                                                        <div className="modal-header texto-laranja background-333333 border-0">
+                                                        <div className="modal-header texto-laranja gradientpadrao font-1 border-0">
 
                                                             {
                                                                 function(){
