@@ -23,7 +23,7 @@ export class ChatService {
       'Authorization': 'Bearer ' + token
     };
 
-    alert("JSON do ativar: " + JSON.stringify(xxx));
+    // alert("JSON do ativar: " + JSON.stringify(xxx));
 
 
     const httpOptions = {
@@ -51,7 +51,7 @@ export class ChatService {
       'Authorization': 'Bearer ' + token
     };
 
-    alert("JSON do ativar: " + JSON.stringify(xxx));
+    // alert("JSON do ativar: " + JSON.stringify(xxx));
 
 
     const httpOptions = {

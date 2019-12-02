@@ -83,17 +83,9 @@ export class UsuarioPage implements OnInit {
   
       });
       return await modal.present();
-    }
-
-    
+    } 
   }
-
-
-
-  async alert(){
-    alert('aaaaaaaaa');
-  }
-
+  
   async buscarJogos(){
     try {
       this.USUARIO_KEY = "usuario";
