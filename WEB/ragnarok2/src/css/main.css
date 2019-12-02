@@ -161,8 +161,8 @@ body{
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 30px;
-    background-color: #000000;
-    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+    /* background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 97%); */
 }
 
 #feed{
@@ -248,7 +248,7 @@ body{
     font-family:  montserrat;
     /* color: #a8b7be; */
     color: #ed8105;
-    box-shadow: 9px 9px 5px 0px rgba(0,0,0,1);
+    /* box-shadow: 9px 9px 5px 0px rgba(0,0,0,0.65); */
 }
 
 .link{
