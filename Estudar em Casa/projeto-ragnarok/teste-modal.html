@@ -1,0 +1,48 @@
+<html lang="pt-br">
+  <head>
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+ 
+    <title>Modal em Bootstrap | HomeHost</title>
+  </head>
+  <body>
+    <!-- Botão que irá abrir o modal -->
+    <button type="button" class="btn btn-success btn-lg mt-2 ml-2" data-toggle="modal" data-target="#meuModal">Abrir Modal</button>
+ 
+    <!-- Modal -->
+    <div id="meuModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+ 
+        <!-- Conteúdo do modal-->
+        <div class="modal-content">
+ 
+          <!-- Cabeçalho do modal -->
+          <div class="modal-header">
+            <h4 class="modal-title">Título do modal</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+ 
+          <!-- Corpo do modal -->
+          <div class="modal-body">
+            <p>Conteúdo no corpo do modal.</p>
+            <p>Aqui você pode inserir todo o conteúdo necessário.</p>
+          </div>
+ 
+          <!-- Rodapé do modal-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+          </div>
+ 
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="js/popper/popper.min.js" crossorigin="anonymous"></script>
+    <script src="js/js-bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>
