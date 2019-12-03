@@ -96,9 +96,9 @@ async scheduleNow(notificacao) {
       // Get random id to test cancel
       id: Math.floor(Math.random()*10),
       sound: 'beep.aiff',
-      smallIcon: "res://ic_stat_icon_sample",
+      smallIcon: "res://ionitron.png",
       attachments: [
-        { id: 'face', url: 'res://public/assets/ionitron.png' }
+        { id: 'face', url: 'res://ionitron.png' }
       ],
       actionTypeId: 'OPEN_PRODUCT',
       extra: {
@@ -120,27 +120,5 @@ cancelNotification() {
 
 toJson(o: any) {
   return JSON.stringify(o, null, 2);
-}
-
-
-async scheduleNowWithIcon() {
-  this.notifs = await Plugins.LocalNotifications.schedule({
-    notifications: [{
-      title: 'Get 10% off!',
-      body: 'Swipe now to learn more',
-      // Android-only: set a custom statusbar icon 
-      smallIcon: "res://ic_stat_icon_sample",
-      // Get random id to test cancel
-      id: Math.floor(Math.random()*10),
-      sound: 'beep.aiff',
-      attachments: [
-        { id: 'face', url: 'res://public/assets/ionitron.png' }
-      ],
-      actionTypeId: 'OPEN_PRODUCT',
-      extra: {
-        productId: 'PRODUCT-1'
-      }
-    }]
-  });
 }
 }

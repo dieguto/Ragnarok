@@ -13,25 +13,29 @@
             refreshingSpinner="lines-small"
             ></ion-refresher-content>
     </ion-refresher>
-  <div class="categorias">
-      <ion-chip  *ngFor="let genero of generos">
-          <ion-label (click)="buscarPorCategoria(genero.id_genero)">{{genero.nome}}</ion-label>
-      </ion-chip>
-  </div>
-  <div class="jogos" >
-    <div *ngFor="let jogos of anuncios">
-        <div (click)="showModal(jogos.id_anuncio)" *ngIf="verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_jogo">
-            <div >
-                <img src="{{jogos.info_rawg.jogo.imagem_fundo}}">
-            </div>
-      </div>
-    </div>
-    <div *ngFor="let jogos of anuncios">
-      <div *ngIf="!verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_consoles_acessorios">
-          <div >
-              <img src="{{url}}/{{jogos.c_fotos[0]}}">
+  <!-- <div> -->
+    <ion-grid  class="categorias">
+      <ion-row>
+        <ion-col>
+            <ion-chip  *ngFor="let genero of generos">
+                <ion-label (click)="buscarPorCategoria(genero.id_genero)">{{genero.nome}}</ion-label>
+            </ion-chip>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  <!-- </div> -->
+  <!-- <div > -->
+    <ion-grid class="jogos" >
+      <ion-row >
+        <div *ngFor="let jogos of anuncios">
+                    <ion-col class="caixa_jogo" (click)="showModal(jogos.id_anuncio)" *ngIf="verificarCampo(jogos.info_rawg, 'imagem_fundo')"  >
+                        <img src="{{jogos.info_rawg.jogo.imagem_fundo}}">
+                      </ion-col>
+                    <ion-col  *ngIf="!verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_jogo" >
+                        <img src="{{url}}/{{jogos.c_fotos[0]}}">
+                      </ion-col>
           </div>
-      </div>
-    </div>
-  </div>
+      </ion-row>
+    </ion-grid>
+  <!-- </div> -->
 </ion-content>

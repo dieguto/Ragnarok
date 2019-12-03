@@ -5,8 +5,9 @@
   "npmClient": "npm",
   "webDir": "www",
   "plugins": {
-    "PushNotifications": {
-      "presentationOptions": ["badge", "sound", "alert"]
+    "SplashScreen": {
+      "backgroundColor": "#222"
+
     }
   }
   

@@ -6,6 +6,9 @@ import { Anuncio } from '../../services/anuncio/cadastro_anuncio/anuncio.class';
 import { environment } from 'src/environments/environment';
 import { ModalController, IonSearchbar, IonRefresher } from '@ionic/angular';
 import { JogoPesquisaModalPage } from '../jogo-pesquisa-modal/jogo-pesquisa-modal.page';
+import { Plugins, KeyboardResize } from '@capacitor/core';
+
+const { Keyboard } = Plugins;
 
 @Component({
   selector: 'app-pesquisar-jogos',
@@ -29,6 +32,10 @@ export class PesquisarJogosPage implements OnInit {
     console.log(this.anuncios);
 
     console.log(this.generos);
+
+    Keyboard.setResizeMode({
+      mode:KeyboardResize.None
+    });
   }
 
   verificarCampo(json_info_rawg, nome_campo){

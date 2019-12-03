@@ -1,3 +1,21 @@
+*{
+   
+   ion-grid{
+    padding: 0;
+    margin: 0;
+    ion-row{
+        padding: 0;
+        margin: 0;
+
+        ion-col{
+            padding: 0;
+            margin: 0;
+        }
+    }
+   }
+
+}
+
 ion-header{
     ion-toolbar{
         ion-searchbar{
@@ -59,16 +77,13 @@ ion-content{
     .jogos{
         width: 100vw;
         height: 100vh;
-        max-height: auto;
-        min-height: 100vh;
-        // margin-top: 1vh;
-        // background-color: #f39c12;
+
 
         .caixa_jogo{
             width:33.3vw;
             height: 12.5vh;
             // background-color: #1246f3;
-            float: left;
+            // float: left;
 
             img{
                 width: 33vw;
