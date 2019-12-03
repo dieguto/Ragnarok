@@ -119,6 +119,7 @@ export default class Login extends Component {
                                    
                     </Form>                     */}
                 </div>
+                <p className="text-center "><a href="#" className="text-decoration-none esqueci-senha texto-laranja">Esqueci a senha</a></p>                
             </>
         );
     }

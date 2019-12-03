@@ -59,7 +59,7 @@ export default class Menu extends Component{
                            </div>
                            <div className="form-inline ml-3 mr-3">
                              <Link to="/anuncio" className="link">
-                                <div class="teste teste1 align-items-center font1 text-center">
+                                <div class="botao-novo-anuncio teste1 align-items-center font1 text-center">
                                   <span>Novo Anúncio</span>
                                 </div>
                              </Link>
@@ -84,9 +84,9 @@ export default class Menu extends Component{
                             
                             <div className="dropdown-menu dropdown-menu-right">
 
-                              
-                                <button className="dropdown-item font1" type="button">Meus Anúncios</button>
-                                <button className="dropdown-item font1" type="button">Meus Jogos</button>
+                                <Link to="/meusAnuncios">
+                                  <button className="dropdown-item font1" type="button">Meus Anúncios</button>
+                                </Link>
                                 <Link to="/chat">
                                   <button className="dropdown-item font1" type="button">Chat</button>
                                 </Link>

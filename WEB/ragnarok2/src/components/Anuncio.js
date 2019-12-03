@@ -266,7 +266,7 @@ export default class Anuncio extends Component {
                                             <div className={"modal fade anuncio" + this.cont} role="dialog">
                                                 <div className="modal-dialog modal-dialog-centered modal-lg">
                                                     {/* Conteúdo do modal */}
-                                                    <div className="modal-content borda-20px background-222222">
+                                                    <div className="modal-content background-222222">
                                             
                                                         {/* Cabeçalho do modal */}
                                                         <div className="modal-header texto-laranja gradientpadrao font-1 border-0">

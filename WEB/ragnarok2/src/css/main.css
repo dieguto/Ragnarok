@@ -98,8 +98,11 @@ body{
 
 
 /* Inicio Corpo */
+.esqueci-senha:hover{
+    color: #f39c12;
+}
 
-.teste{
+.botao-novo-anuncio{
     position: relative;
     color: #f39c12;
     width: 134px;
@@ -114,18 +117,18 @@ body{
 
 }
 
-.teste:hover{
+.botao-novo-anuncio:hover{
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px;
 }
 
-.teste span{
+.botao-novo-anuncio span{
     transition: all 0.3s;
     transform: scale(1, 1);
 }
     
-.teste::before, .teste::after {
+.botao-novo-anuncio::before, .botao-novo-anuncio::after {
     content: '';
     position: absolute;
     transition: all 0.3s;
@@ -136,7 +139,7 @@ body{
     z-index: 1;
 }
 
-.teste1::before {
+.botao-novo-anuncio1::before {
 	left: 0px;
 	z-index: 1;
     opacity: 0;
@@ -144,16 +147,16 @@ body{
     transform: scale(0.1, 1);
 }
 
-.teste1:hover::before {
+.botao-novo-anuncio1:hover::before {
   opacity: 1;
   transform: scale(1, 1);
 }
 
-.teste1::after {
+.botao-novo-anuncio1::after {
   transition: all 0.3s;
 }
 
-.teste1:hover::after {
+.botao-novo-anuncio1:hover::after {
   transform: scale(1, .1);
   opacity: 0;
 }
@@ -210,9 +213,9 @@ body{
 
 .card-body-diferenciado{
     background: #2E2A2A;
-background: -webkit-linear-gradient(bottom right, #2E2A2A, #696A6D);
-background: -moz-linear-gradient(bottom right, #2E2A2A, #696A6D);
-background: linear-gradient(to top left, #2E2A2A, #696A6D);
+    background: -webkit-linear-gradient(bottom right, #2E2A2A, #696A6D);
+    background: -moz-linear-gradient(bottom right, #2E2A2A, #696A6D);
+    background: linear-gradient(to top left, #2E2A2A, #696A6D);
 }
 
 .card-anuncio{

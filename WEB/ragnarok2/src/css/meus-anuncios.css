@@ -188,6 +188,24 @@ header{
     color: #f39c12;
 }
 
+.card-meu-anuncio{
+    background-color: black; 
+    color: #cccccc; 
+    margin-bottom: 25px;
+    margin-bottom: 25px;    
+}
+
+.card-img-meu-anuncio{
+    max-height: 300px;
+    min-height: 300px;
+    height: 300px;
+    max-width: 300px;
+    min-width: 100%;
+    width: 100%;
+    margin-bottom: 0px;
+    border-radius: 3%;
+}
+
 /* Fim do Corpo */
 
 
