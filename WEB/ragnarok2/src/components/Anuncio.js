@@ -112,7 +112,7 @@ export default class Anuncio extends Component {
                                                     function(){
                                                         // console.log(anuncios.is_jogo)
                                                         if(anuncios.genero){
-                                                            return(
+                                                            return( 
                                                                 <>
                                                                 <div key={anuncios.genero.id_genero} className="col-2.5 align-self-center mr-1"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div>
                                                                 {/* <div key={anuncios.genero.id_genero} className="col-2"><span className="badge badge-pill genero-anuncio">{anuncios.genero.nome}</span></div> */}
