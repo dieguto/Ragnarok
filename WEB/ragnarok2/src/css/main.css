@@ -13,7 +13,9 @@
     src: url(../Utils/fontes/montserrat/Montserrat/Montserrat-SemiBold.ttf);
 }
 
-
+.background-diferenciado{
+    background-color: #2e2a2a;
+}
 
 
 .font1{
@@ -64,7 +66,7 @@
 
 .background-black{
     background-color:black;
-    border: 1px solid #f39c12;
+    /* border: 1px solid #f39c12; */
 }
 
 .cor-erro{
@@ -166,8 +168,8 @@ body{
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 30px;
-    background-color: #000000;
-    background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+    /* background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #434343 97%); */
 }
 
 #feed{
@@ -207,8 +209,10 @@ body{
 }
 
 .card-body-diferenciado{
-    background-color: #2d3436;
-    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+    background: #2E2A2A;
+background: -webkit-linear-gradient(bottom right, #2E2A2A, #696A6D);
+background: -moz-linear-gradient(bottom right, #2E2A2A, #696A6D);
+background: linear-gradient(to top left, #2E2A2A, #696A6D);
 }
 
 .card-anuncio{
@@ -253,6 +257,7 @@ body{
     font-family:  montserrat;
     /* color: #a8b7be; */
     color: #ed8105;
+    /* box-shadow: 9px 9px 5px 0px rgba(0,0,0,0.65); */
 }
 
 .link{
