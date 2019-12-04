@@ -134,7 +134,7 @@ export default class Chat extends Component {
         <div class="container-fluid h-100 mt-5 mb-5">
 			<div class="row justify-content-center h-100">
 				<div class="col-md-4 col-xl-3 chat"><div class="card card-chat mb-sm-3 mb-md-0 contacts_card">
-					<div class="card-header card-header-chat">
+					<div class="card-header card-header-chat background-diferenciado">
 						<div class="input-group">
 							<input type="text" placeholder="Search..." name="" class="form-control search-chat"/>
 							<div class="input-group-prepend">
@@ -176,11 +176,11 @@ export default class Chat extends Component {
 						
 						</ui>
 					</div>
-					<div class="card-footer card-footer-chat"></div>
+					<div class="card-footer card-footer-chat background-diferenciado"></div>
 				</div></div>
 				<div class="col-md-8 col-xl-6 chat">
 					<div class="card" style={arredondando}>
-						<div class="card-header card-header-chat msg_head-chat">
+						<div class="card-header card-header-chat msg_head-chat background-diferenciado">
 							<div class="d-flex bd-highlight">
 								<div class="img_cont-chat">
 									<img src={api + "/" + this.state.info_chat.c_foto} class="rounded-circle user_img-chat"/>
@@ -213,7 +213,7 @@ export default class Chat extends Component {
 								</ul>
 							</div>
 						</div>
-						<div class="card-body msg_card_body" id="caixa-mensagem" style={rolagem}>
+						<div class="card-body msg_card_body card-body-diferenciado" id="caixa-mensagem" style={rolagem}>
 							
 							
 							{
@@ -229,20 +229,20 @@ export default class Chat extends Component {
 							
 						</div>
 						
-						<div class="card-footer card-footer-chat">
+						<div class="card-footer card-footer-chat background-diferenciado">
 							<div class="input-group">
 								<div class="input-group-append">
 									<span class="input-group-text attach_btn-chat"><i class="fas fa-paperclip"></i></span>
 								</div>
 								<input name="" class="form-control type_msg-chat pl-0" placeholder="Digite sua mensagem..."  ref={(input) => this.mensagem_chat = input} ></input>
 								<div class="input-group-append">
-									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
-									
-									<button className="btn" onClick={e => this.enviarMensagem(this.state.info_chat.id_chat, this.mensagem_chat.value)}>
-										<img className="botao_enviar_chat" src={cursor}></img>
-									</button>
-										
-									
+									<span class="input-group-text send_btn">
+										<i class="fas fa-location-arrow">
+											<button className="btn" onClick={e => this.enviarMensagem(this.state.info_chat.id_chat, this.mensagem_chat.value)}>
+												<img className="botao_enviar_chat" src={cursor}></img>
+											</button>
+										</i>
+									</span>
 								</div>
 							</div>
 						</div>
