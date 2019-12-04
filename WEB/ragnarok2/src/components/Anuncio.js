@@ -13,6 +13,9 @@ import Button from 'react-bootstrap/Button';
 
 import io from 'socket.io-client';
 
+import $ from 'jquery';
+
+
 const token = sessionStorage.getItem("token");
 
 const opcoes = {
@@ -26,6 +29,7 @@ export const socket = io('http://3.92.51.72:3108/', opcoes);
 
 export default class Anuncio extends Component {
 
+    
 
 
     constructor(){
@@ -36,6 +40,12 @@ export default class Anuncio extends Component {
         socket.on('erro', erro => {
             alert(erro);
         })
+    }
+
+    fecharModal(){
+        $(".modal").attr("data-dismiss", "modal");
+        window.location.href = "/chat"
+        //$("#myModal1").attr("data-dismiss", "modal");
     }
 
     abrirModal(){
@@ -252,13 +262,14 @@ export default class Anuncio extends Component {
                                             {/* <button className="btn btn-leia-mais" onClick={this.abrirModal}>Leia Mais</button> */}
                                             <button className="btn btn-leia-mais" data-toggle="modal" data-target={".anuncio" + this.cont}>Leia Mais</button>
                                             {/* Modal  */}
-                                            <div className={"modal fade anuncio" + this.cont} role="dialog">
+                                            {/* CUUUUUUUUUUUUUUUUUUUUUU */}
+                                            <div className={"modal fade anuncio" + this.cont} role="dialog" id="myModal1">
                                                 <div className="modal-dialog modal-dialog-centered modal-lg">
                                                     {/* Conteúdo do modal */}
                                                     <div className="modal-content background-222222">
                                             
                                                         {/* Cabeçalho do modal */}
-                                                        <div className="modal-header texto-laranja gradientpadrao font-1 border-0">
+                                                        <div className="modal-header background-diferenciado texto-laranja font-1 border-0">
 
                                                             {
                                                                 function(){
@@ -279,7 +290,7 @@ export default class Anuncio extends Component {
                                                         </div>
                                             
                                                         {/* Corpo do modal */}
-                                                        <div className="modal-body background-222222 border-0">
+                                                        <div className="modal-body background-222222 border-0 card-body-diferenciado">
                                                         <div className="row">
                                                             <div className="col-11 mr-auto ml-auto">
                                                                     <div className="row">
@@ -332,10 +343,6 @@ export default class Anuncio extends Component {
                                                                                     ); 
                                                                                 }() 
                                                                             }
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="row mt-2">
-                                                                        <div className="col-8">                                                                            
                                                                             {
                                                                                 function(){
                                                                                     if(anuncios.preco != null){
@@ -364,15 +371,15 @@ export default class Anuncio extends Component {
                                                                                 }() 
                                                                             }
                                                                         </div>
-                                                                    </div>
+                                                                    </div>                                                                   
                                                             </div>
                                                         </div>
                                                         </div>
                                             
                                                         {/* Rodapé do modal */}
-                                                        <div className="modal-footer background-333333 border-0">
+                                                        <div className="modal-footer background-diferenciado border-0">
                                                             {/* <Link to="/chat"> */}
-                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" onClick={e => this.iniciarChat(anuncios.id_anuncio, anuncios.preco != null ? "venda" : "troca")} >
+                                                                <button type="button" className="btn background-222222 texto-laranja mr-auto btn-iniciar-chat" data-toggle="modal" href="#myModal2" onClick={e => this.iniciarChat(anuncios.id_anuncio, anuncios.preco != null ? "venda" : "troca")} >
                                                                     <img src={IconChat} alt="" title=""/> Tenho interesse !
                                                                 </button>
                                                             {/* </Link>                                                             */}
@@ -383,6 +390,30 @@ export default class Anuncio extends Component {
                                                 </div>
                                             </div>
                                             {/* Fim Modal */}
+                                            <div className="modal fade rotate" id="myModal2" style={{zIndex:9999}}>
+                                                <div className="modal-dialog modal-dialog-centered modal-sm">
+                                                    <div className="modal-content">
+                                                        <div className="modal-header">
+                                                            
+                                                            <h4 className="modal-title texto-laranja">Chat iniciado com sucesso!</h4>
+                                                            <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Deseja ir para o chat ou continuar navegando?
+                                                        </div>
+                                                        <div class="modal-footer">
+
+                                                            
+                                                            <a className="btn mr-auto background-222222 texto-laranja mr-auto btn-iniciar-chat" data-dismiss="modal" onClick={() => this.fecharModal()}>Ir para o chat</a>
+                                                            
+                                                            <a href="#" data-dismiss="modal" className="btn background-222222 texto-laranja ml-auto btn-fechar">Fechar</a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
