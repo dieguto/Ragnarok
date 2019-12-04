@@ -14,6 +14,7 @@ export const PADRAO = "default";
 //CONSTANTES DE MENSAGENS GENÉRICAS
 export const CAMPO_VAZIO = "Preencha todos os campos";
 export const ERRO_CONEXAO = "Erro de conexão";
+export const SUCESSO_CADASTRO = "Cadastro Realizado com Sucesso"
 
 //FUNÇÃO DE NOTIFICAÇÃO
 export const Notificacao = (tipo, mensagem) => {
@@ -26,9 +27,10 @@ export const Notificacao = (tipo, mensagem) => {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
+        
     }
 
-    const msgBraca = (<font className="text-light">{mensagem} </font>)
+    const msgBraca = (<font className="font1">{mensagem} </font>)
     const msgPreta = (<font className="text-dark">{mensagem} </font>)
 
 

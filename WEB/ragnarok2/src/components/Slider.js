@@ -28,7 +28,7 @@ export function ControlledCarousel() {
           />
           <Carousel.Caption>
             <h3 className="fonte-padrao text-center">Jogos</h3>
-            <p className="">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <p className="font1 legenda-slide">Novo ou usado, a gente tem um espacinho pra você 😉👌 </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className="item">
@@ -40,7 +40,7 @@ export function ControlledCarousel() {
   
           <Carousel.Caption>
           <h3 className="fonte-padrao text-center">Consoles</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p className="font1 legenda-slide">Eaí, bora anunciar esse console parado na estante 😉👌🔥</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item className="item">
@@ -52,8 +52,8 @@ export function ControlledCarousel() {
   
           <Carousel.Caption>
           <h3 className="fonte-padrao text-center">Acessórios</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            <p className="font1 legenda-slide">
+              Precisando de um controle pro seu irmão jogar contigo? Nós Temos! 😉👌
             </p>
           </Carousel.Caption>
         </Carousel.Item>

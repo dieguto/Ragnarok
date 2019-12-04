@@ -22,6 +22,11 @@
     font-family: montserrat;
 }
 
+.legenda-slide{
+    font-size: 25px;
+    color:rgb(251, 251, 251);
+}
+
 .gradientpadrao{
     background-color: #a55c1b;
     background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);

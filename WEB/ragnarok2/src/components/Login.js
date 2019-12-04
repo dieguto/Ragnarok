@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {browserHistory} from  'react-router';
 import '../css/cadastro-anuncio.css'
 import '../css/Cadastro.css';
-import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO } from '../Alerta';
+import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO, SUCESSO_CADASTRO } from '../Alerta';
 
 import { ErrorMessage, Formik, Form as FormikForm, Field } from 'formik';
 import PropTypes from 'prop-types';
@@ -74,7 +74,7 @@ export default class Login extends Component {
             .then(response => {
                 //o "ok" é do proprio response, que retorna um boolean
                 if(response.ok) {
-                   
+                    // Notificacao(SUCESSO, SUCESSO_CADASTRO)
                     return response.text();
                 } else {
                     // criamos um novo erro, para interromper o fluxo

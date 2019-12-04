@@ -3,8 +3,9 @@ import {browserHistory} from  'react-router';
 import Cleave from 'cleave.js/dist/cleave-react'
 import '../css/Cadastro.css';
 import '../css/cadastro-anuncio.css';
-import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO } from '../Alerta';
+import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO, SUCESSO_CADASTRO } from '../Alerta';
 import { ToastContainer } from 'react-toastify';
+import InputMask from 'react-input-mask';
 
 export default class CadastroUsuario extends Component {
 
@@ -32,12 +33,14 @@ export default class CadastroUsuario extends Component {
             .then(response => {
                 //o "ok" é do proprio response, que retorna um boolean
                 if(response.ok) {
-                    Notificacao(INFO, CAMPO_VAZIO)
+                    Notificacao(SUCESSO, SUCESSO_CADASTRO)
                     return response.text();
                     
                 } else {
                     // criamos um novo erro, para interromper o fluxo
-                    Notificacao(INFO, CAMPO_VAZIO)
+                    Notificacao(ERRO, CAMPO_VAZIO)
+                    console.log(requestInfo)
+                    console.log(response)
                     throw new Error('não foi possível fazer o cadastro');
                 }
             })
@@ -76,7 +79,8 @@ export default class CadastroUsuario extends Component {
                                 <div>
                                     <label className="form-check-label">Cep:</label>
                                     {/* <Cleave type="text"  required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}} ref={(input) => this.cep = input}></Cleave> */}
-                                    <input type="text"  required className="form-control" placeholder="06233-085" options={{blocks: [5,3], delimiter:"-", numericOnly:true}} ref={(input) => this.cep = input}></input>
+                                    <InputMask mask="99999-999"  required className="form-control" placeholder="06233-085"  ref={(input) => this.cep = input} />
+                                    {/* <input type="text"  required className="form-control" placeholder="06233-085" maxLength="9" ref={(input) => this.cep = input}></input> */}
                                 </div>
                                 
                                 <div>
