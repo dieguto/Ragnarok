@@ -34,6 +34,7 @@ export class CadastroJogoPage implements OnInit {
   sugestoes_jogos: SugestoesJogo[];
   sugestoes_jogos_desejado:SugestoesJogo[];
   foto: SafeResourceUrl;
+
   // imagens: String;
   base_64: string;
   slideOpts: any = {allowTouchMove: false};
@@ -63,6 +64,7 @@ export class CadastroJogoPage implements OnInit {
      }
 
   async ngOnInit() {
+    this.foto = '../../assets/picture.png';
     this.generos = await this.generoJogoService.getGeneros();
 
     this.consoles = await this.consoleService.getConsoles();

@@ -5,7 +5,7 @@
         Ragnarok
         <!-- <ion-icon name="logo-chrome"></ion-icon> -->
       </ion-title>
-      <img src="../../assets/icon/logo-ragnarok.png">
+      <img style="width: 13%; height: 13%;" src="../../assets/icon/logo-ragnarok.png">
       <ion-button id="direct" routerLink="/direct" slot="end">
         <ion-icon style="font-size:5vh;" mode="ios" name="chatboxes"></ion-icon>
       </ion-button>
@@ -37,8 +37,18 @@
       <ion-slides  >
         <!-- Ion Slide -->
         
-            <ion-slide *ngIf="isVazio">
-              "Não existe mais anuncios nessa região"
+            <ion-slide  *ngIf="isVazio">
+                <ion-card mode="ios">
+                    <ion-card-content>
+                        Aumente o raio de alcance 
+                      </ion-card-content>
+                    <img src="../../assets/ionitron.png" />
+                    <ion-card-header>
+                      <ion-card-title>Não existe mais anuncios nessa região</ion-card-title>
+                    </ion-card-header>
+
+                  </ion-card>
+
             </ion-slide>
                   <ion-slide *ngFor=" let anuncio of anuncios">
                       <!-- IonCard Neto -->
