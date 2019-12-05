@@ -4,6 +4,7 @@ import {browserHistory} from 'react-router';
 
 import ImgTeste from '../assets/god-of-war.jpg'
 import ImgUtils from '../components/ImgUtils';
+import { ERRO, Notificacao, INFO, AVISO, PADRAO, CAMPO_VAZIO, SUCESSO, SUCESSO_CADASTRO } from '../Alerta';
 import $ from 'jquery';
 
 export default class CadastroJogo extends Component {
@@ -196,6 +197,7 @@ export default class CadastroJogo extends Component {
     fetch('http://3.92.51.72:3107/anuncio', requestInfo)
     .then(response => {
       if(response.ok){
+        Notificacao(SUCESSO, SUCESSO_CADASTRO)
         return response.text();
       } else {
         // throw new Error('não foi possível realizar o cadastro');

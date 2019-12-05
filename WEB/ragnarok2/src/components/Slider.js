@@ -1,7 +1,7 @@
 import React,{Component, useState} from 'react';
 import { Carousel } from 'react-bootstrap';
 import Slide1 from '../assets/jumpforce.jpg';
-import Slide2 from '../assets/slide03.jpg';
+import Slide2 from '../assets/consolesbackground1cortado.png';
 import Slide3 from '../assets/testejogo1.jpg';
 import '../css/fontepersonalizada.css';
 import '../css/slider.css';
