@@ -58,7 +58,6 @@
                                   <ion-row>
                                     <ion-col >
                                         <div style=" text-align: start;">{{anuncio.usuario.endereco}}</div>
-                                      <div style=" text-align: start;"> {{anuncio.distancia}}</div>
                                     </ion-col>
                                     <ion-col>
                                       <div  style="text-align: end;">  
@@ -98,8 +97,8 @@
                                   {{anuncio.titulo}}                               
                                 </ion-card-title>
                               <div >
-                                <ion-card-subtitle  *ngIf="verificarCampo(anuncio.info_rawg, 'nome')">
-                                  Nota Geral: {{anuncio.info_rawg.jogo.nota_geral}}
+                                <ion-card-subtitle>
+                                  {{anuncio.distancia}}
                               </ion-card-subtitle>
                               </div>
                                 <div class="caixa_botao"> 

@@ -33,9 +33,12 @@ export class PesquisarJogosPage implements OnInit {
 
     console.log(this.generos);
 
-    Keyboard.setResizeMode({
-      mode:KeyboardResize.None
-    });
+      this.teste();
+
+      const teste2 = await Keyboard.setResizeMode({
+        mode: KeyboardResize.None
+       
+     })
   }
 
   verificarCampo(json_info_rawg, nome_campo){
@@ -80,5 +83,12 @@ export class PesquisarJogosPage implements OnInit {
       this.refresher.complete();
     }, 500);
   }
+
+  async teste(){
+    const teste2 = await Keyboard.setResizeMode({
+       mode: KeyboardResize.None
+      
+    })
+ }
 
 }

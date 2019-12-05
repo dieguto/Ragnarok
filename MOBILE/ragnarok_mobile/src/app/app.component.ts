@@ -41,11 +41,18 @@ export class AppComponent {
         }
       });
 
-      Keyboard.setResizeMode({
-        mode:KeyboardResize.None
-      });
+      this.teste();
+
+      
 
     });
+  }
+
+  async teste(){
+     const teste2 = await Keyboard.setResizeMode({
+        mode: KeyboardResize.None
+       
+     })
   }
 
 

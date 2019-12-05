@@ -8,9 +8,11 @@ import {SugestoesJogo} from '../../services/sugestoes_jogo/sugestoes_jogo.class'
 import {SugestoesJogoService} from '../../services/sugestoes_jogo/sugestoes-jogo.service';
 import {Anuncio} from '../../services/anuncio/cadastro_anuncio/anuncio.class';
 import {CadastroAnuncioService} from '../../services/anuncio/cadastro_anuncio/cadastro-anuncio.service';
-import {Plugins, CameraResultType, CameraSource} from '@capacitor/core';
+import {CameraResultType, CameraSource, Plugins, KeyboardResize } from '@capacitor/core';
 import {DomSanitizer, SafeResourceUrl} from "@angular/platform-browser";
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+
+const { Keyboard } = Plugins;
 
 @Component({
   selector: 'app-cadastro-jogo',
@@ -73,6 +75,13 @@ export class CadastroJogoPage implements OnInit {
 
     console.log("eu", inputValue);
 
+    this.teste();
+
+    const teste2 = await Keyboard.setResizeMode({
+      mode: KeyboardResize.None
+     
+   })
+
 
     
   }
@@ -122,7 +131,12 @@ export class CadastroJogoPage implements OnInit {
    }
 
 
-
+   async teste(){
+    const teste2 = await Keyboard.setResizeMode({
+       mode: KeyboardResize.None
+      
+    })
+ }
 
 
   //  Tirando foto

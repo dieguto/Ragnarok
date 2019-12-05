@@ -28,13 +28,13 @@
     <ion-grid class="jogos" >
       <ion-row >
         <div *ngFor="let jogos of anuncios">
-                    <ion-col class="caixa_jogo" (click)="showModal(jogos.id_anuncio)" *ngIf="verificarCampo(jogos.info_rawg, 'imagem_fundo')"  >
-                        <img src="{{jogos.info_rawg.jogo.imagem_fundo}}">
-                      </ion-col>
-                    <ion-col  *ngIf="!verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_jogo" >
-                        <img src="{{url}}/{{jogos.c_fotos[0]}}">
-                      </ion-col>
-          </div>
+            <ion-col class="caixa_jogo" (click)="showModal(jogos.id_anuncio)" *ngIf="verificarCampo(jogos.info_rawg, 'imagem_fundo')"  >
+                <img src="{{jogos.info_rawg.jogo.imagem_fundo}}">
+              </ion-col>
+            <ion-col  *ngIf="!verificarCampo(jogos.info_rawg, 'imagem_fundo')" class="caixa_jogo" >
+                <img src="{{url}}/{{jogos.c_fotos[0]}}">
+              </ion-col>
+        </div>
       </ion-row>
     </ion-grid>
   <!-- </div> -->

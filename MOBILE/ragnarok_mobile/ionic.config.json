@@ -1,7 +1,8 @@
 {
   "name": "ragnarok_mobile",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
