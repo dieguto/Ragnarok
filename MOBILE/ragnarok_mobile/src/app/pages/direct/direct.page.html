@@ -21,8 +21,8 @@
     <ion-label>
       <h2>{{item.usuario.nome}}</h2>
       <div *ngIf="item.ultima_mensagem">
-        <p *ngIf="item.ultima_mensagem.is_para_usuario">{{item.usuario.nome}}: {{item.ultima_mensagem.mensagem}}</p>
-        <p *ngIf="!item.ultima_mensagem.is_para_usuario">Você: {{item.ultima_mensagem.mensagem}}</p>
+        <p style="color: #737373;" *ngIf="item.ultima_mensagem.is_para_usuario">{{item.usuario.nome}}: {{item.ultima_mensagem.mensagem}}</p>
+        <p style="color: #737373;" *ngIf="!item.ultima_mensagem.is_para_usuario">Você: {{item.ultima_mensagem.mensagem}}</p>
       </div>
     </ion-label>
     <ion-badge *ngIf="item.nao_lidas != 0" style="--background:#f39c12; --color:#333" name="notifications">{{item.nao_lidas}}</ion-badge>
