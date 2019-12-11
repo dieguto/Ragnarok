@@ -10,7 +10,7 @@
     "cleave.js": "^1.5.3",
     "formik": "^2.0.6",
     "input-mask": "^1.1.20",
-    "jquery": "^1.11.3",
+    "jquery": "^3.4.0",
     "jquery-nice-select": "^1.1.0",
     "jssor-slider": "^27.5.0",
     "node-sass": "^4.13.0",
