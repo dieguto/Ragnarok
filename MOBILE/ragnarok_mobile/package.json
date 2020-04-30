@@ -32,7 +32,7 @@
     "@pluritech/ion-mask": "^1.2.0",
     "br-mask": "0.0.8",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ngx-mask-ionic": "^1.1.2",
     "ngx-socket-io": "^3.0.1",
     "rxjs": "~6.5.1",
