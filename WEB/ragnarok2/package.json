@@ -13,7 +13,7 @@
     "jquery": "^1.11.3",
     "jquery-nice-select": "^1.1.0",
     "jssor-slider": "^27.5.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "nuka-carousel": "^4.5.12",
     "react": "^16.11.0",
     "react-animated-slider": "^1.1.4",
